@@ -1,0 +1,19 @@
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VS Code folders (if you open this repo in VS Code)
+.vscode/
+.history/
+
+# Temporary files
+*.log
+*.tmp
+
+# Safety block: ensure no source code folders accidentally end up here
+# (Zabezpieczenie przed przypadkowym wklejeniem kodu)
+node_modules/
+out/
+dist/
+src/
