@@ -168,9 +168,12 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ## 🚀 What's New (v0.4.5)
 
-* **Binary Size Analyzer:** Monitor your `.exe` size in real-time on the Status Bar. / Monitoruj rozmiar pliku `.exe` w czasie rzeczywistym na pasku stanu.
-* **Trend Indicators:** Visual cues (▲/▼) and dynamic colors (Green/Red) show if your code is getting optimized. / Wskaźniki trendu i dynamiczne kolory pokazują, czy Twój kod jest optymalizowany.
-* **Quick Bin Access:** Open your output folder with a single click on the size display. / Otwórz folder wynikowy jednym kliknięciem w licznik rozmiaru.
+* **Binary Size Analyzer:** Monitor your `.exe` size in real-time on the Status Bar.
+* **Trend Indicators:** Visual cues (▲/▼) and dynamic colors show if your code is getting optimized.
+* **Quick Bin Access:** Open your output folder with a single click on the size display.
+
+![Binary Size Analyzer](https://forum.lothar-team.pl//ext/dmzx/imageupload/img-files/48/bf1cb9d/c209eae/88625cbbb9040a48ef679d48d91c039b.png)
+![Build Process](https://forum.lothar-team.pl//ext/dmzx/imageupload/img-files/48/baa1669/3ac74e5/d55423d1dbcc93da75fc94b89d2ea739.png)
 
 > 💡 **Master's Tip:** Want to see the status bar turn **Green**? Enable the `-s -w` flags in SunGo settings to strip debug information and shrink your binary size by up to 30%!
 
@@ -458,9 +461,14 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ## 🚀 Co nowego (v0.4.5)
 
-* **Analiza Rozmiaru Binarki:** Śledzenie wagi pliku wykonywalnego w czasie rzeczywistym na pasku stanu.
-* **Trendy Optymalizacji:** Wizualne wskaźniki (▲/▼) oraz kolory (Zielony/Czerwony) informujące o skutkach zmian w kodzie lub flagach kompilatora.
-* **Szybki dostęp do folderu Bin:** Kliknięcie wskaźnika rozmiaru otwiera folder z Twoimi binarkami w systemowym eksploratorze.
+* **Analiza rozmiaru binarki:** Śledzenie wagi pliku wykonywalnego w czasie rzeczywistym na pasku stanu.
+* **Wskaźniki trendu:** Wizualne symbole (▲/▼) i dynamiczne kolory informujące o skutkach zmian w kodzie.
+* **Szybki dostęp do folderu Bin:** Otwieranie folderu wynikowego jednym kliknięciem w licznik rozmiaru.
+
+![Analiza rozmiaru](https://forum.lothar-team.pl//ext/dmzx/imageupload/img-files/48/bf1cb9d/c209eae/88625cbbb9040a48ef679d48d91c039b.png)
+![Proces kompilacji](https://forum.lothar-team.pl//ext/dmzx/imageupload/img-files/48/baa1669/3ac74e5/d55423d1dbcc93da75fc94b89d2ea739.png)
+
+> 💡 **Master's Tip:** Chcesz zobaczyć zielony kolor na pasku stanu? Włącz flagi `-s -w` w ustawieniach SunGo, aby usunąć informacje debugowania i zmniejszyć rozmiar binarki nawet o 30%!
 
 ## 🚀 Co nowego (v0.4.2)?
 
