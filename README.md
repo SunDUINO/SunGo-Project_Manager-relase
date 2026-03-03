@@ -23,6 +23,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * **Zero-Config Debugging:** Automatically generates and updates `launch.json`. No more manual path editing to start your debugger.
 * **Contextual Intelligence:** All Go-specific actions (Build, Run, Test, Sign) are available exactly where you need them — in the status bar, editor title, and context menus.
 * **Automated Housekeeping:** From `go mod tidy` to cleaning the `/bin` folder, SunGo handles the repetitive tasks so you can focus on the logic.
+* **Binary Health Monitor:** Instant feedback on your executable size directly in the status bar.
 
 --- 
 
@@ -165,6 +166,14 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ---
 
+## 🚀 What's New (v0.4.5)
+
+* **Binary Size Analyzer:** Monitor your `.exe` size in real-time on the Status Bar. / Monitoruj rozmiar pliku `.exe` w czasie rzeczywistym na pasku stanu.
+* **Trend Indicators:** Visual cues (▲/▼) and dynamic colors (Green/Red) show if your code is getting optimized. / Wskaźniki trendu i dynamiczne kolory pokazują, czy Twój kod jest optymalizowany.
+* **Quick Bin Access:** Open your output folder with a single click on the size display. / Otwórz folder wynikowy jednym kliknięciem w licznik rozmiaru.
+
+> 💡 **Master's Tip:** Want to see the status bar turn **Green**? Enable the `-s -w` flags in SunGo settings to strip debug information and shrink your binary size by up to 30%!
+
 ## 🚀 What's New (v0.4.2)
 
 - **Improved GCC Diagnostics** – Fixed a bug where the MSYS2 installation button wouldn't show up if the system reported a specific "No Finding" string. Now, tool detection is more robust and cross-platform friendly.
@@ -270,10 +279,11 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ## 🖥️ Platform Support
 
-| Component | Windows | Linux |
-|---|---|---|
-| SunGo VS Code Extension | ✅ | ✅ |
-| SunGO PAD (HID RAW) | ✅ | ✅ |
+| Component                        | Windows | Linux |
+|----------------------------------|---------|-------|
+| SunGo VS Code Extension          |   ✅    |  ✅  |
+| Binary Size Tracking & Analytics |   ✅    |  ✅  |
+| SunGO PAD (HID RAW)              |   ✅    |  ✅  |
 
 > The extension works fully on both **Windows** and **Linux**. The physical SunGO PAD communicates via HID RAW and is supported on both platforms as well. The PAD is entirely optional — the extension is 100% functional without it.
 
@@ -306,6 +316,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * **Debugowanie bez konfiguracji:** Automatycznie generuje i aktualizuje plik `launch.json`. Zapomnij o ręcznym wpisywaniu ścieżek, by uruchomić debugger.
 * **Inteligentny kontekst:** Wszystkie akcje specyficzne dla Go (Build, Run, Test, Sign) są tam, gdzie ich potrzebujesz — na pasku statusu, nad edytorem i w menu pod prawym przyciskiem.
 * **Automatyczne porządki:** Od `go mod tidy` po czyszczenie folderu `/bin`, SunGo zajmuje się powtarzalnymi zadaniami, pozwalając Ci skupić się na samym kodzie.
+- **Analiza Rozmiaru Binarki** – Inteligentny licznik na pasku stanu, który porównuje wagę Twojego pliku `.exe` z poprzednim buildem. Od razu widzisz efekty optymalizacji.
 
 ---
 
@@ -321,7 +332,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#-wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#-sungo-pad--visual-status-feedback-1)
 * [PL: Linux – Konfiguracja udev](#-linux--konfiguracja-sungo-pad-reguły-udev)
-* [PL: Co nowego (v0.4.0)](#-co-nowego-v040)
+* [PL: Co nowego (v0.4.5)](#-co-nowego-v045)
 * [PL: Kluczowe Funkcje](#-kluczowe-funkcje)
 
 ---
@@ -445,6 +456,12 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ---
 
+## 🚀 Co nowego (v0.4.5)
+
+* **Analiza Rozmiaru Binarki:** Śledzenie wagi pliku wykonywalnego w czasie rzeczywistym na pasku stanu.
+* **Trendy Optymalizacji:** Wizualne wskaźniki (▲/▼) oraz kolory (Zielony/Czerwony) informujące o skutkach zmian w kodzie lub flagach kompilatora.
+* **Szybki dostęp do folderu Bin:** Kliknięcie wskaźnika rozmiaru otwiera folder z Twoimi binarkami w systemowym eksploratorze.
+
 ## 🚀 Co nowego (v0.4.2)?
 
 - **Ulepszona diagnostyka GCC** – Naprawiono błąd, przez który przycisk instalacji MSYS2 nie pojawiał się przy specyficznym komunikacie statusu "No Finding". Teraz wykrywanie narzędzi jest znacznie skuteczniejsze i odporne na różnice w zwracanych ciągach znaków.
@@ -551,10 +568,11 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ## 🖥️ Obsługiwane platformy
 
-| Komponent | Windows | Linux |
-|---|---|---|
-| Wtyczka SunGo dla VS Code | ✅ | ✅ |
-| SunGO PAD (HID RAW) | ✅ | ✅ |
+| Komponent                            | Windows | Linux |
+|--------------------------------------|---------|-------|
+| Wtyczka SunGo dla VS Code            |    ✅   |  ✅  |
+| Śledzenie i analiza rozmiaru binarki |    ✅   |  ✅  |
+| SunGO PAD (HID RAW)                  |    ✅   |  ✅  |
 
 > Wtyczka działa w pełni zarówno na **Windows**, jak i na **Linux**. Fizyczny SunGO PAD komunikuje się przez HID RAW i jest obsługiwany na obu platformach. PAD jest w pełni opcjonalny — wtyczka działa w 100% bez niego.
 

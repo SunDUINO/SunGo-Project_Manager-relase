@@ -5,6 +5,14 @@
 
 ---
 
+## [0.4.5] – 2026-03-03
+
+### Added / Dodano
+- **Binary Size Analyzer (Status Bar)** – real-time tracking of executable size after each successful build; includes trend indicators (▲/▼) to visualize code optimization or growth. / śledzenie rozmiaru pliku wykonywalnego w czasie rzeczywistym na pasku stanu; zawiera wskaźniki trendu (▲/▼) pozwalające wizualizować optymalizację lub wzrost kodu.
+- **Smart Color Coding** – the status bar size info turns green when the binary is optimized (smaller) and orange/red when it grows, providing instant feedback for developers. / informacja o rozmiarze na pasku stanu zmienia kolor na zielony przy optymalizacji (zmniejszeniu) i pomarańczowy/czerwony przy wzroście, dając natychmiastowy feedback.
+- **Quick Bin Access** – clicking the size indicator on the status bar now opens the project's `bin` folder directly in the system explorer. / kliknięcie wskaźnika rozmiaru otwiera folder `bin` projektu bezpośrednio w systemowym eksploratorze.
+
+## [0.4.2] - 2026-03-02
 
 ### Fixed / Naprawiono
 - **Dashboard Tool Detection Logic** – expanded the diagnostic engine to correctly recognize "No Finding..." status; this fix ensures the "Install GCC (MSYS2)" button appears reliably when the compiler is missing, regardless of the system's localization strings. / rozbudowano silnik diagnostyczny o poprawne rozpoznawanie statusu "No Finding..."; poprawka gwarantuje, że przycisk "Zainstaluj GCC (MSYS2)" pojawia się niezawodnie w przypadku braku kompilatora, niezależnie od lokalizacji systemowej.
