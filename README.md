@@ -40,7 +40,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#-requirements--installation)
 * [EN: SunGO PAD – Visual Status Feedback](#-sungo-pad--visual-status-feedback)
 * [EN: Linux Setup – udev rules](#-linux-setup--sungo-pad-udev-rules)
-* [EN: What's New (v0.4.0)](#-whats-new-v040)
+* [EN: What's New (v0.4.5)](#-whats-new-v045)
 * [EN: Key Features](#-key-features)
 * [PL: SunGo Project Manager](#pl-sungo-project-manager)
 
