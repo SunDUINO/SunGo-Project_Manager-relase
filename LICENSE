@@ -1,0 +1,56 @@
+[PL]
+================================================================================
+Copyright (c) 2026 Andrzej Gromczyński (SunRiver)
+Wszelkie prawa zastrzeżone.
+================================================================================
+
+Oprogramowanie "SunGo Project Manager" jest udostępniane bezpłatnie do użytku
+prywatnego oraz komercyjnego w formie skompilowanej (jako wtyczka VS Code).
+
+Zabrania się:
+
+  1. Kopiowania, modyfikowania, dekompilowania lub podejmowania prób odzyskania
+     kodu źródłowego oprogramowania.
+
+  2. Redystrybucji kodu źródłowego lub binariów bez wyraźnej pisemnej zgody
+     autora.
+
+  3. Wykorzystywania nazwy "SunGo" oraz marki "LotharTeaM" w sposób sugerujący
+     oficjalne wsparcie autora dla innych produktów lub usług.
+
+Oprogramowanie jest dostarczane "takie, jakie jest" (AS IS), bez jakiejkolwiek
+gwarancji, wyraźnej lub dorozumianej, w tym między innymi gwarancji przydatności
+do określonego celu oraz nienaruszania praw osób trzecich. Autor nie ponosi
+odpowiedzialności za jakiekolwiek szkody bezpośrednie, pośrednie, przypadkowe
+lub wynikowe, powstałe w związku z użytkowaniem oprogramowania.
+
+Kontakt: forum.lothar-team.pl
+
+
+[EN]
+================================================================================
+Copyright (c) 2026 Andrzej Gromczyński (SunRiver)
+All rights reserved.
+================================================================================
+
+The "SunGo Project Manager" software is provided free of charge for both
+private and commercial use in its compiled form (as a VS Code extension).
+
+Prohibited actions:
+
+  1. Copying, modifying, decompiling, or attempting to reverse engineer the
+     source code of the software.
+
+  2. Redistribution of the source code or binaries without the express written
+     consent of the author.
+
+  3. Use of the "SunGo" name and "LotharTeaM" brand in any manner that suggests
+     official endorsement by the author for other products or services.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHOR BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING
+FROM THE USE OF THIS SOFTWARE.
+
+Contact: forum.lothar-team.pl
