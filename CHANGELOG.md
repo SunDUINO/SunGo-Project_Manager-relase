@@ -5,6 +5,14 @@
 
 ---
 
+## [0.5.0] – 2026-03-04
+
+### Added / Dodano
+- **Advanced Binary Analysis UI** – completely redesigned the Binary Analyzer panel with a modern, data-driven layout. Includes specialized sections for byte-watch reports and build history. / całkowicie przeprojektowany panel analizatora binarnego z nowoczesnym układem danych. Zawiera sekcje raportów "byte-watch" oraz pełną historię buildów.
+- **Interactive Data Visualization** – integrated `Chart.js` to provide real-time visual feedback:
+  - **Size History Trend**: A line chart visualizing binary size changes over time. / wykres liniowy wizualizujący zmiany rozmiaru binarki w czasie.
+  - **Binary Composition**: A doughnut chart breaking down the executable into Runtime, Standard Libs, External Libs, and User Code. / wykres pierścieniowy pokazujący skład pliku (Runtime, biblioteki, kod użytkownika).
+
 ## [0.4.5] – 2026-03-03
 
 ### Added / Dodano

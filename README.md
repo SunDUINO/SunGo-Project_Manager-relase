@@ -166,6 +166,22 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ---
 
+## 🚀 What's New (v0.5.0)
+
+* **Advanced Binary Dashboard:** A brand new, interactive interface for analyzing your Go executables.
+* **Live Visual Analytics:** Integrated charts showing binary size trends and internal composition (Runtime vs. User Code).
+* **Improved UI Engine:** New responsive grid layout for better data density and visual clarity.
+
+## 🔍 How to use Binary Analyzer?
+
+To open the advanced dashboard and see your build statistics:
+1. **Build your project** – use the "Build" button in the Status Bar or Editor Title menu.
+2. **Open SunGo Panel** – click the **SunGo "Sun" icon** in the VS Code Activity Bar (on the far left, usually below the Marketplace icon).
+3. **Select Analyzer** – in the Project Tree View, click the **Chart icon** next to your active project name.
+4. The **SunGo Binary Analyzer** dashboard will appear with your size trends and file composition.
+
+> 💡 **Tip:** While the status bar shows real-time size changes, this dashboard provides deep insights into what exactly makes up your binary.
+
 ## 🚀 What's New (v0.4.5)
 
 * **Binary Size Analyzer:** Monitor your `.exe` size in real-time on the Status Bar.
@@ -458,6 +474,22 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
 
 ---
+
+## 🚀 Co nowego (v0.5.0)
+
+* **Zaawansowany Dashboard Binarki:** Zupełnie nowy, interaktywny interfejs do analizy Twoich plików wykonywalnych Go.
+* **Wizualna Analityka Live:** Zintegrowane wykresy pokazujące trendy zmian rozmiaru oraz skład wewnętrzny binarki (Runtime vs. Kod Użytkownika).
+* **Nowoczesny Layout:** Nowy układ siatki (Grid), który zapewnia lepszą przejrzystość danych i stabilność wykresów przy zmianie rozmiaru okna.
+
+## 🔍 Jak korzystać z Analizatora Binarek?
+
+Aby otworzyć zaawansowany panel i sprawdzić statystyki swojego buildu:
+1. **Zbuduj projekt** – użyj przycisku "Build" na pasku stanu lub w menu nad edytorem.
+2. **Otwórz panel SunGo** – kliknij **ikonę „słoneczka” SunGo** na pasku bocznym VS Code (po lewej stronie, zazwyczaj pod ikoną Marketplace).
+3. **Uruchom Analizator** – w widoku drzewa projektów kliknij **ikonę wykresu** obok nazwy swojego projektu.
+4. Otworzy się panel **SunGo Binary Analyzer**, prezentujący trendy zmian i skład pliku.
+
+> 💡 **Porada:** Wskaźnik na pasku stanu informuje o zmianach na bieżąco, natomiast ten dashboard pozwala dokładnie zrozumieć, z czego wynika końcowy rozmiar Twojej binarki. 
 
 ## 🚀 Co nowego (v0.4.5)
 
