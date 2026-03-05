@@ -166,15 +166,17 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ---
 
-## 🚀 What's New (v0.5.3)
+## 🚀 What's New (v0.5.3) 
 
 The latest version of SunGo introduces advanced diagnostic tools for executable files, giving you full control over the size and structure of your Go applications.
 
 ### 📊 Advanced Binary Analyzer
-You not only see the file size, but also what it consists of. The new details panel allows for:
-* **Component Analysis:** Check the percentage share of the Runtime, standard libraries, and your own code.
-* **Section Insights:** Thanks to `go tool nm` integration, you can see which packages take up the most space.
+You not only see the file size, but also what it consists of. The analyzer panel provides:
+* **Component Analysis:** Check the percentage share of Go Runtime, standard libraries, and external C dependencies.
+* **Your Code Breakdown:** A detailed view of every function and variable in your `main` package, sorted by size with byte-accurate measurements and visual bars.
+* **Inverted Parser Engine:** The symbol engine recognizes Go code explicitly — any unknown symbol is automatically classified as `External C / Libs`, making it compatible with any library out of the box (Raylib, Fyne, Ebitengine, SDL…).
 * **Trend History:** Visualization of size changes on line charts after each build.
+* **One-Click Access:** Click the size indicator on the Status Bar to open both the `/bin` folder and the Analyzer panel simultaneously.
 
 ![SunGo Binary Analyzer](https://forum.lothar-team.pl//ext/dmzx/imageupload/img-files/48/34b2958/1f69c83/b9b5df7eab1691a0611509040627dfea.gif)
 
@@ -497,10 +499,12 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 Najnowsza wersja SunGo wprowadza zaawansowane narzędzia do diagnostyki plików wykonywalnych, pozwalając Ci na pełną kontrolę nad rozmiarem i strukturą Twoich aplikacji w Go.
 
 ### 📊 Zaawansowany Binary Analyzer
-Nie tylko widzisz wagę pliku, ale też co się na nią składa. Nowy panel szczegółów pozwala na:
-* **Analizę komponentów:** Sprawdź procentowy udział Runtime, bibliotek standardowych i własnego kodu.
-* **Wgląd w sekcje:** Dzięki integracji z `go tool nm` możesz zobaczyć, które pakiety zajmują najwięcej miejsca.
-* **Historię trendów:** Wizualizacja zmian rozmiaru na wykresach liniowych po każdym buildzie.
+Widzisz nie tylko rozmiar pliku, ale też z czego się składa. Panel analizatora oferuje:
+* **Analiza składu:** Sprawdź procentowy udział Go Runtime, bibliotek standardowych i zewnętrznych zależności C.
+* **Rozkład Twojego Kodu:** Szczegółowy widok każdej funkcji i zmiennej w pakiecie `main`, posortowanych według rozmiaru z dokładnymi wartościami w bajtach i wizualnymi paskami.
+* **Odwrócony silnik parsera:** Silnik symboli rozpoznaje kod Go wprost — każdy nieznany symbol jest automatycznie klasyfikowany jako `External C / Libs`, co zapewnia kompatybilność z każdą biblioteką bez ręcznych aktualizacji (Raylib, Fyne, Ebitengine, SDL…).
+* **Historia trendów:** Wizualizacja zmian rozmiaru na wykresach liniowych po każdym buildzie.
+* **Dostęp jednym kliknięciem:** Kliknij wskaźnik rozmiaru na pasku stanu, aby jednocześnie otworzyć folder `/bin` i panel Analyzera.
 
 ![SunGo Binary Analyzer](https://forum.lothar-team.pl//ext/dmzx/imageupload/img-files/48/34b2958/1f69c83/b9b5df7eab1691a0611509040627dfea.gif)
 

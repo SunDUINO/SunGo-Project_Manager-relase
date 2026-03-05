@@ -5,6 +5,18 @@
 
 ---
 
+## [0.5.6] – 2026-03-05
+
+### Added / Dodano
+- **Your Code Breakdown** – the Details panel in the Binary Analyzer now shows a granular breakdown of all functions and variables defined in your `main` package, sorted by size with visual bar indicators and byte-accurate measurements. / panel szczegółów w Analizatorze Binarnym prezentuje teraz szczegółowy rozkład wszystkich funkcji i zmiennych zdefiniowanych w pakiecie `main`, posortowanych według rozmiaru z wizualnymi paskami i dokładnymi wartościami w bajtach.
+- **Analyzer on Status Bar Click** – clicking the binary size indicator in the Status Bar now opens both the `/bin` folder in the system explorer and the Binary Analyzer panel simultaneously. / kliknięcie wskaźnika rozmiaru binarki na pasku stanu otwiera teraz jednocześnie folder `/bin` w eksploratorze systemowym oraz panel Binary Analyzer.
+- **Inverted Symbol Parser Logic** – rewrote the `go tool nm` symbol categorization engine using an inverted whitelist approach: only known Go symbols are classified explicitly; everything else falls into `External C / Libs`. This makes the analyzer future-proof for any C library (Raylib, Fyne, Ebitengine, SDL…) without manual updates. / przepisano silnik kategoryzacji symboli `go tool nm` na odwróconą logikę białej listy: tylko znane symbole Go są klasyfikowane wprost; reszta trafia do `External C / Libs`. Analyzer działa poprawnie z każdą biblioteką C bez konieczności ręcznych aktualizacji.
+
+### Fixed / Naprawiono
+- **Symbol Size Parser (PE Constants)** – fixed a critical bug where Windows PE constants such as `__size_of_stack_reserve__` (value: ~5 GB) were parsed as symbol sizes, causing `External C / Libs` to show 99–100% across all projects. / naprawiono krytyczny błąd, w którym stałe PE systemu Windows takie jak `__size_of_stack_reserve__` (wartość: ~5 GB) były parsowane jako rozmiary symboli, powodując wyświetlanie 99–100% dla `External C / Libs` we wszystkich projektach.
+- **DWARF Debug Sections Excluded** – `.debug_info`, `.debug_line`, `.debug_loclists` and other DWARF sections are now properly skipped during analysis, eliminating multi-megabyte false positives in size calculations. / sekcje DWARF takie jak `.debug_info`, `.debug_line`, `.debug_loclists` są teraz poprawnie pomijane podczas analizy, eliminując fałszywe wielomegabajtowe wartości w obliczeniach rozmiaru.
+- **Full i18n Coverage** – all hardcoded strings in the Analyzer panel and Status Bar tooltips are now routed through the NLS localization system with full Polish and English parity. / wszystkie zahardkodowane ciągi znaków w panelu Analyzera i tooltipach paska stanu są teraz obsługiwane przez system lokalizacji NLS z pełną obsługą języka polskiego i angielskiego.
+
 ## [0.5.5] - 2026-03-05
 
 ### Fixed / Poprawiono 
