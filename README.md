@@ -40,7 +40,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#-requirements--installation)
 * [EN: SunGO PAD – Visual Status Feedback](#-sungo-pad--visual-status-feedback)
 * [EN: Linux Setup – udev rules](#-linux-setup--sungo-pad-udev-rules)
-* [EN: What's New (v0.4.5)](#-whats-new-v045)
+* [EN: What's New (v0.5.3)](#-whats-new-v053)
 * [EN: Key Features](#-key-features)
 * [PL: SunGo Project Manager](#pl-sungo-project-manager)
 
@@ -165,6 +165,23 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
 
 ---
+
+## 🚀 What's New (v0.5.3)
+
+The latest version of SunGo introduces advanced diagnostic tools for executable files, giving you full control over the size and structure of your Go applications.
+
+### 📊 Advanced Binary Analyzer
+You not only see the file size, but also what it consists of. The new details panel allows for:
+* **Component Analysis:** Check the percentage share of the Runtime, standard libraries, and your own code.
+* **Section Insights:** Thanks to `go tool nm` integration, you can see which packages take up the most space.
+* **Trend History:** Visualization of size changes on line charts after each build.
+
+![SunGo Binary Analyzer](https://forum.lothar-team.pl//ext/dmzx/imageupload/img-files/48/34b2958/1f69c83/b9b5df7eab1691a0611509040627dfea.gif)
+
+### 🛠️ Optimization Control (Linker Flags)
+Easy access to binary optimization settings. Now, with a single toggle in settings (`ctrl+,`), you can:
+* **Minimize the binary:** by enabling `-s -w` (strip) flags to remove symbol tables and debugging information.
+* **Full Diagnostics:** Disable optimization to get full insight into symbols and a precise analysis of the binary file's composition.
 
 ## 🚀 What's New (v0.5.0)
 
@@ -351,7 +368,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#-wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#-sungo-pad--visual-status-feedback-1)
 * [PL: Linux – Konfiguracja udev](#-linux--konfiguracja-sungo-pad-reguły-udev)
-* [PL: Co nowego (v0.4.5)](#-co-nowego-v045)
+* [PL: Co nowego (v0.5.3)](#-co-nowego-v053)
 * [PL: Kluczowe Funkcje](#-kluczowe-funkcje)
 
 ---
@@ -474,6 +491,23 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
 
 ---
+
+## 🚀 Co nowego (v0.5.3 - Binary Deep-Dive)
+
+Najnowsza wersja SunGo wprowadza zaawansowane narzędzia do diagnostyki plików wykonywalnych, pozwalając Ci na pełną kontrolę nad rozmiarem i strukturą Twoich aplikacji w Go.
+
+### 📊 Zaawansowany Binary Analyzer
+Nie tylko widzisz wagę pliku, ale też co się na nią składa. Nowy panel szczegółów pozwala na:
+* **Analizę komponentów:** Sprawdź procentowy udział Runtime, bibliotek standardowych i własnego kodu.
+* **Wgląd w sekcje:** Dzięki integracji z `go tool nm` możesz zobaczyć, które pakiety zajmują najwięcej miejsca.
+* **Historię trendów:** Wizualizacja zmian rozmiaru na wykresach liniowych po każdym buildzie.
+
+![SunGo Binary Analyzer](https://forum.lothar-team.pl//ext/dmzx/imageupload/img-files/48/34b2958/1f69c83/b9b5df7eab1691a0611509040627dfea.gif)
+
+### 🛠️ Kontrola Optymalizacji (Linker Flags)
+Łatwy dostęp do ustawień optymalizacji binarki. Teraz jednym przełącznikiem w ustawieniach (`ctrl+,`) możesz:
+* **Zmniejszyć binarkę:** włączając flagi `-s -w` (strip), aby usunąć tabele symboli i informacje debugowania. 
+* **Pełna Diagnostyka:** Wyłącz optymalizację  aby uzyskać pełny wgląd w symbole i precyzyjną analizę składu pliku binarnego
 
 ## 🚀 Co nowego (v0.5.0)
 

@@ -5,6 +5,17 @@
 
 ---
 
+## [0.5.3] – 2026-03-05
+
+### Added / Dodano
+- **Binary Optimization Toggle** – added a new configuration option in Extension Settings (`ctrl+,`) to enable/disable `-s -w` linker flags; allowing users to choose between minimal binary size and full symbol visibility for analysis. / dodano nową opcję konfiguracji w ustawieniach rozszerzenia (`ctrl+,`) do włączania/wyłączania flag linkera `-s -w`; pozwala to użytkownikom wybierać między minimalnym rozmiarem binarki a pełną widocznością symboli do analizy.
+- **Detailed Component Breakdown** – implemented a  Details view in the Analyzer panel that provides a granular look at binary sections, libraries, and their percentage impact on the total file size. / zaimplementowano widok "Szczegóły" w panelu analizatora, który zapewnia szczegółowy wgląd w sekcje binarne, biblioteki i ich procentowy wpływ na całkowity rozmiar pliku.
+- **Symbol Awareness & Warnings** – the UI now dynamically detects if a binary was stripped of symbols and displays a warning, guiding users to adjust their optimization settings if detailed data is unavailable. / interfejs dynamicznie wykrywa, czy binarka została oczyszczona z symboli i wyświetla ostrzeżenie, kierując użytkowników do zmiany ustawień optymalizacji w przypadku braku szczegółowych danych.
+
+### Fixed / Naprawiono
+- **Responsive "One-Column" Wrap** – optimized the grid to correctly drop the doughnut chart to a single column layout on narrow windows, ensuring full readability of the new details panel. / zoptymalizowano układ, aby wykres pierścieniowy poprawnie przeskakiwał do jednej kolumny na wąskich oknach, zapewniając pełną czytelność nowego panelu szczegółów.
+
+
 ## [0.5.0] – 2026-03-04
 
 ### Added / Dodano
