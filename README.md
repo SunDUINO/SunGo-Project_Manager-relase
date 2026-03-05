@@ -492,7 +492,7 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ---
 
-## 🚀 Co nowego (v0.5.3 - Binary Deep-Dive)
+## 🚀 Co nowego (v0.5.3)
 
 Najnowsza wersja SunGo wprowadza zaawansowane narzędzia do diagnostyki plików wykonywalnych, pozwalając Ci na pełną kontrolę nad rozmiarem i strukturą Twoich aplikacji w Go.
 

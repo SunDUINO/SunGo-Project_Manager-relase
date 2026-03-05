@@ -5,6 +5,14 @@
 
 ---
 
+## [0.5.5] - 2026-03-05
+
+### Fixed / Poprawiono 
+- **Chart Data Stream Integrity** – resolved issues with data transmission to charts, ensuring binary composition and history trends render correctly under all conditions. / naprawiono przesył danych do wykresów, zapewniając poprawne wyświetlanie składu binarki oraz trendów historii w każdych warunkach.
+
+- **Missing Container Translations (i18n)** – integrated missing localization keys for UI containers and section headers, enabling full language parity between English and Polish. / uzupełniono brakujące tłumaczenia kontenerów oraz nagłówków sekcji, zapewniając pełną spójność językową między wersją angielską a polską.
+
+
 ## [0.5.3] – 2026-03-05
 
 ### Added / Dodano
