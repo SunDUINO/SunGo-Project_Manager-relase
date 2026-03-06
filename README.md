@@ -40,7 +40,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#-requirements--installation)
 * [EN: SunGO PAD – Visual Status Feedback](#-sungo-pad--visual-status-feedback)
 * [EN: Linux Setup – udev rules](#-linux-setup--sungo-pad-udev-rules)
-* [EN: What's New (v0.5.3)](#-whats-new-v053)
+* [EN: What's New (v0.6.0)](#-whats-new-v060)
 * [EN: Key Features](#-key-features)
 * [PL: SunGo Project Manager](#pl-sungo-project-manager)
 
@@ -165,6 +165,65 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
 
 ---
+
+## 🚀 What's New (v0.6.0)
+
+* **Dependency Viewer:** A full dedicated panel for browsing and managing your project's Go modules — version info, update detection, and one-click upgrades.
+* **Binary Size Alert:** Set a size threshold in settings — SunGo will warn you and flash the PAD purple when your binary grows too large.
+* **Go Vet Integration:** Run a deep static analysis of your entire project with one click. The PAD gives you instant physical feedback on the result.
+* **PAD Flash API:** New internal flash mechanism for physical alert signals — color pulses that restore automatically without changing your key scheme.
+
+---
+
+### 📦 Dependency Viewer
+
+SunGo now includes a dedicated **Dependency Viewer** panel — accessible via the `$(library)` icon next to your project in the Tree View.
+
+The panel runs `go list -u -m -json all` to fetch full dependency info including available updates:
+
+| Column  | Description |
+|---------|-------------|
+| **Module** | Full module path (short name + full path below) |
+| **Version** | Currently installed version |
+| **Update** | 🟢 current &nbsp;·&nbsp; 🔴 `vX.Y.Z` when newer version available |
+| **Type** | `direct` / `indirect` / `main module` |
+| **Actions** | 📖 open on pkg.go.dev &nbsp;·&nbsp; ⬆️ update this package |
+
+The **Update All** button runs `go get -u ./...` + `go mod tidy` for the entire dependency tree at once.
+
+> 💡 **Tip:** The first load may take a moment — Go contacts the module registry to check for newer versions.
+
+---
+
+### 🔔 Binary Size Alert
+
+Set a maximum binary size threshold in Extension Settings (`ctrl+,`):
+
+```
+sungo.build.maxSizeMB = 10
+```
+
+After every successful build, SunGo compares the output size against your threshold. If exceeded:
+* A warning notification appears in VS Code.
+* The SunGO PAD **flashes purple 3 times** as a physical alert — no need to look at the screen.
+
+Set to `0` (default) to disable the alert entirely.
+
+---
+
+### 🐛 Go Vet Integration
+
+`go vet` catches bugs that the compiler allows but are almost certainly wrong — wrong format strings, deferred calls in loops, mutex copies, and more.
+
+**How to run:**
+* **Right-click** on `main.go` in the Explorer → `SunGo: Go Vet`
+* **Click** the `$(bug)` icon next to your project in the SunGo Tree View
+
+Results appear in the **`SunGo: Go Vet`** Output Channel.
+
+The SunGO PAD provides instant physical feedback:
+* 🟢 **3 green flashes** – no issues found
+* 🔴 **3 red flashes** – issues detected, check the Output Channel
 
 ## 🚀 What's New (v0.5.3) 
 
@@ -370,7 +429,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#-wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#-sungo-pad--visual-status-feedback-1)
 * [PL: Linux – Konfiguracja udev](#-linux--konfiguracja-sungo-pad-reguły-udev)
-* [PL: Co nowego (v0.5.3)](#-co-nowego-v053)
+* [PL: Co nowego (v0.6.0)](#-co-nowego-v060)
 * [PL: Kluczowe Funkcje](#-kluczowe-funkcje)
 
 ---
@@ -493,6 +552,66 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
 
 ---
+
+## 🚀 Co nowego (v0.6.0)
+
+* **Przeglądarka Zależności:** Nowy dedykowany panel do przeglądania i zarządzania modułami Go — informacje o wersjach, wykrywanie aktualizacji i aktualizacja jednym kliknięciem.
+* **Alert Rozmiaru Binarki:** Ustaw próg rozmiaru w ustawieniach — SunGo powiadomi Cię i zamiga PAD na fioletowo gdy binareka urośnie za bardzo.
+* **Integracja Go Vet:** Uruchom głęboką analizę statyczną całego projektu jednym kliknięciem. PAD daje natychmiastowy fizyczny feedback na wyniku.
+* **Flash API dla PAD-a:** Nowy wewnętrzny mechanizm pulsowania kolorem — sygnały świetlne które przywracają schemat klawiszy automatycznie po zakończeniu sekwencji.
+
+---
+
+### 📦 Przeglądarka Zależności
+
+SunGo posiada teraz dedykowany panel **Przeglądarki Zależności** — dostępny przez ikonę `$(library)` obok projektu w drzewie projektów.
+
+Panel uruchamia `go list -u -m -json all` aby pobrać pełne informacje o zależnościach wraz z dostępnymi aktualizacjami:
+
+| Kolumna | Opis |
+|---------|------|
+| **Moduł** | Pełna ścieżka modułu (skrócona nazwa + pełna ścieżka poniżej) |
+| **Wersja** | Aktualnie zainstalowana wersja |
+| **Aktualizacja** | 🟢 aktualna &nbsp;·&nbsp; 🔴 `vX.Y.Z` gdy dostępna nowsza wersja |
+| **Typ** | `direct` / `indirect` / `main module` |
+| **Akcje** | 📖 otwórz na pkg.go.dev &nbsp;·&nbsp; ⬆️ aktualizuj ten pakiet |
+
+Przycisk **Update All** uruchamia `go get -u ./...` + `go mod tidy` dla całego drzewa zależności naraz.
+
+> 💡 **Wskazówka:** Pierwsze ładowanie może chwilę potrwać — Go odpytuje rejestr modułów w poszukiwaniu nowszych wersji.
+
+---
+
+### 🔔 Alert Rozmiaru Binarki
+
+Ustaw maksymalny próg rozmiaru binarki w Ustawieniach Rozszerzenia (`ctrl+,`):
+
+```
+sungo.build.maxSizeMB = 10
+```
+
+Po każdym udanym buildzie SunGo porównuje rozmiar pliku wyjściowego z Twoim progiem. Po przekroczeniu:
+* W VS Code pojawia się powiadomienie ostrzegawcze.
+* SunGO PAD **trzykrotnie miga na fioletowo** jako fizyczny sygnał alarmowy — bez konieczności patrzenia na ekran.
+
+Ustaw `0` (domyślnie) aby całkowicie wyłączyć alert.
+
+---
+
+### 🐛 Integracja Go Vet
+
+`go vet` wykrywa błędy które kompilator przepuszcza, a które prawie zawsze są pomyłką — nieprawidłowe formatowanie stringów, wywołania `defer` w pętlach, kopiowanie mutexów i wiele więcej.
+
+**Jak uruchomić:**
+* **Kliknij prawym przyciskiem** na `main.go` w Eksploratorze → `SunGo: Go Vet`
+* **Kliknij** ikonę `$(bug)` obok projektu w drzewie SunGo
+
+Wyniki pojawiają się w kanale wyjściowym **`SunGo: Go Vet`**.
+
+SunGO PAD daje natychmiastowy fizyczny feedback:
+* 🟢 **3 zielone mignięcia** – brak problemów
+* 🔴 **3 czerwone mignięcia** – wykryto problemy, sprawdź kanał Output
+
 
 ## 🚀 Co nowego (v0.5.3)
 

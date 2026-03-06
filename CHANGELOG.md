@@ -5,6 +5,17 @@
 
 ---
 
+## [0.6.0] – 2026-03-06
+
+### Added / Dodano
+- **Dependency Viewer** – a brand new dedicated panel (`DependenciesView`) accessible via the `$(library)` icon in the Project Tree View. Displays all project dependencies from `go.mod` with module path, installed version, available update, dependency type (direct/indirect), and one-click actions. / nowy dedykowany panel (`DependenciesView`) dostępny przez ikonę `$(library)` w drzewie projektów. Wyświetla wszystkie zależności projektu z `go.mod` wraz ze ścieżką modułu, zainstalowaną wersją, dostępną aktualizacją, typem zależności (direct/indirect) oraz akcjami jednym kliknięciem.
+- **Update Detection** – the Dependency Viewer uses `go list -u -m -json all` to check for newer versions of every dependency; the Update column shows 🟢 when a package is current and 🔴 `vX.Y.Z` when a newer release is available on the registry. / panel zależności używa `go list -u -m -json all` do sprawdzania nowszych wersji każdej zależności; kolumna Update pokazuje 🟢 gdy pakiet jest aktualny i 🔴 `vX.Y.Z` gdy dostępna jest nowsza wersja w rejestrze.
+- **One-Click Update** – each outdated dependency gets an ⬆️ button in the Actions column; clicking it runs `go get -u <module>` followed by `go mod tidy` automatically. The **Update All** button updates the entire dependency tree at once. / każda nieaktualna zależność otrzymuje przycisk ⬆️ w kolumnie Actions; kliknięcie uruchamia `go get -u <moduł>` a następnie automatycznie `go mod tidy`. Przycisk **Update All** aktualizuje całe drzewo zależności jednocześnie.
+- **Binary Size Alert** – new configuration option `sungo.build.maxSizeMB` (default: `0` = disabled). When the compiled binary exceeds the defined threshold, SunGo displays a warning notification and flashes the SunGO PAD purple (3 times) as a physical alert signal. / nowa opcja konfiguracji `sungo.build.maxSizeMB` (domyślnie: `0` = wyłączona). Gdy skompilowana binarka przekroczy zdefiniowany próg, SunGo wyświetla powiadomienie ostrzegawcze i trzykrotnie miga PAD na fioletowo jako fizyczny sygnał alarmowy.
+- **Go Vet Integration** – new `SunGo: Go Vet` command accessible via right-click on `main.go` in the Explorer and via the `$(bug)` icon in the Project Tree View. Runs `go vet ./...` across the entire project and reports results in a dedicated `SunGo: Go Vet` Output Channel; PAD flashes green on clean code, red on issues. / nowa komenda `SunGo: Go Vet` dostępna przez prawy klik na `main.go` w eksploratorze oraz przez ikonę `$(bug)` w drzewie projektów. Uruchamia `go vet ./...` dla całego projektu i raportuje wyniki w dedykowanym kanale `SunGo: Go Vet`; PAD miga zielono gdy kod jest czysty, czerwono gdy wykryto problemy.
+- **PAD Flash API** – new `flash(command, times)` method on `PadDevice`; sends a color command N times with restore between each pulse. Used by Binary Size Alert and Go Vet for physical feedback without permanently changing the key colors. / nowa metoda `flash(command, times)` w `PadDevice`; wysyła komendę koloru N razy z przywróceniem kolorów między każdym pulsem. Używana przez alert rozmiaru i Go Vet do fizycznego feedbacku bez trwałej zmiany kolorów klawiszy.
+
+
 ## [0.5.6] – 2026-03-05
 
 ### Added / Dodano
