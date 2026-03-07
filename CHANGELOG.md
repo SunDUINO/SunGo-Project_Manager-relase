@@ -4,6 +4,13 @@
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
 ---
+## [0.7.1] - 2026-03-07
+
+### Fixed / Naprawiono
+- **Cross-Compilation on Linux** – replaced relative output path (`./bin/cross/...`) with an absolute path built by `path.join()`; the relative path was causing `compilation error` on Linux when targeting any non-`auto` platform. Windows behavior is unchanged. / zastąpiono relatywną ścieżkę wyjściową (`./bin/cross/...`) ścieżką absolutną budowaną przez `path.join()`; relatywna ścieżka powodowała błąd kompilacji na Linuxie przy wyborze dowolnej platformy innej niż `auto`. Zachowanie na Windows pozostaje bez zmian.
+
+---
+
 
 ## [0.7.0] – 2026-03-07
 
