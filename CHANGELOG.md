@@ -3,6 +3,12 @@
 [EN] All notable changes to the "SunGo Project Manager" extension are documented in this file.  
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
+
+## [0.7.2] – 2026-03-07
+
+### Fixed / Naprawiono
+- **CGO Detection during Cross-Compilation** – SunGo now scans `go.mod` for known CGO-dependent libraries (Raylib, Fyne, Qt, SDL2, OpenGL/GLFW, SQLite, GTK3) and additionally checks `src/*.go` files for `import "C"`. When CGO is detected, cross-compilation is blocked before the build starts and the user receives a platform-specific message explaining what toolchain is required (e.g. `mingw-w64` for Linux→Windows, `osxcross` for Linux→macOS). A button linking to setup documentation is provided. / SunGo skanuje teraz `go.mod` pod kątem znanych bibliotek wymagających CGO (Raylib, Fyne, Qt, SDL2, OpenGL/GLFW, SQLite, GTK3) oraz sprawdza pliki `src/*.go` pod kątem `import "C"`. Gdy CGO zostanie wykryte, cross-kompilacja jest blokowana przed startem builda, a użytkownik otrzymuje komunikat z informacją jakiego toolchaina potrzebuje dla danej kombinacji platform. Dostępny jest przycisk z linkiem do dokumentacji konfiguracji.
+
 ---
 ## [0.7.1] - 2026-03-07
 
