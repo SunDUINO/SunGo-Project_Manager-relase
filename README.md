@@ -37,11 +37,13 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 ![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/SunRiver-LotharTeaM.sungo-project-manager?label=version&color=orange)
 
 ## 📖 Table of Contents
-* [EN: Requirements & Installation](#-requirements--installation)
-* [EN: SunGO PAD – Visual Status Feedback](#-sungo-pad--visual-status-feedback)
-* [EN: Linux Setup – udev rules](#-linux-setup--sungo-pad-udev-rules)
-* [EN: What's New (v0.6.0)](#-whats-new-v060)
-* [EN: Key Features](#-key-features)
+* [EN: Requirements & Installation](#requirements-installation)
+* [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
+* [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v0.7.0)](#whats-new-v070)
+* [EN: What's New (v0.6.0)](#whats-new-v060)
+* [EN: What's New (v0.5.3)](#whats-new-v053)
+* [EN: Key Features](#key-features)
 * [PL: SunGo Project Manager](#pl-sungo-project-manager)
 
 ---
@@ -166,6 +168,26 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ---
 
+## 🚀 What's New (v0.7.0)
+
+### 🌍 Cross-Compilation Support
+SunGo now supports building binaries for any platform directly from Settings (`Ctrl+,`):
+- **`sungo.build.targetOS`** – choose target OS: `auto` (current system), `windows`, `linux`, `darwin`
+- **`sungo.build.targetArch`** – choose architecture: `amd64`, `arm64`, `arm`
+- Cross-compiled binaries land in `bin/cross/` with the platform suffix in the name (e.g. `MyApp_linux_amd64`)
+- `CGO_ENABLED=0` is set automatically for cross-builds
+- ⚠️ If CGO is detected in your project, SunGo shows a warning that a cross-compiler toolchain may be required
+
+### 📊 Build Diff & Timeline
+New panel accessible via the `$(git-compare)` icon in the Project Tree View:
+- Select any two builds from history and compare them side by side
+- Tables: **Grown / Shrunk / Added / Removed** symbols (top 20 each)
+- Summary bar: size A, size B, delta, build time A & B
+- Scrollable **Build Timeline** showing the last 10 builds with timestamps, size delta and build time
+- UI unified with the Binary Analyzer style (dark theme, gold/green accents)
+
+---
+
 ## 🚀 What's New (v0.6.0)
 
 * **Dependency Viewer:** A full dedicated panel for browsing and managing your project's Go modules — version info, update detection, and one-click upgrades.
@@ -244,129 +266,6 @@ Easy access to binary optimization settings. Now, with a single toggle in settin
 * **Minimize the binary:** by enabling `-s -w` (strip) flags to remove symbol tables and debugging information.
 * **Full Diagnostics:** Disable optimization to get full insight into symbols and a precise analysis of the binary file's composition.
 
-## 🚀 What's New (v0.5.0)
-
-* **Advanced Binary Dashboard:** A brand new, interactive interface for analyzing your Go executables.
-* **Live Visual Analytics:** Integrated charts showing binary size trends and internal composition (Runtime vs. User Code).
-* **Improved UI Engine:** New responsive grid layout for better data density and visual clarity.
-
-## 🔍 How to use Binary Analyzer?
-
-To open the advanced dashboard and see your build statistics:
-1. **Build your project** – use the "Build" button in the Status Bar or Editor Title menu.
-2. **Open SunGo Panel** – click the **SunGo "Sun" icon** in the VS Code Activity Bar (on the far left, usually below the Marketplace icon).
-3. **Select Analyzer** – in the Project Tree View, click the **Chart icon** next to your active project name.
-4. The **SunGo Binary Analyzer** dashboard will appear with your size trends and file composition.
-
-> 💡 **Tip:** While the status bar shows real-time size changes, this dashboard provides deep insights into what exactly makes up your binary.
-
-## 🚀 What's New (v0.4.5)
-
-* **Binary Size Analyzer:** Monitor your `.exe` size in real-time on the Status Bar.
-* **Trend Indicators:** Visual cues (▲/▼) and dynamic colors show if your code is getting optimized.
-* **Quick Bin Access:** Open your output folder with a single click on the size display.
-
-![Binary Size Analyzer](https://forum.lothar-team.pl//ext/dmzx/imageupload/img-files/48/bf1cb9d/c209eae/88625cbbb9040a48ef679d48d91c039b.png)
-![Build Process](https://forum.lothar-team.pl//ext/dmzx/imageupload/img-files/48/baa1669/3ac74e5/d55423d1dbcc93da75fc94b89d2ea739.png)
-
-> 💡 **Master's Tip:** Want to see the status bar turn **Green**? Enable the `-s -w` flags in SunGo settings to strip debug information and shrink your binary size by up to 30%!
-
-## 🚀 What's New (v0.4.2)
-
-- **Improved GCC Diagnostics** – Fixed a bug where the MSYS2 installation button wouldn't show up if the system reported a specific "No Finding" string. Now, tool detection is more robust and cross-platform friendly.
-
-<p align="center">
-  <img src="https://forum.lothar-team.pl//ext/dmzx/imageupload/img-files/48/9548a47/44b233a/503c223d8f92e4e111064e80d85dc955.png" width="600" alt="GCC Install Button">
-</p>
-
-### 🚀 What's New in v0.4.1 
-
-- **One-Click Windows GCC Setup:** If a C compiler is missing, SunGo now offers automated MSYS2 (MinGW-w64) installation directly from the Dashboard (HOME). Essential for Go projects using CGO 
-- **Smarter Debugging:** Enhanced `launch.json` generator with support for precise debugger paths. Just press **F5** and it works!
-
-## 🚀 What's New (v0.4.0)
-
-- **📐 Dashboard Layout Redesign** – the main panel has been restructured into a two-column grid: Active Projects and Security & System are stacked in the left column, while Installed Tools occupies the full right column for better use of screen space.
-- **💡 PAD LED Brightness Persistence** – fixed an issue where the PAD would always boot at full brightness regardless of the saved slider value. Brightness is now restored from `globalState` immediately on panel open and on every PAD reconnect — no need to touch the slider.
-
-##  🚀 What's New (v0.3.12)
-
-- **🐹 Gopher Wisdom (Master's Tips)** - unique support system for Go developers! Now, the Gopher is not just a mascot, but your personal mentor.
-- **Interactive Icon:** Click the blinking Gopher in the Dashboard header to summon some knowledge.
-- **Dedicated Output Channel:** Wisdom is displayed in a specialized `SunGo Gopher` output channel (located next to the Terminal). This ensures the Gopher ASCII Art and tips remain perfectly aligned and readable on all systems, including Linux.
-- **Master's Advice:** The knowledge base contains dozens of professional tips covering variable shadowing, mutex pitfalls, `range` loop optimizations, and safe goroutine management.
-
-## 🚀 What's New (v0.3.10)?
-- **Path Case-Sensitivity Fix** – Resolved an issue where the Linux configuration guide could not be opened.
-- **UI Refinement** – The Linux setup guide is now neatly integrated into the user color schemes panel for better accessibility and a cleaner look.
-
-## 🚀 What's New (v0.3.9)?
-- **Linux udev setup guide** – PAD color settings panel now includes a built-in Linux configuration guide with a direct link to README instructions.
-
-## 🚀 What's New (v0.3.8)?
-- **Full Linux PAD Support** – SunGO PAD now works natively on Linux via HID RAW.
-  - Automatic HID device detection regardless of `usagePage` reported by the Linux kernel
-  - HID report byte layout adjusted for Linux `hidraw` driver (no prepended Report ID)
-  - Terminal now uses system bash shell (`$SHELL`) on Linux instead of PowerShell
-  - Keys 2–9 send `Ctrl+Shift+F13–F20` on Linux to avoid conflicts with system shortcuts
-  - Keybindings registered for both platforms: Windows (`Ctrl+Alt+Shift+2–9`) and Linux (`Ctrl+Shift+F13–F20`)
-
-## 🚀 What's New (v0.3.6)?
-- **Linux PAD Support** – The SunGO PAD now works on Linux. Press **1+7+9** simultaneously to toggle between Windows and Linux mode. The setting is saved permanently in the PAD firmware flash memory.
-  - 🔵 **3 blue flashes** – switched to Windows mode (Win+R → `sungo.cmd`)
-  - 🔴 **3 red flashes** – switched to Linux mode (Alt+F2 → `sungo`)
-
-## 🚀 What's New (v0.3.2)?
-- **New Demoscene EASTER EGG** – You have to see this one for yourself.
-
-## 🚀 What's New (v0.3.1)?
-- **PAD LED Brightness Control** – Added smooth, real-time backlight intensity adjustment for all keys.
-
-## 🚀 What's New (v0.3.0)?
-
-<img src="https://forum.lothar-team.pl//ext/dmzx/imageupload/img-files/48/fe43817/9644700/638df64e49a97fdc8d2fdd0139067b1c.gif" width="240" alt="Keypad color settings">
-
-- **PAD Color Customization** – New Webview interface to assign custom colors to each of the 9 buttons individually.
-- **Configuration Memory** – Persistent storage for button color assignments across VS Code sessions using `globalState`.
-- **Firmware v2.3 Sync** – Fixed HID key mapping to eliminate the button function offset bug.
-- **Registration Stability** – Resolved "command already exists" errors that occurred during extension reload.
-- **Clean Boot** – Replaced legacy color defaults with the new professional SunGo palette.
-
-## 🚀 What's New (v0.2.9)?
-- **Extended PAD Color System** – Added new action colors (Blue, White, Yellow, Purple) via HID RAW.
-- **Real-Time Action Feedback** – Physical PAD reflects live states: format, build, run, and signing.
-- **HID RAW Stability** – Improved device detection and automatic reinitialization after disconnects.
-- **Per-Key State Preservation** – Each button independently retains its color state.
-- **Intelligent PAD Command Queue** – Throttling and buffering for reliable HID communication.
-- **Enhanced Firmware Integration** – Full support for new PAD commands: `B`, `W`, `Y`, `P`, `C`, `R`, `E`, and `O`.
-
----
-
-## 📂 Version Archive
-
-<details>
-<summary>Expand previous changes (v0.2.8 – v0.0.9)</summary>
-
-### 🚀 v0.2.8
-- **SunGO PAD Support** – Color integration for RUN, BUILD, and linter error states.
-- **Refactoring** – KeyPAD and Security logic separated into dedicated source files.
-
-### 🚀 v0.2.6
-- **SunGo Dedicated Pad Support** – Full integration with the custom 9-key mechanical macro pad. Control building, running, and signing processes with physical hardware.
-- **Advanced Console Control** – New `Hide Console Window` option via `-H=windowsgui` flag.
-
-### 🚀 v0.2.5
-- **Advanced Test Engine** – Brand new module integrating `go test` with a graphical UI.
-- **Automated Test Generation** – Generates `main_test.go` for every new project automatically.
-- **SunRiver Cow Says (ASCII Art)** – Notification system triggered on successful test runs.
-
-### 🚀 v0.1.5 (Security Suite)
-- **Code Signing (Sign)** – Digitally sign your binaries immediately after compilation.
-- **File Unlocking (Unlock)** – Remove permission flags that prevent executables from running.
-</details>
-
----
-
 ## 🛠 Key Features
 - **Automated Project Structure** – Create `src/` folder and `main.go` with a single click.
 - **Debugger Configuration** – Automatically generates a ready-to-use `launch.json` — no manual path editing required.
@@ -399,6 +298,9 @@ See the LICENSE file for full terms.
 
 ---
 
+
+---
+
 # [PL] SunGo Project Manager
 
 **SunGo Project Manager** to proste i skuteczne narzędzie do zarządzania projektami w języku Go, stworzone z myślą o wygodzie i porządku w kodzie. 
@@ -426,11 +328,13 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 ![Wersja Marketplace](https://img.shields.io/visual-studio-marketplace/v/SunRiver-LotharTeaM.sungo-project-manager?label=wersja&color=orange)
 
 ## 📖 Spis treści
-* [PL: Wymagania i Instalacja](#-wymagania-i-instalacja)
-* [PL: SunGO PAD – Visual Status Feedback](#-sungo-pad--visual-status-feedback-1)
-* [PL: Linux – Konfiguracja udev](#-linux--konfiguracja-sungo-pad-reguły-udev)
-* [PL: Co nowego (v0.6.0)](#-co-nowego-v060)
-* [PL: Kluczowe Funkcje](#-kluczowe-funkcje)
+* [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
+* [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
+* [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguy-udev)
+* [PL: Co nowego (v0.7.0)](#co-nowego-v070)
+* [PL: Co nowego (v0.6.0)](#co-nowego-v060)
+* [PL: Co nowego (v0.5.3)](#co-nowego-v053)
+* [PL: Kluczowe Funkcje](#kluczowe-funkcje)
 
 ---
 
@@ -553,6 +457,25 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ---
 
+## 🚀 Co nowego (v0.7.0)
+
+### 🌍 Cross-Compilation
+SunGo obsługuje teraz budowanie binarek na dowolną platformę z poziomu Ustawień (`Ctrl+,`):
+- **`sungo.build.targetOS`** – docelowy system: `auto` (bieżący), `windows`, `linux`, `darwin`
+- **`sungo.build.targetArch`** – architektura: `amd64`, `arm64`, `arm`
+- Binarka trafia do `bin/cross/` z sufiksem platformy (np. `MyApp_linux_amd64`)
+- `CGO_ENABLED=0` ustawiane automatycznie przy cross-buildzie
+- ⚠️ Gdy wykryto CGO, SunGo wyświetla ostrzeżenie o konieczności cross-compilera
+
+### 📊 Build Diff & Timeline
+Nowy panel dostępny przez ikonę `$(git-compare)` w drzewie projektów:
+- Porównaj dowolne dwa buildy obok siebie
+- Tabele: **Większe / Mniejsze / Nowe / Usunięte** symbole (top 20)
+- Pasek podsumowania: rozmiar A, B, delta, czas builda A i B
+- Przewijana **Historia buildów** – ostatnie 10 z datą, deltą rozmiaru i czasem kompilacji
+
+---
+
 ## 🚀 Co nowego (v0.6.0)
 
 * **Przeglądarka Zależności:** Nowy dedykowany panel do przeglądania i zarządzania modułami Go — informacje o wersjach, wykrywanie aktualizacji i aktualizacja jednym kliknięciem.
@@ -631,131 +554,6 @@ Widzisz nie tylko rozmiar pliku, ale też z czego się składa. Panel analizator
 Łatwy dostęp do ustawień optymalizacji binarki. Teraz jednym przełącznikiem w ustawieniach (`ctrl+,`) możesz:
 * **Zmniejszyć binarkę:** włączając flagi `-s -w` (strip), aby usunąć tabele symboli i informacje debugowania. 
 * **Pełna Diagnostyka:** Wyłącz optymalizację  aby uzyskać pełny wgląd w symbole i precyzyjną analizę składu pliku binarnego
-
-## 🚀 Co nowego (v0.5.0)
-
-* **Zaawansowany Dashboard Binarki:** Zupełnie nowy, interaktywny interfejs do analizy Twoich plików wykonywalnych Go.
-* **Wizualna Analityka Live:** Zintegrowane wykresy pokazujące trendy zmian rozmiaru oraz skład wewnętrzny binarki (Runtime vs. Kod Użytkownika).
-* **Nowoczesny Layout:** Nowy układ siatki (Grid), który zapewnia lepszą przejrzystość danych i stabilność wykresów przy zmianie rozmiaru okna.
-
-## 🔍 Jak korzystać z Analizatora Binarek?
-
-Aby otworzyć zaawansowany panel i sprawdzić statystyki swojego buildu:
-1. **Zbuduj projekt** – użyj przycisku "Build" na pasku stanu lub w menu nad edytorem.
-2. **Otwórz panel SunGo** – kliknij **ikonę „słoneczka” SunGo** na pasku bocznym VS Code (po lewej stronie, zazwyczaj pod ikoną Marketplace).
-3. **Uruchom Analizator** – w widoku drzewa projektów kliknij **ikonę wykresu** obok nazwy swojego projektu.
-4. Otworzy się panel **SunGo Binary Analyzer**, prezentujący trendy zmian i skład pliku.
-
-> 💡 **Porada:** Wskaźnik na pasku stanu informuje o zmianach na bieżąco, natomiast ten dashboard pozwala dokładnie zrozumieć, z czego wynika końcowy rozmiar Twojej binarki. 
-
-## 🚀 Co nowego (v0.4.5)
-
-* **Analiza rozmiaru binarki:** Śledzenie wagi pliku wykonywalnego w czasie rzeczywistym na pasku stanu.
-* **Wskaźniki trendu:** Wizualne symbole (▲/▼) i dynamiczne kolory informujące o skutkach zmian w kodzie.
-* **Szybki dostęp do folderu Bin:** Otwieranie folderu wynikowego jednym kliknięciem w licznik rozmiaru.
-
-![Analiza rozmiaru](https://forum.lothar-team.pl//ext/dmzx/imageupload/img-files/48/bf1cb9d/c209eae/88625cbbb9040a48ef679d48d91c039b.png)
-![Proces kompilacji](https://forum.lothar-team.pl//ext/dmzx/imageupload/img-files/48/baa1669/3ac74e5/d55423d1dbcc93da75fc94b89d2ea739.png)
-
-> 💡 **Master's Tip:** Chcesz zobaczyć zielony kolor na pasku stanu? Włącz flagi `-s -w` w ustawieniach SunGo, aby usunąć informacje debugowania i zmniejszyć rozmiar binarki nawet o 30%!
-
-## 🚀 Co nowego (v0.4.2)?
-
-- **Ulepszona diagnostyka GCC** – Naprawiono błąd, przez który przycisk instalacji MSYS2 nie pojawiał się przy specyficznym komunikacie statusu "No Finding". Teraz wykrywanie narzędzi jest znacznie skuteczniejsze i odporne na różnice w zwracanych ciągach znaków.
-
-<p align="center">
-  <img src="https://forum.lothar-team.pl//ext/dmzx/imageupload/img-files/48/9548a47/44b233a/503c223d8f92e4e111064e80d85dc955.png" width="600" alt="Przycisk instalacji GCC">
-</p>
-
-### 🚀 Co nowego w v0.4.1
-
-- **Instalacja GCC jednym kliknięciem:** Jeśli brakuje kompilatora C, SunGo oferuje teraz automatyczną instalację środowiska MSYS2 (MinGW-w64) wprost z Dashboardu. Niezbędne dla projektów wykorzystujących CGO.
-- **Inteligentniejszy Debugging:** Ulepszony generator `launch.json` ze wsparciem dla precyzyjnych ścieżek debuggera. Po prostu naciśnij **F5** i gotowe!
-
-## 🚀 Co nowego (v0.4.0)?
-
-- **📐 Nowy układ Dashboardu** – główny panel został przeprojektowany na siatkę dwukolumnową: Active Projects i Security & System ułożone są w lewej kolumnie, a Installed Tools zajmuje całą prawą kolumnę, lepiej wykorzystując przestrzeń ekranu.
-- **💡 Trwała jasność diod PAD** – naprawiono problem, w którym PAD zawsze startował z pełną jasnością niezależnie od zapisanej wartości suwaka. Jasność jest teraz przywracana z `globalState` natychmiast po otwarciu panelu i przy każdym ponownym podłączeniu PAD-a.
-
-## 🚀 Co nowego (v0.3.12)?
-- **🐹 Gopher Wisdom (Mądrości Gophera)** – unikalny system wsparcia dla programistów Go! Teraz Gopher to nie tylko maskotka, ale Twój osobisty mentor.
-- **Interaktywna Ikona:** Kliknij mrugającego Gophera w nagłówku Dashboardu, aby przywołać nową poradę.
-- **Dedykowany Kanał Output:** Mądrości wyświetlane są w specjalnym kanale wyjściowym `SunGo Gopher` (widocznym obok Terminala). Dzięki temu ASCII Art Gophera i jego rady są zawsze czytelne i poprawnie sformatowane, także w systemach Linux.
-- **Rady Mastera:** Baza wiedzy zawiera porady dotyczących m.in. *shadowingu* zmiennych, pułapek w *mutexach*, optymalizacji pętli `range` oraz bezpiecznej pracy z goroutines.
-
-## 🚀 Co nowego (v0.3.10)?
-- **Poprawka wielkości liter w ścieżkach** – Rozwiązano problem, przez który instrukcja konfiguracji nie otwierała się na systemach Linux.
-- **Ulepszony interfejs** – Instrukcja konfiguracji udev została zintegrowana z panelem schematów użytkownika, co zapewnia lepszy dostęp i czystszy wygląd panelu.
-
-## 🚀 Co nowego (v0.3.9)?
-- **Instrukcja konfiguracji udev dla Linuxa** – Panel ustawień kolorów pada zawiera teraz wbudowaną instrukcję konfiguracji Linuxa z bezpośrednim odnośnikiem do README.
-
-## 🚀 Co nowego (v0.3.8)?
-- **Pełna obsługa PAD na Linuxie** – SunGO PAD działa teraz natywnie na Linuxie przez HID RAW.
-  - Automatyczne wykrywanie urządzenia HID niezależnie od `usagePage` zwracanego przez jądro Linuxa
-  - Poprawiony układ bajtów raportu HID dla sterownika `hidraw` (bez prepended Report ID)
-  - Terminal używa systemowego shella bash (`$SHELL`) na Linuxie zamiast PowerShell
-  - Klawisze 2–9 wysyłają `Ctrl+Shift+F13–F20` na Linuxie, eliminując konflikty z systemowymi skrótami
-  - Keybindings zarejestrowane dla obu platform: Windows (`Ctrl+Alt+Shift+2–9`) i Linux (`Ctrl+Shift+F13–F20`)
-
-## 🚀 Co nowego (v0.3.6)?
-- **Obsługa PAD na Linuxie** – SunGO PAD działa teraz również na Linuxie. Naciśnij jednocześnie **1+7+9** aby przełączyć między trybem Windows a Linux. Ustawienie jest zapisywane trwale w pamięci flash PAD-a.
-  - 🔵 **3 niebieskie mignięcia** – przełączono na tryb Windows (Win+R → `sungo.cmd`)
-  - 🔴 **3 czerwone mignięcia** – przełączono na tryb Linux (Alt+F2 → `sungo`)
-
-## 🚀 Co nowego (v0.3.5)?
-- **Obsługa MacroPAD na Linuxie** – SunGO MacroPAD działa w pełni teraz również na Linuxie. Naciśnij jednocześnie **1+7+9** aby przełączyć między trybem Windows a Linux. Ustawienie jest zapisywane trwale w pamięci flash PAD-a.
-  - 🔵 **3 niebieskie mignięcia** – przełączono na tryb Windows (Win+R → `sungo.cmd`)
-  - 🔴 **3 czerwone mignięcia** – przełączono na tryb Linux (Alt+F2 → `sungo`)
-
-## 🚀 Co nowego (v0.3.2)?
-- **Nowy Demoscenowy EASTER EGG** – Musicie to zobaczyć!
-
-## 🚀 Co nowego (v0.3.1)?
-- **Kontrola jasności diod PAD** – Teraz dostępna jest płynna regulacja jasności podświetlenia klawiszy.
-
-## 🚀 Co nowego (v0.3.0)?
-
-<img src="https://forum.lothar-team.pl//ext/dmzx/imageupload/img-files/48/d4b22ef/07e1369/563af8d8fd7d213180ef2dbfcbb5b0f5.png" width="240" alt="Keypad color settings">
-
-- **Personalizacja kolorów PAD** – Nowy interfejs Webview umożliwiający przypisanie własnych kolorów do każdego z 9 przycisków.
-- **Pamięć konfiguracji** – Automatyczne zapisywanie i odtwarzanie kolorów przycisków po restarcie VS Code (`globalState`).
-- **Synchronizacja z Firmware v2.3** – Poprawione mapowanie klawiszy HID, eliminujące przesunięcie funkcji przycisków.
-- **Stabilność rejestracji** – Rozwiązano problem duplikacji komend przy przeładowywaniu rozszerzenia.
-- **Optymalizacja startu** – Usunięcie starych wartości domyślnych kolorów na rzecz nowej palety SunGo.
-
-## 🚀 Co nowego (v0.2.9)?
-- **Rozszerzony System Kolorów PAD** – Nowe komendy kolorów (Blue, White, Yellow, Purple) przez HID RAW.
-- **Kolory Akcji w czasie rzeczywistym** – Fizyczny PAD odzwierciedla stan (format, build, run, signing).
-- **Stabilność HID-RAW** – Ulepszony mechanizm wykrywania urządzenia i ponownej inicjalizacji.
-- **Inteligentna kolejka komend** – Throttling i buforowanie komend dla stabilnej transmisji HID.
-- **Lepsza integracja z firmware** – Obsługa nowych komend: `B`, `W`, `Y`, `P`, `C`, `R`, `E`, `O`.
-
----
-
-## 📂 Archiwum wersji
-
-<details>
-<summary>Rozwiń poprzednie zmiany (v0.2.8 - v0.0.9)</summary>
-
-### 🚀 v0.2.8
-- **SunGO PAD Support** – Integracja kolorów dla RUN, BUILD i błędów lintera.
-- **Refaktoryzacja** – Obsługa KeyPADA i Security w osobnych plikach.
-
-### 🚀 v0.2.6
-- **SunGo Dedicated Pad Support** – Pełna integracja z 9-przyciskową klawiaturą mechaniczną.
-- **Zaawansowana Kontrola Konsoli** – Opcja `Hide Console Window` (`-H=windowsgui`).
-
-### 🚀 v0.2.5
-- **SunGo Test Engine** – Nowy moduł integrujący `go test` z GUI.
-- **SunRiver Cow says (ASCII Art)** – System powiadomień po zdanym teście.
-
-### 🚀 v0.1.5 (Security Suite)
-- **Podpisywanie Cyfrowe (Sign)** – Podpisywanie binarek bezpośrednio po kompilacji.
-- **Naprawa uprawnień (Unlock)** – Automatyczne usuwanie blokad systemowych.
-</details>
-
----
 
 ## 🛠 Kluczowe Funkcje
 - **Struktura na start** – Automatyczne tworzenie folderu `src/` i pliku `main.go`.

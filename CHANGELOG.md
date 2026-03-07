@@ -5,6 +5,19 @@
 
 ---
 
+## [0.7.0] – 2026-03-07
+
+### Added / Dodano
+- **Cross-Compilation Support** – new settings `sungo.build.targetOS` (`auto` / `windows` / `linux` / `darwin`) and `sungo.build.targetArch` (`amd64` / `arm64` / `arm`) in Extension Settings (`Ctrl+,`). When a non-`auto` OS is selected, SunGo sets `GOOS`, `GOARCH` and `CGO_ENABLED=0` in the build environment and outputs the binary to `bin/cross/` with a platform suffix (e.g. `MyApp_linux_amd64`). The native build path and behavior remain unchanged when `auto` is selected. / nowe ustawienia `sungo.build.targetOS` i `sungo.build.targetArch` w ustawieniach rozszerzenia (`Ctrl+,`). Przy wyborze konkretnego systemu SunGo ustawia `GOOS`, `GOARCH` i `CGO_ENABLED=0` i zapisuje binarkę do `bin/cross/` z sufiksem platformy. Natywny build pozostaje niezmieniony przy ustawieniu `auto`.
+- **CGO Warning** – when cross-compiling, SunGo automatically checks for CGO usage (`go list -f '{{.CgoFiles}}'`) and displays a warning notification if CGO is detected, alerting the user that a cross-compiler toolchain may be required. / przy cross-kompilacji SunGo automatycznie sprawdza użycie CGO i wyświetla ostrzeżenie jeśli CGO zostało wykryte w projekcie.
+- **Build Diff & Timeline** – new panel (`BuildDiffView`) accessible via the `$(git-compare)` inline icon in the Project Tree View (active project only). Allows selecting any two builds from history and comparing them: tables of Grown / Shrunk / Added / Removed symbols (top 20 each), summary bar with size delta and build times, and a scrollable Build Timeline showing the last 10 builds. UI unified with Binary Analyzer (dark theme, gold/green accents, `.card` layout). / nowy panel dostępny przez ikonę `$(git-compare)` w drzewie projektów. Porównuje dowolne dwa buildy: tabele symboli większych/mniejszych/nowych/usuniętych (top 20), pasek podsumowania z deltą rozmiaru i czasami buildów, oraz przewijana historia ostatnich 10 buildów.
+- **Build Time Tracker** – every build now records its compilation duration in the history snapshot; build times are displayed in the Binary Analyzer history table, Build Diff summary bar, and Build Timeline. / każdy build zapisuje teraz czas kompilacji w historii; wyświetlany w Analizatorze, Build Diff i Timeline.
+- **Symbol Snapshots** – after each successful build SunGo saves a symbol snapshot (`.vscode/.sungo_symbols_N.json`) enabling cross-build symbol-level diffing; up to 10 snapshots are retained automatically. / po każdym buildzie SunGo zapisuje snapshot symboli umożliwiający porównanie na poziomie symboli; przechowywanych jest maksymalnie 10 ostatnich.
+- **Active Project Highlighting** – the active project in the Tree View now displays a green `$(go-logo)` icon instead of the default folder icon; inline action icons (`$(graph)`, `$(bug)`, `$(library)`, `$(git-compare)`) are visible only for the active project, keeping the tree clean for inactive ones. / aktywny projekt w drzewie wyróżniony jest teraz zieloną ikoną `$(go-logo)`; ikony akcji inline widoczne wyłącznie przy aktywnym projekcie.
+
+---
+
+
 ## [0.6.0] – 2026-03-06
 
 ### Added / Dodano
