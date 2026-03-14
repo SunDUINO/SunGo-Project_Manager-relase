@@ -40,9 +40,8 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#requirements-installation)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v0.8.0)](#whats-new-v080)
 * [EN: What's New (v0.7.0)](#whats-new-v070)
-* [EN: What's New (v0.6.0)](#whats-new-v060)
-* [EN: What's New (v0.5.3)](#whats-new-v053)
 * [EN: Key Features](#key-features)
 * [PL: SunGo Project Manager](#pl-sungo-project-manager)
 
@@ -168,6 +167,24 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ---
 
+## 🚀 What's New (v0.8.0)
+
+### 🔬 SunGo Profiler (pprof)
+New panel accessible via the `$(pulse)` icon in the Project Tree View (active project only):
+- **Top 20 functions** table with visual percentage bars – CPU time or memory allocation
+- **Flame Graph** SVG with zoom (scroll), pan (drag) and **Open in Browser** button
+- Auto-detects `cpu.prof` / `mem.prof` in project root
+- Welcome screen with ready-to-paste **CPU and Memory snippets** (Copy button)
+- Load any `.prof` file via file picker
+- Graphviz detection with platform-specific install hint if missing
+
+> 📖 **[Profiler Setup & Usage Guide](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_pprof.md)** – instrumentation snippets, Graphviz installation (Windows/Linux/macOS), PATH setup, flame graph usage and common issues
+
+### 🔧 Terminal Fix
+SunGo Terminal no longer shows the yellow warning triangle – added `strictEnv: false` and `env` passthrough to `createTerminal()`.
+
+---
+
 ## 🚀 What's New (v0.7.0)
 
 ### 🌍 Cross-Compilation Support
@@ -176,7 +193,9 @@ SunGo now supports building binaries for any platform directly from Settings (`C
 - **`sungo.build.targetArch`** – choose architecture: `amd64`, `arm64`, `arm`
 - Cross-compiled binaries land in `bin/cross/` with the platform suffix in the name (e.g. `MyApp_linux_amd64`)
 - `CGO_ENABLED=0` is set automatically for cross-builds
-- ⚠️ If CGO is detected in your project, SunGo shows a warning that a cross-compiler toolchain may be required
+- ⚠️ If CGO is detected in your project, SunGo **blocks the build** and shows a platform-specific message with required toolchain info
+
+> 📖 **[CGO Cross-Compilation Setup Guide](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_crosscompile.md)** – toolchains for all platform combinations (Linux→Windows, Linux→macOS, Windows→Linux and more)
 
 ### 📊 Build Diff & Timeline
 New panel accessible via the `$(git-compare)` icon in the Project Tree View:
@@ -331,9 +350,8 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguy-udev)
+* [PL: Co nowego (v0.8.0)](#co-nowego-v080)
 * [PL: Co nowego (v0.7.0)](#co-nowego-v070)
-* [PL: Co nowego (v0.6.0)](#co-nowego-v060)
-* [PL: Co nowego (v0.5.3)](#co-nowego-v053)
 * [PL: Kluczowe Funkcje](#kluczowe-funkcje)
 
 ---
@@ -457,6 +475,24 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ---
 
+## 🚀 Co nowego (v0.8.0)
+
+### 🔬 SunGo Profiler (pprof)
+Nowy panel dostępny przez ikonę `$(pulse)` w drzewie projektów (tylko aktywny projekt):
+- Tabela **Top 20 funkcji** z wizualnymi paskami – czas CPU lub alokacje pamięci
+- **Flame Graph** SVG z zoomem (kółko myszy), przesuwaniem (drag) i przyciskiem **Otwórz w przeglądarce**
+- Automatyczne wykrywanie `cpu.prof` / `mem.prof` w katalogu projektu
+- Ekran powitalny z gotowymi snippetami **CPU i Memory** (przycisk Copy)
+- Wczytanie dowolnego pliku `.prof` przez file picker
+- Wykrywanie Graphviz z wskazówką instalacji per platforma gdy brak
+
+> 📖 **[Przewodnik instalacji i użytkowania Profilera](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_pprof.md)** – snippety instrumentacji, instalacja Graphviz (Windows/Linux/macOS), konfiguracja PATH, obsługa flame graph i częste problemy
+
+### 🔧 Poprawka terminala
+Terminal SunGo nie wyświetla już żółtego trójkąta ostrzegawczego – dodano `strictEnv: false` i przekazywanie `env` do `createTerminal()`.
+
+---
+
 ## 🚀 Co nowego (v0.7.0)
 
 ### 🌍 Cross-Compilation
@@ -465,7 +501,9 @@ SunGo obsługuje teraz budowanie binarek na dowolną platformę z poziomu Ustawi
 - **`sungo.build.targetArch`** – architektura: `amd64`, `arm64`, `arm`
 - Binarka trafia do `bin/cross/` z sufiksem platformy (np. `MyApp_linux_amd64`)
 - `CGO_ENABLED=0` ustawiane automatycznie przy cross-buildzie
-- ⚠️ Gdy wykryto CGO, SunGo wyświetla ostrzeżenie o konieczności cross-compilera
+- ⚠️ Gdy wykryto CGO, SunGo **blokuje build** i wyświetla komunikat z informacją jaki toolchain jest wymagany dla danej kombinacji platform
+
+> 📖 **[Przewodnik konfiguracji CGO Cross-Compilation](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_crosscompile.md)** – toolchainy dla wszystkich kombinacji platform (Linux→Windows, Linux→macOS, Windows→Linux i inne)
 
 ### 📊 Build Diff & Timeline
 Nowy panel dostępny przez ikonę `$(git-compare)` w drzewie projektów:
