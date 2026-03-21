@@ -3,6 +3,27 @@
 [EN] All notable changes to the "SunGo Project Manager" extension are documented in this file.  
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
+
+
+
+## [0.9.0] – 2026-03-21
+
+### Added / Dodano
+- **File Header Generator** – new `headerGen.ts` module with 5 built-in styles: **Fancy Box** (Unicode border ╔═╗), **Box** (/****/), **Block** (/* */), **Line** (//), **Minimal** (single line), plus **Custom** (user-defined template with tokens) and **None**. / nowy moduł `headerGen.ts` z 5 wbudowanymi stylami: **Fancy Box** (ramka Unicode ╔═╗), **Box**, **Block**, **Line**, **Minimal**, **Custom** (szablon użytkownika z tokenami) i **None**.
+- **Live Preview panel** – accessible via `SunGo: Header Generator` command. Shows a live preview of the header as style or settings change. Insert button wires directly into the active editor at line 0. / panel z podglądem live dostępny przez komendę `SunGo: Header Generator`. Podgląd aktualizuje się na żywo przy zmianie stylu lub ustawień. Przycisk Insert wstawia nagłówek do aktywnego edytora.
+- **Insert Header command** – `SunGo: Insert File Header` available in the Command Palette and via right-click on any `.go` file in the Explorer. Inserts the header using the currently configured style. / komenda `SunGo: Insert File Header` dostępna w palecie komend i przez prawy klik na pliku `.go` w eksploratorze. Wstawia nagłówek zgodnie z aktualnie skonfigurowanym stylem.
+- **Auto-insert on new file** – when `sungo.header.autoInsert` is enabled, SunGo automatically inserts the configured header whenever a new `.go` file is created. / gdy `sungo.header.autoInsert` jest włączone, SunGo automatycznie wstawia nagłówek przy każdym nowym pliku `.go`.
+- **Header style in Project Creator** – the New Project wizard now includes a header style selector; the chosen style is applied to `main.go` immediately on project creation. / kreator nowego projektu zawiera teraz wybór stylu nagłówka; wybrany styl jest stosowany do `main.go` bezpośrednio przy tworzeniu projektu.
+- **Custom template tokens** – the custom style supports tokens: `{project}`, `{file}`, `{author}`, `{team}`, `{website}`, `{forum}`, `{github}`, `{version}`, `{license}`, `{date}`, `{year}`. Tokens are clickable in the panel UI. / styl Custom obsługuje tokeny klikalne w panelu.
+- **Global header settings** (`Ctrl+,`) – `sungo.header.author`, `sungo.header.team`, `sungo.header.website`, `sungo.header.forum`, `sungo.header.license`, `sungo.header.style`, `sungo.header.autoInsert`, `sungo.header.customTemplate`. GitHub/module path is read automatically from `go.mod`. / ustawienia globalne nagłówka w `Ctrl+,`. Ścieżka GitHub czytana automatycznie z `go.mod`.
+
+---
+
+## [0.8.1] – 2026-03-15
+
+### Fixed / Naprawiono
+- **SunGO PAD – Win+R → sungo not working after VS Code update** – `checkHardware()` now verifies whether `WindowsApps` is present in the user PATH after creating `sungo.cmd`. If missing, SunGo automatically adds the path permanently via `SetEnvironmentVariable` (User level, no admin required) and shows an informational notification. Fixes a regression caused by VS Code updates resetting the App Execution Aliases environment. / `checkHardware()` sprawdza teraz czy `WindowsApps` jest obecny w PATH użytkownika po utworzeniu `sungo.cmd`. Jeśli brakuje, SunGo automatycznie dodaje ścieżkę trwale przez `SetEnvironmentVariable` (poziom User, bez uprawnień administratora) i wyświetla powiadomienie. Naprawia regresję spowodowaną przez aktualizacje VS Code resetujące środowisko App Execution Aliases.
+
 ## [0.8.0] – 2026-03-14
 
 ### Added / Dodano

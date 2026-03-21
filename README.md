@@ -40,6 +40,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#requirements-installation)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v0.9.0)](#whats-new-v090)
 * [EN: What's New (v0.8.0)](#whats-new-v080)
 * [EN: What's New (v0.7.0)](#whats-new-v070)
 * [EN: Key Features](#key-features)
@@ -164,6 +165,22 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ This is a one-time setup. The rule persists after system reboots.  
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
+
+---
+
+## 🚀 What's New (v0.9.0)
+
+### 📝 File Header Generator
+New panel accessible via `SunGo: Header Generator` command (Command Palette or right-click on `.go` file):
+- **5 built-in styles:** Fancy Box `╔═╗`, Box `/****/`, Block `/* */`, Line `//`, Minimal – plus Custom and None
+- **Live preview** – updates instantly as you change style or author settings
+- **Insert button** – inserts the header at line 0 of the active editor
+- **Auto-insert** – enable `sungo.header.autoInsert` to add headers to every new `.go` file automatically
+- **Project Creator integration** – choose header style when creating a new project; applied to `main.go` on creation
+- **Custom template** with clickable tokens: `{project}` `{file}` `{author}` `{team}` `{website}` `{forum}` `{github}` `{version}` `{license}` `{date}` `{year}`
+- **GitHub auto-detected** from `go.mod` – no per-project configuration needed
+- Global settings in `Ctrl+,`: author, team, website, forum, license, style, auto-insert
+- Editor accessible also via the `📝` icon in the Dashboard header (next to the Gopher)
 
 ---
 
@@ -350,6 +367,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguy-udev)
+* [PL: Co nowego (v0.9.0)](#co-nowego-v090)
 * [PL: Co nowego (v0.8.0)](#co-nowego-v080)
 * [PL: Co nowego (v0.7.0)](#co-nowego-v070)
 * [PL: Kluczowe Funkcje](#kluczowe-funkcje)
@@ -472,6 +490,23 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+## 🚀 Co nowego (v0.9.0)
+
+### 📝 Generator nagłówków plików
+Nowy panel dostępny przez komendę `SunGo: Header Generator` (paleta komend lub prawy klik na `.go`):
+- **5 wbudowanych stylów:** Fancy Box `╔═╗`, Box `/****/`, Block `/* */`, Line `//`, Minimal – plus Custom i None
+- **Podgląd live** – aktualizuje się natychmiast przy zmianie stylu lub ustawień autora
+- **Przycisk Insert** – wstawia nagłówek w linii 0 aktywnego edytora
+- **Auto-insert** – włącz `sungo.header.autoInsert` aby dodawać nagłówki do każdego nowego pliku `.go`
+- **Integracja z kreatorem projektów** – wybierz styl nagłówka przy tworzeniu projektu; stosowany do `main.go` przy tworzeniu
+- **Własny szablon** z klikalnymi tokenami: `{project}` `{file}` `{author}` `{team}` `{website}` `{forum}` `{github}` `{version}` `{license}` `{date}` `{year}`
+- **GitHub wykrywany automatycznie** z `go.mod` – brak konfiguracji per projekt
+- Ustawienia globalne w `Ctrl+,`: autor, zespół, strona, forum, licencja, styl, auto-insert
+- Edytor dostępny również przez ikonę `📝` w nagłówku Dashboardu (obok Gophera)
+
 
 ---
 
