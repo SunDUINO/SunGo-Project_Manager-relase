@@ -40,9 +40,8 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#requirements-installation)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v1.0.0)](#whats-new-v100)
 * [EN: What's New (v0.9.0)](#whats-new-v090)
-* [EN: What's New (v0.8.0)](#whats-new-v080)
-* [EN: What's New (v0.7.0)](#whats-new-v070)
 * [EN: Key Features](#key-features)
 * [PL: SunGo Project Manager](#pl-sungo-project-manager)
 
@@ -165,6 +164,24 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ This is a one-time setup. The rule persists after system reboots.  
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
+
+---
+
+## 🚀 What's New (v1.0.0)
+
+### 📝 Project Notes
+New `$(notebook)` icon in the Tree View and Dashboard – opens `.vscode/sungo_notes.md` in the editor. Created automatically with a TODO / Ideas / Notes template on first use.
+
+### 📊 Code Metrics & Refactoring Hints
+New `$(dashboard)` panel – recursively scans all `.go` files (skips `vendor/`, `bin/`, `.git/`):
+- **Overview:** file count, function count, total LOC, Code Health indicator 🟢🟡🔴
+- **Refactoring Hints:** functions too long, too many parameters, deep nesting, missing godoc, large files – each hint is clickable and navigates directly to the code
+- **Functions table** sorted by size with visual bars – click to jump to definition
+- **Files table** – click to open file
+- Thresholds configurable in `Ctrl+,`: `sungo.metrics.maxFuncLines`, `maxFileLines`, `maxParams`, `maxNesting`
+
+### 🏁 v1.0.0 Milestone
+SunGo now covers the full Go development lifecycle – from project creation to profiling, cross-compilation and code quality analysis.
 
 ---
 
@@ -367,9 +384,8 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguy-udev)
+* [PL: Co nowego (v1.0.0)](#co-nowego-v100)
 * [PL: Co nowego (v0.9.0)](#co-nowego-v090)
-* [PL: Co nowego (v0.8.0)](#co-nowego-v080)
-* [PL: Co nowego (v0.7.0)](#co-nowego-v070)
 * [PL: Kluczowe Funkcje](#kluczowe-funkcje)
 
 ---
@@ -490,6 +506,24 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+## 🚀 Co nowego (v1.0.0)
+
+### 📝 Notatki projektu
+Nowa ikona `$(notebook)` w drzewie projektów i Dashboardzie – otwiera `.vscode/sungo_notes.md` w edytorze. Tworzony automatycznie z szablonem TODO / Ideas / Notes przy pierwszym użyciu.
+
+### 📊 Metryki kodu i sugestie refaktoringu
+Nowy panel `$(dashboard)` – rekurencyjnie skanuje wszystkie pliki `.go` (pomija `vendor/`, `bin/`, `.git/`):
+- **Overview:** liczba plików, funkcji, total LOC, wskaźnik zdrowia kodu 🟢🟡🔴
+- **Sugestie refaktoringu:** za długie funkcje, za dużo parametrów, głębokie zagnieżdżenie, brak godoc, duże pliki – każda sugestia jest klikalna i przenosi do kodu
+- **Tabela funkcji** posortowana wg rozmiaru z paskami – klik przenosi do definicji
+- **Tabela plików** – klik otwiera plik
+- Progi konfigurowalne w `Ctrl+,`: `sungo.metrics.maxFuncLines`, `maxFileLines`, `maxParams`, `maxNesting`
+
+### 🏁 Milestone v1.0.0
+SunGo obejmuje teraz pełny cykl życia projektu Go – od tworzenia, przez profilowanie i cross-compilation, aż po analizę jakości kodu.
 
 ---
 

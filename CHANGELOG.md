@@ -4,6 +4,16 @@
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
 
+### This is v1.0.0 / To jest v1.0.0
+After months of development SunGo Project Manager reaches its first stable milestone. The extension covers the full Go development lifecycle: project creation, build, run, test, analysis, profiling, dependency management, code quality metrics, cross-compilation, file headers and physical hardware feedback via SunGO PAD. / Po miesiącach rozwoju SunGo Project Manager osiąga pierwszy stabilny milestone. Wtyczka obejmuje pełny cykl życia projektu Go: tworzenie, build, run, testy, analizę, profilowanie, zarządzanie zależnościami, metryki jakości kodu, cross-compilation, nagłówki plików i fizyczny feedback przez SunGO PAD.
+
+## [1.0.0] – 2026-03-22
+
+### Added / Dodano
+- **Project Notes** – new `SunGo: Open Project Notes` command accessible via the `$(notebook)` icon in the Tree View, Dashboard, and Command Palette. Creates `.vscode/sungo_notes.md` with a structured template (TODO, Ideas, Notes) on first use and opens it directly in the VS Code editor. / nowa komenda `SunGo: Open Project Notes` dostępna przez ikonę `$(notebook)` w drzewie projektów, Dashboardzie i palecie komend. Tworzy `.vscode/sungo_notes.md` z szablonem (TODO, Ideas, Notes) przy pierwszym użyciu i otwiera bezpośrednio w edytorze VS Code.
+- **Code Metrics & Refactoring Hints** – new `metricsView.ts` panel accessible via the `$(dashboard)` icon in the Tree View and Dashboard. Recursively scans all `.go` files in the project (excluding `vendor/`, `bin/`, `.git/`) and displays: file/function count, total LOC, per-function metrics (LOC, parameters, nesting depth, godoc presence), and actionable refactoring hints with severity indicators 🟢🟡🔴. Clicking any function, file or hint navigates directly to that location in the editor. Thresholds configurable in `Ctrl+,`. / nowy panel `metricsView.ts` dostępny przez ikonę `$(dashboard)`. Rekurencyjnie skanuje pliki `.go` projektu i wyświetla metryki per plik i funkcja (LOC, parametry, zagnieżdżenie, godoc) oraz sugestie refaktoringu z nawigacją do kodu jednym kliknięciem.
+
+---
 
 
 ## [0.9.0] – 2026-03-21
