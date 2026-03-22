@@ -4,6 +4,20 @@
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
 
+## [1.1.0] – 2026-03-22
+
+### Added / Dodano
+- **SunGo Tools View** – new panel in the Explorer sidebar (below GO and PACKAGE OUTLINE) with a clickable list of all SunGo tools: Binary Analyzer, Go Vet, Build Diff, Dependencies, Profiler, Code Metrics, Project Notes, Header Generator. Accessible from any location in VS Code without switching to the SunGo project tree. / nowy panel w pasku eksploratora z klikalną listą wszystkich narzędzi SunGo. Dostępny z każdego miejsca w VS Code bez przełączania się do drzewa projektów.
+
+### Changed / Zmieniono
+- **Settings grouped into sections** – VS Code Settings (`Ctrl+,`) now shows SunGo configuration split into 4 dedicated sections: **SunGo – Build**, **SunGo – File Header**, **SunGo – Code Metrics**, **SunGo – Security**. Each section is independently expandable in the left panel. / ustawienia SunGo podzielone na 4 dedykowane sekcje w `Ctrl+,`: Build, File Header, Code Metrics, Security.
+- **Active project icon** – the active project in the Tree View now shows a green `$(folder-active)` icon with `charts.green` color. Previously used `$(go-logo)` which did not support color theming. / aktywny projekt w drzewie pokazuje teraz zieloną ikonę `$(folder-active)`. Poprzednia ikona `$(go-logo)` nie obsługiwała kolorowania.
+- **Inline icons reduced** – Tree View inline icons reduced from 7 to 3 (Binary Analyzer, Go Vet, Build Diff). Remaining tools available in the new SunGo Tools View. / ikony inline w drzewie projektów zredukowane z 7 do 3. Pozostałe narzędzia dostępne w nowym panelu SunGo Tools.
+- **Dashboard icons unified** – Header Generator, Project Notes and Code Metrics icons in the Dashboard header now use Codicons (`settings-link` style) matching PAD Settings and VS Code Settings icons. / ikony Header Generator, Project Notes i Code Metrics w nagłówku Dashboardu używają teraz Codicons w stylu zgodnym z ikonami ustawień.
+
+---
+
+
 ### This is v1.0.0 / To jest v1.0.0
 After months of development SunGo Project Manager reaches its first stable milestone. The extension covers the full Go development lifecycle: project creation, build, run, test, analysis, profiling, dependency management, code quality metrics, cross-compilation, file headers and physical hardware feedback via SunGO PAD. / Po miesiącach rozwoju SunGo Project Manager osiąga pierwszy stabilny milestone. Wtyczka obejmuje pełny cykl życia projektu Go: tworzenie, build, run, testy, analizę, profilowanie, zarządzanie zależnościami, metryki jakości kodu, cross-compilation, nagłówki plików i fizyczny feedback przez SunGO PAD.
 
