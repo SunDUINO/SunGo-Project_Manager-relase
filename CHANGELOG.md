@@ -3,6 +3,10 @@
 [EN] All notable changes to the "SunGo Project Manager" extension are documented in this file.  
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
+## [1.1.1] - 2026-03-22
+
+### Changed / Zmieniono
+- **NLS Keys for SunGo Tools View** – added dedicated short-form translation keys for all items in the SunGo Tools View panel. Labels now respect the VS Code language setting: English or Polish . / dodano dedykowane krótkie klucze tłumaczeń dla wszystkich pozycji w panelu SunGo Tools View. Etykiety respektują teraz ustawienie języka VS Code.
 
 ## [1.1.0] – 2026-03-22
 
