@@ -4,6 +4,11 @@
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
 ## [1.1.1] - 2026-03-22
+### Changed / Zmieniono
+- **Optymize CODE**  - Code refaktor and function optymize header Generator/ refaktoryzacja kodu i optymalizacja funkcji generatora nagłówków.
+
+
+## [1.1.1] - 2026-03-22
 
 ### Changed / Zmieniono
 - **NLS Keys for SunGo Tools View** – added dedicated short-form translation keys for all items in the SunGo Tools View panel. Labels now respect the VS Code language setting: English or Polish . / dodano dedykowane krótkie klucze tłumaczeń dla wszystkich pozycji w panelu SunGo Tools View. Etykiety respektują teraz ustawienie języka VS Code.
