@@ -168,6 +168,21 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ---
 
+## 🚀 What's New (v1.5.5)
+
+### 🛠️ Translation Fixes & Code Cleanup
+Major update to the Snippet Manager content:
+* **38 UI & Content Fixes:** All snippet titles, Go source code strings (`log.Println`, `errors.New`), and code comments have been translated to English or unified into a professional `// EN / PL` format.
+
+### 📝 Snippet Editor
+You can now extend the built-in library with your own code patterns:
+* **My Snippets Category:** A new dedicated section at the bottom of the sidebar for your custom collection.
+* **Integrated Editor:** Use the **+ Add Snippet** button to open a sleek overlay form (Title, Description, Tags, and Go Code with syntax-friendly styling).
+* **Persistent Storage:** Custom snippets are saved to global storage and persist between sessions.
+* **Management:** Full support for adding and deleting your own snippets directly from the UI.
+
+---
+
 ## 🚀 What's New (v1.5.0)
 
 ### 🧰 Snippet Manager
@@ -548,6 +563,21 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+## 🚀 Co nowego (v1.5.5)
+
+### 🛠️ Poprawki tłumaczeń i czyszczenie kodu
+Gruntowna aktualizacja zawartości Snippet Managera:
+* **38 poprawek UI i treści:** Wszystkie tytuły snippetów, stringi w kodzie Go (`log.Println`, `errors.New`) oraz komentarze w kodzie zostały przetłumaczone na język angielski lub ujednolicone do formatu `// EN / PL`.
+
+### 📝 Edytor snippetów
+Możesz teraz rozszerzać wbudowaną bibliotekę o własne wzorce kodu:
+* **Kategoria "My Snippets":** Nowa sekcja na końcu listy w sidebarze przeznaczona na Twoje własne snippety.
+* **Zintegrowany edytor:** Przycisk **+ Add Snippet** otwiera nakładkę z formularzem (Tytuł, Opis, Tagi oraz kod Go z czytelnym, zielonym fontem monospace).
+* **Trwały zapis:** Własne snippety są zapisywane w globalnej pamięci rozszerzenia i pozostają dostępne między sesjami.
+* **Zarządzanie:** Pełna obsługa dodawania i usuwania własnych fragmentów kodu bezpośrednio z interfejsu.
 
 ---
 

@@ -3,7 +3,27 @@
 [EN] All notable changes to the "SunGo Project Manager" extension are documented in this file.  
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
+
+## [1.5.5] - 2026-04-15
+
+### 🛠️ Fixed / Naprawiono – Translation Fixes & Code Cleanup
+- **38 UI & Content Changes / 38 zmian w UI i treści:** Refactored Snippet Manager library for professional consistency / Przebudowano bibliotekę Snippet Managera pod kątem spójności.
+- **English Titles / Angielskie tytuły:** Snippet titles like "Custom Error Type", "Context with Timeout" are now standardized / Tytuły takie jak "Własny typ błędu" czy "Context z Timeout" zostały ujednolicone.
+- **Code Harmonization / Harmonizacja kodu:** All `log.xxx`, `fmt.xxx`, and `errors.New` strings updated to English / Wszystkie stringi wewnątrz snippetów zmieniono na język angielski.
+- **Comment Policy / Polityka komentarzy:** Source code comments unified to `// EN / PL` format / Komentarze w kodzie ujednolicono do formatu `// EN / PL` lub czystego angielskiego.
+- **Code Cleanup / Porządki w kodzie:** General optimization of the internal logic / Ogólna optymalizacja logiki wewnętrznej.
+
+### 📝 Added / Dodano – Snippet Editor / Edytor snippetów
+- **New Category / Nowa kategoria:** Added "My Snippets" section at the end of the sidebar / Dodano sekcję "My Snippets" na końcu paska bocznego dla własnych wzorców.
+- **Integrated UI / Zintegrowany interfejs:** New **+ Add Snippet** button opens a dedicated creation overlay / Nowy przycisk **+ Add Snippet** otwiera dedykowaną nakładkę tworzenia.
+- **Custom Fields / Własne pola:** Support for Title, Description, Tags, and Go Code (green monospace) / Obsługa pól: Tytuł, Opis, Tagi oraz kod Go (zielony font monospace).
+- **Persistence / Persystencja:** Snippets are saved to `globalStorage` (survive between sessions) / Snippety są zapisywane w `globalStorage` (dostępne między sesjami).
+- **Management / Zarządzanie:** Implemented Delete functionality and background-click to close overlay / Wdrożono funkcję usuwania oraz zamykanie nakładki poprzez kliknięcie w tło.
+
+---
+
 ## [1.5.0] - 2026-04-14
+
 ### Added / Dodano
 - Snippet Manager: Organized code patterns (Goroutines, Context, etc.) with one-click insertion. / Manager Snippetów: Uporządkowane wzorce kodu z funkcją wstawiania jednym kliknięciem.
 
@@ -14,6 +34,7 @@
 
 - UI & Focus: Fixed Webview focus issues in Snippet Manager and corrected message translations in both features. / UI i Focus: Naprawiono błędy z fokusem w Webview oraz poprawiono tłumaczenia komunikatów w obu nowych funkcjach.
 
+---
 
 ## [1.4.0] - 2026-04-12
 
