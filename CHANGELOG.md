@@ -3,6 +3,28 @@
 [EN] All notable changes to the "SunGo Project Manager" extension are documented in this file.  
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
+## [1.5.0] - 2026-04-14
+### Added / Dodano
+- Snippet Manager: Organized code patterns (Goroutines, Context, etc.) with one-click insertion. / Manager Snippetów: Uporządkowane wzorce kodu z funkcją wstawiania jednym kliknięciem.
+
+- Go Generate Runner: UI for scanning and running //go:generate with real-time output. / Go Generate Runner: Interfejs do skanowania i uruchamiania dyrektyw z podglądem na żywo.
+
+### Fixed / Naprawiono
+- Stability & Optimization: Resolved bugs from the test version and optimized tool performance. / Stabilność i optymalizacja: Naprawiono błędy wersji testowej i zoptymalizowano działanie narzędzi.
+
+- UI & Focus: Fixed Webview focus issues in Snippet Manager and corrected message translations in both features. / UI i Focus: Naprawiono błędy z fokusem w Webview oraz poprawiono tłumaczenia komunikatów w obu nowych funkcjach.
+
+
+## [1.4.0] - 2026-04-12
+
+### Test version / Wersja testowa
+- New features added (Experimental): Snippet Manager and Go Generate Runner for testing purposes. Note: This version contains several bugs as it is a snapshot of yesterday's tests. / Dodano nowe funkcje (Eksperymentalne): Manager Snippetów oraz Go Generate Runner w celu sprawdzenia działania. Uwaga: Wersja zawiera błędy, ponieważ pochodzi z wczorajszych testów.
+
+
+## [1.2.2] - 2026-04-03
+### Fixed / Naprawiono
+- Message Translation Fixes – improved and corrected several UI message translations and notification strings to ensure better clarity in both English and Polish. / poprawki w tłumaczeniach komunikatów interfejsu oraz powiadomień, zapewniające większą spójność i jasność w języku polskim i angielskim.
+
 ## [1.1.1] - 2026-03-22
 ### Changed / Zmieniono
 - **Optymize CODE**  - Code refaktor and function optymize header Generator/ refaktoryzacja kodu i optymalizacja funkcji generatora nagłówków.

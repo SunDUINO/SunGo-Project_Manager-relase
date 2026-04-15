@@ -40,7 +40,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#requirements-installation)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
-* [EN: What's New (v1.1.0)](#whats-new-v110)
+* [EN: What's New (v1.5.0)](#whats-new-v110)
 * [EN: What's New (v1.0.0)](#whats-new-v100)
 * [EN: What's New (v0.9.0)](#whats-new-v090)
 * [EN: Key Features](#key-features)
@@ -165,6 +165,29 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ This is a one-time setup. The rule persists after system reboots.  
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
+
+---
+
+## 🚀 What's New (v1.5.0)
+
+### 🧰 Snippet Manager
+I have added a built-in Snippet Manager that stores frequently used code patterns for quick access. You can easily copy or insert them directly into your active editor with a single click.
+
+Features:
+
+Webview Category Panel: A dedicated sidebar/panel to browse snippets by category, including Goroutines, Error Handling, Context, Mutexes, Channels, HTTP, and Struct Patterns.
+One-Click Insertion: Use the "Insert" button to instantly paste any snippet into your current cursor position in the editor.
+
+### 🧰 Go Generate Runners 
+The Go Generate Runner is a dedicated tool designed to automate and simplify the execution of code generation tasks within your Go projects. Instead of manually running commands from the terminal, you can manage your entire generation workflow through a visual interface.
+
+Features:
+
+Workspace Scanning: Automatically finds all //go:generate directives across your .go files.
+Directives List: Displays identified tasks with their corresponding filename and line number.
+Execution Control: Run individual directives or execute all of them at once.
+Real-time Output: Monitor the generation process with a live output feed.
+
 
 ---
 
@@ -402,7 +425,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguły-udev)
-* [PL: Co nowego (v1.1.0)](#co-nowego-v110)
+* [PL: Co nowego (v1.5.0)](#co-nowego-v110)
 * [PL: Co nowego (v1.0.0)](#co-nowego-v100)
 * [PL: Co nowego (v0.9.0)](#co-nowego-v090)
 * [PL: Kluczowe Funkcje](#kluczowe-funkcje)
@@ -525,6 +548,31 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+## 🚀 Co nowego (v1.5.0)
+
+### 🧰 Snippet Manager 
+
+Dodałem wbudowany moduł Snippet Manager, który przechowuje często używane wzorce kodu, zapewniając do nich błyskawiczny dostęp. Możesz je łatwo kopiować lub wstawiać bezpośrednio do aktywnego edytora za pomocą jednego kliknięcia.
+
+Najważniejsze funkcje:
+
+Panel Webview z kategoriami: Dedykowany panel boczny umożliwiający przeglądanie snippetów według kategorii, takich jak: Goroutines, Error Handling, Context, Mutexes, Channels, HTTP oraz Struct Patterns.
+
+Wstawianie jednym kliknięciem: Użyj przycisku „Insert”, aby natychmiast wkleić wybrany fragment kodu w miejscu, w którym znajduje się kursor w edytorze.
+
+### 🧰 Go Generate Runner
+To dedykowane narzędzie stworzone do automatyzacji i uproszczenia zadań związanych z generowaniem kodu w projektach Go. Zamiast ręcznie wpisywać komendy w terminalu, możesz zarządzać całym procesem z poziomu wygodnego interfejsu wizualnego.
+
+Funkcje:
+
+Skanowanie projektu: Automatycznie wyszukuje wszystkie dyrektywy //go:generate w plikach .go.
+Lista dyrektyw: Wyświetla znalezione zadania wraz z nazwą pliku i numerem linii.
+Kontrola uruchamiania: Pozwala na wywołanie pojedynczej instrukcji lub wszystkich naraz.
+Podgląd na żywo: Monitoruje proces generowania, wyświetlając wyniki (output) w czasie rzeczywistym.
+
 
 ---
 
