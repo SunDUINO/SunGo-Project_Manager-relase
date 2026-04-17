@@ -171,9 +171,18 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 ## 🚀 What's New (v1.6.1)
 
 ### 🧰 Dual Repository Support
-I have added a Git repository management module. It does not replace the built-in VS Code Git features; instead, it allows you to push specific files—selected via a picker—to any external repository.
+- I have added a Git repository management module. It does not replace the built-in VS Code Git features; instead, it allows you to push specific files—selected via a picker—to any external repository.
+- This is especially useful when you maintain a private repository for your source code but want to publish specific assets (such as binaries) to a separate public repository.
 
-This is especially useful when you maintain a private repository for your source code but want to publish specific assets (such as binaries) to a separate public repository.
+### Universal Compatibility: Works independently of your current workspace. Use it to bridge any project with your external release or backup repositories.
+
+### Select files to publish:
+
+* Click to select a file
+* Ctrl + Click for multiple selection
+* Shift + Click for range selection
+
+--- 
 
 ## 🚀 What's New (v1.5.5)
 
@@ -576,9 +585,16 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 ## 🚀 Co nowego (v1.6.1)
 
 ### 🧰 Dual Repository
-Dodałem moduł obsługi repozytoriów Git. Nie zastępuje on wbudowanej w VS Code obsługi systemów kontroli wersji, lecz dodaje możliwość wysyłania wybranych plików (za pomocą pickera) do dowolnego zewnętrznego repozytorium.
+- Dodałem moduł obsługi repozytoriów Git. Nie zastępuje on wbudowanej w VS Code obsługi systemów kontroli wersji, lecz dodaje możliwość wysyłania wybranych plików (za pomocą pickera) do dowolnego zewnętrznego repozytorium.
 
-Jest to szczególnie przydatne, gdy pracujesz w prywatnym repozytorium z kodem źródłowym, a chcesz publikować jedynie wybrane pliki (np. pliki binarne) w osobnym, publicznym repozytorium.
+- Jest to szczególnie przydatne, gdy pracujesz w prywatnym repozytorium z kodem źródłowym, a chcesz publikować jedynie wybrane pliki (np. pliki binarne) w osobnym, publicznym repozytorium.
+
+- Uniwersalna kompatybilność: Działa niezależnie od aktualnie otwartego projektu. Używaj go do łączenia dowolnego workspace'u z zewnętrznymi repozytoriami wydań lub kopii zapasowych.
+
+### Wybór plików:
+* Kliknij, aby wybrać plik
+* Ctrl + Klik, aby wybrać wiele plików
+* Shift + Klik, aby wybrać zakres plików
 
 ---
 

@@ -4,6 +4,19 @@
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
 
+## [1.6.2] - 2026-04-17
+
+### 🛠️ Fixed / Naprawiono 
+
+- Commit Message Parsing / Parsowanie opisu commita: Fixed a bug where spaces in commit messages caused errors on Windows. Improved process execution by switching to direct argument passing / Naprawiono błąd, w którym spacje w opisie commita powodowały błędy w systemie Windows. Ulepszono wywoływanie procesów poprzez bezpośrednie przekazywanie argumentów.
+
+- Cross-platform Stability / Stabilność wieloplatformowa: Standardized Git command execution to ensure identical behavior across Windows and Linux / Zunifikowano sposób wywoływania komend Git, zapewniając identyczne działanie w systemach Windows i Linux i MacOS.
+
+- 📝 Changed / Zmieniono
+Branding Update / Odświeżenie nazwy: Renamed the module to "Publish Any Files to Any REPO" to better reflect its universal purpose / Zmieniono nazwę modułu na aby lepiej oddać jego uniwersalne zastosowanie.
+
+---
+
 ## [1.6.1] - 2026-04-17
 
 ### 🧰 Added / Dodano – Dual Repository Support / Obsługa Dual Repository
