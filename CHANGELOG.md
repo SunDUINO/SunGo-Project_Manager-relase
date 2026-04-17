@@ -4,6 +4,15 @@
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
 
+## [1.6.1] - 2026-04-17
+
+### 🧰 Added / Dodano – Dual Repository Support / Obsługa Dual Repository
+- Git Repository Module / Moduł repozytoriów Git: Added a dedicated module for managing multiple repositories without replacing native VS Code Git features / Dodano dedykowany moduł do zarządzania repozytoriami, który nie zastępuje systemowej obsługi Git w VS Code.
+- Selective Deployment / Selektywne wysyłanie: Easily push selected files (via picker) to any external repository / Możliwość wysyłania wybranych plików (poprzez picker) do dowolnego zewnętrznego repozytorium.
+- Binary Distribution / Publikacja binariów: Streamlined workflow for keeping source code in a private repository while publishing specific assets (like binaries) to a public one / Usprawniony proces utrzymywania kodu źródłowego w prywatnym repozytorium przy jednoczesnej publikacji wybranych zasobów (np. plików binarnych) w repozytorium publicznym.
+
+---
+
 ## [1.5.5] - 2026-04-15
 
 ### 🛠️ Fixed / Naprawiono – Translation Fixes & Code Cleanup
