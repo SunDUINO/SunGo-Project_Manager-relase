@@ -40,7 +40,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#requirements-installation)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
-* [EN: What's New (v1.5.0)](#whats-new-v110)
+* [EN: What's New (v1.6.1)](#whats-new-v161)
 * [EN: What's New (v1.0.0)](#whats-new-v100)
 * [EN: What's New (v0.9.0)](#whats-new-v090)
 * [EN: Key Features](#key-features)
@@ -167,6 +167,13 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
 
 ---
+
+## 🚀 What's New (v1.6.1)
+
+### 🧰 Dual Repository Support
+I have added a Git repository management module. It does not replace the built-in VS Code Git features; instead, it allows you to push specific files—selected via a picker—to any external repository.
+
+This is especially useful when you maintain a private repository for your source code but want to publish specific assets (such as binaries) to a separate public repository.
 
 ## 🚀 What's New (v1.5.5)
 
@@ -440,7 +447,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguły-udev)
-* [PL: Co nowego (v1.5.0)](#co-nowego-v110)
+* [PL: Co nowego (v1.6.1)](#co-nowego-v161)
 * [PL: Co nowego (v1.0.0)](#co-nowego-v100)
 * [PL: Co nowego (v0.9.0)](#co-nowego-v090)
 * [PL: Kluczowe Funkcje](#kluczowe-funkcje)
@@ -566,6 +573,15 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ---
 
+## 🚀 Co nowego (v1.6.1)
+
+### 🧰 Dual Repository
+Dodałem moduł obsługi repozytoriów Git. Nie zastępuje on wbudowanej w VS Code obsługi systemów kontroli wersji, lecz dodaje możliwość wysyłania wybranych plików (za pomocą pickera) do dowolnego zewnętrznego repozytorium.
+
+Jest to szczególnie przydatne, gdy pracujesz w prywatnym repozytorium z kodem źródłowym, a chcesz publikować jedynie wybrane pliki (np. pliki binarne) w osobnym, publicznym repozytorium.
+
+---
+
 ## 🚀 Co nowego (v1.5.5)
 
 ### 🛠️ Poprawki tłumaczeń i czyszczenie kodu
@@ -580,6 +596,7 @@ Możesz teraz rozszerzać wbudowaną bibliotekę o własne wzorce kodu:
 * **Zarządzanie:** Pełna obsługa dodawania i usuwania własnych fragmentów kodu bezpośrednio z interfejsu.
 
 ---
+
 
 ## 🚀 Co nowego (v1.5.0)
 
