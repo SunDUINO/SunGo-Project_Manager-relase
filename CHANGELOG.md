@@ -3,6 +3,34 @@
 [EN] All notable changes to the "SunGo Project Manager" extension are documented in this file.  
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
+---
+
+## [1.8.3] - 2026-04-18
+
+### 🐹 Added / Dodano – Gopher Assistant Panel
+
+- **Gopher Assistant / Asystent Gopher:** A live animated Gopher panel now appears inside the SunGo Manager sidebar (click the ☀️ SunGo icon in the Activity Bar). The Gopher reacts in real time to what is happening in your project — no configuration required. / Animowany panel Gophera pojawia się teraz wewnątrz panelu SunGo Manager (kliknij ikonę ☀️ SunGo na pasku aktywności). Gopher reaguje w czasie rzeczywistym na to, co dzieje się w projekcie — bez konfiguracji.
+
+- **Reactive States / Stany reaktywne:** The Gopher switches between 8 animated states depending on the current pipeline event / Gopher przełącza się między 8 animowanymi stanami w zależności od aktualnego zdarzenia:
+
+  | State / Stan | Trigger / Wyzwalacz |
+  |---|---|
+  | 📖 **idle** | No activity – reading docs / Brak aktywności – czyta dokumentację |
+  | ⚙️ **building** | `go build` in progress / Trwa `go build` |
+  | 🚀 **running** | `go run` active / Aktywny `go run` |
+  | 🧪 **testing** | `go test` running / Trwa `go test` |
+  | 🔍 **go vet** | Static analysis in progress / Trwa analiza statyczna |
+  | 📝 **go fmt** | Code formatting / Formatowanie kodu |
+  | ❌ **error** | Compilation error detected / Wykryto błąd kompilacji |
+  | 🎉 **OK** | Build succeeded – confetti! / Build zakończony sukcesem – confetti! |
+
+- **Gopher Wisdom / Mądrości Gophera:** The speech bubble displays rotating Go tips in your VS Code language (EN/PL). Click the bubble or the **🐹 Gopher Wisdom** button for a new tip. / Bańka dymkowa wyświetla rotujące wskazówki Go w języku VS Code (EN/PL). Kliknij bańkę lub przycisk **🐹 Mądrości Gophera** po nową wskazówkę.
+
+- **Triple Click**  the Gopher within 2 seconds to trigger a surprise. / Kliknij Gophera 3 razy w ciągu 2 sekund, aby uruchomić niespodziankę. 🎊
+
+- **NLS Support / Obsługa NLS:** All panel labels, badges, and status messages fully translated to Polish and English. / Wszystkie etykiety, odznaki i komunikaty statusu w pełni przetłumaczone na język polski i angielski.
+
+---
 
 ## [1.6.2] - 2026-04-17
 

@@ -40,9 +40,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#requirements-installation)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
-* [EN: What's New (v1.6.1)](#whats-new-v161)
-* [EN: What's New (v1.0.0)](#whats-new-v100)
-* [EN: What's New (v0.9.0)](#whats-new-v090)
+* [EN: What's New (v1.8.3) – Gopher Assistant](#whats-new-v183--gopher-assistant)
 * [EN: Key Features](#key-features)
 * [PL: SunGo Project Manager](#pl-sungo-project-manager)
 
@@ -165,6 +163,44 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ This is a one-time setup. The rule persists after system reboots.  
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
+
+---
+
+## 🐹 What's New (v1.8.3) – Gopher Assistant
+
+The SunGo Manager sidebar now has a live companion. Click the **☀️ SunGo icon** in the VS Code Activity Bar to open the panel — the Gopher Assistant sits right below the project list.
+
+![Gopher Assistant](https://forum.lothar-team.pl//ext/dmzx/imageupload/img-files/48/f7258b8/6081905/d96b0debfe79558beff978af0298a0be.png)
+
+> 💡 **Tip:** You can drag the Gopher panel to the **right-side Secondary Sidebar** (where Copilot sits) for a permanent companion view. VS Code remembers the position between sessions.
+
+### How it works
+
+The Gopher reacts automatically — no setup needed. It watches your Go diagnostics and responds to every SunGo action:
+
+| State | When it appears |
+|---|---|
+| 📖 **Idle** – glasses on, reading a book | Default state, no active operation |
+| ⚙️ **Building** – wrench out, gear spinning | During `go build` |
+| 🚀 **Running** – laptop open, progress bar | During `go run` |
+| 🧪 **Testing** – focused, progress bar | During `go test` |
+| 🔍 **Go Vet** – glasses + spinning gear | During static analysis |
+| 📝 **Go Fmt** – calm, book open | During code formatting |
+| ❌ **Error** – tears, red X marks | Compilation error detected |
+| 🎉 **OK** – happy eyes, stars, confetti | Build succeeded! |
+
+### Interacting with the Gopher
+
+- **Click** the speech bubble or the **🐹 Gopher Wisdom** button → new Go tip in your language (EN/PL)
+- **Triple-click** the Gopher within 2 seconds ... suprised 
+
+### Moving the Gopher to the right side
+
+1. Open the SunGo panel (`☀️` icon in the Activity Bar)
+2. Right-click the **Gopher Assistant** section header
+3. Select **Move View** → **Secondary Side Bar**
+
+The Gopher will sit on the right permanently from that point on.
 
 ---
 
@@ -422,8 +458,6 @@ Copying, modifying, decompiling, or redistributing without the author's written 
 See the LICENSE file for full terms.
 
 ---
-
-
 ---
 
 # [PL] SunGo Project Manager
@@ -456,9 +490,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguły-udev)
-* [PL: Co nowego (v1.6.1)](#co-nowego-v161)
-* [PL: Co nowego (v1.0.0)](#co-nowego-v100)
-* [PL: Co nowego (v0.9.0)](#co-nowego-v090)
+* [PL: Co nowego w (v1.8.3)](## Co nowego (v1.8.3))
 * [PL: Kluczowe Funkcje](#kluczowe-funkcje)
 
 ---
@@ -579,6 +611,44 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+---
+
+## 🐹 Co nowego (v1.8.3) – Asystent Gopher
+
+Panel SunGo Manager ma teraz żywego towarzysza. Kliknij ikonę **☀️ SunGo** na pasku aktywności VS Code, aby otworzyć panel — Asystent Gopher siedzi tuż pod listą projektów.
+
+> 💡 **Wskazówka:** Panel Gophera możesz przeciągnąć na **prawy pasek boczny** (Secondary Sidebar — tam gdzie siedzi Copilot) dla stałego widoku towarzyszącego. VS Code zapamiętuje tę pozycję między sesjami.
+
+### Jak to działa
+
+Gopher reaguje automatycznie — bez żadnej konfiguracji. Obserwuje diagnostykę Go i odpowiada na każdą akcję SunGo:
+
+| Stan | Kiedy się pojawia |
+|---|---|
+| 📖 **Idle** – okulary, czyta książkę | Stan domyślny, brak aktywnej operacji |
+| ⚙️ **Budowanie** – klucz, wirująca zębatka | Podczas `go build` |
+| 🚀 **Uruchomiony** – laptop, pasek postępu | Podczas `go run` |
+| 🧪 **Testy** – skupiony, pasek postępu | Podczas `go test` |
+| 🔍 **Go Vet** – okulary + zębatka | Podczas analizy statycznej |
+| 📝 **Go Fmt** – spokojny, otwarta książka | Podczas formatowania kodu |
+| ❌ **Błąd** – łzy, czerwone X | Wykryto błąd kompilacji |
+| 🎉 **OK** – szczęśliwe oczy, gwiazdki, confetti | Build zakończony sukcesem! |
+
+### Interakcja z Gopherem
+
+- **Kliknij** bańkę dymkową lub przycisk **🐹 Mądrość Gophera** → nowa wskazówka Go w Twoim języku (EN/PL)
+- **Kliknij 3 razy** w ciągu 2 sekund ....
+
+### Przeniesienie Gophera na prawą stronę
+
+1. Otwórz panel SunGo (ikona `☀️` na pasku aktywności)
+2. Kliknij prawym przyciskiem nagłówek sekcji **Gopher Assistant**
+3. Wybierz **Move View** → **Secondary Side Bar**
+
+Od tego momentu Gopher siedzi po prawej stronie na stałe.
 
 ---
 
