@@ -5,6 +5,42 @@
 
 ---
 
+## [1.9.1] - 2026-04-19
+
+### ⭐ Added / Dodano – Favorite Projects / Ulubione projekty
+
+- **Favorite Projects / Ulubione projekty:** Pin any project to the top of the sidebar with a single click — a dedicated **★ FAVORITES** section appears above the project list and stays visible at all times. / Przypnij dowolny projekt na górę panelu bocznego jednym kliknięciem — dedykowana sekcja **★ ULUBIONE** pojawia się nad listą projektów i pozostaje widoczna zawsze.
+
+- **Inline Pin / Unpin Icons / Ikony Pin/Unpin przy projekcie:** Hover over any project in the tree to reveal a ⭐ pin icon. Hover over a favorite to reveal an unpin icon — no right-click required. / Najedź na projekt w drzewie, aby pokazać ikonkę ⭐ przypięcia. Najedź na ulubiony projekt, aby go odpiąć — bez konieczności prawego kliknięcia.
+
+- **Context Menu / Menu kontekstowe:** Right-click any project for **Pin to Favorites** / **Unpin from Favorites** options. / Kliknij prawym przyciskiem na projekt, aby wybrać **Przypnij do ulubionych** / **Odepnij z ulubionych**.
+
+- **No Duplicates / Bez duplikatów:** Pinned projects appear only in the ★ FAVORITES section and are automatically removed from the PROJECTS list below. / Przypięte projekty pojawiają się wyłącznie w sekcji ★ ULUBIONE i są automatycznie usuwane z listy PROJEKTY poniżej.
+
+- **Dashboard Integration / Integracja z Dashboard:** Favorite projects appear as golden ⭐ chips at the top of the Active Projects card in the Home panel, separated from the recent projects list. / Ulubione projekty pojawiają się jako złote chipy ⭐ na górze karty Active Projects w panelu Home, oddzielone od listy ostatnich projektów.
+
+- **Persistent / Trwałe:** Favorites survive VS Code restarts — stored in global extension state. / Ulubione przeżywają restart VS Code — przechowywane w globalnym stanie rozszerzenia.
+
+---
+
+### 📖 Added / Dodano – Go Doc Viewer
+
+- **Go Doc Viewer:** A rich, browser-style documentation panel for Go packages — accessible from the SunGo Tools panel. / Bogaty panel dokumentacji Go w stylu przeglądarki — dostępny z panelu SunGo Tools.
+
+- **Import Browser / Przeglądarka importów:** The sidebar automatically reads all `import` statements from the currently active `.go` file and displays them as a clickable list, split into **Standard Library** and **Third-party** sections. Click any package to instantly load its documentation. / Panel boczny automatycznie odczytuje wszystkie instrukcje `import` z aktywnego pliku `.go` i wyświetla je jako klikalną listę, podzieloną na sekcje **Biblioteka standardowa** i **Zewnętrzne pakiety**. Kliknij pakiet, aby natychmiast załadować jego dokumentację.
+
+- **Package Search / Wyszukiwarka pakietów:** Type any package name (e.g. `fmt`, `net/http`) or a `package.Symbol` pair (e.g. `sync.WaitGroup`) in the search box and press Enter or click **🔍 Doc**. / Wpisz nazwę pakietu (np. `fmt`, `net/http`) lub parę `pakiet.Symbol` (np. `sync.WaitGroup`) w pole wyszukiwania i naciśnij Enter lub kliknij **🔍 Docs**.
+
+- **Navigation History / Historia nawigacji:** Navigate through previously viewed packages using ← → buttons, just like a web browser. / Nawiguj przez wcześniej przeglądane pakiety za pomocą przycisków ← →, jak w przeglądarce internetowej.
+
+- **Syntax Highlighting / Kolorowanie składni:** Documentation output is syntax-highlighted — `func` in blue, `type` in gold, `const` in amber, `var` in pink. / Dokumentacja jest kolorowana składniowo — `func` na niebiesko, `type` złoto, `const` bursztynowo, `var` różowo.
+
+- **pkg.go.dev Integration / Integracja z pkg.go.dev:** Click the 🌐 button to open the current package directly on `pkg.go.dev` in your browser. / Kliknij przycisk 🌐, aby otworzyć aktualny pakiet bezpośrednio na `pkg.go.dev` w przeglądarce.
+
+- **NLS Support / Obsługa NLS:** All labels and messages fully translated to Polish and English. / Wszystkie etykiety i komunikaty w pełni przetłumaczone na język polski i angielski.
+
+---
+
 ## [1.8.3] - 2026-04-18
 
 ### 🐹 Added / Dodano – Gopher Assistant Panel

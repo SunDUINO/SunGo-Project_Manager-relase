@@ -40,6 +40,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#requirements-installation)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v1.9.1) – Favorites & Go Doc Viewer](#whats-new-v191--favorite-projects--go-doc-viewer)
 * [EN: What's New (v1.8.3) – Gopher Assistant](#whats-new-v183--gopher-assistant)
 * [EN: Key Features](#key-features)
 * [PL: SunGo Project Manager](#pl-sungo-project-manager)
@@ -163,6 +164,41 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ This is a one-time setup. The rule persists after system reboots.  
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
+
+---
+
+## ⭐ What's New (v1.9.1) – Favorite Projects & Go Doc Viewer
+
+### ⭐ Favorite Projects
+
+Pin your most-used projects to the top of the SunGo sidebar for instant access — no more scrolling through long project lists.
+
+**How to use:**
+
+- **Hover** over any project in the tree → click the ⭐ icon to pin it
+- **Hover** over a favorite → click the unpin icon to remove it
+- Or **right-click** any project → **Pin to Favorites** / **Unpin from Favorites**
+
+Pinned projects appear in a dedicated **★ FAVORITES** section at the top of the sidebar and as golden chips in the Home Dashboard. They are automatically hidden from the main project list to avoid duplicates.
+
+Favorites are stored permanently in the extension's global state and survive VS Code restarts.
+
+---
+
+### 📖 Go Doc Viewer
+
+A full-featured Go documentation browser built directly into VS Code — accessible from the **SunGo Tools** panel (click `$(book)` Go Doc Viewer).
+
+| Feature | Description |
+|---|---|
+| **Import Browser** | Automatically reads `import` statements from your active `.go` file and lists them as clickable links |
+| **Standard / Third-party** | Imports are split into two groups for quick scanning |
+| **Package Search** | Type `fmt`, `net/http`, or `sync.WaitGroup` — press Enter to load docs instantly |
+| **Navigation** | ← → buttons for browsing history, just like a web browser |
+| **Syntax Highlighting** | `func` in blue · `type` in gold · `const` in amber · `var` in pink |
+| **pkg.go.dev** | 🌐 button opens the current package on `pkg.go.dev` |
+
+> 💡 **Tip:** Click **↺ Refresh** in the topbar after switching to a different `.go` file to update the import list.
 
 ---
 
@@ -490,9 +526,9 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguły-udev)
-* [PL: Co nowego w (v1.8.3)](## Co nowego (v1.8.3))
+* [PL: Co nowego (v1.9.1) – Ulubione projekty i Go Doc Viewer](#-co-nowego-v191--ulubione-projekty-i-przeglądarka-go-doc)
+* [PL: Co nowego (v1.8.3) – Asystent Gopher](#-co-nowego-v183--asystent-gopher)
 * [PL: Kluczowe Funkcje](#kluczowe-funkcje)
-
 ---
 
 ## 📦 Wymagania i Instalacja
@@ -613,7 +649,40 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
 
 ---
+## ⭐ Co nowego (v1.9.1) – Ulubione projekty i Przeglądarka Go Doc
 
+### ⭐ Ulubione projekty
+
+Przypinaj najczęściej używane projekty na górę panelu SunGo dla natychmiastowego dostępu — koniec ze scrollowaniem przez długie listy projektów.
+
+**Jak używać:**
+
+- **Najedź** na projekt w drzewie → kliknij ikonkę ⭐, aby przypiąć
+- **Najedź** na ulubiony projekt → kliknij ikonkę odpięcia, aby usunąć z ulubionych
+- Lub **kliknij prawym przyciskiem** → **Przypnij do ulubionych** / **Odepnij z ulubionych**
+
+Przypięte projekty pojawiają się w dedykowanej sekcji **★ ULUBIONE** na górze panelu bocznego oraz jako złote chipy w Dashboardzie Home. Automatycznie znikają z głównej listy projektów, aby uniknąć duplikatów.
+
+Ulubione są przechowywane w globalnym stanie rozszerzenia i przeżywają restart VS Code.
+
+---
+
+### 📖 Przeglądarka Go Doc
+
+Pełnoprawna przeglądarka dokumentacji Go wbudowana bezpośrednio w VS Code — dostępna z panelu **SunGo Tools** (kliknij `$(book)` Go Doc Viewer).
+
+| Funkcja | Opis |
+|---|---|
+| **Przeglądarka importów** | Automatycznie odczytuje instrukcje `import` z aktywnego pliku `.go` i wyświetla je jako klikalne linki |
+| **Standard / Zewnętrzne** | Importy podzielone na dwie grupy dla szybkiego przeglądu |
+| **Wyszukiwarka pakietów** | Wpisz `fmt`, `net/http` lub `sync.WaitGroup` — naciśnij Enter, aby natychmiast załadować dokumentację |
+| **Nawigacja** | Przyciski ← → do przeglądania historii, jak w przeglądarce internetowej |
+| **Kolorowanie składni** | `func` niebiesko · `type` złoto · `const` bursztynowo · `var` różowo |
+| **pkg.go.dev** | Przycisk 🌐 otwiera aktualny pakiet na `pkg.go.dev` |
+
+> 💡 **Wskazówka:** Kliknij **↺ Odśwież** na górnym pasku po przełączeniu na inny plik `.go`, aby zaktualizować listę importów.
+
+---
 ---
 
 ## 🐹 Co nowego (v1.8.3) – Asystent Gopher
