@@ -40,6 +40,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#requirements-installation)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v2.0.0) - What's New (v2.0.0) – Github Templates](what's-new-v200-–-github-templates)
 * [EN: What's New (v1.9.1) – Favorites & Go Doc Viewer](#whats-new-v191--favorite-projects--go-doc-viewer)
 * [EN: What's New (v1.8.3) – Gopher Assistant](#whats-new-v183--gopher-assistant)
 * [EN: Key Features](#key-features)
@@ -164,6 +165,29 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ This is a one-time setup. The rule persists after system reboots.  
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
+
+---
+
+## ⭐ What's New (v2.0.0) – Github Templates 
+
+### 📦 Project Templates from Git (GitHub Templates)
+Instantly bootstrap your new Go projects using remote Git repositories. This feature is integrated into the Project Creator and the SunGo Tools sidebar.
+
+**How it works:**
+
+**Select Source:** Click the "📦 From GitHub Template" button in the Project Creator or select "Project from GitHub" from the SunGo Tools menu.
+
+**Project Name:** Enter your project name in the creator's side panel.
+
+**Choose a Template: * SunGo Templates:** The extension fetches a curated list via GitHub API and displays it as tiles (e.g., Console CLI, Raylib 3D Scene, Gin REST API, Fyne Desktop App).
+
+**From URL:** Use the From URL tab to provide a custom source. Supports user/repo shorthand, full HTTPS, and SSH links.
+
+**Automation:** Upon clicking Create Project, the extension:
+
+- Performs a git clone --depth=1 for maximum speed.
+- Automatically removes the .git/ folder, providing a clean slate for your own version control.
+- Deploys the template structure directly into your workspace.
 
 ---
 
@@ -526,6 +550,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguły-udev)
+* [PL: Co nowego (v2.0.0) - Github Templates](#-co-nowego-v200-–-github-templates)
 * [PL: Co nowego (v1.9.1) – Ulubione projekty i Go Doc Viewer](#-co-nowego-v191--ulubione-projekty-i-przeglądarka-go-doc)
 * [PL: Co nowego (v1.8.3) – Asystent Gopher](#-co-nowego-v183--asystent-gopher)
 * [PL: Kluczowe Funkcje](#kluczowe-funkcje)
@@ -647,6 +672,25 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+
+---
+## ⭐ Co nowego (v2.0.0) – Github templates
+###  📦 Tworzenie projektów z szablonów Git (GitHub Templates)
+Funkcja umożliwia błyskawiczne rozpoczęcie pracy nad nowym projektem w oparciu o gotowe repozytoria Git. Dostępna bezpośrednio z Creatora Projektów oraz narzędzi w panelu SunGo Tools.
+
+**Jak to działa:**
+
+**Wybierz źródło:** W kreatorze projektów kliknij przycisk "📦 From GitHub Template" lub wybierz "Project from GitHub" z menu SunGo Tools po lewej stronie.
+**Nazwij projekt:** Wpisz nazwę projektu w panelu bocznym kreatora.
+**Wybierz szablon:** SunGo Templates: Rozszerzenie pobiera listę z GitHub API i wyświetla ją w formie czytelnych kafelków (np. Console CLI, Raylib 3D Scene, Gin REST API, Fyne Desktop App).
+**From URL:** Możesz podać własny adres w polu Custom URL. Obsługiwane są formaty użytkownik/repo, pełne linki HTTPS oraz SSH.
+
+**Automatyzacja:** Po kliknięciu Create Project, rozszerzenie:
+
+- Wykonuje git clone --depth=1 (szybkie pobranie najnowszej migawki).
+- Automatycznie usuwa folder .git/, abyś otrzymał "czysty" projekt (No .git history – clean project).
+- Kopiuje pliki bezpośrednio do Twojego workspace, gotowe do pracy.
 
 ---
 ## ⭐ Co nowego (v1.9.1) – Ulubione projekty i Przeglądarka Go Doc

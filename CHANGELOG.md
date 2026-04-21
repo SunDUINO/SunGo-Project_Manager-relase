@@ -3,6 +3,18 @@
 [EN] All notable changes to the "SunGo Project Manager" extension are documented in this file.  
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
+
+[2.0.0] - 2026-04-21
+
+### ⭐ Added / Dodano – Project Templates (Git) / Szablony projektów (Git)
+- **GitHub Template Integration:** - Create new projects instantly using remote Git templates. High-speed cloning directly into your workspace. / Błyskawicznie twórz nowe projekty, korzystając ze zdalnych szablonów Git. Szybkie klonowanie bezpośrednio do Twojego obszaru roboczego.
+
+- **Official "sungo_templates":** Native support for the curated sungo_templates repository, providing a set of pre-configured, optimized Go environments. / Natywne wsparcie dla wyselekcjonowanego repozytorium sungo_templates, dostarczającego zestaw wstępnie skonfigurowanych i zoptymalizowanych środowisk Go.
+
+- **Custom Template URLs:** Use any public or private Git repository as a base for your project. Simply provide the repository URL to pull the structure you need. / Użyj dowolnego publicznego lub prywatnego repozytorium Git jako bazy dla swojego projektu. Po prostu podaj adres URL, aby pobrać potrzebną strukturę.
+
+- **Streamlined Workflow:** Templates are automatically initialized and ready for development immediately after downloading, bypassing manual boilerplate setup. / Szablony są automatycznie inicjalizowane i gotowe do pracy natychmiast po pobraniu, co pozwala uniknąć ręcznego ustawiania podstawowej struktury plików.
+
 ---
 
 ## [1.9.1] - 2026-04-19
