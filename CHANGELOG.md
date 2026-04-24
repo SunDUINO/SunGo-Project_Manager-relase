@@ -4,6 +4,30 @@
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
 
+---
+
+[2.1.0] - 2026-04-21
+
+### 🔍 Added / Dodano – Code Review Panel
+
+- **Code Review Panel:** A comprehensive static code analysis panel accessible from the SunGo Tools panel. / Kompleksowy panel statycznej analizy kodu dostępny z panelu SunGo Tools.
+
+- **Multi-Tool Support:** Runs three popular Go analysis tools in parallel or individually: / Obsługa trzech popularnych narzędzi do analizy Go uruchamianych równolegle lub indywidualnie:
+  - **go vet** – Go's built-in static analysis / wbudowana analiza statyczna Go
+  - **staticcheck** – Advanced static analysis with 100+ checks / zaawansowana analiza statyczna z ponad 100 sprawdzeniami
+  - **golangci-lint** – Fast linter aggregator / szybki agregator linterów
+
+- **Real-time Tool Status:** Visual indicators show which tools are available (green dot) or not installed (gray). / Wizualne wskaźniki pokazujące dostępność narzędzi (zielona kropka) lub brak instalacji (szare).
+
+- **Interactive Results:** Issues are displayed in a scrollable list with severity icons (❌ errors, ⚠️ warnings, ℹ️ info). Click any issue to jump directly to the file and line. / Interaktywna lista wyników z ikonami ważności. Kliknij problem, aby przejść bezpośrednio do pliku i linii.
+
+- **Filtering & Search:** Filter issues by severity or search by file/message content. / Filtrowanie problemów według ważności lub wyszukiwanie po pliku/treści wiadomości.
+
+- **Gopher Integration:** The Gopher assistant reacts to analysis results – confetti 🎉 when no issues found, sad state 😢 when errors are detected. / Asystent Gopher reaguje na wyniki analizy – confetti 🎉 gdy brak problemów, smutny stan 😢 gdy wykryto błędy.
+
+- **NLS Support / Obsługa NLS:** All labels, buttons, and messages fully translated to Polish and English. / Wszystkie etykiety, przyciski i komunikaty w pełni przetłumaczone na język polski i angielski.
+
+
 [2.0.0] - 2026-04-21
 
 ### ⭐ Added / Dodano – Project Templates (Git) / Szablony projektów (Git)
