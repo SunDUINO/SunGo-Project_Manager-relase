@@ -6,6 +6,22 @@
 
 ---
 
+[2.3.0] - 2026-04-25
+
+### 🚀 Enhanced / Udoskonalono – Code Review & Gopher Integration
+
+- **Smart Suggestions / Inteligentne podpowiedzi:** The Code Review panel now provides actionable hints and common solutions for issues detected by static analysis tools. / Panel Code Review wyświetla teraz praktyczne wskazówki i typowe rozwiązania dla problemów wykrytych przez narzędzia analizy statycznej.
+
+- **Gopher Assistant Reaction / Integracja z Gopherem:** The Gopher assistant is now integrated with `staticcheck`. It dynamically reacts to detected errors and warnings, offering contextual support and refactoring advice. / Asystent Gopher został zintegrowany z `staticcheck`. Dynamicznie reaguje na błędy i ostrzeżenia, oferując kontekstowe wsparcie i porady dotyczące refaktoryzacji.
+
+- **SunGo Pad Visual Status / Statusy SunGo Pad:** Integrated analysis results with SunGo Pad hardware. Statuses are now represented by intuitive color coding on the device, providing immediate physical feedback on code health. / Zintegrowano wyniki analizy z urządzeniem SunGo Pad. Statusy są teraz reprezentowane przez intuicyjne kolory na urządzeniu, zapewniając natychmiastowy fizyczny feedback o stanie kodu.
+
+- **Streamlined Tools / Uproszczone narzędzia:** Removed `go vet` from the SunGo Tools panel to eliminate redundancy (its checks are covered by advanced linters) and improve performance. / Usunięto `go vet` z panelu SunGo Tools, aby wyeliminować powtarzające się wyniki (jego funkcje są pokrywane przez zaawansowane lintery) i poprawić wydajność.
+
+- **UI Refinement / Odświeżenie UI:** Updated the Code Review interface to support new status indicators and improved readability of tool suggestions. / Odświeżono interfejs Code Review, wprowadzając nowe wskaźniki statusu oraz poprawiając czytelność sugestii narzędziowych.
+
+---
+
 [2.1.0] - 2026-04-21
 
 ### 🔍 Added / Dodano – Code Review Panel
