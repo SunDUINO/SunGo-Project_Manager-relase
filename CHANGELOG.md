@@ -3,6 +3,15 @@
 [EN] All notable changes to the "SunGo Project Manager" extension are documented in this file.  
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
+---
+
+[2.3.5] - 2026-04-25
+
+🚀 Enhanced / Udoskonalono – Gopher Visibility & Code Health
+Gopher Interactive Alerts / Interaktywne alerty Gophera: Gopher now detects Code Review errors in real-time and presents them directly in a speech bubble for immediate visibility. / Gopher wykrywa teraz błędy z Code Review w czasie rzeczywistym i prezentuje je bezpośrednio w dymku, zapewniając ich natychmiastową widoczność.
+
+Code Cleanliness Insights / Wskaźnik czystości kodu: The assistant now informs you via a speech bubble about the overall cleanliness and health of your code based on static analysis. / Asystent informuje teraz w dymku o ogólnej czystości i kondycji kodu na podstawie analizy statycznej.
+
 
 ---
 
