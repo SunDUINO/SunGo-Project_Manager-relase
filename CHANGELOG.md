@@ -12,6 +12,17 @@ Gopher Interactive Alerts / Interaktywne alerty Gophera: Gopher now detects Code
 
 Code Cleanliness Insights / Wskaźnik czystości kodu: The assistant now informs you via a speech bubble about the overall cleanliness and health of your code based on static analysis. / Asystent informuje teraz w dymku o ogólnej czystości i kondycji kodu na podstawie analizy statycznej.
 
+---
+
+[2.3.6] - 2026-04-26
+
+### 🚀 Visual Identity & Navigation / Identyfikacja wizualna i nawigacja
+
+- **Dynamic Brand Banner / Dynamiczny baner marki:** Integrated a new SVG-based SunGo logo with a smooth hover animation. The sun rotates interactively, enhancing the extension's visual experience. / Zintegrowano nowe logo SunGo oparte na formacie SVG z płynną animacją po najechaniu kursorem. Słońce obraca się interaktywnie, podnosząc estetykę wizualną rozszerzenia.
+
+- **Quick Access Resources / Skróty do zasobów:** Added a centralized navigation hub within the logo view, providing one-click access to WikiDOC, the Lothar TeaM forum, and the official GitHub repository. / Dodano centrum nawigacji w widoku logo, zapewniające dostęp jednym kliknięciem do WikiDOC, forum Lothar TeaM oraz oficjalnego repozytorium GitHub.
+
+- **Refined Layout Symmetry / Poprawiona symetria układu:** Optimized the sidebar interface with a centered, minimalist link structure for better readability and professional look. / Zoptymalizowano interfejs paska bocznego poprzez wyśrodkowaną, minimalistyczną strukturę linków, zapewniając lepszą czytelność i profesjonalny wygląd.
 
 ---
 
