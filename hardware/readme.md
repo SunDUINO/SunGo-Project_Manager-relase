@@ -1,6 +1,6 @@
 # [BUILD] SunGo MacroPAD — Jak zbudować własny pad 3x3 z RGB
 
-![SunGO MacroPAD v1](image/MacroPADv1.jpg)
+![SunGO MacroPAD v1](../image/MacroPADv1.jpg)
 
 Poniżej znajduje się kompletny opis dla osób chcących zbudować własny egzemplarz MacroPADa. Firmware jest już w wersji stabilnej i w pełni współpracuje z dedykowaną wtyczką do **VSCode**, więc możecie śmiało przystępować do prac.
 
