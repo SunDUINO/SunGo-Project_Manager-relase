@@ -1,6 +1,6 @@
 # [BUILD] SunGo MacroPAD v2 — 
 
-![SunGO MacroPAD v1](../image/MacroPADv2.png)
+![MacroPAD v2](../../image/MacroPADv2.png)
 
 Jak zbudować własny pad 3x3 + 3 z RGB 
 dwoma encoderami i LCD 240x240 , jest to rozwiniecie poprzedniej wersji v1. 
