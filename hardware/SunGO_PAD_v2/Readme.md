@@ -1,7 +1,7 @@
-# [BUILD] SunGo MacroPAD — 
+# [BUILD] SunGo MacroPAD v2 — 
 
 Jak zbudować własny pad 3x3 + 3 z RGB 
-dwoma encoderami i LCD 240x240 
+dwoma encoderami i LCD 240x240 , jest to rozwiniecie poprzedniej wersji v1. 
 
 Poniżej znajduje się kompletny opis dla osób chcących zbudować własny egzemplarz MacroPADa. Firmware jest już w wersji stabilnej i w pełni współpracuje z dedykowaną wtyczką do **VSCode**, więc możecie śmiało przystępować do prac.
 
