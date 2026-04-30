@@ -46,7 +46,13 @@ Przełączniki pracują w układzie **matrycy 3x3** w trybie **Direct** ze wspó
 | **ENC0** | GPIO14 |
 | **ENC1** | GPIO15 |
 
-
+## Enkodery:
+| Enkoder | Pin | Pin GPIO |
+| :--- | :--- | :--- |
+| **ENC0** | A | GPIO22 |
+|          | B | GPIO24 |
+| **ENC1** | A | GPIO23 |
+|          | B | GPIO25 |
 ---
 
 ## 🌈 Podłączenie diod WS2812B (RGB)
@@ -55,11 +61,11 @@ Diody połączone są szeregowo w układzie typu **"snake" (wąż)**. Oznacza to
 
 ### Schemat połączenia diod:
 ```text
-LED0 (SW1) ──► LED1 (SW2) ──► LED2 (SW3)
-                                 │
-LED5 (SW4) ◄── LED4 (SW5) ◄── LED3 (SW6)
-  │
-LED6 (SW7) ──► LED7 (SW8) ──► LED8 (SW9)
+LED0 (SW1) ──► LED1 (SW2) ──► LED2 (SW3)    | ──►LED9 (SW10) ──► LED10 (SW11) ──► LED11 (SW12)
+                                 │          |
+LED5 (SW4) ◄── LED4 (SW5) ◄── LED3 (SW6)    |
+  │                                         |
+LED6 (SW7) ──► LED7 (SW8) ──► LED8 (SW9) ──►|  
 ```
 
 ### Pin danych (DIN): Podłączony do GPIO16.
