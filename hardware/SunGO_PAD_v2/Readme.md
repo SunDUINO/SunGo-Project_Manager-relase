@@ -87,6 +87,24 @@ LED6 (SW7) ──► LED7 (SW8) ──► LED8 (SW9) ──►|
 
 ---
 
+## UWAGA:  SunGo MacroPAD II wymaga najnowszej wersji wtyczki SunGO Project Manager
+-- od wersji v2.3.7 SunGO Project Manager - Wprowadziłem rozpoznawanie hardware
+-- firmware 5.0 dla SunGO MacroPAD II  nie działa z wcześniejszymi wersjami wtyczki.
+
+<img width="464" height="78" alt="Zrzut ekranu 2026-04-30 213136" src="https://github.com/user-attachments/assets/9cfe653e-23e7-4937-9ab5-f7b107e89c4a" />
+
+
+Rozpoznawanie hardware we wtyczce jest związane z rozbudową panelu konfiguracji MacroPAD,a  w zwiazku z nowymi funkcjami
+Nowy panel Konfiguracji będzie dostępny we wtyczce niebawem. Na chwilę obecną w testowym firmware MacroPAD zachował fukcjonalność 
+wersji 1 z dodatkową wizualizacją na LCD 
+
+<img width="718" height="375" alt="Zrzut ekranu 2026-04-28 214445" src="https://github.com/user-attachments/assets/be5b7a7a-3c1b-4587-a19a-3aef516b25b9" />
+
+<img width="800" height="600" alt="101af0ae5a8ebf573c19cf5da10ae5aa" src="https://github.com/user-attachments/assets/60a1e979-1cd1-4137-9082-caa80c459c55" />
+
+
+---
+   
 ## 💾 Oprogramowanie i konfiguracja
 
 Firmware dla Macropada V2  bedzie dostepne niebawem ....
