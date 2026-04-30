@@ -5,12 +5,17 @@
 
 ---
 
-[2.3.5] - 2026-04-25
+### [2.3.7] - 2026-04-30
 
-🚀 Enhanced / Udoskonalono – Gopher Visibility & Code Health
-Gopher Interactive Alerts / Interaktywne alerty Gophera: Gopher now detects Code Review errors in real-time and presents them directly in a speech bubble for immediate visibility. / Gopher wykrywa teraz błędy z Code Review w czasie rzeczywistym i prezentuje je bezpośrednio w dymku, zapewniając ich natychmiastową widoczność.
+### 🛠️ Hardware Intelligence & Optimization / Inteligencja sprzętowa i optymalizacja
 
-Code Cleanliness Insights / Wskaźnik czystości kodu: The assistant now informs you via a speech bubble about the overall cleanliness and health of your code based on static analysis. / Asystent informuje teraz w dymku o ogólnej czystości i kondycji kodu na podstawie analizy statycznej.
+- **Advanced Device Detection / Zaawansowane wykrywanie urządzeń:** Implemented a robust version recognition system for SunGo MacroPAD series. The extension now automatically distinguishes between **v1 (fw.4.0)** and the new **MacroPAD II** by analyzing PIDs and Serial Numbers. / Wprowadzono inteligentny system rozpoznawania wersji SunGo MacroPAD. Rozszerzenie automatycznie rozróżnia model **v1 (fw.4.0)** od nowego **MacroPAD II** na podstawie analizy identyfikatorów PID oraz numerów seryjnych.
+
+- **Dynamic Connection Messaging / Dynamiczne komunikaty połączenia:** Updated the localization engine to provide version-specific welcome messages. Users are now greeted with precise hardware information upon connection. / Zaktualizowano silnik lokalizacji, aby wyświetlać komunikaty powitalne dopasowane do konkretnej wersji urządzenia. Użytkownicy otrzymują teraz precyzyjną informację o modelu sprzętu tuż po jego podłączeniu.
+
+- **Code Refactoring & Stability / Refaktoryzacja i stabilność kodu:** Optimized the HID polling logic and improved conditional hardware checks to prevent false-positive detection. Cleaned up the core communication class for better performance. / Zoptymalizowano logikę odpytywania HID oraz poprawiono warunkowe sprawdzanie sprzętu, eliminując błędne wykrycia. Przeprowadzono refaktoryzację głównej klasy komunikacyjnej, zwiększając wydajność działania.
+
+- **Path Handling Refinement / Optymalizacja obsługi ścieżek:** Improved the automated shortcut creation process for Windows and Linux, ensuring smoother integration with the system's PATH environment. / Udoskonalono proces automatycznego tworzenia skrótów dla systemów Windows i Linux, zapewniając lepszą integrację ze zmiennymi środowiskowymi PATH.
 
 ---
 
@@ -23,6 +28,15 @@ Code Cleanliness Insights / Wskaźnik czystości kodu: The assistant now informs
 - **Quick Access Resources / Skróty do zasobów:** Added a centralized navigation hub within the logo view, providing one-click access to WikiDOC, the Lothar TeaM forum, and the official GitHub repository. / Dodano centrum nawigacji w widoku logo, zapewniające dostęp jednym kliknięciem do WikiDOC, forum Lothar TeaM oraz oficjalnego repozytorium GitHub.
 
 - **Refined Layout Symmetry / Poprawiona symetria układu:** Optimized the sidebar interface with a centered, minimalist link structure for better readability and professional look. / Zoptymalizowano interfejs paska bocznego poprzez wyśrodkowaną, minimalistyczną strukturę linków, zapewniając lepszą czytelność i profesjonalny wygląd.
+
+---
+
+[2.3.5] - 2026-04-25
+
+🚀 Enhanced / Udoskonalono – Gopher Visibility & Code Health
+Gopher Interactive Alerts / Interaktywne alerty Gophera: Gopher now detects Code Review errors in real-time and presents them directly in a speech bubble for immediate visibility. / Gopher wykrywa teraz błędy z Code Review w czasie rzeczywistym i prezentuje je bezpośrednio w dymku, zapewniając ich natychmiastową widoczność.
+
+Code Cleanliness Insights / Wskaźnik czystości kodu: The assistant now informs you via a speech bubble about the overall cleanliness and health of your code based on static analysis. / Asystent informuje teraz w dymku o ogólnej czystości i kondycji kodu na podstawie analizy statycznej.
 
 ---
 
