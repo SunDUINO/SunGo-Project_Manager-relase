@@ -20,6 +20,20 @@ Poniżej znajduje się kompletny opis dla osób chcących zbudować własny egze
 * **Obudowa:** Wydruk 3D. W projekcie wykorzystano model: [SunGo MacroPAD na MakerWorld](https://makerworld.com/pl/models/109775#profileId-1092486).
 
 ---
+## Pimeroni PGA2040
+
+<img width="674" height="664" alt="i-pimoroni-pga2040-8mb-zgodny-z-raspberry-pi-pico" src="https://github.com/user-attachments/assets/bd0e7812-0487-43de-95e1-b3b2495c350a" />
+
+### Pinout:
+
+<img width="764" height="496" alt="pga2040_1024x1024" src="https://github.com/user-attachments/assets/42eca50e-2e6d-4408-af02-bb190fc5321f" />
+
+--- 
+
+## Gniazdo USB C 
+
+<img width="437" height="245" alt="2rbsA" src="https://github.com/user-attachments/assets/65e7cd1b-3dba-467c-b122-c32c0802ff01" />
+przydatne dla płytek pimeroni pga.
 
 ## 🔧 Podłączenie przełączników
 
