@@ -182,7 +182,7 @@ A new version of the physical SunGO PAD is currently under development. This rev
 
 * **Status:** Hardware is in the preparation/prototype phase.
 * **Testing Firmware:** Experimental firmware for the new revision is available on GitHub Hardware section.
-    * 🔗 [SunGO PAD v2 – Testing Firmware](https://github.com/SunDUINO/SunGo-Project_Manager-relase/hardware/SunGO_PAD_v2)
+    * 🔗 [SunGO PAD v2 – Testing Firmware](https://github.com/SunDUINO/SunGo-Project_Manager-relase/tree/main/hardware/SunGO_PAD_v2)
   
 
 ### 🎛️ Intelligent Hardware Detection
@@ -789,7 +789,7 @@ Nowa wersja fizycznego kontrolera SunGO PAD jest obecnie w fazie opracowywania. 
 
 * **Status:** Sprzęt jest w fazie przygotowania/prototypowania.
 * **Firmware Testowy:** Eksperymentalne oprogramowanie dla nowej rewizji jest dostępne na GitHubie.
-    * 🔗 [SunGO PAD v2 – Firmware Testowy](https://github.com/SunDUINO/SunGo-Project_Manager-relase/)
+    * 🔗 [SunGO PAD v2 – Firmware Testowy](https://github.com/SunDUINO/SunGo-Project_Manager-relase/tree/main/hardware/SunGO_PAD_v2)
  
 
 
