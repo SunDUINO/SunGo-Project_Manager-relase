@@ -40,6 +40,8 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#requirements-installation)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v2.3.8) – SunGO PAD v2 & Adaptive UI](#-whats-new-v238--sungo-pad-v2--adaptive-ui)
+* [EN: What's New (v2.3.0) – Enhanced Code Insights](#whats-new-v230--enhanced-code-insights)
 * [EN: What's New (v2.1.0) – Code Review Panel](#whats-new-v210-–-code-review-panel)
 * [EN: What's New (v2.0.0) – Github Templates](#whats-new-v200-–-github-templates)
 * [EN: What's New (v1.9.1) – Favorites & Go Doc Viewer](#whats-new-v191--favorite-projects--go-doc-viewer)
@@ -168,6 +170,54 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
 
 ---
+
+## ⭐ What's New (v2.3.8) – SunGO PAD v2 & Adaptive UI
+
+### 🛠️ Hardware Revision 2.0 (Work in Progress)
+A new version of the physical SunGO PAD is currently under development. This revision expands the interface with additional macro keys and rotary encoders for even better workflow control[cite: 8].
+
+* **Status:** Hardware is in the preparation/prototype phase[cite: 8].
+* **Testing Firmware:** Experimental firmware for the new revision is available on GitHub Hardware section.
+    * 🔗 [SunGO PAD v2 – Testing Firmware](https://github.com/SunDUINO/SunGo-Project_Manager-relase)[cite: 8, 9]
+
+### 🎛️ Intelligent Hardware Detection
+The configuration panel now automatically detects the connected hardware version and adjusts the UI layout accordingly[cite: 8].
+
+* **SunGO PAD v1:** Classic 3x3 layout[cite: 8].
+* **SunGO PAD v2:** Expanded layout with support for keys 10, 11, 12 and visual indicators[cite: 8].
+
+<p align="center">
+  <img src="IMG_20260430_192849293_2.jpg" width="600" alt="SunGO PAD v2 Prototype">
+  <br>
+  <em>SunGO PAD v2 Prototype – New keys and encoders (Early development stage).</em>
+</p>
+
+<p align="center">
+  <img src="Zrzut ekranu 2026-05-01 220343.png" width="400" alt="Config UI v1">
+  <img src="Zrzut ekranu 2026-05-01 220530.png" width="400" alt="Config UI v2">
+  <br>
+  <em>Adaptive UI: Standard 9-key configuration (left) vs. New 12-key configuration (right).</em>
+</p>
+
+---
+
+## ⭐ What's New (v2.3.0) – Enhanced Code Insights
+
+### 🔍 Enhanced Code Review & Integration
+
+Version 2.3.0 focuses on deeper integration and smarter feedback. The Code Review panel is now more than just a list of issues – it's an interactive learning tool connected to your Gopher Assistant.
+
+**Key Updates:**
+- 💡 **Smart Suggestions** – Added built-in hints and solutions for common issues detected by analysis tools.
+- 🤖 **Gopher Assistant Integration** – Your Gopher now reacts dynamically to `staticcheck` results, offering contextual help for specific errors.
+- 📋 **SunGo Pad Sync** – Full integration with SunGo Pad; analysis statuses are now visually represented with intuitive color coding.
+- 🧹 **Streamlined Panel** – Removed `go vet` to reduce redundancy and focus on more advanced analysis tools (`staticcheck`, `golangci-lint`).
+
+> 💡 **Tip:** Click on a `staticcheck` error to see how the Gopher Assistant can help you refactor your code!
+>
+
+---
+
 
 ## ⭐ What's New (v2.1.0) – Code Review Panel
 
@@ -600,6 +650,8 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguły-udev)
+* [PL: Co nowego (v2.3.8) – SunGO PAD v2 i Adaptacyjne UI](#-co-nowego-v238--sungo-pad-v2-i-adaptacyjne-ui)
+* [PL: Co nowego (v2.3.0) – Udoskonalone analizy kodu](#co-nowego-v230--udoskonalone-analizy-kodu)
 * [PL: Co nowego (v2.1.0) – Panel Code Review](#co-nowego-v210-–-panel-code-review)
 * [PL: Co nowego (v2.0.0) – Github Templates](#co-nowego-v200-–-github-templates)
 * [PL: Co nowego (v1.9.1) – Ulubione projekty i Go Doc Viewer](#co-nowego-v191--ulubione-projekty-i-przeglądarka-go-doc)
@@ -725,8 +777,55 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
 
+---
+
+## ⭐ Co nowego (v2.3.8) – SunGO PAD v2 i Adaptacyjne UI
+
+### 🛠️ Rewizja Sprzętu 2.0 (W fazie przygotowania)
+Nowa wersja fizycznego kontrolera SunGO PAD jest obecnie w fazie opracowywania. Ta rewizja rozszerza interfejs o dodatkowe klawisze makr oraz enkodery obrotowe dla jeszcze lepszej kontroli pracy[cite: 8].
+
+* **Status:** Sprzęt jest w fazie przygotowania/prototypowania[cite: 8].
+* **Firmware Testowy:** Eksperymentalne oprogramowanie dla nowej rewizji jest dostępne na GitHubie.
+    * 🔗 [SunGO PAD v2 – Firmware Testowy](https://github.com/SunDUINO/SunGo-Project_Manager-relase)[cite: 8, 9]
+
+### 🎛️ Inteligentne Wykrywanie Sprzętu
+Panel konfiguracyjny automatycznie wykrywa teraz wersję podłączonego sprzętu i dostosowuje układ interfejsu (UI) do urządzenia[cite: 8].
+
+* **SunGO PAD v1:** Klasyczny układ 3x3[cite: 8].
+* **SunGO PAD v2:** Rozszerzony układ z obsługą klawiszy 10, 11, 12 oraz wizualnymi wskaźnikami[cite: 8].
+
+<p align="center">
+  <img src="IMG_20260430_192849293_2.jpg" width="600" alt="Prototyp SunGO PAD v2">
+  <br>
+  <em>Prototyp SunGO PAD v2 – Nowe klawisze i enkodery (Wczesna faza rozwoju).</em>
+</p>
+
+<p align="center">
+  <img src="Zrzut ekranu 2026-05-01 220343.png" width="400" alt="Konfiguracja v1">
+  <img src="Zrzut ekranu 2026-05-01 220530.png" width="400" alt="Konfiguracja v2">
+  <br>
+  <em>Adaptacyjne UI: Standardowa konfiguracja 9-klawiszowa (lewo) vs. Nowa konfiguracja 12-klawiszowa (prawo).</em>
+</p>
 
 ---
+
+## ⭐ Co nowego (v2.3.0) – Udoskonalone analizy kodu
+
+### 🔍 Udoskonalony Panel Code Review i Integracja
+
+Wersja 2.3.0 stawia na głębszą integrację i inteligentne wsparcie. Panel Code Review to teraz coś więcej niż lista błędów – to interaktywne narzędzie edukacyjne połączone z Twoim Asystentem Gopherem.
+
+**Kluczowe nowości:**
+- 💡 **Inteligentne Podpowiedzi** – Dodano gotowe sugestie i rozwiązania dla typowych problemów wykrywanych przez narzędzia analityczne.
+- 🤖 **Integracja z Gopherem** – Twój asystent Gopher dynamicznie reaguje na błędy z `staticcheck`, oferując kontekstową pomoc.
+- 📋 **Synchronizacja z SunGo Pad** – Pełna integracja z SunGo Padem; statusy analizy są teraz prezentowane za pomocą intuicyjnych kolorów.
+- 🧹 **Uproszczony Panel** – Usunięto narzędzie `go vet` w celu wyeliminowania powtarzających się wyników i skupienia się na zaawansowanych analyzerach (`staticcheck`, `golangci-lint`).
+
+ 
+> 💡 **Wskazówka:** Kliknij błąd `staticcheck`, aby zobaczyć, jak Asystent Gopher pomoże Ci w refaktoryzacji kodu!
+
+---
+
 
 ## ⭐ Co nowego (v2.1.0) – Panel Code Review
 

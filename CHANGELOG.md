@@ -5,6 +5,21 @@
 
 ---
 
+
+## [2.3.8] - 2026-05-01
+
+### 🚀 SunGO PAD v2 & Adaptive UI / SunGO PAD v2 i Adaptacyjne UI
+
+- **Hardware Evolution / Ewolucja sprzętu:** Officially introduced the SunGO PAD v2 prototype, featuring an expanded 12-key layout and rotary encoders and LCD Display. / Oficjalne wprowadzenie prototypu SunGO PAD v2, wyposażonego w rozszerzony układ 12 klawiszy, enkodery obrotowe i wyswietlacz LCD.
+
+- **Adaptive Interface / Adaptacyjny interfejs:** The configuration panel now dynamically switches between 9-key (v1) and 12-key (v2) layouts based on detected hardware. / Panel konfiguracyjny dynamicznie przełącza się między układem 9-klawiszowym (v1) a 12-klawiszowym (v2) na podstawie wykrytego sprzętu.
+
+- **Experimental Firmware / Testowe oprogramowanie:** Deployment of dedicated testing firmware for the v2 revision to support early development and testing. / Wdrożenie dedykowanego oprogramowania testowego dla rewizji v2 w celu wsparcia wczesnego rozwoju i testów.
+
+- **Visual Status Indicators / Wizualne wskaźniki statusu:** Enhanced the UI with dedicated indicators for the new macro keys (10, 11, 12) in the expanded layout. / Wzbogacono UI o dedykowane wskaźniki dla nowych klawiszy makr (10, 11, 12) w rozszerzonym układzie.
+
+---
+
 ### [2.3.7] - 2026-04-30
 
 ### 🛠️ Hardware Intelligence & Optimization / Inteligencja sprzętowa i optymalizacja
