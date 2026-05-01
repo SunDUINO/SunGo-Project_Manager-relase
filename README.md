@@ -174,27 +174,26 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 ## ⭐ What's New (v2.3.8) – SunGO PAD v2 & Adaptive UI
 
 ### 🛠️ Hardware Revision 2.0 (Work in Progress)
-A new version of the physical SunGO PAD is currently under development. This revision expands the interface with additional macro keys and rotary encoders for even better workflow control[cite: 8].
-
-* **Status:** Hardware is in the preparation/prototype phase[cite: 8].
-* **Testing Firmware:** Experimental firmware for the new revision is available on GitHub Hardware section.
-    * 🔗 [SunGO PAD v2 – Testing Firmware](https://github.com/SunDUINO/SunGo-Project_Manager-relase)[cite: 8, 9]
-
-### 🎛️ Intelligent Hardware Detection
-The configuration panel now automatically detects the connected hardware version and adjusts the UI layout accordingly[cite: 8].
-
-* **SunGO PAD v1:** Classic 3x3 layout[cite: 8].
-* **SunGO PAD v2:** Expanded layout with support for keys 10, 11, 12 and visual indicators[cite: 8].
+A new version of the physical SunGO PAD is currently under development. This revision expands the interface with additional macro keys and rotary encoders for even better workflow control.
 
 <p align="center">
-  <img src="IMG_20260430_192849293_2.jpg" width="600" alt="SunGO PAD v2 Prototype">
-  <br>
-  <em>SunGO PAD v2 Prototype – New keys and encoders (Early development stage).</em>
+<img width="1128" height="846" alt="IMG_20260430_192849293" src="https://github.com/user-attachments/assets/75457240-cfa3-43d2-94dc-38a3ce401bb9" />
 </p>
 
+* **Status:** Hardware is in the preparation/prototype phase.
+* **Testing Firmware:** Experimental firmware for the new revision is available on GitHub Hardware section.
+    * 🔗 [SunGO PAD v2 – Testing Firmware](https://github.com/SunDUINO/SunGo-Project_Manager-relase/hardware/SunGO_PAD_v2)
+  
+
+### 🎛️ Intelligent Hardware Detection
+The configuration panel now automatically detects the connected hardware version and adjusts the UI layout accordingly.
+
+* **SunGO PAD v1:** Classic 3x3 layout.
+* **SunGO PAD v2:** Expanded layout with support for keys 10, 11, 12 and visual indicators.
+
 <p align="center">
-  <img src="Zrzut ekranu 2026-05-01 220343.png" width="400" alt="Config UI v1">
-  <img src="Zrzut ekranu 2026-05-01 220530.png" width="400" alt="Config UI v2">
+  <img width="1225" height="710" alt="Zrzut ekranu 2026-05-01 220530" src="https://github.com/user-attachments/assets/76abd990-8456-43c4-98de-e6ddd96b6fd9" />
+  <img width="1130" height="702" alt="Zrzut ekranu 2026-05-01 220343" src="https://github.com/user-attachments/assets/38dd32ec-7dc5-4504-8c9f-b858105b84f1" />
   <br>
   <em>Adaptive UI: Standard 9-key configuration (left) vs. New 12-key configuration (right).</em>
 </p>
@@ -782,29 +781,29 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 ## ⭐ Co nowego (v2.3.8) – SunGO PAD v2 i Adaptacyjne UI
 
 ### 🛠️ Rewizja Sprzętu 2.0 (W fazie przygotowania)
-Nowa wersja fizycznego kontrolera SunGO PAD jest obecnie w fazie opracowywania. Ta rewizja rozszerza interfejs o dodatkowe klawisze makr oraz enkodery obrotowe dla jeszcze lepszej kontroli pracy[cite: 8].
-
-* **Status:** Sprzęt jest w fazie przygotowania/prototypowania[cite: 8].
-* **Firmware Testowy:** Eksperymentalne oprogramowanie dla nowej rewizji jest dostępne na GitHubie.
-    * 🔗 [SunGO PAD v2 – Firmware Testowy](https://github.com/SunDUINO/SunGo-Project_Manager-relase)[cite: 8, 9]
-
-### 🎛️ Inteligentne Wykrywanie Sprzętu
-Panel konfiguracyjny automatycznie wykrywa teraz wersję podłączonego sprzętu i dostosowuje układ interfejsu (UI) do urządzenia[cite: 8].
-
-* **SunGO PAD v1:** Klasyczny układ 3x3[cite: 8].
-* **SunGO PAD v2:** Rozszerzony układ z obsługą klawiszy 10, 11, 12 oraz wizualnymi wskaźnikami[cite: 8].
+Nowa wersja fizycznego kontrolera SunGO PAD jest obecnie w fazie opracowywania. Ta rewizja rozszerza interfejs o dodatkowe klawisze makr oraz enkodery obrotowe dla jeszcze lepszej kontroli pracy.
 
 <p align="center">
-  <img src="IMG_20260430_192849293_2.jpg" width="600" alt="Prototyp SunGO PAD v2">
-  <br>
-  <em>Prototyp SunGO PAD v2 – Nowe klawisze i enkodery (Wczesna faza rozwoju).</em>
+<img width="1128" height="846" alt="IMG_20260430_192849293" src="https://github.com/user-attachments/assets/75457240-cfa3-43d2-94dc-38a3ce401bb9" />
 </p>
 
+* **Status:** Sprzęt jest w fazie przygotowania/prototypowania.
+* **Firmware Testowy:** Eksperymentalne oprogramowanie dla nowej rewizji jest dostępne na GitHubie.
+    * 🔗 [SunGO PAD v2 – Firmware Testowy](https://github.com/SunDUINO/SunGo-Project_Manager-relase/)
+ 
+
+
+### 🎛️ Inteligentne Wykrywanie Sprzętu
+Panel konfiguracyjny automatycznie wykrywa teraz wersję podłączonego sprzętu i dostosowuje układ interfejsu (UI) do urządzenia.
+
+* **SunGO PAD v1:** Klasyczny układ 3x3.
+* **SunGO PAD v2:** Rozszerzony układ z obsługą klawiszy 10, 11, 12 oraz wizualnymi wskaźnikami.
+
 <p align="center">
-  <img src="Zrzut ekranu 2026-05-01 220343.png" width="400" alt="Konfiguracja v1">
-  <img src="Zrzut ekranu 2026-05-01 220530.png" width="400" alt="Konfiguracja v2">
+  <img width="1225" height="710" alt="Zrzut ekranu 2026-05-01 220530" src="https://github.com/user-attachments/assets/76abd990-8456-43c4-98de-e6ddd96b6fd9" />
+  <img width="1130" height="702" alt="Zrzut ekranu 2026-05-01 220343" src="https://github.com/user-attachments/assets/38dd32ec-7dc5-4504-8c9f-b858105b84f1" />
   <br>
-  <em>Adaptacyjne UI: Standardowa konfiguracja 9-klawiszowa (lewo) vs. Nowa konfiguracja 12-klawiszowa (prawo).</em>
+  <em>Adaptive UI: Standard 9-key configuration (left) vs. New 12-key configuration (right).</em>
 </p>
 
 ---
