@@ -118,6 +118,23 @@ wersji 1 z dodatkową wizualizacją na LCD
 
 
 ---
+## UWAGA !!
+
+- Linux wymaga dodania regół udev dla nowego urządzenia:
+- Zaktualizuj plik reguł jesli miałeś PAD v1  lub utwórz (/etc/udev/rules.d/99-sungo.rules), dodając nowe ID:
+  
+```
+# Reguła dla SunGo MacroPAD I
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="cafe", ATTRS{idProduct}=="4050", MODE="0666"
+# Reguła dla SunGo MacroPAD II  - DODAJ TO: 
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="cafe", ATTRS{idProduct}=="5050", MODE="0666"
+```
+Po zapisaniu pliku przeładuj reguły komendą:
+
+```
+sudo udevadm control --reload-rules && sudo udevadm trigger
+```
+---
    
 ## 💾 Oprogramowanie i konfiguracja
 
