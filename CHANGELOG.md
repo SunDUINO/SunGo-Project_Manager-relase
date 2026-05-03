@@ -5,8 +5,22 @@
 
 ---
 
+## [2.3.9] - 2026-05-03
 
-## [2.3.8] - 2026-05-01
+### 🛠 Fixes & Integration / Poprawki i Integracja
+
+- **Expanded Key Control / Pełna kontrola klawiszy:** Fixed color picker synchronization for keys 10, 11, and 12, ensuring full RGB support across the entire 12-key layout[cite: 3]. / Naprawiono synchronizację selektorów kolorów dla klawiszy 10, 11 i 12, zapewniając pełne wsparcie RGB dla całego układu 12 klawiszy.
+
+- **High-Visibility Alerts / Czytelne alerty:** Implemented a new, high-contrast "ERROR !!" screen on the LCD, featuring a full-screen red background and large-scale typography for immediate status feedback. / Wdrożono nową, kontrastową planszę „ERROR !!” na LCD z pełnoekranowym czerwonym tłem i dużą typografią, zapewniającą natychmiastową informację o błędzie.
+
+- **Linux Compatibility / Kompatybilność z Linux:** Resolved device recognition issues on Linux by updating `udev` rules and USB descriptors for the new hardware ID (cafe:5050). / Rozwiązano problemy z rozpoznawaniem urządzenia w systemie Linux poprzez aktualizację reguł `udev` oraz deskryptorów USB dla nowego ID sprzętowego (cafe:5050).
+
+- **Display Logic Refinement / Dopracowanie logiki wyświetlacza:** Improved the state machine in `display.c` to ensure a smooth transition and automatic return to the Gopher idle screen after clearing status messages. / Udoskonalono maszynę stanów w `display.c`, zapewniając płynne przejście i automatyczny powrót do ekranu bezczynności z Gopherem po wyczyszczeniu komunikatów statusu.
+
+
+---
+
+## [2.3.8] - 2026-05-03
 
 ### 🚀 SunGO PAD v2 & Adaptive UI / SunGO PAD v2 i Adaptacyjne UI
 

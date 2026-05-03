@@ -155,7 +155,10 @@ sudo nano /etc/udev/rules.d/99-sungo-pad.rules
 
 **2. Paste the following line:**
 ```
+// SunGO MacroPAD v1
 SUBSYSTEM=="hidraw", ATTRS{idVendor}=="cafe", ATTRS{idProduct}=="4050", MODE="0666"
+// SunGO MacroPAD v2 
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="cafe", ATTRS{idProduct}=="5050", MODE="0666"
 ```
 
 **3. Save (`Ctrl+O`, `Enter`) and exit (`Ctrl+X`)**
