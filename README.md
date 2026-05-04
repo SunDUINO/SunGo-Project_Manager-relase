@@ -40,6 +40,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#requirements-installation)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v2.4.0) – SunGO PAD II Customization](#-whats-new-v240--sungo-pad-ii-customization--key-mapping)
 * [EN: What's New (v2.3.8) – SunGO PAD v2 & Adaptive UI](#-whats-new-v238--sungo-pad-v2--adaptive-ui)
 * [EN: What's New (v2.3.0) – Enhanced Code Insights](#whats-new-v230--enhanced-code-insights)
 * [EN: What's New (v2.1.0) – Code Review Panel](#whats-new-v210-–-code-review-panel)
@@ -171,6 +172,37 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ This is a one-time setup. The rule persists after system reboots.  
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
+
+---
+
+Jasne, SunRiver! Przygotowałem kompletną treść do wklejenia bezpośrednio do Twojego pliku README.md. Zachowałem strukturę z ikonami, tabelami i Twoimi "Master's Tips", aby pasowało do reszty dokumentacji.
+
+Oto gotowy kod Markdown:
+
+Markdown
+## 🚀 [2.4.0] - Version Update
+
+### 🇺🇸 [EN] What's New (v2.4.0) – SunGO PAD II Customization
+
+#### ⌨️ Extra Function Keys: A, B, and C
+The latest update unlocks the full potential of the **SunGO Macro PAD II**. You can now assign your most frequently used tools from the **SunGO Tools** section to the physical keys **A, B, and C**.
+
+**Key Features:**
+* **Custom Mapping:** Choose which tool (e.g., Binary Analyzer, Go Doc Viewer, Code Metrics) is triggered by each function key.
+* **New PAD II Settings Panel:** A dedicated, visual configuration interface for managing your Macro PAD II layout.
+* **Instant Workflow:** Launch complex analysis tools with a single physical press, without searching through VS Code menus.
+
+> 💡 **Master's Tip:** To use these new features, your SunGO Macro PAD II requires **Firmware v5.4**. You can find the latest binary and source code in the hardware section of our repository.
+> 🔗 [Get Firmware v5.4 on GitHub](https://github.com/SunDUINO/SunGo-Project_Manager-relase/tree/main/hardware/SunGO_PAD_v2)
+
+| Feature | Description | Requirement |
+| :--- | :--- | :--- |
+| **Mapping A/B/C** | Assign tools like `Profiler`, `Dependencies`, or `Notes` | SunGo PAD II |
+| **Visual Config** | New UI panel for tactile feedback management | v2.4.0 Extension |
+| **Firmware Sync** | Full support for new HID reports | Firmware 5.4+ |
+
+* `SunGo: Macro PAD II Settings` — Open the visual mapping panel.
+* `SunGo Tools: Quick Assign Tool` — Quickly bind a tool to keys A, B, or C.
 
 ---
 
@@ -652,6 +684,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguły-udev)
+* [PL: Co nowego (v2.4.0) – Personalizacja SunGO PAD II](#-co-nowego-v240--personalizacja-sungo-pad-ii-i-mapowanie-klawiszy)
 * [PL: Co nowego (v2.3.8) – SunGO PAD v2 i Adaptacyjne UI](#-co-nowego-v238--sungo-pad-v2-i-adaptacyjne-ui)
 * [PL: Co nowego (v2.3.0) – Udoskonalone analizy kodu](#co-nowego-v230--udoskonalone-analizy-kodu)
 * [PL: Co nowego (v2.1.0) – Panel Code Review](#co-nowego-v210-–-panel-code-review)
@@ -778,6 +811,30 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+### ⭐ Co nowego (v2.4.0) – Personalizacja SunGO PAD II
+
+#### ⌨️ Dodatkowe klawisze funkcyjne: A, B oraz C
+Najnowsza aktualizacja uwalnia pełny potencjał **SunGO Macro PAD II**. Teraz możesz przypisać swoje najczęściej używane narzędzia z sekcji **SunGO Tools** do fizycznych przycisków **A, B oraz C**.
+
+**Kluczowe nowości:**
+* **Własne Mapowanie:** Sam zdecyduj, które narzędzie (np. Binary Analyzer, Go Doc Viewer, Code Metrics) zostanie uruchomione po naciśnięciu konkretnego klawisza.
+* **Nowy Panel Ustawień PAD II:** Dedykowany, wizualny interfejs konfiguracyjny do zarządzania układem Twojego Macro PAD-a.
+* **Błyskawiczny Workflow:** Uruchamiaj zaawansowane narzędzia analizy jednym kliknięciem fizycznego przycisku, bez przeszukiwania menu w VS Code.
+
+> 💡 **Master's Tip:** Aby skorzystać z nowych funkcji, Twój SunGO Macro PAD II wymaga **Firmware'u w wersji 5.4**. Najnowsze pliki binarne oraz kod źródłowy znajdziesz w sekcji hardware naszego repozytorium.
+> 🔗 [Pobierz Firmware v5.4 z GitHub](https://github.com/SunDUINO/SunGo-Project_Manager-relase/tree/main/hardware/SunGO_PAD_v2)
+
+| Funkcja | Opis | Wymagania |
+| :--- | :--- | :--- |
+| **Mapowanie A/B/C** | Przypisz narzędzia typu `Profiler`, `Dependencies` lub `Notes` | SunGo PAD II |
+| **Wizualna Konfiguracja** | Nowy panel UI do zarządzania feedbackiem tactile | Wtyczka v2.4.0 |
+| **Synchronizacja Firmware** | Pełna obsługa nowych raportów HID | Firmware 5.4+ |
+
+* `SunGo: Macro PAD II Settings` — Otwórz wizualny panel mapowania.
+* `SunGo Tools: Quick Assign Tool` — Szybkie przypisanie narzędzia do klawiszy A, B lub C.
 
 ---
 

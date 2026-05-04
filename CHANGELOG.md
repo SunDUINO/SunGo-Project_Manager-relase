@@ -5,6 +5,18 @@
 
 ---
 
+## [2.4.0] - 2026-05-04
+
+### Added & Hardware / Dodano i Sprzęt
+
+- **Custom Tool Mapping (A/B/C) / Mapowanie narzędzi (A/B/C):** Added support for extra physical keys A, B, and C on the SunGo Macro PAD II. Users can now assign frequently used SunGO Tools for instant hardware-triggered access. / Dodano obsługę dodatkowych klawiszy fizycznych A, B i C w SunGo Macro PAD II. Użytkownicy mogą teraz przypisywać często używane narzędzia SunGO Tools do przycisków, zapewniając sobie błyskawiczny dostęp sprzętowy.
+
+- **PAD II Settings Panel / Panel ustawień PAD II:** Introduced a new, dedicated configuration interface for visual management of Macro PAD II key assignments and behavior. / Wprowadzono nowy, dedykowany interfejs konfiguracyjny do wizualnego zarządzania przypisaniami i zachowaniem klawiszy Macro PAD II.
+
+- **Firmware 5.4 Compatibility / Kompatybilność z Firmware 5.4:** Full support for the new A/B/C key reports. Requires Firmware v5.4 available on GitHub. / Pełna obsługa nowych raportów dla klawiszy A/B/C. Wymagany Firmware v5.4 dostępny w repozytorium GitHub.
+
+---
+
 ## [2.3.9] - 2026-05-03
 
 ### 🛠 Fixes & Integration / Poprawki i Integracja
