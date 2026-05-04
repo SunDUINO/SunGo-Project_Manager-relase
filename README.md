@@ -175,12 +175,7 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ---
 
-Jasne, SunRiver! Przygotowałem kompletną treść do wklejenia bezpośrednio do Twojego pliku README.md. Zachowałem strukturę z ikonami, tabelami i Twoimi "Master's Tips", aby pasowało do reszty dokumentacji.
 
-Oto gotowy kod Markdown:
-
-Markdown
-## 🚀 [2.4.0] - Version Update
 
 ### 🇺🇸 [EN] What's New (v2.4.0) – SunGO PAD II Customization
 
