@@ -177,7 +177,10 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 
 
-### 🇺🇸 [EN] What's New (v2.4.0) – SunGO PAD II Customization
+## 🔁 What's New (v2.4.0) – SunGO PAD II Customization
+
+<img width="1232" height="853" alt="Zrzut ekranu 2026-05-04 214559" src="https://github.com/user-attachments/assets/5c83a1d6-2f4a-4bc9-afc4-0e4fd369dbd9" />
+
 
 #### ⌨️ Extra Function Keys: A, B, and C
 The latest update unlocks the full potential of the **SunGO Macro PAD II**. You can now assign your most frequently used tools from the **SunGO Tools** section to the physical keys **A, B, and C**.
@@ -814,7 +817,10 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 #### ⌨️ Dodatkowe klawisze funkcyjne: A, B oraz C
 Najnowsza aktualizacja uwalnia pełny potencjał **SunGO Macro PAD II**. Teraz możesz przypisać swoje najczęściej używane narzędzia z sekcji **SunGO Tools** do fizycznych przycisków **A, B oraz C**.
 
-**Kluczowe nowości:**
+<img width="1232" height="853" alt="Zrzut ekranu 2026-05-04 214559" src="https://github.com/user-attachments/assets/e16be8d1-acda-4a2b-b626-3934568909b2" />
+
+
+**Nowości:**
 * **Własne Mapowanie:** Sam zdecyduj, które narzędzie (np. Binary Analyzer, Go Doc Viewer, Code Metrics) zostanie uruchomione po naciśnięciu konkretnego klawisza.
 * **Nowy Panel Ustawień PAD II:** Dedykowany, wizualny interfejs konfiguracyjny do zarządzania układem Twojego Macro PAD-a.
 * **Błyskawiczny Workflow:** Uruchamiaj zaawansowane narzędzia analizy jednym kliknięciem fizycznego przycisku, bez przeszukiwania menu w VS Code.
