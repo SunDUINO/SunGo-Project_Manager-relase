@@ -131,6 +131,11 @@ After saving the file, reload the rules with:
 ```
 sudo udevadm control --reload-rules && sudo udevadm trigger
 ```
+## Step by step:
+
+https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README.md#-linux-setup--sungo-pad-udev-rules
+
+---
 ## 💾 Software and Configuration
 
 Firmware for Macropad V2 will be available soon...
