@@ -134,6 +134,10 @@ Po zapisaniu pliku przeładuj reguły komendą:
 ```
 sudo udevadm control --reload-rules && sudo udevadm trigger
 ```
+## Krok po kroku:
+
+https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README.md#-linux-setup--sungo-pad-udev-rules
+
 ---
    
 ## 💾 Oprogramowanie i konfiguracja
