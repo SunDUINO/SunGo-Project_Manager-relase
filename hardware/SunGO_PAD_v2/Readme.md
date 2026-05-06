@@ -136,7 +136,7 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 ```
 ## Krok po kroku:
 
-https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README.md#-linux-setup--sungo-pad-udev-rules
+https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README.md#-linux--konfiguracja-sungo-pad-regu%C5%82y-udev
 
 ---
    
