@@ -1,3 +1,11 @@
+## v.5.5.0   2026-05-09
+ * dodano wsparcie dla awaryjnego trybu bootloadera - wcisniecie klawiszy 9+10+12
+   podczas podłączania do USB spowoduje wejście w tryb bootloadera (widoczny jako "RPI-RP2" w systemie) 
+ * dodano instrukcję 'V' , która zwraca aktualną wersję firmware (przydatne do debugowania i weryfikacji aktualizacji)
+ * dodano instrukcję 'U' , która umożliwia wejście w rtyb bootloadera z poziomu wtyczki - przygotowanie pod nową wersję 
+   wtyczki - (umożliwia zdalną aktualizację firmware)
+ * poprawione logo startowe MacroPADA  pokazuje się też wersja firmware na LCD
+ * 
 ## v.5.4.0   2026-03-05 
  * dodano obsługę dodatkowych klawiszy A,B,C (F21-F23) i przypisanie im kolorów
  * poprawiono routing komend HID z wtyczki do odpowiednich modułów (klawisze → klawisze, enkodery → enkodery, display → display)
