@@ -5,6 +5,18 @@
 
 ---
 
+## [2.4.2] - 2026-05-09
+
+### 🔧 Fixes & Hardware / Poprawki i Sprzęt
+
+- **Firmware Version via USB Descriptor / Wersja firmware z deskryptora USB:** Replaced the unreliable HID command  approach with a direct read of `bcdDevice` from the USB descriptor. The plugin now reads the firmware version instantly upon device connection — no HID round-trip, no timeouts, no queue blocking. / Zastąpiono zawodny mechanizm komendy HID  bezpośrednim odczytem pola `bcdDevice` z deskryptora USB. Wtyczka odczytuje wersję firmware natychmiast po podłączeniu urządzenia — bez komunikacji HID, timeoutów i blokowania kolejki.
+
+- **Firmware 5.6.0 Compatibility / Kompatybilność z Firmware 5.6.0:** Requires Firmware v5.6.0 available on GitHub. / Wymagany Firmware v5.6.0 dostępny w repozytorium GitHub.
+
+- **HID Queue Stability / Stabilność kolejki HID:** Removed blocking `readTimeout` and async `once('data')` listener from the firmware version request, eliminating the pad freeze when opening the settings panel. / Usunięto blokujący `readTimeout` i asynchroniczny listener `once('data')` z zapytania o wersję firmware, eliminując zawieszanie pada przy otwieraniu panelu ustawień.
+
+---
+
 ## [2.4.0] - 2026-05-04
 
 ### Added & Hardware / Dodano i Sprzęt
