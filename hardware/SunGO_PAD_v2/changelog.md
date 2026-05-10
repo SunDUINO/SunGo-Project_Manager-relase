@@ -1,6 +1,6 @@
 ## v5.6.0 — 2026-05-09
 
-* bDodano wsparcie dla awaryjnego trybu bootloadera — wciśnięcie klawiszy 9+10+12 podczas podłączania do USB spowoduje wejście w tryb bootloadera (widoczny   jako „RPI-RP2" w systemie) zamiast normalnego uruchomienia firmware.
+* Dodano wsparcie dla awaryjnego trybu bootloadera — wciśnięcie klawiszy 9+10+12 podczas podłączania do USB spowoduje wejście w tryb bootloadera (widoczny   jako „RPI-RP2" w systemie) zamiast normalnego uruchomienia firmware.
 * Dodano instrukcję U — umożliwia wejście w tryb bootloadera z poziomu wtyczki VS Code, przygotowanie pod OTA (zdalną aktualizację firmware).
 * Wersja firmware przeniesiona do usb_descriptors.h (makra FW_VER_MAJOR, FW_VER_MINOR, FW_VER_PATCH)
   — jedno miejsce definicji dla deskryptora USB (bcdDevice) i stringa wyświetlanego na LCD.
