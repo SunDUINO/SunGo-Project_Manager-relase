@@ -5,6 +5,7 @@
 * Wersja firmware przeniesiona do usb_descriptors.h (makra FW_VER_MAJOR, FW_VER_MINOR, FW_VER_PATCH)
   — jedno miejsce definicji dla deskryptora USB (bcdDevice) i stringa wyświetlanego na LCD.
 * Poprawione logo startowe MacroPADA — na LCD wyświetla się również aktualna wersja firmware.
+* Nowe plansze informacyjne ustawień  Windows mode/Linux mode 
 
 ## v.5.5.0   2026-05-09
  * dodano wsparcie dla awaryjnego trybu bootloadera - wcisniecie klawiszy 9+10+12
@@ -12,8 +13,7 @@
  * dodano instrukcję 'V' , która zwraca aktualną wersję firmware (przydatne do debugowania i weryfikacji aktualizacji)
  * dodano instrukcję 'U' , która umożliwia wejście w rtyb bootloadera z poziomu wtyczki - przygotowanie pod nową wersję 
    wtyczki - (umożliwia zdalną aktualizację firmware)
- * poprawione logo startowe MacroPADA  pokazuje się też wersja firmware na LCD
- * 
+ 
 ## v.5.4.0   2026-03-05 
  * dodano obsługę dodatkowych klawiszy A,B,C (F21-F23) i przypisanie im kolorów
  * poprawiono routing komend HID z wtyczki do odpowiednich modułów (klawisze → klawisze, enkodery → enkodery, display → display)
