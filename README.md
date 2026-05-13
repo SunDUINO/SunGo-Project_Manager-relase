@@ -40,6 +40,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#requirements-installation)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v2.4.3) – Automated Firmware Updates & OTA](#whats-new-v243--automated-firmware-updates--ota)
 * [EN: What's New (v2.4.0) – SunGO PAD II Customization](#-whats-new-v240--sungo-pad-ii-customization--key-mapping)
 * [EN: What's New (v2.3.8) – SunGO PAD v2 & Adaptive UI](#-whats-new-v238--sungo-pad-v2--adaptive-ui)
 * [EN: What's New (v2.3.0) – Enhanced Code Insights](#whats-new-v230--enhanced-code-insights)
@@ -175,7 +176,26 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ---
 
+# What's New (v2.4.3) – Automated Firmware Updates & OTA
 
+The latest update for **SunGo Project Manager** introduces a complete firmware management suite for the **SunGO MacroPAD II**, making hardware maintenance as simple as a single click.
+
+* **Automated OTA Updates:** No more manual flashing. If a new version is detected on GitHub, simply click **UPDATE**. The extension downloads the `.uf2` file and flashes it directly to the RP2040.
+* **One-Click Bootloader:** Enter programming mode (RPI-RP2) instantly via the UI without touching the physical button.
+* **Visual Progress:** Monitor the update status with a real-time progress bar in the **PadSettings** panel. The device restarts automatically once the new firmware is active.
+* **Safety Features:**
+    * **Manual Downgrade:** Use the UI Bootloader button to manually flash older versions if needed.
+    * **Emergency Recovery:** Hold keys **9+10+12** while connecting USB to force bootloader mode.
+
+| Feature | Description | Requirement |
+| :--- | :--- | :--- |
+| **OTA Update** | Automatic GitHub download & flash | MacroPAD II |
+| **Progress Bar** | Real-time visual feedback in settings | v2.4.3 Extension |
+| **Auto-Restart** | Instant reboot after successful flash | Firmware 5.6.0+ |
+
+
+
+---
 
 ## 🔁 What's New (v2.4.0) – SunGO PAD II Customization
 
@@ -682,6 +702,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguły-udev)
+* [PL: Co nowego (v2.4.3) – Automatyczne aktualizacje firmware i OTA](#co-nowego-v243--automatyczne-aktualizacje-firmware-i-ota)
 * [PL: Co nowego (v2.4.0) – Personalizacja SunGO PAD II](#-co-nowego-v240--personalizacja-sungo-pad-ii-i-mapowanie-klawiszy)
 * [PL: Co nowego (v2.3.8) – SunGO PAD v2 i Adaptacyjne UI](#-co-nowego-v238--sungo-pad-v2-i-adaptacyjne-ui)
 * [PL: Co nowego (v2.3.0) – Udoskonalone analizy kodu](#co-nowego-v230--udoskonalone-analizy-kodu)
@@ -809,6 +830,25 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+# Co nowego (v2.4.3) – Automatyczne aktualizacje firmware i OTA
+
+Najnowsza wersja **SunGo Project Manager** wprowadza kompletny system zarządzania oprogramowaniem układowym dla **SunGO MacroPAD II**, upraszczając konserwację sprzętu do jednego kliknięcia.
+
+* **Automatyczne aktualizacje OTA:** Zapomnij o ręcznym kopiowaniu plików. Jeśli na GitHubie pojawi się nowa wersja, po prostu kliknij **UPDATE**. Rozszerzenie samo pobierze plik `.uf2` i wgra go do RP2040.
+* **Bootloader jednym kliknięciem:** Wejdź w tryb programowania (RPI-RP2) bezpośrednio z poziomu interfejsu, bez konieczności rozkręcania obudowy czy naciskania fizycznych przycisków.
+* **Wizualny postęp:** Śledź status aktualizacji na pasku postępu w panelu **PadSettings**. Po zakończeniu, pad automatycznie zrestartuje się z nowym oprogramowaniem.
+* **Funkcje ratunkowe:**
+    * **Ręczny Downgrade:** Przycisk Bootloader w UI pozwala na ręczne wgranie starszych wersji oprogramowania.
+    * **Tryb awaryjny:** Przytrzymaj klawisze **9+10+12** podczas podłączania USB, aby wymusić tryb bootloadera w sytuacjach awaryjnych.
+
+| Funkcja | Opis | Wymagania |
+| :--- | :--- | :--- |
+| **Aktualizacja OTA** | Automatyczne pobieranie i wgrywanie z GitHub | MacroPAD II |
+| **Pasek postępu** | Wizualny feedback w ustawieniach | Wtyczka v2.4.3 |
+| **Auto-Restart** | Natychmiastowy restart po wgraniu kodu | Firmware 5.6.0+ |
 
 ---
 

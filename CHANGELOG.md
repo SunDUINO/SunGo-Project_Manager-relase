@@ -4,6 +4,25 @@
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
 ---
+## [2.4.3] - 2026-05-13
+
+## ✨ New Features & Improvements / Nowe Funkcje i Usprawnienia
+
+- **Firmware Update Panel (MacroPAD II) / Panel aktualizacji firmware:** Added a dedicated "Firmware Update" panel within the SunGO MacroPAD II configuration settings. This allows users to check for OTA updates and enter bootloader mode (RPI-RP2) directly from the UI. / Dodano dedykowany panel "Firmware Update" w ustawieniach konfiguracji SunGO MacroPAD II. Panel umożliwia sprawdzanie dostępności aktualizacji OTA oraz przejście w tryb bootloadera (RPI-RP2) bezpośrednio z poziomu interfejsu.
+
+- **UI Integration / Integracja interfejsu:** The firmware update panel is now seamlessly integrated into the Version 2 settings window, streamlining the hardware update process. / Panel aktualizacji firmware jest teraz bezpośrednio zintegrowany z oknem ustawień wersji 2, co znacznie upraszcza proces aktualizacji sprzętu.
+
+- **Automated Firmware Updates / Automatyczna aktualizacja firmware:** Introduced a seamless "One-Click Update" system. When a new version is available, clicking the UPDATE button automatically downloads the latest .uf2 file from GitHub and flashes it onto the RP2040. / Wprowadzono system aktualizacji "jednym kliknięciem". Jeśli dostępna jest nowa wersja, kliknięcie przycisku UPDATE automatycznie pobiera najnowszy plik .uf2 z GitHub i wgrywa go na RP2040.
+
+
+- **Real-time Progress & Auto-Restart / Postęp w czasie rzeczywistym i Auto-Restart:** Added a visual progress bar in the PadSettings panel to monitor the update status. Upon completion, the MacroPAD II restarts automatically with the new firmware active. / W panelu PadSettings dodano pasek postępu monitorujący proces aktualizacji. Po zakończeniu operacji pad automatycznie uruchamia się ponownie z nowym oprogramowaniem.
+
+## Manual Downgrade & Recovery / Ręczny downgrade i odzyskiwanie:
+
+- The Bootloader button in the UI can be used to manually enter programming mode if a firmware downgrade is necessary. / Przycisk Bootloader w interfejsie służy do ręcznego wejścia w tryb programowania, jeśli zajdzie potrzeba powrotu do starszej wersji firmware.
+
+- **Emergency Mode:** For recovery, hold keys 9+10+12 while connecting the USB cable to force bootloader mode (RPI-RP2). / Tryb awaryjny: W celach ratunkowych przytrzymaj klawisze 9+10+12 podczas podłączania kabla USB, aby wymusić tryb bootloadera (RPI-RP2).
+
 
 ## [2.4.2] - 2026-05-09
 
