@@ -178,6 +178,9 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 # What's New (v2.4.3) – Automated Firmware Updates & OTA
 
+<img width="1230" height="1054" alt="Zrzut ekranu 2026-05-13 210440" src="https://github.com/user-attachments/assets/85c6e352-f0a9-4b0d-8964-4dc7dc13f539" />
+
+
 The latest update for **SunGo Project Manager** introduces a complete firmware management suite for the **SunGO MacroPAD II**, making hardware maintenance as simple as a single click.
 
 * **Automated OTA Updates:** No more manual flashing. If a new version is detected on GitHub, simply click **UPDATE**. The extension downloads the `.uf2` file and flashes it directly to the RP2040.
@@ -834,6 +837,8 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 ---
 
 # Co nowego (v2.4.3) – Automatyczne aktualizacje firmware i OTA
+
+<img width="1230" height="1054" alt="Zrzut ekranu 2026-05-13 210440" src="https://github.com/user-attachments/assets/85c6e352-f0a9-4b0d-8964-4dc7dc13f539" />
 
 Najnowsza wersja **SunGo Project Manager** wprowadza kompletny system zarządzania oprogramowaniem układowym dla **SunGO MacroPAD II**, upraszczając konserwację sprzętu do jednego kliknięcia.
 
