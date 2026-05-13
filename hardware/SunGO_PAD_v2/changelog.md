@@ -1,3 +1,13 @@
+## v5.7.0 - 2026-05-13
+
+* Dodana nowa plansza trybu UPDATE FIRMWARE  -- wyświetla się po uruchomieniu bootloadera z poziomu PadSettings
+* Drobne poprawki w timingach w celu przygotowania obsługi encoderów.
+* Refaktoryzacja
+
+## v5.6.5 - 2026-05-10
+
+* Optymalizacja kodu  -  poprawki w obsłudze tusb i protokole transmisji HID RAW wpływające na szybkość działania i stabilność 
+
 ## v5.6.0 — 2026-05-09
 
 * Dodano wsparcie dla awaryjnego trybu bootloadera — wciśnięcie klawiszy 9+10+12 podczas podłączania do USB spowoduje wejście w tryb bootloadera (widoczny   jako „RPI-RP2" w systemie) zamiast normalnego uruchomienia firmware.
