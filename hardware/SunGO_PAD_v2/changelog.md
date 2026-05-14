@@ -35,3 +35,10 @@
  * poprawiono animację startową, żeby zostawiała delikatne tło w środku i była bardziej płynna
  * poprawiono obsługę klawiszy A, B, C, żeby reagowały na override koloru i komendy z wtyczki
  * poprawiono obsługę klawiszy A, B, C, w systemie Linux, żeby wysyłały F21-F23 zamiast 1-3, żeby uniknąć konfliktów z innymi funkcjami systemowymi
+
+
+## v.5.0.0 2026-03-02
+ * rozbudowa firmware v4.0 SunGo MacroPAD  - dodane dodatkowe 3 klawisze ABC  + 3x LED
+ * dodano obsługę TFT LCD 1.5"
+ * dodano encodery
+ * Zmiana obudowy dostosowanej do nowych funkcji
