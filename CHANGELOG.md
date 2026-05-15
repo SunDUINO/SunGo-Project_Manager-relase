@@ -4,6 +4,22 @@
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
 ---
+
+## [2.4.5] - 2026-05-15
+
+## 🎛️ Rotary Encoders Configuration / Konfiguracja Enkoderów Obrotowych
+
+- **[EN]** Added full support for configuring two independent rotary encoders (left and right knobs) with dual-direction detection (CW - Clockwise / CCW - Counter-Clockwise).
+- **[PL]** Dodano pełne wsparcie dla konfiguracji dwóch niezależnych enkoderów obrotowych (lewe i prawe pokrętło) z wykrywaniem obu kierunków obrotu (CW - zgodnie z ruchem wskazówek zegara / CCW - przeciwnie do ruchu wskazówek zegara).
+
+- **[EN]** Implemented `saveEncoderAction` and `applyEncoderConfig` message handlers to store custom actions in global state and transmit the configuration directly to the MacroPAD II hardware.
+- **[PL]** Zaimplementowano obsługę komunikatów `saveEncoderAction` oraz `applyEncoderConfig` w celu zapisywania niestandardowych akcji w stanie globalnym i przesyłania konfiguracji bezpośrednio do urządzenia MacroPAD II.
+
+- **[EN]** Integrated a dedicated UI section for encoder mapping with NLS translation support, enabling tactical controls like scrolling, cursor movement, volume adjustment, and brightness switching.
+- **[PL]** Zintegrowano dedykowaną sekcję UI do mapowania enkoderów z pełną obsługą tłumaczeń NLS, umożliwiając przypisywanie takich akcji jak przewijanie, ruch kursora, regulacja głośności czy zmiana jasności.
+
+---
+
 ## [2.4.3] - 2026-05-13
 
 ## ✨ New Features & Improvements / Nowe Funkcje i Usprawnienia
@@ -871,3 +887,4 @@ After months of development SunGo Project Manager reaches its first stable miles
   - Go project structure creation / tworzenie struktury projektu Go
   - Library addition and import synchronization / dodawanie bibliotek i synchronizacja importów
   - Project removal and path reset / usuwanie projektów i resetowanie ścieżek
+ 

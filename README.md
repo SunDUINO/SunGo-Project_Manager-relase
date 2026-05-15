@@ -42,6 +42,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#requirements-installation)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v2.4.5) – Rotary Encoders Configuration](#whats-new-v245-–-rotary-encoders-configuration)
 * [EN: What's New (v2.4.3) – Automated Firmware Updates & OTA](#whats-new-v243--automated-firmware-updates--ota)
 * [EN: What's New (v2.4.0) – SunGO PAD II Customization](#-whats-new-v240--sungo-pad-ii-customization--key-mapping)
 * [EN: What's New (v2.3.8) – SunGO PAD v2 & Adaptive UI](#-whats-new-v238--sungo-pad-v2--adaptive-ui)
@@ -177,6 +178,24 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
 
 ---
+# What's New (v2.4.5) – Rotary Encoders Configuration
+
+The latest release brings full integration for the twin rotary encoders on the **SunGO MacroPAD II**, allowing you to bind tactical commands to physical hardware rotations.
+
+> ⚠️ **Firmware Compatibility Note:** This feature is prepared for full integration with the upcoming **firmware v5.8.0**, which will be available shortly. Ensure your device is updated as soon as it drops to unlock complete dual-direction knob capabilities.
+
+* **Dual-Knob Independent Mapping:** Separate configuration for the **left knob** and **right knob**.
+* **Direction Awareness:** Bind completely different VS Code or system actions depending on whether you rotate **CW** (Clockwise) or **CCW** (Counter-Clockwise).
+* **Hardware Sync:** Settings are safely synchronized with the pad's global state and pushed to the device via dedicated HID configuration packets.
+
+| Feature / Funkcja | Description / Opis | Action Triggers / Wyzwalacze |
+| :--- | :--- | :--- |
+| **Left / Right Knobs** | Independent encoder configuration | `saveEncoderAction` & `applyEncoderConfig` |
+| **CW / CCW Control** | Dual-direction macro triggers | Cursor Up/Down, Scroll, Vol, Brightness |
+| **State Persistence** | Config saved globally within VS Code | Instant hardware sync on apply |
+
+---
+
 
 # What's New (v2.4.3) – Automated Firmware Updates & OTA
 
@@ -832,6 +851,24 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+# Co nowego (v2.4.5) – Konfiguracja Enkoderów Obrotowych
+
+Najnowsza wersja wprowadza pełną integrację dla dwóch enkoderów obrotowych w **SunGO MacroPAD II**, umożliwiając przypisywanie zaawansowanych komend i makr do fizycznego obrotu pokręteł.
+
+> ⚠️ **Uwaga dotycząca kompatybilności:** Funkcja ta została przygotowana do pełnej integracji z nadchodzącym **firmware v5.8.0**, które będzie dostępne już niebawem. Upewnij się, że zaktualizujesz swoje urządzenie natychmiast po jego premierze, aby w pełni odblokować dwukierunkową obsługę pokręteł.
+
+* **Niezależne mapowanie:** Osobna konfiguracja dla **lewego** oraz **prawego pokrętła**.
+* **Wykrywanie kierunku obrotu:** Możliwość przypisania skrajnie różnych akcji VS Code lub systemowych dla obrotu **CW** (zgodnie z ruchem wskazówek zegara) oraz **CCW** (przeciwnie do ruchu wskazówek zegara).
+* **Synchronizacja sprzętowa:** Ustawienia są trwale zapisywane w stanie globalnym rozszerzenia i natychmiastowo przesyłane do pamięci kontrolera za pomocą dedykowanych pakietów konfiguracyjnych HID.
+
+| Funkcja | Opis | Wyzwalacze komunikatów |
+| :--- | :--- | :--- |
+| **Lewe / Prawe Pokrętło** | Niezależna konfiguracja każdego z enkoderów | `saveEncoderAction` & `applyEncoderConfig` |
+| **Kontrola CW / CCW** | Dwukierunkowe wyzwalanie przypisanych makr | Góra/Dół, Przewijanie, Głośność, Jasność |
+| **Trwałość Stanu** | Zapis konfiguracji w globalState VS Code | Natychmiastowy hardware sync po zatwierdzeniu |
 
 ---
 
