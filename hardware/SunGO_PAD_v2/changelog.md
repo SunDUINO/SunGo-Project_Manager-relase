@@ -1,3 +1,13 @@
+## v5.8.3 - 2026-05-17
+
+* Dodano obsługę komend Encoderów
+  - X włacza encodery   - domyslnie wyłączone
+  - K1  - obsługa encodera ENC0
+  - K2  - Obsługa encodera ENC1
+* Dodano wizualizację działania encoderów na LCD
+* Dodano komendy S1 i S2 obsługujące przyciski Encoderów
+
+
 ## v5.7.0 - 2026-05-13
 
 * Dodana nowa plansza trybu UPDATE FIRMWARE  -- wyświetla się po uruchomieniu bootloadera z poziomu PadSettings
