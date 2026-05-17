@@ -1,4 +1,4 @@
-## v5.8.3 - 2026-05-17
+## v5.8.2 - 2026-05-17
 
 * Dodano obsługę komend Encoderów
   - X włacza encodery   - domyslnie wyłączone
