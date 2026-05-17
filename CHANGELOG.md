@@ -5,6 +5,18 @@
 
 ---
 
+## [2.4.6] - 2026-05-17
+
+## 🎛️ Rotary Encoders Optimization & Refactoring / Optymalizacja i Refaktoryzacja Enkoderów Obrotowych
+
+- **[EN]** Improved the handling of encoder commands (`ENC0` and `ENC1`): command `X` now initializes/enables the encoders, `K1`/`K2` handle Clockwise (CW) and Counter-Clockwise (CCW) rotation codes for both units, and command `S` manages encoder push-button actions.
+- **[PL]** Poprawiono obsługę komend enkoderów (`ENC0` i `ENC1`): komenda `X` odpowiada za włączenie enkoderów, `K1`/`K2` obsługują kody obrotu CW i CCW dla enkodera 0 i 1, natomiast komenda `S` obsługuje akcje zintegrowanych przycisków.
+
+- **[EN]** Conducted extensive code refactoring and performance optimization to ensure faster execution and lower latency in hardware-to-software communication.
+- **[PL]** Przeprowadzono gruntowny refaktoring oraz optymalizację wydajności kodu, co przekłada się na szybsze działanie i mniejsze opóźnienia w komunikacji na linii urządzenie-oprogramowanie.
+
+---
+
 ## [2.4.5] - 2026-05-15
 
 ## 🎛️ Rotary Encoders Configuration / Konfiguracja Enkoderów Obrotowych

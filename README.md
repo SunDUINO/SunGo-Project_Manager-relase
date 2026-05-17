@@ -1,9 +1,21 @@
-# SunGo Project Manager
+# 🚀 SunGo Project Manager
 
-[EN] English description is available below.  
-[PL] Opis w języku polskim znajduje się poniżej.
+### 🌐 Language / Język
+* **[EN]** English description is available below.
+* **[PL]** Opis w języku polskim znajduje się poniżej.
 
-[SunGO Macro PAD II - Dokumentacja Wiki/Wiki Docs](https://github.com/SunDUINO/SunGo-Project_Manager-relase/wiki)
+---
+
+### 📝 Release Notes & Documentation
+
+> 💡 **[EN]** Minor updates, hotfixes, and comprehensive technical adjustments are documented exclusively in the `changelog.md` file.
+> 💡 **[PL]** Drobne zmiany, poprawki (hotfixy) oraz szczegółowe modyfikacje techniczne są rejestrowane wyłącznie w pliku `changelog.md`.
+
+---
+
+### 📚 Resources / Zasoby
+
+* 📖 **[Wiki & Documentation]** [SunGO Macro PAD II - Wiki Docs](https://github.com/SunDUINO/SunGo-Project_Manager-relase/wiki)
 
 ---
 
@@ -52,7 +64,10 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: What's New (v1.9.1) – Favorites & Go Doc Viewer](#whats-new-v191--favorite-projects--go-doc-viewer)
 * [EN: What's New (v1.8.3) – Gopher Assistant](#whats-new-v183--gopher-assistant)
 * [EN: Key Features](#key-features)
-* [PL: SunGo Project Manager](#pl-sungo-project-manager)
+* [EN: SunGo Project Manager](#en-sungo-project-manager)
+
+
+
 
 ---
 
