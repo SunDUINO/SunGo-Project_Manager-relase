@@ -54,6 +54,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#requirements-installation)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v2.5.0) – Advanced Hardware Control & Localization Engine](#whats-new-v250-–-advanced-hardware-control--localization-engine)
 * [EN: What's New (v2.4.5) – Rotary Encoders Configuration](#whats-new-v245-–-rotary-encoders-configuration)
 * [EN: What's New (v2.4.3) – Automated Firmware Updates & OTA](#whats-new-v243--automated-firmware-updates--ota)
 * [EN: What's New (v2.4.0) – SunGO PAD II Customization](#-whats-new-v240--sungo-pad-ii-customization--key-mapping)
@@ -208,6 +209,32 @@ The latest release brings full integration for the twin rotary encoders on the *
 | **Left / Right Knobs** | Independent encoder configuration | `saveEncoderAction` & `applyEncoderConfig` |
 | **CW / CCW Control** | Dual-direction macro triggers | Cursor Up/Down, Scroll, Vol, Brightness |
 | **State Persistence** | Config saved globally within VS Code | Instant hardware sync on apply |
+
+---
+
+# What's New (v2.5.0) – Advanced Hardware Control & Localization Engine
+
+The latest update for **SunGo Project Manager** introduces granular peripheral hardware control for the **SunGO MacroPAD II**, a structural localization refactor across the entire codebase, and performance optimizations.
+
+* **Granular Encoder Control:** Added structural elements within `padSettings2` to dynamically enable or disable the dual rotary encoders, eliminating unintended macro triggers when the knobs are not in use.
+* **Tactical Key Remapping (S1/S2):** Full macro assignment support for the auxiliary hardware keys **S1** and **S2**, unlocking additional tactical layout workflows.
+* **NLS Localization Migration:** Removed all remaining hardcoded strings and UI descriptions, completely replacing them with native **NLS (Native Language Support) translation keys** for seamless multi-language compliance.
+* **Refactoring & Core Clean-up:** The `padDevice` communication layer has been heavily optimized and cleaned up to lower memory footprint and improve HID RAW frame processing reliability.
+
+### 🎛️ Expanded Configuration Structure (`padSettings2`)
+The hardware configuration schema has been enhanced to accommodate peripheral status flags and custom button bindings. Settings are automatically synchronized with the device using updated configuration packets.
+
+| Feature / Hardware Element | Configuration Type | Core Trigger Method / Action | Description |
+| :--- | :--- | :--- | :--- |
+| **Rotary Encoders (Left/Right)** | Boolean Switch (`true`/`false`) | `toggleEncoderHardware` | Complete activation or suppression of hardware interrupt signals from the knobs. |
+| **S1 Function Key** | Macro Bindable Selector | `assignS1KeyAction` | Custom VS Code command or system macro executed on single tap. |
+| **S2 Function Key** | Macro Bindable Selector | `assignS2KeyAction` | Custom VS Code command or system macro executed on single tap. |
+| **Localization Core** | NLS Subsystem Engine | `vscode.l10n` Integration | Centralized UI text loading according to the global VS Code environment language. |
+
+### 🚀 Performance & Memory Optimization (`padDevice`)
+The underlying communication layer `padDevice` underwent a deep architectural review:
+* **Buffer Pooling:** Reimplemented the HID packet distribution to reuse active byte arrays, significantly reducing GC (Garbage Collection) overhead during high-frequency encoder rotation.
+* **Dead Code Elimination:** Removed legacy descriptors and unused packet definitions, resulting in a cleaner, maintainable, and lighter subsystem footprint.
 
 ---
 
@@ -738,6 +765,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguły-udev)
+* [PL: Co nowego (v2.5.0) – Zaawansowane sterowanie sprzętem i silnik lokalizacji](#co-nowego-v250-–-zaawansowane-sterowanie-sprzętem-i-silnik-lokalizacji)
 * [PL: Co nowego (v2.4.3) – Automatyczne aktualizacje firmware i OTA](#co-nowego-v243--automatyczne-aktualizacje-firmware-i-ota)
 * [PL: Co nowego (v2.4.0) – Personalizacja SunGO PAD II](#-co-nowego-v240--personalizacja-sungo-pad-ii-i-mapowanie-klawiszy)
 * [PL: Co nowego (v2.3.8) – SunGO PAD v2 i Adaptacyjne UI](#-co-nowego-v238--sungo-pad-v2-i-adaptacyjne-ui)
@@ -866,6 +894,32 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+# [PL] Co nowego (v2.5.0) – Zaawansowane sterowanie sprzętem i silnik lokalizacji
+
+Najnowsza aktualizacja **SunGo Project Manager** wprowadza szczegółową kontrolę nad peryferiami sprzętowymi **SunGO MacroPAD II**, strukturalny refaktoring lokalizacyjny w całym kodzie źródłowym oraz optymalizacje wydajnościowe.
+
+* **Zarządzanie pracą enkoderów:** Wprowadzono nowe elementy struktury w `padSettings2` umożliwiające dynamiczne włączanie i wyłączanie obydwu enkoderów obrotowych, co zapobiega przypadkowemu wyzwalaniu makr.
+* **Mapowanie klawiszy funkcyjnych S1/S2:** Dodano pełne wsparcie dla przypisywania akcji oraz dedykowanych funkcji makr dla dodatkowych klawiszy sprzętowych **S1** i **S2**.
+* **Migracja na klucze tłumaczeń NLS:** Wyeliminowano wszystkie zahardkodowane opisy interfejsu użytkownika, zastępując je elastycznym systemem kluczy tłumaczeń **NLS (Native Language Support)**.
+* **Refaktoring i czyszczenie kodu `padDevice`:** Warstwa komunikacyjna odpowiedzialna za obsługę kontrolera została zoptymalizowana pod kątem alokacji pamięci oraz niezawodności przetwarzania ramek HID RAW.
+
+### 🎛️ Rozbudowana struktura konfiguracji (`padSettings2`)
+Schemat konfiguracyjny kontrolera sprzętowego został rozszerzony o flagi stanu peryferiów i niestandardowe powiązania klawiszy. Wszystkie parametry są automatycznie synchronizowane z urządzeniem za pomocą natywnych pakietów konfiguracyjnych HID.
+
+| Funkcja / Element sprzętowy | Typ konfiguracji | Metoda wyzwalająca / Akcja | Opis |
+| :--- | :--- | :--- | :--- |
+| **Enkodery (Lewy/Prawy)** | Przełącznik Boolean (`true`/`false`) | `toggleEncoderHardware` | Pełna aktywacja lub programowe tłumienie sygnałów przerwań sprzętowych z pokręteł. |
+| **Klawisz funkcyjny S1** | Selektor powiązań makr | `assignS1KeyAction` | Przypisanie dowolnej komendy VS Code lub makra systemowego pod fizyczny przycisk S1. |
+| **Klawisz funkcyjny S2** | Selektor powiązań makr | `assignS2KeyAction` | Przypisanie dowolnej komendy VS Code lub makra systemowego pod fizyczny przycisk S2. |
+| **Silnik lokalizacji** | Podsystem NLS | Integracja `vscode.l10n` | Scentralizowane ładowanie opisów interfejsu na podstawie języka środowiska VS Code. |
+
+### 🚀 Optymalizacja wydajności warstwy `padDevice`
+Niskopoziomowy moduł komunikacyjny `padDevice` przeszedł gruntowny przegląd architektury:
+* **Pula buforów (Buffer Pooling):** Przeprojektowano wysyłanie pakietów HID tak, aby wielokrotnie wykorzystywać te same tablice bajtów. Zredukowało to narzut Garbage Collectora (GC) podczas intensywnego obracania enkoderami.
+* **Czyszczenie kodu (Dead Code Elimination):** Usunięto przestarzałe deskryptory oraz nieużywane definicje pakietów, dzięki czemu kod jest czystszy, łatwiejszy w utrzymaniu i lżejszy dla systemu.
 
 ---
 

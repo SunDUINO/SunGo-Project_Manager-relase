@@ -5,6 +5,22 @@
 
 ---
 
+## [2.5.0] - 2026-05-17
+
+### Added / Dodano
+- **[EN]** Added new configuration elements in `padSettings2` to dynamically enable/disable rotary encoders and map custom functions to the S1 and S2 hardware keys.
+- **[PL]** Dodano nowe elementy konfiguracyjne w `padSettings2` umożliwiające włączanie/wyłączanie enkoderów oraz przypisywanie własnych funkcji dla klawiszy sprzętowych S1 i S2.
+
+### Changed / Zmieniono
+- **[EN]** Replaced hardcoded string literals and UI descriptions with centralized NLS (Native Language Support) translation keys.
+- **[PL]** Zastąpiono zahardkodowane opisy interfejsu kluczami tłumaczeń systemu NLS (Native Language Support).
+
+### Fixed & Optimized / Poprawiono i Zoptymalizowano
+- **[EN]** Deep architectural refactoring, cleanup, and performance optimization of the `padDevice` communication layer.
+- **[PL]** Gruntowny refaktoring, czyszczenie oraz optymalizacja wydajnościowa warstwy komunikacyjnej `padDevice`.
+
+---
+
 ## [2.4.6] - 2026-05-17
 
 ## 🎛️ Rotary Encoders Optimization & Refactoring / Optymalizacja i Refaktoryzacja Enkoderów Obrotowych
