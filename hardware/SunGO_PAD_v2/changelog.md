@@ -1,3 +1,14 @@
+## v5.8.4 - 2026-05-20
+
+* Poprawiono:
+  - płynność działania wizualizacji encoderów
+  - poprawki optymalizacyjne dla Tud_HID
+  - bezpośredni odczyt/zapis RAW  -- jest szybszy i płynniejszy 
+* Dodano:
+  - report_ID 4 dla encoderów i przycisków S1/S2
+  - Nowa komenda Z pozwala na wyłaczenie Encoderów z poziomu wtyczki  - wcześniej X toggle 
+    
+
 ## v5.8.2 - 2026-05-17
 
 * Dodano obsługę komend Encoderów
