@@ -3,6 +3,22 @@
 [EN] All notable changes to the "SunGo Project Manager" extension are documented in this file.  
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
+
+---
+
+## [2.5.1] - 2026-05-20
+
+### Added / Dodano
+- **[EN]** Added a dedicated configuration file for advanced rotary encoder customization.
+- **[PL]** Dodano dedykowany plik konfiguracyjny do zaawansowanej parametryzacji enkoderów obrotowych.
+
+### Fixed & Optimized / Poprawiono i Zoptymalizowano
+- **[EN]** Fixed minor bugs in NLS translation keys and refined overall localization accuracy.
+- **[PL]** Poprawiono drobne błędy w kluczach tłumaczeń NLS oraz zwiększono dokładność lokalizacyjną interfejsu.
+- **[EN]** Comprehensive code refactoring, architectural cleanup, and significant performance optimizations.
+- **[PL]** Kompleksowa refaktoryzacja kodu, czyszczenie strukturalne oraz znaczące optymalizacje wydajnościowe.
+
+
 ---
 
 ## [2.5.0] - 2026-05-17
