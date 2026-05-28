@@ -5,6 +5,19 @@
 
 
 ---
+## [2.5.2] - 2026-05-28
+
+### Fixed & Optimized / Poprawiono i Zoptymalizowano
+- **[EN]** Fixed Raw USB communication issues.
+- **[PL]** Poprawiono komunikację Raw USB.
+- **[EN]** Improved the firmware installer and updater for MacroPAD II.
+- **[PL]** Poprawiono instalator i aktualizator firmware dla MacroPAD II.
+- **[EN]** Optimized RAM usage during large data packet buffering.
+- **[PL]** Zoptymalizowano zużycie pamięci RAM podczas buforowania dużych pakietów danych.
+- **[EN]** Enhanced background thread stability for HID device detection.
+- **[PL]** Poprawiono stabilność wątków tła odpowiedzialnych za detekcję urządzeń HID.
+---
+
 
 ## [2.5.1] - 2026-05-20
 
