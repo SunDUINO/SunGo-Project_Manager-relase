@@ -1,3 +1,12 @@
+## v5.8.8 - 2026-05-28
+
+* Poprawiono:
+  - gruntowna refaktoryzacja kodu – oczyszczono strukturę i poprawiono czytelność architektury oprogramowania
+  - optymalizacja wydajnościowa systemu – zmniejszono zużycie zasobów, co przekłada się na stabilniejsze działanie firmware
+  - stabilność komunikacji HID RAW – wyeliminowano błędy transmisji i usprawniono niskopoziomową wymianę pakietów danych
+  - renderowanie grafiki LCD – zoptymalizowano wyświetlanie elementów wizualnych oraz zwiększono płynność animacji na ekranie
+
+
 ## v5.8.4 - 2026-05-20
 
 * Poprawiono:
