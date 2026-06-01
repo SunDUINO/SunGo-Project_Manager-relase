@@ -3,6 +3,16 @@
 [EN] All notable changes to the "SunGo Project Manager" extension are documented in this file.  
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
+---
+
+## [2.5.3] - 2026-06-01
+
+### Optimized / Zoptymalizowano
+
+- **[EN]** Fixed little bugs in NLS translation keys and refined overall localization accuracy.
+- **[PL]** Poprawiono drobne błędy w kluczach tłumaczeń NLS oraz zwiększono dokładność lokalizacyjną interfejsu.
+- **[EN]** Architectural cleanup, and significant performance optimizations.
+- **[PL]** Czyszczenie strukturalne oraz znaczące optymalizacje wydajnościowe. 
 
 ---
 ## [2.5.2] - 2026-05-28
