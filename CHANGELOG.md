@@ -5,6 +5,23 @@
 
 ---
 
+## [2.5.6] - 2026-06-16
+
+### Fixed / Poprawiono
+
+- **[EN]** Fixed translation errors and corrected typos across various UI language versions.
+- **[PL]** Naprawiono błędy w tłumaczeniach oraz poprawiono literówki w różnych wersjach językowych interfejsu użytkownika.
+- **[EN]** Resolved minor bugs and overall software stability issues.
+- **[PL]** Usunięto drobne błędy oraz poprawiono ogólną stabilność działania oprogramowania.
+
+### Optimized / Zoptymalizowano
+
+- **[EN]** Performance optimizations and general quality-of-life improvements.
+- **[PL]** Zoptymalizowano wydajność oraz wprowadzono ogólne poprawki zwiększające komfort użytkowania (QoL).
+
+
+---
+
 ## [2.5.5] - 2026-06-08
 
 ### Changed / Zmieniono
