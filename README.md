@@ -54,6 +54,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#requirements-installation)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v2.6.0) – Peripheral Customization & Core Persistence](#whats-new-v260-–-peripheral-customization--core-persistence)
 * [EN: What's New (v2.5.0) – Advanced Hardware Control & Localization Engine](#whats-new-v250-–-advanced-hardware-control--localization-engine)
 * [EN: What's New (v2.4.5) – Rotary Encoders Configuration](#whats-new-v245-–-rotary-encoders-configuration)
 * [EN: What's New (v2.4.3) – Automated Firmware Updates & OTA](#whats-new-v243--automated-firmware-updates--ota)
@@ -194,23 +195,6 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
 
 ---
-# What's New (v2.4.5) – Rotary Encoders Configuration
-
-The latest release brings full integration for the twin rotary encoders on the **SunGO MacroPAD II**, allowing you to bind tactical commands to physical hardware rotations.
-
-> ⚠️ **Firmware Compatibility Note:** This feature is prepared for full integration with the upcoming **firmware v5.8.0**, which will be available shortly. Ensure your device is updated as soon as it drops to unlock complete dual-direction knob capabilities.
-
-* **Dual-Knob Independent Mapping:** Separate configuration for the **left knob** and **right knob**.
-* **Direction Awareness:** Bind completely different VS Code or system actions depending on whether you rotate **CW** (Clockwise) or **CCW** (Counter-Clockwise).
-* **Hardware Sync:** Settings are safely synchronized with the pad's global state and pushed to the device via dedicated HID configuration packets.
-
-| Feature / Funkcja | Description / Opis | Action Triggers / Wyzwalacze |
-| :--- | :--- | :--- |
-| **Left / Right Knobs** | Independent encoder configuration | `saveEncoderAction` & `applyEncoderConfig` |
-| **CW / CCW Control** | Dual-direction macro triggers | Cursor Up/Down, Scroll, Vol, Brightness |
-| **State Persistence** | Config saved globally within VS Code | Instant hardware sync on apply |
-
----
 
 # What's New (v2.5.0) – Advanced Hardware Control & Localization Engine
 
@@ -235,6 +219,50 @@ The hardware configuration schema has been enhanced to accommodate peripheral st
 The underlying communication layer `padDevice` underwent a deep architectural review:
 * **Buffer Pooling:** Reimplemented the HID packet distribution to reuse active byte arrays, significantly reducing GC (Garbage Collection) overhead during high-frequency encoder rotation.
 * **Dead Code Elimination:** Removed legacy descriptors and unused packet definitions, resulting in a cleaner, maintainable, and lighter subsystem footprint.
+
+---
+
+# What's New (v2.4.5) – Rotary Encoders Configuration
+
+The latest release brings full integration for the twin rotary encoders on the **SunGO MacroPAD II**, allowing you to bind tactical commands to physical hardware rotations.
+
+> ⚠️ **Firmware Compatibility Note:** This feature is prepared for full integration with the upcoming **firmware v5.8.0**, which will be available shortly. Ensure your device is updated as soon as it drops to unlock complete dual-direction knob capabilities.
+
+* **Dual-Knob Independent Mapping:** Separate configuration for the **left knob** and **right knob**.
+* **Direction Awareness:** Bind completely different VS Code or system actions depending on whether you rotate **CW** (Clockwise) or **CCW** (Counter-Clockwise).
+* **Hardware Sync:** Settings are safely synchronized with the pad's global state and pushed to the device via dedicated HID configuration packets.
+
+| Feature / Funkcja | Description / Opis | Action Triggers / Wyzwalacze |
+| :--- | :--- | :--- |
+| **Left / Right Knobs** | Independent encoder configuration | `saveEncoderAction` & `applyEncoderConfig` |
+| **CW / CCW Control** | Dual-direction macro triggers | Cursor Up/Down, Scroll, Vol, Brightness |
+| **State Persistence** | Config saved globally within VS Code | Instant hardware sync on apply |
+
+---
+
+# What's New (v2.6.0) – Peripheral Customization & Core Persistence
+
+The `v2.6.0` update focuses on improving peripheral customization, expanding UI interaction options, and elevating the stability of the hardware interface for **MacroPAD II**.
+
+* **Dynamic Selectors:** Replaced fixed layout options with interactive dropdown menus in the configuration view, streamlining how actions, commands, and profiles are assigned.
+* **State & Preference Persistence:** Implemented an automated background mechanism to save device configurations, ensuring your customized profiles and hardware maps are retained across extension and editor restarts.
+* **Advanced Button Parsing (S1 & S2):** Resolved critical interaction processing bugs for the encoder push-switches. The S1 and S2 hardware inputs are now fully operational as specialized triggers that accept modified arguments and complex variables.
+* **Upper Encoder (ENC 1) Precision:** Fixed operational tracking regressions affecting the top programmable control knob. Directional monitoring has been fully restored, preventing missed steps and ensuring clean mechanical feedback.
+* **Execution Bridge & Routing:** Patched internal message handling routines to ensure all mapped operations and defined shortcuts trigger instantly with zero communication lag.
+
+### 🎛️ Refactored Configuration & Hardware Mapping
+The hardware interaction layer has been updated to provide smoother event processing and predictable profile behavior during active workspace switches.
+
+| Feature / Hardware Element | Configuration Type | Core Trigger Method / Action | Description |
+| :--- | :--- | :--- | :--- |
+| **Interface Selector** | Interactive Dropdown Menu | `renderDynamicDropdownUI` | Replaces legacy static text fields with smart contextual layout selectors. |
+| **S1 / S2 Push Switches** | Macro Bindable Trigger | `parseEncoderSwitchEvent` | Enhanced click registration supporting multi-argument commands without dropouts. |
+| **Upper Encoder (ENC 1)** | Hardware Interrupt Tracking | `monitorUpperEncoderRotary` | Re-calibrated rotary step counter ensuring immediate CW/CCW resolution tracking. |
+| **Configuration Cache** | Automised Background Engine | `flushSettingsToGlobalState` | Seamless background write synchronization that secures mappings against app crashes. |
+
+### 🚀 Architectural Optimization (`padDevice`)
+* **Codebase Modernization:** Conducted deep structural refactoring and cleanup to eliminate redundant processes, optimizing runtime velocity and UI responsiveness.
+* **Type Safety & Footprint Reduction:** Implemented stricter type checking rules in low-level routines, visibly lowering hardware resource consumption during live device communication.
 
 ---
 
@@ -765,6 +793,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguły-udev)
+* [PL: Co nowego (v2.6.0) – Personalizacja peryferiów i trwałość konfiguracji](#co-nowego-v260-–-personalizacja-peryferiów-i-trwałość-konfiguracji)
 * [PL: Co nowego (v2.5.0) – Zaawansowane sterowanie sprzętem i silnik lokalizacji](#co-nowego-v250-–-zaawansowane-sterowanie-sprzętem-i-silnik-lokalizacji)
 * [PL: Co nowego (v2.4.3) – Automatyczne aktualizacje firmware i OTA](#co-nowego-v243--automatyczne-aktualizacje-firmware-i-ota)
 * [PL: Co nowego (v2.4.0) – Personalizacja SunGO PAD II](#-co-nowego-v240--personalizacja-sungo-pad-ii-i-mapowanie-klawiszy)
@@ -897,7 +926,33 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ---
 
-# [PL] Co nowego (v2.5.0) – Zaawansowane sterowanie sprzętem i silnik lokalizacji
+# Co nowego (v2.6.0) – Personalizacja peryferiów i trwałość konfiguracji
+
+Wydanie `v2.6.0` koncentruje się na rozszerzeniu możliwości personalizacji peryferiów, wprowadzeniu elastycznych opcji interfejsu użytkownika oraz podniesieniu stabilności komunikacji sprzętowej dla **MacroPAD II**.
+
+* **Wygodne Listy Wyboru:** Tradycyjne opcje konfiguracyjne zastąpiono interaktywnymi listami rozwijalnymi, co znacznie upraszcza przypisywanie akcji, makr oraz profili sterowania w panelu ustawień.
+* **Trwały Zapis Preferencji:** Wdrożono automatyczny mechanizm zapisu stanów w tle, dzięki czemu zmodyfikowane parametry pracy urządzenia są bezpiecznie zachowywane i nie resetują się po restarcie aplikacji.
+* **Zaawansowana Interpretacja Przycisków (S1 i S2):** Usunięto błędy przetwarzania sygnałów ze zintegrowanych przełączników enkoderów. Przyciski S1 i S2 działają teraz stabilnie jako wejścia specjalne, bezproblemowo obsługując modyfikowaną zawartość.
+* **Precyzja Górnego Pokrętła (ENC 1):** Wyeliminowano problemy z odczytem ruchu górnego enkodera programowalnego. Pełna dokładność rejestrowania obrotu została przywrócona, co zapobiega gubieniu kroków przy szybkich zmianach pozycji.
+* **Wyzwalanie Operacji i Mapowanie:** Poprawiono wewnętrzny mostek komunikacyjny, gwarantując, że przypisane aliasy oraz polecenia są realizowane natychmiastowo i bez przestojów w kolejce rozkazów.
+
+### 🎛️ Zmodernizowana struktura konfiguracji i mapowania
+Warstwa obsługi zdarzeń sprzętowych została przebudowana, aby zapewnić płynniejszą reakcję urządzenia oraz przewidywalne zachowanie profili podczas przełączania obszarów roboczych.
+
+| Funkcja / Element sprzętowy | Typ konfiguracji | Metoda wyzwalająca / Akcja | Opis |
+| :--- | :--- | :--- | :--- |
+| **Selektor Interfejsu** | Interaktywna lista rozwijana | `renderDynamicDropdownUI` | Zastępuje stare pola tekstowe inteligentnymi, kontekstowymi listami wyboru. |
+| **Przyciski Enkoderów S1 / S2** | Powiązanie makr i komend | `parseEncoderSwitchEvent` | Poprawiona rejestracja kliknięć, w pełni obsługująca komendy z wieloma argumentami. |
+| **Górny Enkoder (ENC 1)** | Przerwanie kontrolera ruchu | `monitorUpperEncoderRotary` | Skalibrowany na nowo licznik kroków, zapewniający precyzyjne śledzenie obrotu CW/CCW. |
+| **Pamięć Podręczna Ustawień** | Automatyczny silnik tła | `flushSettingsToGlobalState` | Bezpieczna synchronizacja zmian w tle, chroniąca układ klawiszy przed utratą danych. |
+
+### ⚡ Optymalizacja Strukturalna (`padDevice`)
+* **Modernizacja Kodu Źródłowego:** Przeprowadzono gruntowne czyszczenie struktury kodu oraz refaktoryzację, usuwając zbędne procesy i zauważalnie zwiększając płynność działania interfejsu.
+* **Rygorystyczna Kontrola Typów:** Zaostrzono reguły sprawdzania danych w procedurach niskopoziomowych, zmniejszając narzut na zasoby systemowe podczas ciągłego odpytywania podłączonego sprzętu.
+
+---
+
+# Co nowego (v2.5.0) – Zaawansowane sterowanie sprzętem i silnik lokalizacji
 
 Najnowsza aktualizacja **SunGo Project Manager** wprowadza szczegółową kontrolę nad peryferiami sprzętowymi **SunGO MacroPAD II**, strukturalny refaktoring lokalizacyjny w całym kodzie źródłowym oraz optymalizacje wydajnościowe.
 

@@ -5,6 +5,31 @@
 
 ---
 
+## [2.6.0] - 2026-06-16
+
+### Added / Dodano
+
+- **[EN]** Added dropdown lists for intuitive option selection and implemented a reliable configuration persistence mechanism within the Pad Settings panel.
+- **[PL]** Dodano rozwijalne listy wyboru w ustawieniach pada oraz zaimplementowano mechanizm trwałego zapisu zmienionych konfiguracji.
+
+### Fixed / Poprawiono
+
+- **[EN]** Fixed command parsing for encoder hardware keys S1 and S2, assigning them as special keys with dynamically modified payload support.
+- **[PL]** Naprawiono parsowanie komend dla klawiszy sprzętowych S1 i S2 enkoderów, przypisując je jako klawisze specjalne z obsługą modyfikowanej zawartości.
+- **[EN]** Resolved operational issues with the programmable upper encoder (ENC 1) to ensure precise tracking and stability.
+- **[PL]** Poprawiono działanie oraz precyzję programowalnego enkodera górnego (ENC 1).
+- **[EN]** Corrected hardware command invocation routines and refined shortcut alias assignment logic.
+- **[PL]** Poprawiono mechanizm wywoływania komend sprzętowych oraz logikę przypisywania aliasów.
+
+### Optimized / Zoptymalizowano
+
+- **[EN]** Conducted extensive architectural cleanup and refactoring to improve core codebase maintainability and execution velocity.
+- **[PL]** Przeprowadzono gruntowne czyszczenie strukturalne oraz refaktoryzację kodu w celu zwiększenia czytelności i szybkości działania aplikacji.
+- **[EN]** Enhanced system resource utilization and enforced stricter type safety across hardware communication layers.
+- **[PL]** Zoptymalizowano zużycie zasobów systemowych oraz zaostrzono kontrolę typów w warstwach komunikacji niskopoziomowej.
+
+---
+
 ## [2.5.6] - 2026-06-16
 
 ### Fixed / Poprawiono
