@@ -1,7 +1,7 @@
 {
   "SunGo_Macro_Pad_II": {
-    "version": "5.9.0",
-    "url": "https://raw.githubusercontent.com/SunDUINO/SunGo-Project_Manager-relase/main/hardware/SunGO_PAD_v2/SunGO_MacroPAD_II_v5.9.0.uf2",
+    "version": "5.9.1",
+    "url": "https://raw.githubusercontent.com/SunDUINO/SunGo-Project_Manager-relase/main/hardware/SunGO_PAD_v2/SunGO_MacroPAD_II_v5.9.1.uf2",
     "changelog": "Domyślnie przypisano funkcję ENC 0 do kółka myszy (Mouse Wheel).",
     "min_plugin_version": "2.5.0"
   }
