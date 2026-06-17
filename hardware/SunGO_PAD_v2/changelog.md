@@ -5,6 +5,27 @@
 
 ---
 
+## [5.9.1] - 2026-06-17
+
+### Added / Dodano
+
+- **[EN]** Implemented a dedicated, graphical error handling screen (`display_show_error`) featuring a geometric warning triangle and status text.
+- **[PL]** Wdrożono dedykowany, graficzny ekran obsługi błędów (`display_show_error`) zawierający geometryczny trójkąt ostrzegawczy oraz tekst statusu.
+
+### Changed / Zmieniono
+
+- **[EN]** Redesigned the error notification layout to integrate seamlessly with the default dark theme (`C_DARK`), enhancing visual consistency across critical system alerts.
+- **[PL]** Przeprojektowano układ powiadomień o błędach, aby bezszwowo integrował się z domyślnym ciemnym motywem (`C_DARK`), podnosząc spójność wizualną krytycznych alertów systemowych.
+
+### Optimized / Zoptymalizowano
+
+- **[EN]** Optimized geometric rendering routines by utilizing line-by-line drawing algorithms (`lcd_hline_f`), eliminating screen flickering and reducing SPI bus overhead during heavy render states.
+- **[PL]** Zoptymalizowano procedury renderowania geometrii poprzez użycie algorytmów rysowania linia po linii (`lcd_hline_f`), co wyeliminowało migotanie ekranu i zmniejszyło narzut na magistrali SPI podczas obciążających stanów renderowania.
+- **[EN]** Refined display state machine logic to ensure atomic transitions and block redundant frame buffer clear operations during override states.
+- **[PL]** Usprawniono logikę maszyny stanów wyświetlacza, zapewniając atomowe przejścia i blokując nadmiarowe operacje czyszczenia bufora ramki w stanach nadpisania (override).
+
+---
+
 ## [5.9.0] - 2026-06-08
 
 ### Added / Dodano
