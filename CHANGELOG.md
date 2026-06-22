@@ -5,6 +5,26 @@
 
 ---
 
+## [2.6.1] - 2026-06-22
+
+### Fixed / Poprawiono
+
+- **[EN]** Enhanced execution velocity for commands transmitted to MacroPAD II via HID RAW protocols.
+- **[PL]** Zwiększono szybkość działania i wykonywania komend wysyłanych do MacroPAD II przez protokół HID RAW.
+- **[EN]** Conducted general performance fine-tuning to elevate overall system responsiveness.
+- **[PL]** Przeprowadzono ogólne dostrojenie wydajności w celu zwiększenia ogólnej responsywności systemu.
+- **[EN]** Addressed general performance bottlenecks to smooth out overall system responsiveness.
+- **[PL]** Wyeliminowano ogólne wąskie gardła wydajnościowe, zwiększając płynność i responsywność systemu.
+
+### Optimized / Zoptymalizowano
+
+- **[EN]** Streamlined the internal codebase through comprehensive code cleanup for better maintainability.
+- **[PL]** Uporządkowano wewnętrzną strukturę kodu poprzez kompleksowe czyszczenie, poprawiając łatwość jego utrzymania.
+- **[EN]** Executed global performance optimizations to minimize runtime overhead and resource consumption.
+- **[PL]** Przeprowadzono globalną optymalizację działania aplikacji w celu zminimalizowania narzutu systemowego i zużycia zasobów.
+
+---
+
 ## [2.6.0] - 2026-06-16
 
 ### Added / Dodano

@@ -196,6 +196,32 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ---
 
+# What's New (v2.6.0) – Peripheral Customization & Core Persistence
+
+The `v2.6.0` update focuses on improving peripheral customization, expanding UI interaction options, and elevating the stability of the hardware interface for **MacroPAD II**.
+
+* **Dynamic Selectors:** Replaced fixed layout options with interactive dropdown menus in the configuration view, streamlining how actions, commands, and profiles are assigned.
+* **State & Preference Persistence:** Implemented an automated background mechanism to save device configurations, ensuring your customized profiles and hardware maps are retained across extension and editor restarts.
+* **Advanced Button Parsing (S1 & S2):** Resolved critical interaction processing bugs for the encoder push-switches. The S1 and S2 hardware inputs are now fully operational as specialized triggers that accept modified arguments and complex variables.
+* **Upper Encoder (ENC 1) Precision:** Fixed operational tracking regressions affecting the top programmable control knob. Directional monitoring has been fully restored, preventing missed steps and ensuring clean mechanical feedback.
+* **Execution Bridge & Routing:** Patched internal message handling routines to ensure all mapped operations and defined shortcuts trigger instantly with zero communication lag.
+
+### 🎛️ Refactored Configuration & Hardware Mapping
+The hardware interaction layer has been updated to provide smoother event processing and predictable profile behavior during active workspace switches.
+
+| Feature / Hardware Element | Configuration Type | Core Trigger Method / Action | Description |
+| :--- | :--- | :--- | :--- |
+| **Interface Selector** | Interactive Dropdown Menu | `renderDynamicDropdownUI` | Replaces legacy static text fields with smart contextual layout selectors. |
+| **S1 / S2 Push Switches** | Macro Bindable Trigger | `parseEncoderSwitchEvent` | Enhanced click registration supporting multi-argument commands without dropouts. |
+| **Upper Encoder (ENC 1)** | Hardware Interrupt Tracking | `monitorUpperEncoderRotary` | Re-calibrated rotary step counter ensuring immediate CW/CCW resolution tracking. |
+| **Configuration Cache** | Automised Background Engine | `flushSettingsToGlobalState` | Seamless background write synchronization that secures mappings against app crashes. |
+
+### 🚀 Architectural Optimization (`padDevice`)
+* **Codebase Modernization:** Conducted deep structural refactoring and cleanup to eliminate redundant processes, optimizing runtime velocity and UI responsiveness.
+* **Type Safety & Footprint Reduction:** Implemented stricter type checking rules in low-level routines, visibly lowering hardware resource consumption during live device communication.
+
+--- 
+
 # What's New (v2.5.0) – Advanced Hardware Control & Localization Engine
 
 The latest update for **SunGo Project Manager** introduces granular peripheral hardware control for the **SunGO MacroPAD II**, a structural localization refactor across the entire codebase, and performance optimizations.
@@ -240,31 +266,7 @@ The latest release brings full integration for the twin rotary encoders on the *
 
 ---
 
-# What's New (v2.6.0) – Peripheral Customization & Core Persistence
 
-The `v2.6.0` update focuses on improving peripheral customization, expanding UI interaction options, and elevating the stability of the hardware interface for **MacroPAD II**.
-
-* **Dynamic Selectors:** Replaced fixed layout options with interactive dropdown menus in the configuration view, streamlining how actions, commands, and profiles are assigned.
-* **State & Preference Persistence:** Implemented an automated background mechanism to save device configurations, ensuring your customized profiles and hardware maps are retained across extension and editor restarts.
-* **Advanced Button Parsing (S1 & S2):** Resolved critical interaction processing bugs for the encoder push-switches. The S1 and S2 hardware inputs are now fully operational as specialized triggers that accept modified arguments and complex variables.
-* **Upper Encoder (ENC 1) Precision:** Fixed operational tracking regressions affecting the top programmable control knob. Directional monitoring has been fully restored, preventing missed steps and ensuring clean mechanical feedback.
-* **Execution Bridge & Routing:** Patched internal message handling routines to ensure all mapped operations and defined shortcuts trigger instantly with zero communication lag.
-
-### 🎛️ Refactored Configuration & Hardware Mapping
-The hardware interaction layer has been updated to provide smoother event processing and predictable profile behavior during active workspace switches.
-
-| Feature / Hardware Element | Configuration Type | Core Trigger Method / Action | Description |
-| :--- | :--- | :--- | :--- |
-| **Interface Selector** | Interactive Dropdown Menu | `renderDynamicDropdownUI` | Replaces legacy static text fields with smart contextual layout selectors. |
-| **S1 / S2 Push Switches** | Macro Bindable Trigger | `parseEncoderSwitchEvent` | Enhanced click registration supporting multi-argument commands without dropouts. |
-| **Upper Encoder (ENC 1)** | Hardware Interrupt Tracking | `monitorUpperEncoderRotary` | Re-calibrated rotary step counter ensuring immediate CW/CCW resolution tracking. |
-| **Configuration Cache** | Automised Background Engine | `flushSettingsToGlobalState` | Seamless background write synchronization that secures mappings against app crashes. |
-
-### 🚀 Architectural Optimization (`padDevice`)
-* **Codebase Modernization:** Conducted deep structural refactoring and cleanup to eliminate redundant processes, optimizing runtime velocity and UI responsiveness.
-* **Type Safety & Footprint Reduction:** Implemented stricter type checking rules in low-level routines, visibly lowering hardware resource consumption during live device communication.
-
----
 
 
 # What's New (v2.4.3) – Automated Firmware Updates & OTA
