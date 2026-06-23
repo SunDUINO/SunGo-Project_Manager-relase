@@ -54,6 +54,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#requirements-installation)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v2.6.2) – Smart Device Detection & No-Device Panel](#whats-new-v262--smart-device-detection--no-device-panel)
 * [EN: What's New (v2.6.0) – Peripheral Customization & Core Persistence](#whats-new-v260-–-peripheral-customization--core-persistence)
 * [EN: What's New (v2.5.0) – Advanced Hardware Control & Localization Engine](#whats-new-v250-–-advanced-hardware-control--localization-engine)
 * [EN: What's New (v2.4.5) – Rotary Encoders Configuration](#whats-new-v245-–-rotary-encoders-configuration)
@@ -195,6 +196,37 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
 
 ---
+
+# What's New (v2.6.2) – Smart Device Detection & No-Device Panel
+
+The `v2.6.2` update hardens the hardware detection pipeline for the **SunGO MacroPAD** family and eliminates a long-standing UX issue where opening the settings panel without a connected device would silently open the V1 configuration view.
+
+* **No-Device Panel:** When no SunGO MacroPAD is detected at startup, the extension now opens a dedicated informational panel instead of silently falling back to the V1 settings view. The panel provides step-by-step connection guidance and a one-click re-detection button — no need to restart VS Code.
+* **Dual-Signal Version Detection:** Hardware identification now cross-checks both the USB **Product ID** and the device **serial number** (`SR-2026-4050` → V1, `SR-2026-5050` → V2), preventing misidentification on systems where the HID descriptor is reported differently across operating systems.
+* **Three-Way Settings Routing:** The `openPadSettings` command now branches across three distinct paths — `NONE` (no device), `V1` (MacroPAD I), and `V2` (MacroPAD II) — replacing the previous two-way fallback that treated a missing device as a V1 unit.
+* **Full Bilingual NLS Coverage:** All new UI strings in the no-device panel are localized through the native NLS key system across both English and Polish language packs (`pad.nodevice`).
+
+### 🔌 No-Device Panel — Feature Overview
+
+| Feature | Description |
+| :--- | :--- |
+| **Connection hints** | Three actionable steps guiding the user to verify cable, LED state, and USB reconnection |
+| **Re-detect button** | Disposes the current panel and re-invokes `openPadSettings` without restarting the editor |
+| **Linux notice** | Displays an additional udev permission reminder on Linux systems |
+| **README shortcut** | Direct link to the setup documentation from within the panel |
+
+### 🔍 Improved Hardware Identification 
+
+Previously, version detection relied solely on the USB Product ID with a single serial number fallback string. The updated logic applies explicit matching for both hardware signals:
+
+| Signal | V1 | V2 |
+| :--- | :--- | :--- |
+| **USB Product ID** | `0x4050` | `0x5050` |
+| **Serial Number** | `SR-2026-4050` | `SR-2026-5050` |
+| **Fallback** | V1 (safe default for unrecognised variants) | — |
+
+---
+
 
 # What's New (v2.6.0) – Peripheral Customization & Core Persistence
 
@@ -795,6 +827,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguły-udev)
+* [PL: Co nowego (v2.6.2) – Inteligentne wykrywanie i panel braku urządzenia](#co-nowego-v262--inteligentne-wykrywanie-i-panel-braku-urządzenia)
 * [PL: Co nowego (v2.6.0) – Personalizacja peryferiów i trwałość konfiguracji](#co-nowego-v260-–-personalizacja-peryferiów-i-trwałość-konfiguracji)
 * [PL: Co nowego (v2.5.0) – Zaawansowane sterowanie sprzętem i silnik lokalizacji](#co-nowego-v250-–-zaawansowane-sterowanie-sprzętem-i-silnik-lokalizacji)
 * [PL: Co nowego (v2.4.3) – Automatyczne aktualizacje firmware i OTA](#co-nowego-v243--automatyczne-aktualizacje-firmware-i-ota)
@@ -925,6 +958,36 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+# Co nowego (v2.6.2) – Inteligentne wykrywanie i panel braku urządzenia
+
+Wersja `v2.6.2` wzmacnia potok wykrywania sprzętu dla całej rodziny **SunGO MacroPAD** i eliminuje długo istniejący problem UX, w którym otwarcie panelu ustawień bez podłączonego urządzenia cicho otwierało widok konfiguracji V1.
+
+* **Panel braku urządzenia:** Gdy przy starcie wtyczki żaden SunGO MacroPAD nie zostanie wykryty, rozszerzenie otwiera teraz dedykowany panel informacyjny zamiast cicho cofać się do ustawień V1. Panel zawiera instrukcję połączenia krok po kroku oraz przycisk ponownego wykrywania urządzenia — bez konieczności restartu VS Code.
+* **Wykrywanie wersji dwoma sygnałami:** Identyfikacja sprzętu sprawdza teraz zarówno USB **Product ID**, jak i **numer seryjny** urządzenia (`SR-2026-4050` → V1, `SR-2026-5050` → V2), zapobiegając błędnej identyfikacji na systemach, gdzie deskryptor HID jest raportowany inaczej w zależności od systemu operacyjnego.
+* **Trójnikowe przekierowanie ustawień:** Komenda `openPadSettings` rozgałęzia się teraz na trzy odrębne ścieżki — `NONE` (brak urządzenia), `V1` (MacroPAD I) oraz `V2` (MacroPAD II) — zastępując poprzedni dwustanowy fallback, który traktował brakujące urządzenie jak jednostkę V1.
+* **Pełna dwujęzyczna lokalizacja NLS:** Wszystkie nowe ciągi UI w panelu braku urządzenia są zlokalizowane przez natywny system kluczy NLS w obu pakietach językowych — angielskim i polskim (`pad.nodevice`).
+
+### 🔌 Panel braku urządzenia — przegląd funkcji
+
+| Funkcja | Opis |
+| :--- | :--- |
+| **Wskazówki połączenia** | Trzy działania naprawcze prowadzące przez weryfikację kabla, stanu LED i ponowne podłączenie USB |
+| **Przycisk ponownego wykrywania** | Zamyka bieżący panel i ponownie wywołuje `openPadSettings` bez restartu edytora |
+| **Komunikat dla Linuxa** | Na systemach Linux wyświetla dodatkowe przypomnienie o konfiguracji uprawnień udev |
+| **Skrót do README** | Bezpośredni link do dokumentacji konfiguracyjnej z poziomu panelu |
+
+### 🔍 Ulepszona identyfikacja sprzętu (`padDevice.ts`)
+
+Poprzednio wykrywanie wersji opierało się wyłącznie na USB Product ID z jednym ciągiem fallback numeru seryjnego. Zaktualizowana logika stosuje jawne dopasowanie dla obu sygnałów sprzętowych:
+
+| Sygnał | V1 | V2 |
+| :--- | :--- | :--- |
+| **USB Product ID** | `0x4050` | `0x5050` |
+| **Numer seryjny** | `SR-2026-4050` | `SR-2026-5050` |
+| **Fallback** | V1 (bezpieczny domyślny dla nieznanych wariantów) | — |
 
 ---
 

@@ -5,6 +5,28 @@
 
 ---
 
+## [2.6.2] - 2026-06-23
+
+### Added / Dodano
+
+- **[EN]** Introduced a dedicated webview panel displayed when no SunGO MacroPAD is detected, providing connection guidance and a one-click device re-detection mechanism.
+- **[PL]** Dodano dedykowany panel webview, wyświetlany gdy żaden SunGO MacroPAD nie zostanie wykryty, zawierający wskazówki dotyczące połączenia oraz mechanizm ponownego wykrywania urządzenia jednym kliknięciem.
+- **[EN]** Added full bilingual NLS localization keys (`pad.nodevice.*`) for the new no-device panel across both English and Polish language packs.
+- **[PL]** Dodano pełny zestaw dwujęzycznych kluczy lokalizacyjnych NLS (`pad.nodevice.*`) dla nowego panelu braku urządzenia w pakietach językowych angielskim i polskim.
+
+### Fixed / Poprawiono
+
+- **[EN]** Resolved an issue where opening the MacroPAD settings without any device connected would silently fall through to the V1 configuration panel instead of informing the user.
+- **[PL]** Naprawiono błąd, w którym otwarcie ustawień MacroPAD bez podłączonego urządzenia cicho otwierało panel konfiguracji V1 zamiast poinformować użytkownika o braku urządzenia.
+- **[EN]** Improved hardware version detection logic in to explicitly match both the USB Product ID and the device serial number (`SR-2026-4050` for V1, `SR-2026-5050` for V2), with a safe V1 fallback for unrecognized hardware variants.
+- **[PL]** Ulepszono logikę wykrywania wersji sprzętu, by jawnie dopasowywać zarówno USB Product ID, jak i numer seryjny urządzenia (`SR-2026-4050` dla V1, `SR-2026-5050` dla V2), z bezpiecznym fallbackiem do V1 dla nierozpoznanych wariantów sprzętowych.
+- **[EN]** Extended the `openPadSettings` command routing in `extension.ts` to a three-way branch: `NONE` opens the no-device panel, `V2` opens the MacroPAD II settings, and `V1` opens the standard settings view.
+- **[PL]** Rozszerzono routing komendy `openPadSettings` w `extension.ts` do trójnikowego rozgałęzienia: `NONE` otwiera panel braku urządzenia, `V2` otwiera ustawienia MacroPAD II, a `V1` otwiera standardowy panel ustawień.
+- **[EN]** Corrected a CSS layout defect in the no-device panel where a negative `margin-top` value caused the subtitle element to visually overlap the title.
+- **[PL]** Poprawiono błąd układu CSS w panelu braku urządzenia, gdzie ujemna wartość `margin-top` powodowała wizualne nachodzenie elementu podtytułu na tytuł.
+
+---
+
 ## [2.6.1] - 2026-06-22
 
 ### Fixed / Poprawiono
