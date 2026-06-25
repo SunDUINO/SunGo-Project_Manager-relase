@@ -5,6 +5,19 @@
 
 ---
 
+## [2.6.3] - 2026-06-24
+
+### Fixed / Poprawiono
+
+- **[EN]** Fixed a typo where the non-existent command was called, causing the action to fail silently without execution.
+- **[PL]** Naprawiono literówkę polegającą na wywoływaniu nieistniejącej komendy, co skutkowało brakiem reakcji i cichym pominięciem wykonania polecenia.
+- **[EN]** Fixed the VS Code startup execution sequence: `checkHardware` now detects the pad while `this.context` is null (skipping `restoreDeviceState`), and once `setContext(context)` is invoked via `extension.ts` or `display()`, `restoreDeviceState()` correctly restores the state sequence ('L' + 'C' + 'X'/'Z').
+- **[PL]** Poprawiono kolejność wykonywania ścieżek przy starcie VS Code: `checkHardware` wykrywa pad, gdy `this.context` jest nullem (pomijając `restoreDeviceState`), a po wywołaniu `setContext(context)` z poziomu `extension.ts` lub `display()` następuje poprawne odtworzenie sekwencji stanu (`restoreDeviceState()` -> 'L' + 'C' + 'X'/'Z').
+- **[EN]** Applied general code quality improvements, optimizations, and stability fixes within `PadSettingsView2` and `Encoder` commands.
+- **[PL]** Wprowadzono ogólne poprawki jakościowe, optymalizacje oraz drobne poprawki w obrębie `PadSettingsView2` oraz komend `Encoder`.
+
+---
+
 ## [2.6.2] - 2026-06-23
 
 ### Added / Dodano
