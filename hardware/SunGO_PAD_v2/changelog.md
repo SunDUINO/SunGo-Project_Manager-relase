@@ -5,6 +5,24 @@
 
 ---
 
+## [5.9.2] - 2026-07-02
+
+### Changed / Zmieniono
+
+- **[EN]** Reorganized and standardized `report_ID` structures to ensure cleaner packet parsing and better data routing predictability.
+- **[PL]** Uporządkowano i ustandaryzowano struktury `report_ID`, aby zapewnić czystsze parsowanie pakietów i lepszą przewidywalność trasowania danych.
+- **[EN]** Refined the information screens for tool keys A, B, and C, improving the visual layout and readability of displayed parameters.
+- **[PL]** Usprawniono ekrany informacyjne dla klawiszy narzędziowych A, B i C, poprawiając układ wizualny oraz czytelność wyświetlanych parametrów.
+
+### Optimized / Zoptymalizowano
+
+- **[EN]** Enhanced HID RAW communication routines, significantly improving data transfer speeds and reducing overall input latency.
+- **[PL]** Zwiększono szybkość procedur komunikacji HID RAW, co znacznie poprawiło prędkość transferu danych i zredukowało ogólne opóźnienia wejścia.
+- **[EN]** Conducted comprehensive code refactoring and cleanup to streamline internal logic, remove redundancies, and improve project maintainability.
+- **[PL]** Przeprowadzono kompleksowy refaktoring i porządkowanie kodu, aby usprawnić wewnętrzną logikę, usunąć nadmiarowości i ułatwić dalsze utrzymanie projektu.
+
+---
+
 ## [5.9.1] - 2026-06-17
 
 ### Added / Dodano
