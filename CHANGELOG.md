@@ -5,6 +5,17 @@
 
 ---
 
+## [2.6.4] - 2026-07-03
+
+### Changed & Fixed / Zmieniono i Poprawiono
+
+- **[EN]** General code cleanup and refactoring to improve readability and maintainability.
+- **[PL]** Przeprowadzono porządkowanie kodu w celu poprawy jego czytelności i łatwości utrzymania.
+- **[EN]** Applied fixes and improvements in communication with MacroPAD v2 to ensure compatibility with the recent firmware update to v5.9.2.
+- **[PL]** Wprowadzono poprawki w komunikacji z urządzeniem MacroPAD v2, dostosowujące rozszerzenie do najnowszej aktualizacji firmware w wersji 5.9.2.
+
+---
+
 ## [2.6.3] - 2026-06-24
 
 ### Fixed / Poprawiono
