@@ -5,6 +5,19 @@
 
 ---
 
+## [2.6.5] - 2026-07-06
+
+### Changed & Fixed / Zmieniono i Poprawiono
+
+- **[EN]** Optimized the execution of the `go run` command triggered from the SunGO MacroPAD.
+- **[PL]** Zoptymalizowano wywołanie komendy `go run` uruchamianej z poziomu urządzenia SunGO MacroPAD.
+- **[EN]** Added new communication commands between the extension and MacroPAD II in preparation for the upcoming firmware 5.9.3 release.
+- **[PL]** Dodano nowe komendy w komunikacji pomiędzy wtyczką a urządzeniem MacroPAD II, przygotowane dla nadchodzącego firmware w wersji 5.9.3.
+- **[EN]** Optimized the communication protocol to significantly improve data transfer speed and overall responsiveness.
+- **[PL]** Zoptymalizowano protokół komunikacyjny, znacznie poprawiając szybkość przesyłania danych i ogólną responsywność działania.
+
+---
+
 ## [2.6.4] - 2026-07-03
 
 ### Changed & Fixed / Zmieniono i Poprawiono

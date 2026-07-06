@@ -225,18 +225,6 @@ Previously, version detection relied solely on the USB Product ID with a single 
 | **Serial Number** | `SR-2026-4050` | `SR-2026-5050` |
 | **Fallback** | V1 (safe default for unrecognised variants) | — |
 
-### No Device Connected ...
-
-<img width="861" height="652" alt="Zrzut ekranu 2026-07-05 123337" src="https://github.com/user-attachments/assets/57325c3a-7aed-43de-87ba-4aa98c25dd0c" />
-
-### SunGO MacroPAD I Detect ...
-
-<img width="1248" height="745" alt="Zrzut ekranu 2026-07-05 123246" src="https://github.com/user-attachments/assets/e8217225-cf3b-4876-bfa0-e41a9c65c86a" />
-
-### SunGO MacroPAD II Detect ...
-
-<img width="1393" height="1023" alt="Zrzut ekranu 2026-07-05 123516" src="https://github.com/user-attachments/assets/c71e111a-1611-4c43-9285-a9b2b94f10da" />
-
 ---
 
 
@@ -991,7 +979,7 @@ Wersja `v2.6.2` wzmacnia potok wykrywania sprzętu dla całej rodziny **SunGO Ma
 | **Komunikat dla Linuxa** | Na systemach Linux wyświetla dodatkowe przypomnienie o konfiguracji uprawnień udev |
 | **Skrót do README** | Bezpośredni link do dokumentacji konfiguracyjnej z poziomu panelu |
 
-### 🔍 Ulepszona identyfikacja sprzętu (`padDevice.ts`)
+### 🔍 Ulepszona identyfikacja sprzętu (`padDevice`)
 
 Poprzednio wykrywanie wersji opierało się wyłącznie na USB Product ID z jednym ciągiem fallback numeru seryjnego. Zaktualizowana logika stosuje jawne dopasowanie dla obu sygnałów sprzętowych:
 
@@ -1001,17 +989,18 @@ Poprzednio wykrywanie wersji opierało się wyłącznie na USB Product ID z jedn
 | **Numer seryjny** | `SR-2026-4050` | `SR-2026-5050` |
 | **Fallback** | V1 (bezpieczny domyślny dla nieznanych wariantów) | — |
 
-### Nie wykryto żadnego urządzenia  ...
+### No Device Connected ...
 
 <img width="861" height="652" alt="Zrzut ekranu 2026-07-05 123337" src="https://github.com/user-attachments/assets/57325c3a-7aed-43de-87ba-4aa98c25dd0c" />
 
-### SunGO MacroPAD I ...
+### SunGO MacroPAD I Detect ...
 
 <img width="1248" height="745" alt="Zrzut ekranu 2026-07-05 123246" src="https://github.com/user-attachments/assets/e8217225-cf3b-4876-bfa0-e41a9c65c86a" />
 
-### SunGO MacroPAD II ...
+### SunGO MacroPAD II Detect ...
 
 <img width="1393" height="1023" alt="Zrzut ekranu 2026-07-05 123516" src="https://github.com/user-attachments/assets/c71e111a-1611-4c43-9285-a9b2b94f10da" />
+
 
 ---
 
