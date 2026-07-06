@@ -5,6 +5,17 @@
 
 ---
 
+## [2.6.6] - 2026-07-06
+
+### Added / Dodano
+
+- **[EN]** The Dashboard's "Installed Tools" panel now displays live SunGO MacroPAD hardware status, showing the detected version (MacroPAD I or II) and firmware, or a clear "None" indicator when no device is connected.
+- **[PL]** Panel "Installed Tools" w Dashboardzie wyświetla teraz status podłączonego SunGO MacroPAD w czasie rzeczywistym, pokazując wykrytą wersję (MacroPAD I lub II) wraz z wersją firmware, lub czytelny wskaźnik "Brak" gdy urządzenie nie jest podłączone.
+- **[EN]** Reorganized the "Installed Tools" panel into two clearly labeled subsections, Software and Hardware, for improved readability.
+- **[PL]** Podzielono panel "Installed Tools" na dwie czytelnie oznaczone podsekcje, Software i Hardware, dla lepszej przejrzystości.
+
+---
+
 ## [2.6.5] - 2026-07-06
 
 ### Changed & Fixed / Zmieniono i Poprawiono
