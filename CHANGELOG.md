@@ -3,6 +3,16 @@
 [EN] All notable changes to the "SunGo Project Manager" extension are documented in this file.  
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
+
+---
+
+## [2.6.7] - 2026-07-07
+
+### Added / Dodano
+
+- **[EN]** Added a contextual link in the Dashboard's Hardware section, shown only when no SunGO MacroPAD is detected, linking directly to the build guide for MacroPAD I and MacroPAD II.
+- **[PL]** Dodano kontekstowy link w sekcji Hardware Dashboardu, wyświetlany wyłącznie gdy nie wykryto żadnego SunGO MacroPAD, prowadzący bezpośrednio do instrukcji budowy MacroPAD I i MacroPAD II.
+
 ---
 
 ## [2.6.6] - 2026-07-06
