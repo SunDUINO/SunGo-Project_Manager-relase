@@ -6,6 +6,20 @@
 
 ---
 
+## [2.6.8] - 2026-07-13
+
+### Changed / Zmieniono
+
+- **[EN]** Code optimization and performance improvements to ensure smoother application response.
+- **[PL]** Optymalizacja kodu oraz poprawki wydajnościowe zapewniające płynniejsze działanie aplikacji.
+
+### Fixed / Poprawiono
+
+- **[EN]** Fixed various translation and localization issues across the user interface.
+- **[PL]** Poprawiono błędy w tłumaczeniach oraz drobne potknięcia lokalizacyjne w interfejsie użytkownika.
+
+---
+
 ## [2.6.7] - 2026-07-07
 
 ### Added / Dodano
