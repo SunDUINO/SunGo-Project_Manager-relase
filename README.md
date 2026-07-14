@@ -8,8 +8,8 @@
 
 ### 📝 Release Notes & Documentation
 
-*> 💡 **[EN]** Minor updates, hotfixes, and comprehensive technical adjustments are documented exclusively in the `changelog.md` file.
-*> 💡 **[PL]** Drobne zmiany, poprawki (hotfixy) oraz szczegółowe modyfikacje techniczne są rejestrowane wyłącznie w pliku `changelog.md`.
+* 💡 **[EN]** Minor updates, hotfixes, and comprehensive technical adjustments are documented exclusively in the `changelog.md` file.
+* 💡 **[PL]** Drobne zmiany, poprawki (hotfixy) oraz szczegółowe modyfikacje techniczne są rejestrowane wyłącznie w pliku `changelog.md`.
 
 ---
 
