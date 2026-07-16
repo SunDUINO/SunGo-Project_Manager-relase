@@ -8,8 +8,8 @@
 
 ### 📝 Release Notes & Documentation
 
-* 💡 **[EN]** Minor updates, hotfixes, and comprehensive technical adjustments are documented exclusively in the `changelog.md` file.
-* 💡 **[PL]** Drobne zmiany, poprawki (hotfixy) oraz szczegółowe modyfikacje techniczne są rejestrowane wyłącznie w pliku `changelog.md`.
+> 💡 **[EN]** Minor updates, hotfixes, and comprehensive technical adjustments are documented exclusively in the `changelog.md` file.
+> 💡 **[PL]** Drobne zmiany, poprawki (hotfixy) oraz szczegółowe modyfikacje techniczne są rejestrowane wyłącznie w pliku `changelog.md`.
 
 ---
 
@@ -54,6 +54,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#requirements-installation)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v2.7.0) - Git Template Browser Optimization](#-whats-new-v270--git-template-browser-optimization)
 * [EN: What's New (v2.6.2) – Smart Device Detection & No-Device Panel](#whats-new-v262--smart-device-detection--no-device-panel)
 * [EN: What's New (v2.6.0) – Peripheral Customization & Core Persistence](#whats-new-v260-–-peripheral-customization--core-persistence)
 * [EN: What's New (v2.5.0) – Advanced Hardware Control & Localization Engine](#whats-new-v250-–-advanced-hardware-control--localization-engine)
@@ -194,6 +195,13 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ This is a one-time setup. The rule persists after system reboots.  
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
+
+---
+
+### 🚀 What's New (v2.7.0) – Git Template Browser Optimization
+
+* **Guaranteed Output Logs:** Resolved a critical bug where the extension output console would freeze right after creating the project structure. Log rendering is now fully decoupled from filesystem cleanup operations, ensuring successful compilation of tracking data and clear feedback for `go mod init`.
+* **Enhanced Import Reliability:** Improved asynchronous error handling during GitHub template cloning to provide graceful fallbacks and precise status synchronization across the SunGo project manager panels.
 
 ---
 
@@ -827,6 +835,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguły-udev)
+* [PL: Co nowego (v2.7.0) - Optymalizacja kreatora szablonów Git](#-co-nowego-v270--optymalizacja-kreatora-szablonów-git)
 * [PL: Co nowego (v2.6.2) – Inteligentne wykrywanie i panel braku urządzenia](#co-nowego-v262--inteligentne-wykrywanie-i-panel-braku-urządzenia)
 * [PL: Co nowego (v2.6.0) – Personalizacja peryferiów i trwałość konfiguracji](#co-nowego-v260-–-personalizacja-peryferiów-i-trwałość-konfiguracji)
 * [PL: Co nowego (v2.5.0) – Zaawansowane sterowanie sprzętem i silnik lokalizacji](#co-nowego-v250-–-zaawansowane-sterowanie-sprzętem-i-silnik-lokalizacji)
@@ -958,6 +967,14 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+
+### 🚀 Co nowego (v2.7.0) – Optymalizacja kreatora szablonów Git
+
+* **Gwarancja kompletności logów w Output:** Rozwiązano problem zamrażania konsoli wyjściowej na finałowym etapie generowania projektu. Renderowanie logów zostało w pełni uniezależnione od operacji I/O na dysku, dzięki czemu komunikaty o powodzeniu operacji oraz inicjalizacji `go mod` zawsze wyświetlają się do samego końca.
+* **Zwiększona niezawodność importu:** Udoskonalono asynchroniczną obsługę błędów podczas klonowania z GitHub, zapewniając bezpieczne procedury wyjścia awaryjnego (fallback) oraz precyzyjne odświeżanie statusu w panelu menedżera projektów SunGo.
 
 ---
 

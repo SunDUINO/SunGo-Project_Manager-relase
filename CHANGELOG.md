@@ -6,6 +6,16 @@
 
 ---
 
+## [2.7.0] - 2026-07-16
+
+### Fixed & Optimized / Poprawiono i Zoptymalizowano  -- Github templates 
+
+- **[EN]** Resolved an issue where the extension output console would freeze after creating a project structure by decoupling log rendering from filesystem cleanup, ensuring complete log compilation and `go mod init` output visibility.
+- **[PL]** Naprawiono błąd polegający na zawieszaniu konsoli wyjściowej (Output) po wygenerowaniu struktury projektu poprzez uniezależnienie renderowania logów od operacji czyszczenia dysku, co zapewnia pełną widoczność logów oraz procesu `go mod init`.
+- **[EN]** Optimized asynchronous error handling during GitHub template cloning to ensure graceful fallback paths and accurate status synchronization across the SunGo project manager panels.
+- **[PL]** Zoptymalizowano asynchroniczną obsługę błędów podczas klonowania szablonów z serwisu GitHub, gwarantując bezpieczne procedury awaryjne (fallback) oraz stabilną synchronizację statusu w panelu menedżera projektów SunGo.
+
+
 ## [2.6.8] - 2026-07-13
 
 ### Changed / Zmieniono
