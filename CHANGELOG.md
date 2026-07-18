@@ -6,6 +6,15 @@
 
 ---
 
+## [2.7.1] - 2026-07-18
+
+### Optimized / Zoptymalizowano -- Project Notes / Notatki projektu
+
+- **[EN]** Fully integrated the Project Notes layout, interactive markdown checkboxes, and execution error boundaries with the native NLS localization architecture  for seamless multilingual support.
+- **[PL]** W pełni zintegrowano szablon struktury notatek, interaktywne pola wyboru (checkboxy) oraz obsługę błędów wykonawczych z natywną architekturą lokalizacji NLS , zapewniając płynne wsparcie wielojęzyczne.
+
+---
+
 ## [2.7.0] - 2026-07-16
 
 ### Fixed & Optimized / Poprawiono i Zoptymalizowano  -- Github templates 
@@ -15,6 +24,7 @@
 - **[EN]** Optimized asynchronous error handling during GitHub template cloning to ensure graceful fallback paths and accurate status synchronization across the SunGo project manager panels.
 - **[PL]** Zoptymalizowano asynchroniczną obsługę błędów podczas klonowania szablonów z serwisu GitHub, gwarantując bezpieczne procedury awaryjne (fallback) oraz stabilną synchronizację statusu w panelu menedżera projektów SunGo.
 
+---
 
 ## [2.6.8] - 2026-07-13
 
