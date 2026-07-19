@@ -1,8 +1,8 @@
 {
   "SunGo_Macro_Pad_II": {
-    "version": "5.9.2",
-    "url": "https://raw.githubusercontent.com/SunDUINO/SunGo-Project_Manager-relase/main/hardware/SunGO_PAD_v2/SunGO_MacroPAD_II_v5.9.2.uf2",
-    "changelog": "Poprawki w komunikacji i nowe ekrany TOOL KEY",
-    "min_plugin_version": "2.5.0"
+    "version": "5.9.3",
+    "url": "https://raw.githubusercontent.com/SunDUINO/SunGo-Project_Manager-relase/main/hardware/SunGO_PAD_v2/SunGO_MacroPAD_II_v5.9.3.uf2",
+    "changelog": "Usprawniona kolejka HID-RAW - changelog.md",
+    "min_plugin_version": "2.7.3"
   }
 }
