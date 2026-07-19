@@ -5,6 +5,27 @@
 
 ---
 
+## [5.9.3] - 2026-07-19
+
+### Added / Dodano
+
+- **[EN]** Introduced a new Report ID 4 collection (Usage Page 0xFF01, input-only) within the USB descriptors configuration.
+- **[PL]** Wprowadzono nową kolekcję Report ID 4 (Usage Page 0xFF01, input-only) w konfiguracji deskryptorów USB.
+
+### Changed / Zmieniono
+
+- **[EN]** Replaced the legacy F24/modifier encoder logic with a streamlined raw event queue system.
+- **[PL]** Zastąpiono dotychczasową logikę enkoderów opartą na F24 i modyfikatorach usprawnionym systemem kolejki surowych zdarzeń.
+- **[EN]** Refactored the main key state machine, replacing the separate key-down/key-up routines with a single, direct HID report transmission.
+- **[PL]** Zrefaktoryzowano główną maszynę stanów klawiszy, zastępując osobne procedury key-down/key-up pojedynczą, bezpośrednią transmisją raportu HID.
+
+### Removed / Usunięto
+
+- **[EN]** Cleaned up the codebase by removing deprecated `EncoderConfig` structures and the legacy F24 queue components.
+- **[PL]** Oczyszczono kod źródłowy, usuwając przestarzałe struktury `EncoderConfig` oraz elementy starej kolejki F24.
+  
+---
+
 ## [5.9.2] - 2026-07-02
 
 ### Changed / Zmieniono
