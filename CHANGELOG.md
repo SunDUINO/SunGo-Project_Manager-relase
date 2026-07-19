@@ -3,6 +3,39 @@
 [EN] All notable changes to the "SunGo Project Manager" extension are documented in this file.  
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
+---
+
+---
+
+## [2.7.3] - 2026-07-19
+
+### Fixed / Naprawiono -- Encoder Input Architecture (ENC1 / SW0 / SW1)
+
+- **[EN]** Redesigned the input path for ENC1 rotation and SW0/SW1 push events, replacing the previous simulated F13–F24 keypress approach with a dedicated raw HID input channel (Report ID 4, on an isolated vendor-defined Usage Page). The previous approach relied on the host OS correctly mapping extended function keys (F13–F24) to keyboard events before VS Code's `keybindings` contribution could intercept them — a mapping that Windows generally handles out of the box but that Linux (X11 and Wayland) frequently does not, depending on distribution, desktop environment, and kernel version. This made encoder actions unreliable or entirely non-functional depending on the user's platform.
+
+  With this release, the firmware 5.9.3 pushes raw rotation/press events directly over a second, read-only HID interface, and the extension consumes them and resolves the assigned action locally, without any dependency on OS-level key capture. This removes the platform dependency entirely and applies uniformly across Windows, Linux, and macOS.
+
+  During Windows validation, two related defects surfaced and were corrected:
+  1. The extension's hardware-connect routine initialized the HID connection twice in sequence; the encoder event listener was attached to the first (short-lived) handle, which was then closed and replaced before any physical input occurred — silently discarding all encoder/switch events. The listener is now bound at the point the handle is created, guaranteeing it always tracks the live connection.
+  2. On Windows, `node-hid` prefixes incoming report buffers with the Report ID byte, shifting all subsequent field offsets by one relative to what the firmware sends; this caused every event to be misread as an unrecognized source. Offset detection is now automatic and platform-independent.
+
+  Encoder assignment in Settings (action-per-direction for ENC1, action-per-press for SW0/SW1) is unchanged from the user's perspective — only the underlying transport was replaced.
+
+  **Status:** verified end-to-end on Windows. Linux validation is in progress; macOS validation is pending.
+
+- **[PL]** Przeprojektowano ścieżkę obsługi zdarzeń obrotu ENC1 oraz naciśnięć SW0/SW1, zastępując dotychczasowe podejście oparte na symulowanych klawiszach F13–F24 dedykowanym kanałem surowych raportów HID (Report ID 4, na wydzielonym, niestandardowym Usage Page). Poprzednie rozwiązanie wymagało, aby system operacyjny poprawnie zmapował rozszerzone klawisze funkcyjne (F13–F24) na zdarzenia klawiatury, zanim mechanizm `keybindings` wtyczki VS Code mógł je przechwycić — mapowanie, które Windows zwykle obsługuje bez dodatkowej konfiguracji, ale które na Linuksie (X11 i Wayland) często zawodzi, w zależności od dystrybucji, środowiska graficznego i wersji jądra. Powodowało to niestabilne działanie enkodera lub jego całkowity brak działania w zależności od platformy użytkownika.
+
+  Od tej wersji firmware 5.9.3 wysyła surowe zdarzenia obrotu/naciśnięcia bezpośrednio przez drugi, przeznaczony tylko do odczytu interfejs HID, a wtyczka odbiera je i lokalnie rozstrzyga przypisaną akcję, bez żadnej zależności od przechwytywania klawiszy na poziomie systemu. Eliminuje to zależność platformową całkowicie i działa jednolicie na Windows, Linux i macOS.
+
+  Podczas testów na Windows ujawniono i naprawiono dwa powiązane błędy:
+  1. Procedura wykrywania sprzętu w wtyczce inicjalizowała połączenie HID dwukrotnie pod rząd; nasłuchiwacz zdarzeń enkodera był podpinany do pierwszego, krótkotrwałego uchwytu, który następnie był zamykany i zastępowany, zanim doszło do jakiejkolwiek fizycznej interakcji — co powodowało ciche odrzucanie wszystkich zdarzeń enkodera/przycisków. Nasłuchiwacz jest teraz podpinany w momencie tworzenia uchwytu, co gwarantuje, że zawsze śledzi aktywne połączenie.
+  2. Na Windows biblioteka `node-hid` poprzedza przychodzące bufory raportów bajtem Report ID, przesuwając wszystkie kolejne pola o jeden bajt względem tego, co wysyła firmware; powodowało to błędne odczytanie każdego zdarzenia jako nierozpoznanego źródła. Wykrywanie przesunięcia jest teraz automatyczne i niezależne od platformy.
+
+  Przypisywanie akcji w Ustawieniach (akcja per kierunek dla ENC1, akcja per naciśnięcie dla SW0/SW1) pozostaje bez zmian z perspektywy użytkownika — zmienił się wyłącznie mechanizm transportu.
+
+  **Status:** zweryfikowano end-to-end na Windows. Weryfikacja na Linux w toku; weryfikacja na macOS oczekująca.
+
+---
 
 ---
 
