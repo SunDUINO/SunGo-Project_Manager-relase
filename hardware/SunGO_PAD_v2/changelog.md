@@ -4,6 +4,33 @@
 [PL] Wszystkie istotne zmiany w oprogramowaniu układowym SunGO PAD są dokumentowane w tym pliku.
 
 ---
+## [5.9.5] - 2026-07-20
+
+### Changed / Zmieniono
+
+- **[EN]** Accelerated the HID raw command queuing mechanism to increase processing speed and throughput.
+- **[PL]** Przyspieszono mechanizm kolejkowania surowych komend HID, zwiększając szybkość i przepustowość przetwarzania.
+- **[EN]** Refactored the display management module to streamline UI updates and reduce rendering latency.
+- **[PL]** Zrefaktoryzowano moduł zarządzania wyświetlaczem, usprawniając odświeżanie interfejsu i redukując opóźnienia renderowania.
+- **[EN]** Performed general code optimization to improve execution efficiency and overall system stability.
+- **[PL]** Przeprowadzono ogólną optymalizację kodu w celu poprawy wydajności wykonywania instrukcji oraz ogólnej stabilności systemu.
+
+### Removed / Usunięto
+
+- **[EN]** Cleaned up the codebase by stripping out deprecated and unused legacy functions.
+- **[PL]** Oczyszczono bazę kodu poprzez usunięcie przestarzałych i nieużywanych funkcji.
+
+---
+
+## [5.9.4] - 2026-07-19
+
+### Changed / Zmieniono
+
+- **[EN]** Redesigned the user interface for the S1 and S2 special key screens, improving layout and usability.
+- **[PL]** Zmodyfikowano interfejs użytkownika dla ekranów przypisanych do klawiszy specjalnych S1 oraz S2, poprawiając ich układ i ergonomię.
+- **[EN]** Optimized the LCD rendering routines, significantly increasing the display refresh rate and ensuring smoother visual transitions.
+- **[PL]** Zoptymalizowano procedury renderowania wyświetlacza LCD, co znacząco zwiększyło częstotliwość odświeżania i poprawiło płynność wyświetlanego obrazu.
+---
 
 ## [5.9.3] - 2026-07-19
 
