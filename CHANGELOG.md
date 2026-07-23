@@ -3,7 +3,38 @@
 [EN] All notable changes to the "SunGo Project Manager" extension are documented in this file.  
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
+
 ---
+
+## [2.7.8] - 2026-07-23
+
+### Fixed / Poprawiono -- Linux HID Handling / Obsługa HID Linux
+
+- **[EN]** Fixed an issue on Linux where scrolling the wheel (Encoder 0) falsely triggered the second encoder's button by implementing strict HID report filtering for shared `hidraw` paths.
+- **[PL]** Naprawiono błąd w systemie Linux, w którym użycie rolki (Encoder 0) błędnie aktywowało przycisk drugiego enkodera, poprzez wdrożenie rygorystycznego filtrowania raportów HID dla współdzielonych ścieżek `hidraw`.
+
+### Added / Dodano
+
+- **[EN]** Added detection for shared endpoints and explicit dropping of standard mouse and keyboard reports (IDs 1, 2, 3), ensuring only valid `0x04` encoder payloads are processed.
+- **[PL]** Dodano wykrywanie współdzielonych punktów końcowych oraz jawne odrzucanie standardowych raportów myszy i klawiatury (ID 1, 2, 3), co gwarantuje przetwarzanie wyłącznie prawidłowych pakietów enkodera z prefiksem `0x04`.
+
+---
+## [2.7.4] - [2.7.7] - 2026-07-23
+
+### ⚠️ Test Build (Pre-release)
+### ⚠️ Wersje Testowe (Pre-release)
+
+- **[EN]** Unofficial experimental release available on GitHub. This build is intended specifically for verifying the correct reading of the `Report ID` and `Payload` structure in **HID RAW** mode.
+
+**Known Issues:**
+* Incorrect behavior of encoders on Linux operating systems.
+
+------------
+
+- **[PL]** Nieoficjalne wydanie eksperymentalne udostępnione na GitHubie. Wersja ta jest przeznaczona wyłącznie do weryfikacji poprawności odczytu `Report ID` oraz struktury `Payload` w trybie **HID RAW**.
+
+**Znane problemy:**
+* Nieprawidłowe zachowanie enkoderów w systemach z rodziny Linux.
 
 ---
 
@@ -36,7 +67,9 @@
   **Status:** zweryfikowano end-to-end na Windows. Weryfikacja na Linux w toku; weryfikacja na macOS oczekująca.
 
 ---
+## [2.7.2] 
 
+- Testing wersion -- 
 ---
 
 ## [2.7.1] - 2026-07-18
@@ -56,6 +89,12 @@
 - **[PL]** Naprawiono błąd polegający na zawieszaniu konsoli wyjściowej (Output) po wygenerowaniu struktury projektu poprzez uniezależnienie renderowania logów od operacji czyszczenia dysku, co zapewnia pełną widoczność logów oraz procesu `go mod init`.
 - **[EN]** Optimized asynchronous error handling during GitHub template cloning to ensure graceful fallback paths and accurate status synchronization across the SunGo project manager panels.
 - **[PL]** Zoptymalizowano asynchroniczną obsługę błędów podczas klonowania szablonów z serwisu GitHub, gwarantując bezpieczne procedury awaryjne (fallback) oraz stabilną synchronizację statusu w panelu menedżera projektów SunGo.
+
+---
+
+## [2.6.9] 
+
+- Testing wersion -- 
 
 ---
 
@@ -194,6 +233,12 @@
 - **[PL]** Przeprowadzono gruntowne czyszczenie strukturalne oraz refaktoryzację kodu w celu zwiększenia czytelności i szybkości działania aplikacji.
 - **[EN]** Enhanced system resource utilization and enforced stricter type safety across hardware communication layers.
 - **[PL]** Zoptymalizowano zużycie zasobów systemowych oraz zaostrzono kontrolę typów w warstwach komunikacji niskopoziomowej.
+
+---
+
+## [2.5.7]  -  [2.5.9]
+
+- Testing wersion -- 
 
 ---
 
