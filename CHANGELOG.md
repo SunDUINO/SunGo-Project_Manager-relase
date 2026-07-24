@@ -4,6 +4,18 @@
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
 
+## [2.7.9] - 2026-07-24
+
+### Fixed / Poprawiono -- Encoder Zero-Value Handling / Obsługa zerowych raportów enkodera
+
+- **[EN]** Fixed an issue where idle or zero-value HID reports (`value === 0`) from the encoder were erroneously processed as counter-clockwise rotation, preventing accidental trigger of CCW actions (e.g. zoom out).
+- **[PL]** Naprawiono błąd, w którym jałowe raporty HID o wartości zerowej (`value === 0`) z enkodera były błędnie interpretowane jako obrót w lewo, co zapobiega przypadkowemu wyzwalaniu akcji CCW (np. pomniejszaniu).
+
+### Added / Dodano -- Function Navigation via Encoder / Nawigacja po funkcjach za pomocą enkodera
+
+- **[EN]** Added next/previous function navigation actions (`next_function` / `prev_function`) assignable to encoder turns, allowing rapid jumping between function definitions within the active file.
+- **[PL]** Dodano obsługę nawigacji po funkcjach (następna / poprzednia funkcja) dla pokrętła enkodera, umożliwiającą szybkie przeskakiwanie pomiędzy definicjami funkcji w aktywnym pliku.
+
 ---
 
 ## [2.7.8] - 2026-07-23

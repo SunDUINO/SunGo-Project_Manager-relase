@@ -54,6 +54,8 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#requirements-installation)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v2.7.9) – Encoder Function Navigation & Stability Fixes](#-whats-new-v279--encoder-function-navigation--stability-fixes)
+* [EN: What's New (v2.7.1) – Queue Processing & Performance Optimization](#-whats-new-v271--queue-processing--performance-optimization)
 * [EN: What's New (v2.7.0) - Git Template Browser Optimization](#-whats-new-v270--git-template-browser-optimization)
 * [EN: What's New (v2.6.2) – Smart Device Detection & No-Device Panel](#whats-new-v262--smart-device-detection--no-device-panel)
 * [EN: What's New (v2.6.0) – Peripheral Customization & Core Persistence](#whats-new-v260-–-peripheral-customization--core-persistence)
@@ -195,6 +197,21 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ This is a one-time setup. The rule persists after system reboots.  
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
+
+
+---
+
+### 🚀 What's New (v2.7.9) – Encoder Function Navigation & Stability Fixes
+
+* **Function Navigation via Encoder:** Added `next_function` and `prev_function` actions assignable to encoder rotation, allowing rapid jumping between function definitions in the active editor.
+* **Fixed Idle Encoder Triggering:** Resolved an issue where idle zero-value HID reports (`value === 0`) were misidentified as counter-clockwise (CCW) rotation, eliminating accidental triggers (e.g., unintended zoom-out).
+
+---
+
+### 🚀 What's New (v2.7.1) – Queue Processing & Performance Optimization
+
+* **Accelerated Queue Handling:** Streamlined and optimized the background event dispatch and task queue engine. Event throughput is now significantly faster, resulting in lower command latency and an even responsive UI.
+* **Refined Execution Flow:** Enhanced queue worker routines to ensure smooth message processing without blocking background operations or dropping events during rapid action sequences.
 
 ---
 
@@ -835,6 +852,8 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguły-udev)
+* [PL: Co nowego (v2.7.9) – Nawigacja po funkcjach i poprawki stabilności enkodera](#-co-nowego-v279--nawigacja-po-funkcjach-i-poprawki-stabilności-enkodera)
+* [PL: Co nowego (v2.7.1) – Optymalizacja obsługi kolejek i wydajności](#-co-nowego-v271--optymalizacja-obsługi-kolejek-i-wydajności)
 * [PL: Co nowego (v2.7.0) - Optymalizacja kreatora szablonów Git](#-co-nowego-v270--optymalizacja-kreatora-szablonów-git)
 * [PL: Co nowego (v2.6.2) – Inteligentne wykrywanie i panel braku urządzenia](#co-nowego-v262--inteligentne-wykrywanie-i-panel-braku-urządzenia)
 * [PL: Co nowego (v2.6.0) – Personalizacja peryferiów i trwałość konfiguracji](#co-nowego-v260-–-personalizacja-peryferiów-i-trwałość-konfiguracji)
@@ -970,6 +989,19 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ---
 
+### 🚀 Co nowego (v2.7.9) – Nawigacja po funkcjach i poprawki stabilności enkodera
+
+* **Nawigacja po funkcjach enkoderem:** Dodano nowe akcje `next_function` oraz `prev_function` dla pokrętła enkodera, umożliwiające szybkie przeskakiwanie pomiędzy definicjami funkcji w aktywnym pliku.
+* **Naprawa jałowych raportów enkodera:** Wyeliminowano błąd, w którym zerowe raporty HID (`value === 0`) przy bezczynności były błędnie odczytywane jako obrót w lewo, co zapobiega przypadkowemu wyzwalaniu akcji (np. niechcianemu pomniejszaniu widoku).
+
+---
+
+### 🚀 Co nowego (v2.7.1) – Optymalizacja obsługi kolejek i wydajności
+
+* **Przyspieszenie obsługi kolejek:** Zoptymalizowano silnik przetwarzania zdarzeń i kolejki zadań w tle. Przetwarzanie komunikatów jest teraz znacznie szybsze, co przekłada się na natychmiastową reakcję interfejsu i niższe opóźnienia.
+* **Zwiększona płynność wykonania:** Udoskonalono procedury wykonawcze kolejki, zapewniając stabilny i optymalny przepływ zdarzeń bez blokowania operacji w tle przy intensywnym wywoływaniu komend.
+
+---
 
 ### 🚀 Co nowego (v2.7.0) – Optymalizacja kreatora szablonów Git
 
