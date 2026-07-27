@@ -3,6 +3,27 @@
 [EN] All notable changes to the "SunGo Project Manager" extension are documented in this file.  
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
+---
+
+## [2.8.0] - 2026-07-27
+
+### Added / Dodano -- In-Doc Search Engine / Lokalna wyszukiwarka w dokumentacji
+
+- **[EN]** Added a fast, client-side search engine for rendered documentation (`docBody`). Features a "🔎 Find" topbar button and `Ctrl+F` webview shortcut, real-time match highlighting (`<mark>`) preserving DOM syntax highlighting, match counter (`n/N`), arrow/keyboard navigation with auto-scroll to the active highlight, and instant dismissal via `Esc` or `✕`.
+- **[PL]** Dodano szybką, lokalną wyszukiwarkę treści wewnątrz wyrenderowanej dokumentacji (`docBody`). Oferuje przycisk „🔎 Find” na górnym pasku, skrót `Ctrl+F` (przechwytywany w webview), dynamiczne podświetlanie trafień (`<mark>`) bez naruszania kolorowania składni (przeszukiwanie węzłów tekstowych DOM), licznik wyników (`n/N`), nawigację klawiaturą z auto-scrollem do aktywnego elementu oraz szybkie zamykanie klawiszem `Esc` lub przyciskiem `✕`.
+
+### Changed / Zmieniono -- Status Bar Branding & MacroPAD Alignment / Aktualizacja paska stanu i spójność z MacroPAD
+
+- **[EN]** Updated status bar item label from "SunGO Creator" to "Project Creator" and added a rocket icon, aligning visual cues with Key #2 on SunGo MacroPAD I and II.
+- **[PL]** Zmieniono etykietę na belce stanu z „SunGO Creator” na „Project Creator” oraz dodano ikonę rakiety, zapewniając pełną spójność wizualną z klawiszem nr 2 na urządzeniach SunGo MacroPAD I i II.
+
+### Optimized / Zoptymalizowano -- Performance & Webview Rendering / Optymalizacja wydajności i renderowania
+
+- **[EN]** Refactored search algorithm and webview script execution for zero-latency DOM traversal and overall memory footprint reduction.
+- **[PL]** Przeprowadzono optymalizację kodu i algorytmu przeszukiwania drzewa DOM wewnątrz webview, co zapewnia natychmiastowe działanie bez ponownego odpytywania źródła oraz mniejsze zużycie zasobów.
+
+---
+
 
 ## [2.7.9] - 2026-07-24
 

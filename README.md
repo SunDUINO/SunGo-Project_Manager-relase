@@ -54,6 +54,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#requirements-installation)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v2.8.0) – Local Documentation Search & UI Refresh](#-whats-new-v280--local-documentation-search--ui-refresh)
 * [EN: What's New (v2.7.9) – Encoder Function Navigation & Stability Fixes](#-whats-new-v279--encoder-function-navigation--stability-fixes)
 * [EN: What's New (v2.7.1) – Queue Processing & Performance Optimization](#-whats-new-v271--queue-processing--performance-optimization)
 * [EN: What's New (v2.7.0) - Git Template Browser Optimization](#-whats-new-v270--git-template-browser-optimization)
@@ -198,6 +199,24 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
 
+---
+
+### 🚀 What's New (v2.8.0) – Local Documentation Search & UI Refresh
+
+The `v2.8.0` update introduces an integrated client-side search engine for the documentation viewer, updates core status bar branding for enhanced visual consistency, and brings deep memory optimizations across webview components.
+
+* **Client-Side Documentation Search Engine:** Integrated a zero-latency local search engine into the Go Documentation Viewer (`Go Doc Viewer`). Includes a dedicated **🔎 Find** button in the top navigation bar and full support for the `Ctrl+F` (or `Cmd+F` on macOS) keyboard shortcut inside the webview.
+* **Dynamic Search Highlighting & Hit Navigation:** Features real-time text matching, visual phrase highlighting, and seamless stepping through search hits (`Next` / `Previous`) without reloading content or re-fetching package data from external sources.
+* **Project Creator Branding & Status Bar Refresh:** Updated the status bar action label to **🚀 Project Creator**, establishing a unified visual identity across the VS Code status bar, extension sidebars, and physical SunGO MacroPAD key mappings.
+* **Webview Performance & Memory Optimization:** Refactored the core webview DOM traversal algorithms to drastically reduce memory usage, eliminate UI lag, and deliver near-instant search response times even when rendering large Go standard library packages or third-party documentation.
+
+#### 🔍 Documentation Search & UI Enhancements Overview
+
+| Feature / Element | Description | Shortcut / Location |
+| :--- | :--- | :--- |
+| **Documentation Search** | Instant client-side text finding with dynamic hit highlighting | Top Bar `🔎 Find` / `Ctrl+F` |
+| **Project Creator Icon** | Unified status bar shortcut with rocket branding (`🚀 Project Creator`) | VS Code Status Bar |
+| **Search Engine Core** | Zero-latency DOM traversal & optimized webview memory footprint | Webview Core Subsystem |
 
 ---
 
@@ -852,6 +871,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguły-udev)
+* [PL: Co nowego (v2.8.0) – Lokalna wyszukiwarka dokumentacji i odświeżenie UI](#-co-nowego-v280--lokalna-wyszukiwarka-dokumentacji-i-odświeżenie-ui)
 * [PL: Co nowego (v2.7.9) – Nawigacja po funkcjach i poprawki stabilności enkodera](#-co-nowego-v279--nawigacja-po-funkcjach-i-poprawki-stabilności-enkodera)
 * [PL: Co nowego (v2.7.1) – Optymalizacja obsługi kolejek i wydajności](#-co-nowego-v271--optymalizacja-obsługi-kolejek-i-wydajności)
 * [PL: Co nowego (v2.7.0) - Optymalizacja kreatora szablonów Git](#-co-nowego-v270--optymalizacja-kreatora-szablonów-git)
@@ -986,6 +1006,25 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+### 🚀 Co nowego (v2.8.0) – Lokalna wyszukiwarka dokumentacji i odświeżenie UI
+
+Wersja `v2.8.0` brings wbudowany, lokalny silnik wyszukiwania w przeglądarce dokumentacji, odświeżenie identyfikacji wizualnej Kreatora Projektów na pasku stanu oraz zaawansowane optymalizacje pamięciowe podsystemu webview.
+
+* **Lokalna wyszukiwarka dokumentacji (Client-Side):** Wbudowano wydajny, lokalny silnik wyszukiwania bezpośrednio w przeglądarce dokumentacji (`Go Doc Viewer`). Narzędzie posiada dedykowany przycisk **🔎 Szukaj** na górnej belce nawigacyjnej oraz pełne wsparcie dla skrótu klawiszowego `Ctrl+F` (lub `Cmd+F` na macOS) wewnątrz okna webview.
+* **Dynamiczne podświetlanie i nawigacja po trafieniach:** Zapewnia natychmiastowe wyszukiwanie fraz w czasie rzeczywistym, wyróżnianie kolorystyczne dopasowań oraz płynne przeskakiwanie pomiędzy wynikami (`Następny` / `Poprzedni`) bez konieczności przeładowywania dokumentu czy ponownego odpytywania źródła.
+* **Odświeżenie wizualne Kreatora Projektów:** Zaktualizowano etykietę na pasku stanu na **🚀 Project Creator**, tworząc spójną i rozpoznawalną oprawę wizualną łączącą pasek stanu VS Code, panele boczne rozszerzenia oraz układ fizycznego kontrolera SunGO MacroPAD.
+* **Optymalizacja wydajności i zużycia pamięci Webview:** Przeprowadzono gruntowną refaktoryzację silnika przeszukiwania drzewa DOM w widokach webview. Zoptymalizowany kod drastycznie redukuje zużycie pamięci operacyjnej oraz eliminuje opóźnienia podczas pracy z obszerną dokumentacją pakietów Go.
+
+#### 🔍 Zestawienie funkcji wyszukiwarki i poprawek UI
+
+| Funkcja / Element | Opis | Skrót / Lokalizacja |
+| :--- | :--- | :--- |
+| **Wyszukiwarka Dokumentacji** | Błyskawiczne wyszukiwanie i podświetlanie fraz w dokumentacji | Górna belka `🔎 Szukaj` / `Ctrl+F` |
+| **Ikona Kreatora Projektu** | Ujednolicony skrót na pasku stanu z motywem rakiety (`🚀 Project Creator`) | Pasek stanu VS Code |
+| **Silnik Wyszukiwania** | Bezopóźnieniowe przeszukiwanie DOM bez obciążania pamięci | Podsystem Rdzenia Webview |
 
 ---
 
