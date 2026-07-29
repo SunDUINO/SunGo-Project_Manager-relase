@@ -3,7 +3,26 @@
 [EN] All notable changes to the "SunGo Project Manager" extension are documented in this file.  
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
+
 ---
+
+## [2.9.0] - 2026-07-29
+
+### Added / Dodano -- Built-in Documentation Generator / Wbudowany Generator Dokumentacji
+
+- **[EN]** Added an automated Documentation Generator module in Webview that scans project architecture, parses headers via `headerGen.ts`, inspects `go.mod` (module name and Go version), executes `go list -json ./...` with a custom stream parser, and builds a clean workspace directory tree.
+- **[PL]** Dodano zautomatyzowany moduł Generatora Dokumentacji w Webview, który skanuje strukturę projektu, analizuje nagłówki przez `headerGen.ts`, odczytuje `go.mod` (nazwę modułu i wersję Go), uruchamia `go list -json ./...` z własnym parserem strumienia oraz generuje czyste drzewo katalogów obszaru roboczego.
+
+- **[EN]** Implemented structured document generation (`Docs/README.<LANG>.md`, `ARCHITECTURE`, `API`, `CONTRIBUTING`) following the "README = index + links" architectural rule, with automatic EN/PL cross-linking support.
+- **[PL]** Zaimplementowano generowanie ustrukturyzowanych dokumentów (`Docs/README.<LANG>.md`, `ARCHITECTURE`, `API`, `CONTRIBUTING`) zgodnie z zasadą „README = indeks + odnośniki”, wraz z automatycznym podlinkowaniem wersji językowej EN/PL.
+
+### Changed & Optimized / Zmieniono i Zoptymalizowano -- Webview UI Alignment / Spójność UI Webview
+
+- **[EN]** Unified Generator UI with dark theme styling matching `PadSettingsViewNoDevice` (`#1e1e1e` / `#32CD32`), including live directory tree preview, PL/EN language toggle, and dual-language generation options.
+- **[PL]** Ujednolicono interfejs Generatora z ciemnym motywem graficznym zgodnym z `PadSettingsViewNoDevice` (`#1e1e1e` / `#32CD32`), dodając podgląd drzewa katalogów na żywo, przełącznik języka PL/EN oraz opcję jednoczesnej generacji w obu językach.
+
+---
+
 
 ## [2.8.0] - 2026-07-27
 

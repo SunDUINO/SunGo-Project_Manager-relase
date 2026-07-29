@@ -54,6 +54,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#requirements-installation)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v2.9.0) – Built-in Documentation Generator](#-whats-new-v290--built-in-documentation-generator)
 * [EN: What's New (v2.8.0) – Local Documentation Search & UI Refresh](#-whats-new-v280--local-documentation-search--ui-refresh)
 * [EN: What's New (v2.7.9) – Encoder Function Navigation & Stability Fixes](#-whats-new-v279--encoder-function-navigation--stability-fixes)
 * [EN: What's New (v2.7.1) – Queue Processing & Performance Optimization](#-whats-new-v271--queue-processing--performance-optimization)
@@ -198,6 +199,24 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ This is a one-time setup. The rule persists after system reboots.  
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
+
+---
+
+### 🚀 What's New (v2.9.0) – Built-in Documentation Generator
+
+The `v2.9.0` release introduces a powerful, automated **Documentation Generator** designed to scan your project's architecture and create production-ready markdown files based on strict, predefined templates.
+
+* **Smart Inspection & Header Parsing (`_runScan`):** Automatically extracts project metadata via `getHeaderData()` from `headerGen.ts` (Author, Team, Website, Forum, License), parses `go.mod` using regular expressions for module name and Go version, runs `go list -json ./...` via `execSync` with a custom stream parser (`_parseJsonStream`), and builds a filtered, clean directory tree.
+* **Structured Document Builder (`_generateDocs`):** Always generates `Docs/README.<LANG>.md` while conditionally creating `ARCHITECTURE`, `API`, and `CONTRIBUTING` docs based on your UI selection — following the strict "README = index + links" architectural rule. Cross-links between language versions are automatically injected only when both language variants exist.
+* **Integrated Native UI:** Features a sleek dark theme fully aligned with `PadSettingsViewNoDevice` (`#1e1e1e` / `#32CD32`), structured A/B configuration sections, a PL/EN language toggle with an optional "Generate in second language" checkbox, and a live interactive directory tree preview updated right after scanning.
+
+#### 🛠️ Documentation Generator Overview
+
+| Component / Action | Implementation Detail | Description |
+| :--- | :--- | :--- |
+| **Scanner Engine** | `_runScan` & `_parseJsonStream` | Zero-dependency JSON stream parser & `go.mod` regex inspector |
+| **Document Generator** | `_generateDocs` | Structural markdown builder with dynamic dual-language cross-linking |
+| **UI Environment** | Webview Native Subsystem | Dark theme interface (`#1e1e1e`/`#32CD32`) with live tree preview |
 
 ---
 
@@ -871,6 +890,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguły-udev)
+* [PL: Co nowego (v2.9.0) – Wbudowany Generator Dokumentacji](#-co-nowego-v290--wbudowany-generator-dokumentacji)
 * [PL: Co nowego (v2.8.0) – Lokalna wyszukiwarka dokumentacji i odświeżenie UI](#-co-nowego-v280--lokalna-wyszukiwarka-dokumentacji-i-odświeżenie-ui)
 * [PL: Co nowego (v2.7.9) – Nawigacja po funkcjach i poprawki stabilności enkodera](#-co-nowego-v279--nawigacja-po-funkcjach-i-poprawki-stabilności-enkodera)
 * [PL: Co nowego (v2.7.1) – Optymalizacja obsługi kolejek i wydajności](#-co-nowego-v271--optymalizacja-obsługi-kolejek-i-wydajności)
@@ -1006,6 +1026,24 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+### 🚀 Co nowego (v2.9.0) – Wbudowany Generator Dokumentacji
+
+Wersja `v2.9.0` wprowadza zaawansowany, zautomatyzowany **Generator Dokumentacji**, skanujący strukturę projektu oraz generujący gotowe do publikacji pliki Markdown w oparciu o ustalone wzorce.
+
+* **Inteligentne Skanowanie i Analiza Nagłówków (`_runScan`):** Automatycznie pobiera dane nagłówka przez `getHeaderData()` z pliku `headerGen.ts` (Autor, Zespół, Strona, Forum, Licencja), analizuje `go.mod` przy użyciu wyrażeń regularnych (moduł i wersja Go), wykonuje `go list -json ./...` przez `execSync` z własnym parserem strumienia JSON (`_parseJsonStream`) oraz generuje przefiltrowane drzewo katalogów.
+* **Strukturalny Generator Dokumentów (`_generateDocs`):** Zawsze tworzy główny plik `Docs/README.<LANG>.md`, a dokumenty `ARCHITECTURE`, `API` oraz `CONTRIBUTING` generuje na podstawie zaznaczonych opcji — ściśle według zasady "README = indeks + odnośniki". Odnośniki krzyżowe między wersjami językowymi są wstrzykiwane automatycznie tylko wtedy, gdy istnieją oba pliki.
+* **Spójny Interfejs UI:** Ciemny motyw w pełni dopasowany do widoku `PadSettingsViewNoDevice` (`#1e1e1e` / `#32CD32`), czytelne sekcje A/B zdefiniowane w specyfikacji, przełącznik językowy PL/EN z opcjonalnym checkboxem "też w drugim języku" oraz podgląd drzewa katalogów w czasie rzeczywistym po wykonaniu skanu.
+
+#### 🛠️ Zestawienie funkcji Generatora Dokumentacji
+
+| Komponent / Akcja | Detale Implementacji | Opis |
+| :--- | :--- | :--- |
+| **Silnik Skanujący** | `_runScan` oraz `_parseJsonStream` | Autorski parser strumienia JSON & wyciąganie danych z `go.mod` |
+| **Generator Tekstu** | `_generateDocs` | Budowanie struktury Markdown z automatycznym podlinkowaniem wersji PL/EN |
+| **Interfejs UI** | Podsystem Webview | Ciemny motyw (`#1e1e1e`/`#32CD32`) z podglądem drzewa katalogów na żywo |
 
 ---
 
