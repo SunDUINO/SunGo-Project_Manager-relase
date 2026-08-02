@@ -4,6 +4,24 @@
 [PL] Wszystkie istotne zmiany w oprogramowaniu układowym SunGO PAD są dokumentowane w tym pliku.
 
 ---
+## [5.9.6] - 2026-08-02
+
+### Added / Dodano
+
+- **[EN]** Integrated new high-legibility typography assets for Tool key screens (A, B, C) and Special key screens (S1, S2), tailored for maximum display clarity and uniform text rendering.
+- **[PL]** Zaimplementowano nowe, dedykowane czcionki o podwyższonej czytelności dla ekranów klawiszy narzędziowych (Tool key A, B, C) oraz klawiszy specjalnych (Special key S1, S2), zoptymalizowane pod kątem przejrzystości wyświetlania i jednolitego renderowania tekstu.
+
+### Changed / Zmieniono
+
+- **[EN]** Redesigned and updated the visual layouts and interface logic for key screens A, B, and C to improve visual hierarchy and readability.
+- **[PL]** Przearanżowano i zaktualizowano układy wizualne oraz logikę interfejsu dla ekranów klawiszy A, B i C w celu poprawy hierarchii wizualnej i czytelności.
+- **[EN]** Enhanced system responsiveness and operational throughput by optimizing event loop handling and reducing UI input latency.
+- **[PL]** Zwiększono responsywność systemu oraz przepustowość operacyjną poprzez optymalizację obsługi pętli zdarzeń i redukcję opóźnień reakcji interfejsu.
+- **[EN]** Conducted extensive codebase refactoring and routine cleanup to eliminate redundant execution paths and maintain long-term stability.
+- **[PL]** Przeprowadzono gruntowne czyszczenie oraz optymalizację struktury kodu, eliminując nadmiarowe ścieżki wykonywania instrukcji i podnosząc ogólną stabilność oprogramowania.
+
+---
+
 ## [5.9.5] - 2026-07-20
 
 ### Changed / Zmieniono
