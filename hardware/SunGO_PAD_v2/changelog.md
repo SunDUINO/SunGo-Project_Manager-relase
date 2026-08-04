@@ -4,6 +4,17 @@
 [PL] Wszystkie istotne zmiany w oprogramowaniu układowym SunGO PAD są dokumentowane w tym pliku.
 
 ---
+## [5.9.7] - 2026-08-04
+
+### Changed / Zmieniono
+
+* [EN] Tool key screens (A, B, C) now render the letter in the exact color currently configured for that key's LED backlight, read directly from the live color state already synced from the VS Code extension — no additional configuration or host-side changes required.
+* [PL] Ekrany klawiszy narzędziowych (A, B, C) wyświetlają teraz literę w dokładnie takim kolorze, jaki jest aktualnie ustawiony dla podświetlenia LED danego klawisza, odczytywanym bezpośrednio ze stanu koloru już synchronizowanego z wtyczką VS Code — bez dodatkowej konfiguracji czy zmian po stronie hosta.
+* [EN] Added a safe fallback to the previous fixed color scheme for Tool key screens when no LED color has been configured yet (e.g. pad running without an active host connection), preventing invisible or unreadable text.
+* [PL] Dodano bezpieczny fallback do poprzedniego, stałego schematu kolorów dla ekranów klawiszy narzędziowych na wypadek braku jeszcze skonfigurowanego koloru LED (np. pad działający bez aktywnego połączenia z hostem), zapobiegający niewidocznemu lub nieczytelnemu tekstowi.
+
+---
+
 ## [5.9.6] - 2026-08-02
 
 ### Added / Dodano
