@@ -6,6 +6,14 @@
 
 ---
 
+## [2.9.2] - 2026-08-05
+
+### Fixed / Poprawiono
+- **[EN]** Fixed live refresh of SunGo Tools Explorer entries so MacroPAD key prefix labels update immediately after assignment changes.
+- **[PL]** Naprawiono odświeżanie panelu SunGo Tools na żywo, dzięki czemu prefiksy przypisanych klawiszy MacroPAD aktualizują się od razu po zmianie funkcji.
+
+---
+
 ## [2.9.1] - 2026-08-05
 
 ### Added / Dodano
