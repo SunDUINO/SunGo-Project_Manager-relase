@@ -6,6 +6,29 @@
 
 ---
 
+## [2.10.0] - 2026-08-05
+
+### Added / Dodano -- Unique Key Assignment & Adaptive Label Styles / Unikalne przypisania klawiszy i adaptacyjny styl etykiet
+
+- **[EN]** Introduced unique tool-to-key assignment for the MacroPAD: as soon as a tool is bound to key A, B, C, S1 or S2, it automatically disappears from the other keys' selection lists, making duplicate assignments impossible to create directly from the UI.
+- **[PL]** Wprowadzono unikalne przypisania narzędzi do klawiszy MacroPAD: gdy narzędzie zostanie przypisane do klawisza A, B, C, S1 lub S2, automatycznie znika z list wyboru pozostałych klawiszy, co eliminuje możliwość przypadkowego zdublowania przypisania.
+
+- **[EN]** Added automatic conflict resolution with a friendly notification: if a duplicate assignment is ever detected (e.g. carried over from an older configuration), SunGo clears the outdated one and informs you which key was affected.
+- **[PL]** Dodano automatyczne rozwiązywanie konfliktów wraz z czytelnym powiadomieniem: jeśli kiedykolwiek wykryty zostanie zdublowany przydział (np. z wcześniejszej konfiguracji), SunGo porządkuje starsze przypisanie i informuje, którego klawisza to dotyczyło.
+
+- **[EN]** Added a new "Tools label style" option in Pad Settings, letting you choose how the assigned key marker is displayed next to each entry in the SunGo Tools panel: plain text, text with an emoji marker, or text with a colored icon.
+- **[PL]** Dodano nową opcję "Styl etykiety w Tools" w ustawieniach pada, pozwalającą wybrać sposób wyświetlania znacznika przypisanego klawisza obok narzędzia w panelu SunGo Tools: sam tekst, tekst ze znacznikiem emoji lub tekst z kolorową ikoną.
+
+### Fixed / Poprawiono -- Cross-Platform Label Rendering & Full Tool Coverage / Renderowanie etykiet na różnych platformach i pełne pokrycie narzędzi
+
+- **[EN]** Fixed the key-assignment marker rendering incorrectly on some platforms (appearing as a blank square on Linux or as literal placeholder text on Windows) by introducing a colored-icon indicator that renders reliably across Windows, macOS, and Linux.
+- **[PL]** Naprawiono nieprawidłowe wyświetlanie znacznika przypisanego klawisza na niektórych platformach (puste kwadraty na Linuksie lub dosłowny tekst zastępczy na Windows), wprowadzając wskaźnik w postaci kolorowej ikony, który renderuje się poprawnie na Windows, macOS i Linuksie.
+
+- **[EN]** Expanded the tool selection lists in Pad Settings to cover all 14 available SunGo Tools (previously only 10 were selectable), and completed the remaining English/Polish translation entries for full localization coverage.
+- **[PL]** Rozszerzono listy wyboru narzędzi w ustawieniach pada o wszystkie 14 dostępnych narzędzi SunGo (wcześniej dostępnych było tylko 10) oraz uzupełniono brakujące wpisy tłumaczeń angielskich i polskich dla pełnego pokrycia lokalizacji.
+
+---
+
 ## [2.9.2] - 2026-08-05
 
 ### Fixed / Poprawiono

@@ -54,6 +54,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#requirements-installation)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v2.10.0) – Unique Key Assignments & Adaptive Label Styles](#-whats-new-v2100--unique-key-assignments--adaptive-label-styles)
 * [EN: What's New (v2.9.0) – Built-in Documentation Generator](#-whats-new-v290--built-in-documentation-generator)
 * [EN: What's New (v2.8.0) – Local Documentation Search & UI Refresh](#-whats-new-v280--local-documentation-search--ui-refresh)
 * [EN: What's New (v2.7.9) – Encoder Function Navigation & Stability Fixes](#-whats-new-v279--encoder-function-navigation--stability-fixes)
@@ -199,6 +200,26 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ This is a one-time setup. The rule persists after system reboots.  
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
+
+---
+
+### 🚀 What's New (v2.10.0) – Unique Key Assignments & Adaptive Label Styles
+
+The `v2.10.0` release focuses on making MacroPAD key assignments safer and giving you full control over how the SunGo Tools panel looks on your system.
+
+* **One Tool, One Key:** Assigning a tool to a MacroPAD key (A, B, C, S1, S2) now automatically removes that tool from the other keys' selection lists, so duplicate assignments can no longer be created by accident.
+* **Smart Conflict Resolution:** If an older configuration ever contains a duplicate assignment, SunGo automatically resolves it and clearly informs you which key was affected — no silent surprises.
+* **Complete Tool Catalog:** All 14 SunGo Tools are now available for MacroPAD key assignment, up from the previous selection of 10.
+* **Adaptive, Cross-Platform Labels:** Fixed the key-assignment marker rendering incorrectly on some systems and introduced a new "Tools label style" setting, letting you choose between plain text, an emoji marker, or a colored icon — whichever suits your platform and taste best.
+
+#### 🎛️ Key Assignment & Label Style Overview
+
+| Feature | Description |
+| :--- | :--- |
+| **Unique Assignment** | A tool can only be bound to one MacroPAD key at a time |
+| **Conflict Auto-Resolve** | Legacy duplicate assignments are cleaned up automatically, with notification |
+| **Tools Label Style** | Choose plain text, emoji marker, or colored icon in Pad Settings |
+| **Full Tool Coverage** | All 14 SunGo Tools selectable for MacroPAD key binding |
 
 ---
 
@@ -890,6 +911,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguły-udev)
+* [PL: Co nowego (v2.10.0) – Unikalne przypisania klawiszy i adaptacyjny styl etykiet](#-co-nowego-v2100--unikalne-przypisania-klawiszy-i-adaptacyjny-styl-etykiet)
 * [PL: Co nowego (v2.9.0) – Wbudowany Generator Dokumentacji](#-co-nowego-v290--wbudowany-generator-dokumentacji)
 * [PL: Co nowego (v2.8.0) – Lokalna wyszukiwarka dokumentacji i odświeżenie UI](#-co-nowego-v280--lokalna-wyszukiwarka-dokumentacji-i-odświeżenie-ui)
 * [PL: Co nowego (v2.7.9) – Nawigacja po funkcjach i poprawki stabilności enkodera](#-co-nowego-v279--nawigacja-po-funkcjach-i-poprawki-stabilności-enkodera)
@@ -1026,6 +1048,26 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+### 🚀 Co nowego (v2.10.0) – Unikalne przypisania klawiszy i adaptacyjny styl etykiet
+
+Wersja `v2.10.0` skupia się na bezpieczeństwie przypisań klawiszy MacroPAD oraz daje pełną kontrolę nad tym, jak panel SunGo Tools wygląda na Twoim systemie.
+
+* **Jedno narzędzie, jeden klawisz:** Przypisanie narzędzia do klawisza MacroPAD (A, B, C, S1, S2) automatycznie usuwa je z list wyboru pozostałych klawiszy, dzięki czemu przypadkowe zdublowanie przypisania nie jest już możliwe.
+* **Inteligentne rozwiązywanie konfliktów:** Jeśli starsza konfiguracja zawiera zdublowane przypisanie, SunGo automatycznie je porządkuje i jasno informuje, którego klawisza to dotyczyło — żadnych cichych niespodzianek.
+* **Pełny katalog narzędzi:** Wszystkie 14 narzędzi SunGo jest teraz dostępnych do przypisania klawiszom MacroPAD, zamiast wcześniejszych 10.
+* **Adaptacyjne etykiety na każdej platformie:** Naprawiono nieprawidłowe wyświetlanie znacznika przypisanego klawisza na niektórych systemach oraz dodano nową opcję "Styl etykiety w Tools", pozwalającą wybrać między samym tekstem, znacznikiem emoji lub kolorową ikoną — zależnie od tego, co najlepiej pasuje do Twojej platformy i gustu.
+
+#### 🎛️ Zestawienie funkcji przypisań i stylu etykiet
+
+| Funkcja | Opis |
+| :--- | :--- |
+| **Unikalne przypisanie** | Narzędzie może być powiązane tylko z jednym klawiszem MacroPAD naraz |
+| **Auto-rozwiązywanie konfliktów** | Zdublowane, starsze przypisania są automatycznie porządkowane, wraz z powiadomieniem |
+| **Styl etykiety Tools** | Wybór tekstu, znacznika emoji lub kolorowej ikony w ustawieniach pada |
+| **Pełne pokrycie narzędzi** | Wszystkie 14 narzędzi SunGo dostępnych do przypisania klawiszom MacroPAD |
 
 ---
 
