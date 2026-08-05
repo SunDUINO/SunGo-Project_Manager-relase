@@ -6,6 +6,18 @@
 
 ---
 
+## [2.9.1] - 2026-08-05
+
+### Added / Dodano
+- **[EN]** Displayed assigned SunGO MacroPAD II key markers (`A`, `B`, `C`, `S1`, `S2`) next to SunGo Tools panel entries for instant hardware mapping visibility.
+- **[PL]** Wyświetlanie przypisango klawisza SunGO MacroPAD II (`A`, `B`, `C`, `S1`, `S2`) przy pozycjach panelu SunGo Tools, umożliwiając szybkie rozpoznanie przypisania.
+
+### Changed / Zmieniono
+- **[EN]** Aligned tool labels with fixed-width key prefixes in the Explorer tree view for a cleaner and more consistent layout.
+- **[PL]** Wyrównano etykiety narzędzi w widoku drzewa Explorera za pomocą stałych prefiksów klawiszy, poprawiając czytelność układu.
+
+---
+
 ## [2.9.0] - 2026-07-29
 
 ### Added / Dodano -- Built-in Documentation Generator / Wbudowany Generator Dokumentacji
