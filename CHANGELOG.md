@@ -4,6 +4,22 @@
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
 
+---
+## [2.10.4] - 2026-08-07
+
+### Added / Dodano -- Saved Repository List for Publish Any Files to Any Repo / Lista zapisanych repozytoriów dla Publish Any Files to Any Repo
+
+- **[EN]** Added a saved repositories list to the **Publish Any Files to Any Repo** tool, letting you store up to 10 frequently used destinations and switch between them with a single click, while still being able to type a custom URL at any time. Repositories you successfully publish to are remembered automatically.
+- **[PL]** Dodano listę zapisanych repozytoriów do narzędzia **Publish Any Files to Any Repo**, pozwalającą zachować do 10 najczęściej używanych adresów docelowych i przełączać się między nimi jednym kliknięciem, z zachowaniem możliwości wpisania własnego adresu w dowolnej chwili. Repozytoria, do których udało się opublikować pliki, są zapamiętywane automatycznie.
+
+### Fixed / Poprawiono -- Isolated Working Folders & Automatic Cleanup / Izolowane foldery robocze i automatyczne czyszczenie
+
+- **[EN]** Fixed an issue where switching between repository URLs in **Publish Any Files to Any Repo** could leave behind a stale working folder tied to a previously used address. Each repository now uses its own dedicated, isolated working folder, which is automatically cleaned up after every publish attempt — eliminating any conflict or leftover state when moving between repositories.
+- **[PL]** Naprawiono problem, w którym przełączanie się między adresami repozytoriów w narzędziu **Publish Any Files to Any Repo** mogło pozostawiać nieaktualny folder roboczy powiązany z wcześniej użytym adresem. Każde repozytorium korzysta teraz z własnego, odizolowanego folderu roboczego, automatycznie czyszczonego po każdej próbie publikacji — co eliminuje ryzyko konfliktu lub pozostałości przy przełączaniu się między repozytoriami.
+
+- **[EN]** Further hardened the Project Notes single-instance safeguard on MacroPAD II so it now also recognizes notes already open in a background tab, not just the currently active one — fully eliminating any remaining edge case of duplicate windows.
+- **[PL]** Dodatkowo wzmocniono zabezpieczenie pojedynczej instancji Project Notes na MacroPAD II, tak aby rozpoznawało również notatki otwarte w tle, a nie tylko w aktywnej zakładce — całkowicie eliminując pozostałe przypadki powielania okien.
+
 
 ---
 ## [2.10.3] - 2026-08-07
