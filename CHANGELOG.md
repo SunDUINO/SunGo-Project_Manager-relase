@@ -4,6 +4,33 @@
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
 
+
+---
+## [2.10.3] - 2026-08-07
+
+### Performance & Optimization / Wydajność i optymalizacja
+
+- **[EN]** Significantly improved the refresh speed of the Tools tab through targeted code refactoring and performance optimizations. Streamlined execution logic to enhance overall system responsiveness.
+- **[PL]** Znacząco przyspieszono odświeżanie zakładki Tools dzięki głębokiej refaktoryzacji kodu oraz optymalizacjom wydajnościowym. Zoptymalizowano logikę wykonywania operacji, poprawiając ogólną responsywność aplikacji.
+
+---
+
+## [2.10.2] - 2026-08-07
+
+### Fixed / Poprawiono -- MacroPAD II Hardware Detection & Settings Access / Wykrywanie sprzętu MacroPAD II i dostęp do ustawień
+
+- **[EN]** Fixed an issue where MacroPAD II was not properly detected by the extension and the Pad Settings panel became inaccessible following bundle configuration changes in the previous build. Restored full native HID detection and seamless access to hardware configuration views.
+- **[PL]** Naprawiono problem, w którym MacroPAD II nie był prawidłowo wykrywany przez rozszerzenie, a panel ustawień pada pozostawał niedostępny po zmianach w konfiguracji bundlera z poprzedniej kompilacji. Przywrócono pełne natywne wykrywanie HID oraz bezproblemowy dostęp do widoków konfiguracji sprzętu.
+
+---
+
+## [2.10.1] - 2026-08-07
+
+### Fixed / Poprawiono -- Project Notes Multi-Launch Guard on MacroPAD II / Zabezpieczenie przed wielokrotnym uruchamianiem Project Notes z MacroPAD II
+
+- **[EN]** Resolved a issue where invoking the **Project Notes** tool via any hardware key (A, B, C, S1, or S2) on MacroPAD II caused the notes view to launch multiple times or spawn duplicate panel instances. Key press handling for Project Notes now enforces a strict single-instance debounce and focus check, ensuring smooth, predictable navigation without window clutter.
+- **[PL]** Rozwiązano problem, w którym wywołanie narzędzia **Project Notes** za pomocą dowolnego klawisza fizycznego (A, B, C, S1 lub S2) na MacroPAD II powodowało wielokrotne uruchamianie widoku notatek lub tworzenie zduplikowanych instancji panelu. Obsługa naciśnięcia klawisza dla Project Notes wymusza teraz rygorystyczną kontrolę pojedynczej instancji oraz wyciszanie powtórzeń (debounce), co gwarantuje płynne i przewidywalne działanie bez powielania okien.
+
 ---
 
 ## [2.10.0] - 2026-08-05
