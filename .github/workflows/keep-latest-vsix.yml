@@ -50,7 +50,7 @@ jobs:
       - name: Commit and push changes
         run: |
           git config user.name "lothar-team[bot]"
-          git config user.email "41898282+lothar-team[bot]@users.noreply.github.com"
+          git config user.email "41898282+lothar-team@users.noreply.github.com"
           git add -A
           git commit -m "Archive old VSIX builds" || echo "No changes to commit"
           git push
