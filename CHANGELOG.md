@@ -6,14 +6,14 @@
 
 ---
 
-[2.10.5] - 2026-08-08
+## [2.10.5] - 2026-08-08
 
 ### Changed / Zmieniono -- Bundled Build for Faster Startup / Zbundlowany build dla szybszego startu
 
-[EN] Switched the extension's build process to bundling: instead of shipping hundreds of separate JavaScript files, the entire extension now compiles down to a single optimized file. This resolves VS Code's "too many files" performance warning, noticeably reduces the installed extension's footprint, and speeds up how quickly the extension becomes ready after VS Code starts.
-[PL] Zmieniono proces budowania rozszerzenia na bundlowany: zamiast setek osobnych plików JavaScript, całe rozszerzenie kompiluje się teraz do jednego, zoptymalizowanego pliku. Rozwiązuje to ostrzeżenie VS Code o zbyt dużej liczbie plików, zauważalnie zmniejsza rozmiar zainstalowanego rozszerzenia i przyspiesza moment, w którym rozszerzenie jest gotowe do pracy po starcie VS Code.
-[EN] USB/MacroPAD hardware communication continues to work exactly as before — the low-level device driver was deliberately kept outside the bundle to preserve full compatibility across Windows, macOS, and Linux.
-[PL] Komunikacja z MacroPAD przez USB działa dokładnie tak samo jak wcześniej — sterownik niskopoziomowy został celowo pozostawiony poza bundlem, aby zachować pełną kompatybilność na Windows, macOS i Linuksie.
+- **[EN]** Switched the extension's build process to bundling: instead of shipping hundreds of separate JavaScript files, the entire extension now compiles down to a single optimized file. This resolves VS Code's "too many files" performance warning, noticeably reduces the installed extension's footprint, and speeds up how quickly the extension becomes ready after VS Code starts.
+- **[PL]** Zmieniono proces budowania rozszerzenia na bundlowany: zamiast setek osobnych plików JavaScript, całe rozszerzenie kompiluje się teraz do jednego, zoptymalizowanego pliku. Rozwiązuje to ostrzeżenie VS Code o zbyt dużej liczbie plików, zauważalnie zmniejsza rozmiar zainstalowanego rozszerzenia i przyspiesza moment, w którym rozszerzenie jest gotowe do pracy po starcie VS Code.
+- **[EN]** USB/MacroPAD hardware communication continues to work exactly as before — the low-level device driver was deliberately kept outside the bundle to preserve full compatibility across Windows, macOS, and Linux.
+- **[PL]** Komunikacja z MacroPAD przez USB działa dokładnie tak samo jak wcześniej — sterownik niskopoziomowy został celowo pozostawiony poza bundlem, aby zachować pełną kompatybilność na Windows, macOS i Linuksie.
 
 ---
 
