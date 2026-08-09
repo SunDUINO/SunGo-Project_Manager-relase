@@ -1,0 +1,56 @@
+name: Keep latest 4 VSIX builds
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Move old VSIX files to archive
+        shell: pwsh
+        run: |
+          $keep = 4
+          $repoRoot = "."
+          $archiveDir = Join-Path $repoRoot "archive"
+
+          New-Item -ItemType Directory -Force -Path $archiveDir | Out-Null
+
+          function Get-VersionFromName([string]$name) {
+            $m = [regex]::Match($name, 'sungo-project-manager-(\d+)\.(\d+)\.(\d+)\.vsix')
+            if ($m.Success) {
+              return [version]::new([int]$m.Groups[1].Value, [int]$m.Groups[2].Value, [int]$m.Groups[3].Value)
+            }
+            return [version]::new(0,0,0)
+          }
+
+          $files = Get-ChildItem $repoRoot -File -Filter "*.vsix" |
+            Sort-Object { Get-VersionFromName $_.Name } -Descending
+
+          $toArchive = $files | Select-Object -Skip $keep
+
+          foreach ($file in $toArchive) {
+            $dest = Join-Path $archiveDir $file.Name
+            if (Test-Path $dest) {
+              Remove-Item $file.FullName -Force
+            } else {
+              Move-Item $file.FullName $dest -Force
+            }
+          }
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Archive old VSIX builds" || echo "No changes to commit"
+          git push
