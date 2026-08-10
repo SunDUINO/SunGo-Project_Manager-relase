@@ -8,6 +8,9 @@
 SunGo includes a built-in test coverage panel powered by `go test -coverprofile`, with live in-editor highlighting and a per-file summary.  
 Access it via the **🧪 Test Coverage** entry in the SunGo Tools panel.
 
+<img width="1357" height="709" alt="Zrzut ekranu 2026-08-10 141550" src="https://github.com/user-attachments/assets/0c7a1662-afae-4d09-bf22-63bbae84a377" />
+
+
 ---
 
 ## 📋 Step 1 – Write (or generate) your tests
