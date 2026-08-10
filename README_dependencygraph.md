@@ -8,6 +8,10 @@
 SunGo includes a built-in, interactive dependency graph powered by `go mod graph` and `go list -json`, showing your external module dependencies and internal package structure side by side.  
 Access it via the **🕸️ Dependency Graph** entry in the SunGo Tools panel.
 
+
+<img width="898" height="698" alt="Zrzut ekranu 2026-08-10 141759" src="https://github.com/user-attachments/assets/9dc72d73-286a-42f2-a53d-cda72101fc41" />
+
+
 ---
 
 ## 📋 What you're looking at
