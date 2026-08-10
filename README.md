@@ -54,6 +54,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Requirements & Installation](#requirements-installation)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v2.11.0) – Test Coverage, Benchmarks & Dependency Graph](#-whats-new-v2110--test-coverage-benchmarks--dependency-graph)
 * [EN: What's New (v2.10.0) – Unique Key Assignments & Adaptive Label Styles](#-whats-new-v2100--unique-key-assignments--adaptive-label-styles)
 * [EN: What's New (v2.9.0) – Built-in Documentation Generator](#-whats-new-v290--built-in-documentation-generator)
 * [EN: What's New (v2.8.0) – Local Documentation Search & UI Refresh](#-whats-new-v280--local-documentation-search--ui-refresh)
@@ -200,6 +201,27 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ This is a one-time setup. The rule persists after system reboots.  
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
+
+---
+
+### 🚀 What's New (v2.11.0) – Test Coverage, Benchmarks & Dependency Graph
+
+The `v2.11.0` release adds three new analysis tools that help you understand and improve your Go project — all built to match the workflow you already use for building and profiling.
+
+* **Test Coverage Viewer:** Run your test suite with coverage tracking, see covered and uncovered lines highlighted right in the editor, and get a sortable per-file breakdown to spot the gaps at a glance.
+* **Benchmark Runner with History:** Run benchmarks with one click, keep a persistent history of every run, compare any two runs side by side, and watch a chosen benchmark's performance trend over time on a chart.
+* **Interactive Dependency Graph:** Explore your external module dependencies and internal package structure as clickable, expandable graphs side by side. Smaller single-package projects automatically get a file-level view instead, showing how your individual source files connect.
+* **One-Click Example Tests:** Both the Coverage Viewer and Benchmark Runner can generate ready-to-fill test or benchmark stubs for your functions — a fast way to get a new project's test suite off the ground.
+* **New Snippets:** The Snippet Manager's Testing category now includes benchmark and edge-case testing patterns to help you get started even faster.
+
+#### 🧪 New Analysis Tools Overview
+
+| Tool | What it does |
+| :--- | :--- |
+| **Test Coverage Viewer** | Runs tests with coverage, highlights lines in the editor, per-file summary |
+| **Benchmark Runner** | Runs benchmarks, persistent history, run comparison, trend chart |
+| **Dependency Graph** | Interactive external/internal graphs, automatic file-level fallback |
+| **Example Test Generator** | One-click Test/Benchmark stubs for your functions |
 
 ---
 
@@ -911,6 +933,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguły-udev)
+* [PL: Co nowego (v2.11.0) – Pokrycie Testami, Benchmarki i Graf Zależności](#-co-nowego-v2110--pokrycie-testami-benchmarki-i-graf-zależności)
 * [PL: Co nowego (v2.10.0) – Unikalne przypisania klawiszy i adaptacyjny styl etykiet](#-co-nowego-v2100--unikalne-przypisania-klawiszy-i-adaptacyjny-styl-etykiet)
 * [PL: Co nowego (v2.9.0) – Wbudowany Generator Dokumentacji](#-co-nowego-v290--wbudowany-generator-dokumentacji)
 * [PL: Co nowego (v2.8.0) – Lokalna wyszukiwarka dokumentacji i odświeżenie UI](#-co-nowego-v280--lokalna-wyszukiwarka-dokumentacji-i-odświeżenie-ui)
@@ -1048,6 +1071,27 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+### 🚀 Co nowego (v2.11.0) – Pokrycie Testami, Benchmarki i Graf Zależności
+
+Wersja `v2.11.0` dodaje trzy nowe narzędzia analityczne, które pomagają zrozumieć i ulepszyć projekt Go — zbudowane tak, żeby pasowały do przepływu pracy, który już znasz z budowania i profilowania.
+
+* **Test Coverage Viewer:** Uruchamiasz zestaw testów ze śledzeniem pokrycia, widzisz pokryte i niepokryte linie podświetlone bezpośrednio w edytorze, oraz dostajesz sortowalne zestawienie pokrycia per plik, żeby od razu dostrzec luki.
+* **Benchmark Runner z historią:** Uruchamiasz benchmarki jednym kliknięciem, trzymasz trwałą historię każdego przebiegu, porównujesz dowolne dwa przebiegi obok siebie oraz śledzisz na wykresie trend wydajności wybranego benchmarku w czasie.
+* **Interaktywny Graf Zależności:** Przeglądasz zewnętrzne zależności modułów i wewnętrzną strukturę pakietów jako klikalne, rozwijalne grafy obok siebie. Mniejsze, jednopakietowe projekty automatycznie dostają widok na poziomie plików, pokazujący jak poszczególne pliki źródłowe się łączą.
+* **Przykładowe testy jednym kliknięciem:** Zarówno Coverage Viewer, jak i Benchmark Runner potrafią wygenerować gotowe do uzupełnienia szkielety testów lub benchmarków dla Twoich funkcji — szybki sposób na rozruszenie zestawu testów w nowym projekcie.
+* **Nowe snippety:** Kategoria Testing w Snippet Managerze zawiera teraz wzorce benchmarków i testów przypadków brzegowych, żeby zacząć jeszcze szybciej.
+
+#### 🧪 Zestawienie nowych narzędzi analitycznych
+
+| Narzędzie | Co robi |
+| :--- | :--- |
+| **Test Coverage Viewer** | Uruchamia testy z pokryciem, podświetla linie w edytorze, podsumowanie per plik |
+| **Benchmark Runner** | Uruchamia benchmarki, trwała historia, porównanie przebiegów, wykres trendu |
+| **Graf Zależności** | Interaktywne grafy zewnętrzne/wewnętrzne, automatyczny fallback na poziom plików |
+| **Generator przykładowych testów** | Szkielety Test/Benchmark dla Twoich funkcji jednym kliknięciem |
 
 ---
 

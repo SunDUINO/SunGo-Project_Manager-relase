@@ -4,16 +4,47 @@
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
 
+## [2.11.0] - 2026-08-09
+
+### Added / Dodano -- Test Coverage, Benchmarks & Dependency Graph / Pokrycie Testami, Benchmarki i Graf Zależności
+
+- **[EN]** Added a **Test Coverage Viewer**: runs your project's tests with coverage tracking, highlights covered and uncovered lines directly in the editor, and shows a sortable per-file coverage summary — so you can see at a glance which parts of your codebase still need tests.
+- **[PL]** Dodano **Test Coverage Viewer**: uruchamia testy projektu ze śledzeniem pokrycia, podświetla pokryte i niepokryte linie bezpośrednio w edytorze oraz pokazuje sortowalne podsumowanie pokrycia per plik — dzięki czemu od razu widać, które fragmenty kodu wciąż potrzebują testów.
+
+- **[EN]** Added a **Benchmark Runner** with persistent run history: execute your project's benchmarks with one click, compare any two past runs side by side (faster/slower/new/removed), and follow a chosen benchmark's performance trend over time on a chart.
+- **[PL]** Dodano **Benchmark Runner** z trwałą historią przebiegów: uruchamiasz benchmarki projektu jednym kliknięciem, porównujesz dowolne dwa wcześniejsze przebiegi obok siebie (szybciej/wolniej/nowy/usunięty) oraz śledzisz na wykresie trend wydajności wybranego benchmarku w czasie.
+
+- **[EN]** Added an **Interactive Dependency Graph**: visualizes your external module dependencies (click a node to reveal its own dependencies, double-click to open it on pkg.go.dev) side by side with your internal package structure. For smaller, single-package projects it automatically falls back to a file-level view, showing how your individual `.go` files relate to each other.
+- **[PL]** Dodano **Interaktywny Graf Zależności**: wizualizuje zewnętrzne zależności modułów (kliknięcie węzła odsłania jego własne zależności, podwójne kliknięcie otwiera go na pkg.go.dev) obok struktury wewnętrznych pakietów projektu. Dla mniejszych, jednopakietowych projektów automatycznie przełącza się na widok na poziomie plików, pokazując jak poszczególne pliki `.go` się ze sobą łączą.
+
+- **[EN]** Both the Coverage Viewer and Benchmark Runner can now generate example test/benchmark skeletons for you: pick an open `.go` file and click "Generate Example Tests" (or "...Benchmarks") to get ready-to-fill stubs for a couple of your functions, complete with TODO markers — a quick way to get started when a project has no tests yet.
+- **[PL]** Zarówno Coverage Viewer, jak i Benchmark Runner potrafią teraz wygenerować przykładowe szkielety testów/benchmarków: wybierz otwarty plik `.go` i kliknij "Generate Example Tests" (lub "...Benchmarks"), aby dostać gotowe do uzupełnienia szkielety dla kilku funkcji, ze znacznikami TODO — szybki start, gdy projekt nie ma jeszcze żadnych testów.
+
+- **[EN]** Added ready-made Benchmark and edge-case testing patterns to the Snippet Manager's Testing category — a basic benchmark, side-by-side sub-benchmark comparisons, and a nil/empty/error-path test pattern for quickly raising coverage.
+- **[PL]** Dodano gotowe wzorce benchmarków i testów przypadków brzegowych do kategorii Testing w Snippet Managerze — podstawowy benchmark, porównanie kilku implementacji obok siebie oraz wzorzec testu nil/pusty/ścieżka błędu do szybkiego podnoszenia pokrycia.
+
+### Fixed / Poprawiono -- Project Switching / Przełączanie Projektów
+
+- **[EN]** Fixed the Explorer view not reliably reappearing after selecting a project from the SunGo Projects list — it now switches back to the Explorer every time, regardless of what was previously visible.
+- **[PL]** Naprawiono niekonsekwentne pojawianie się widoku Explorera po wybraniu projektu z listy SunGo Projects — teraz zawsze przełącza z powrotem na Explorer, niezależnie od tego, co było wcześniej widoczne.
+
 ---
 
-## [2.10.5] - 2026-08-08
+## [2.10.6] - [2.10.8] - 2026-07-
+
+### ⚠️ Test Build (Pre-release)
+### ⚠️ Wersje Testowe (Pre-release)
+
+---
+
+[2.10.5] - 2026-08-08
 
 ### Changed / Zmieniono -- Bundled Build for Faster Startup / Zbundlowany build dla szybszego startu
 
-- **[EN]** Switched the extension's build process to bundling: instead of shipping hundreds of separate JavaScript files, the entire extension now compiles down to a single optimized file. This resolves VS Code's "too many files" performance warning, noticeably reduces the installed extension's footprint, and speeds up how quickly the extension becomes ready after VS Code starts.
-- **[PL]** Zmieniono proces budowania rozszerzenia na bundlowany: zamiast setek osobnych plików JavaScript, całe rozszerzenie kompiluje się teraz do jednego, zoptymalizowanego pliku. Rozwiązuje to ostrzeżenie VS Code o zbyt dużej liczbie plików, zauważalnie zmniejsza rozmiar zainstalowanego rozszerzenia i przyspiesza moment, w którym rozszerzenie jest gotowe do pracy po starcie VS Code.
-- **[EN]** USB/MacroPAD hardware communication continues to work exactly as before — the low-level device driver was deliberately kept outside the bundle to preserve full compatibility across Windows, macOS, and Linux.
-- **[PL]** Komunikacja z MacroPAD przez USB działa dokładnie tak samo jak wcześniej — sterownik niskopoziomowy został celowo pozostawiony poza bundlem, aby zachować pełną kompatybilność na Windows, macOS i Linuksie.
+[EN] Switched the extension's build process to bundling: instead of shipping hundreds of separate JavaScript files, the entire extension now compiles down to a single optimized file. This resolves VS Code's "too many files" performance warning, noticeably reduces the installed extension's footprint, and speeds up how quickly the extension becomes ready after VS Code starts.
+[PL] Zmieniono proces budowania rozszerzenia na bundlowany: zamiast setek osobnych plików JavaScript, całe rozszerzenie kompiluje się teraz do jednego, zoptymalizowanego pliku. Rozwiązuje to ostrzeżenie VS Code o zbyt dużej liczbie plików, zauważalnie zmniejsza rozmiar zainstalowanego rozszerzenia i przyspiesza moment, w którym rozszerzenie jest gotowe do pracy po starcie VS Code.
+[EN] USB/MacroPAD hardware communication continues to work exactly as before — the low-level device driver was deliberately kept outside the bundle to preserve full compatibility across Windows, macOS, and Linux.
+[PL] Komunikacja z MacroPAD przez USB działa dokładnie tak samo jak wcześniej — sterownik niskopoziomowy został celowo pozostawiony poza bundlem, aby zachować pełną kompatybilność na Windows, macOS i Linuksie.
 
 ---
 
