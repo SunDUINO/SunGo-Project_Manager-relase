@@ -8,6 +8,10 @@
 SunGo includes a built-in benchmark runner powered by `go test -bench`, with persistent run history, run-to-run comparison, and a performance trend chart.  
 Access it via the **⚡ Benchmarks** entry in the SunGo Tools panel.
 
+
+<img width="783" height="1041" alt="Zrzut ekranu 2026-08-10 141642" src="https://github.com/user-attachments/assets/20bb3ea7-5c91-4121-9f46-3c318dd6d9a1" />
+
+
 ---
 
 ## 📋 Step 1 – Write (or generate) your benchmarks
