@@ -30,14 +30,14 @@
 
 ---
 
-## [2.10.6] - [2.10.8] - 2026-07-
+## [2.10.6] - [2.10.8] - 2026-08-08
 
 ### ⚠️ Test Build (Pre-release)
 ### ⚠️ Wersje Testowe (Pre-release)
 
 ---
 
-[2.10.5] - 2026-08-08
+## [2.10.5] - 2026-08-08
 
 ### Changed / Zmieniono -- Bundled Build for Faster Startup / Zbundlowany build dla szybszego startu
 
