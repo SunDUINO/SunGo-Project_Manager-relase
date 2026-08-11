@@ -52,6 +52,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 
 ## 📖 Table of Contents
 * [EN: Requirements & Installation](#requirements-installation)
+* [EN: Guides & Detailed Usage](#-guides--detailed-usage)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
 * [EN: What's New (v2.11.0) – Test Coverage, Benchmarks & Dependency Graph](#-whats-new-v2110--test-coverage-benchmarks--dependency-graph)
@@ -870,6 +871,36 @@ Easy access to binary optimization settings. Now, with a single toggle in settin
 * **Minimize the binary:** by enabling `-s -w` (strip) flags to remove symbol tables and debugging information.
 * **Full Diagnostics:** Disable optimization to get full insight into symbols and a precise analysis of the binary file's composition.
 
+## 📖 Guides & Detailed Usage
+
+Step-by-step, bilingual setup and usage guides for every SunGo tool — instrumentation snippets, common issues, and everything not covered in the overview below.
+
+**Analysis & Testing**
+* [Test Coverage Viewer](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_coverage.md) – running coverage, in-editor highlighting, reading the per-file summary
+* [Benchmark Runner](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_benchmark.md) – run history, comparing runs, performance trend chart
+* [Profiler (pprof)](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_pprof.md) – CPU/Memory instrumentation, Graphviz setup, flame graph usage
+* [Binary Analyzer](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_analyzer.md) – symbol size breakdown, size history trend
+* [Build Diff & Timeline](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_builddiff.md) – comparing two builds, spotting size regressions
+* [Code Review](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_codereview.md) – go vet / staticcheck / golangci-lint setup and usage
+* [Code Metrics](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_metrics.md) – refactoring hints, adjustable thresholds
+
+**Dependencies**
+* [Dependency Graph](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_dependencygraph.md) – interactive external/internal graphs, file-level fallback
+* [Dependencies](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_dependencies.md) – flat module list, direct vs indirect
+* [CGO Cross-Compilation](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_crosscompile.md) – toolchains for every platform combination
+
+**Code Generation & Docs**
+* [Header Generator](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_headergen.md) – styles, custom templates, auto-insert on new file
+* [Doc Generator](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_docgen.md) – README/Architecture/API generation from your project
+* [Go Doc Viewer](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_godoc.md) – browsing package docs without leaving VS Code
+* [Go Generate Runner](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_gogenerate.md) – discovering and running `//go:generate` directives
+
+**Project & Workflow**
+* [Project from GitHub Template](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_gittemplate.md) – curated templates, custom repo URLs, automatic module renaming
+* [Publish Any File to Any Repo](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_pubrepo.md) – saved repositories, publishing files to any Git remote
+* [Snippet Manager](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_snippets.md) – finding, inserting, and adding your own snippets
+* [Project Notes](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_notes.md) – the per-project Markdown scratchpad
+
 ## 🛠 Key Features
 - **Automated Project Structure** – Create `src/` folder and `main.go` with a single click.
 - **Debugger Configuration** – Automatically generates a ready-to-use `launch.json` — no manual path editing required.
@@ -931,6 +962,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 
 ## 📖 Spis treści
 * [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
+* [PL: Instrukcje i szczegółowe użytkowanie](#-instrukcje-i-szczegółowe-użytkowanie)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguły-udev)
 * [PL: Co nowego (v2.11.0) – Pokrycie Testami, Benchmarki i Graf Zależności](#-co-nowego-v2110--pokrycie-testami-benchmarki-i-graf-zależności)
@@ -1745,6 +1777,36 @@ Widzisz nie tylko rozmiar pliku, ale też z czego się składa. Panel analizator
 Łatwy dostęp do ustawień optymalizacji binarki. Teraz jednym przełącznikiem w ustawieniach (`ctrl+,`) możesz:
 * **Zmniejszyć binarkę:** włączając flagi `-s -w` (strip), aby usunąć tabele symboli i informacje debugowania. 
 * **Pełna Diagnostyka:** Wyłącz optymalizację  aby uzyskać pełny wgląd w symbole i precyzyjną analizę składu pliku binarnego
+
+## 📖 Instrukcje i szczegółowe użytkowanie
+
+Krok po kroku, dwujęzyczne instrukcje instalacji i użytkowania dla każdego narzędzia SunGo — snippety instrumentacji, częste problemy i wszystko, czego nie ma w skróconym opisie poniżej.
+
+**Analiza i testowanie**
+* [Test Coverage Viewer](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_coverage.md) – uruchamianie pokrycia, podświetlenie w edytorze, odczytywanie podsumowania per plik
+* [Benchmark Runner](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_benchmark.md) – historia przebiegów, porównywanie, wykres trendu wydajności
+* [Profiler (pprof)](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_pprof.md) – instrumentacja CPU/Memory, instalacja Graphviz, obsługa flame graph
+* [Binary Analyzer](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_analyzer.md) – podział rozmiaru wg symboli, trend historii rozmiaru
+* [Build Diff & Timeline](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_builddiff.md) – porównywanie dwóch buildów, wychwytywanie regresji rozmiaru
+* [Code Review](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_codereview.md) – konfiguracja i użycie go vet / staticcheck / golangci-lint
+* [Code Metrics](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_metrics.md) – sugestie refaktoryzacji, dostosowywalne progi
+
+**Zależności**
+* [Dependency Graph](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_dependencygraph.md) – interaktywne grafy zewnętrzny/wewnętrzny, fallback na poziom plików
+* [Dependencies](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_dependencies.md) – płaska lista modułów, bezpośrednie i pośrednie
+* [CGO Cross-Compilation](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_crosscompile.md) – toolchainy dla każdej kombinacji platform
+
+**Generowanie kodu i dokumentacji**
+* [Header Generator](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_headergen.md) – style, własne szablony, auto-insert na nowym pliku
+* [Doc Generator](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_docgen.md) – generowanie README/Architecture/API z projektu
+* [Go Doc Viewer](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_godoc.md) – przeglądanie dokumentacji pakietów bez opuszczania VS Code
+* [Go Generate Runner](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_gogenerate.md) – wykrywanie i uruchamianie dyrektyw `//go:generate`
+
+**Projekt i przepływ pracy**
+* [Project from GitHub Template](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_gittemplate.md) – kuratorowane szablony, własne URL-e repo, automatyczne przemianowanie modułu
+* [Publish Any File to Any Repo](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_pubrepo.md) – zapisane repozytoria, publikowanie plików do dowolnego zdalnego repo
+* [Snippet Manager](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_snippets.md) – szukanie, wstawianie i dodawanie własnych snippetów
+* [Project Notes](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_notes.md) – notatnik Markdown per projekt
 
 ## 🛠 Kluczowe Funkcje
 - **Struktura na start** – Automatyczne tworzenie folderu `src/` i pliku `main.go`.
