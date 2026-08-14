@@ -55,6 +55,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Guides & Detailed Usage](#-guides--detailed-usage)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v2.12.0) – Fuzz Testing](#-whats-new-v2120--fuzz-testing)
 * [EN: What's New (v2.11.0) – Test Coverage, Benchmarks & Dependency Graph](#-whats-new-v2110--test-coverage-benchmarks--dependency-graph)
 * [EN: What's New (v2.10.0) – Unique Key Assignments & Adaptive Label Styles](#-whats-new-v2100--unique-key-assignments--adaptive-label-styles)
 * [EN: What's New (v2.9.0) – Built-in Documentation Generator](#-whats-new-v290--built-in-documentation-generator)
@@ -202,6 +203,26 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ This is a one-time setup. The rule persists after system reboots.  
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
+
+---
+
+### 🚀 What's New (v2.12.0) – Fuzz Testing
+
+The `v2.12.0` release rounds out SunGo's testing suite with Go's native fuzzer — the natural sibling to last release's Coverage Viewer and Benchmark Runner, sharing the same `_test.go` file conventions.
+
+* **Fuzz Testing panel:** Pick any `FuzzXxx` function found in your project, set how long to run it for, and start a single, time-bounded run — no background processes left running once it's done.
+* **Clear results either way:** A clean run shows how many executions it got through; a crash gives you the exact failing input file, a ready-to-copy command to reproduce just that one case, and the extracted failure detail.
+* **One-click example fuzz tests:** Same "Generate Example Test" convenience as Coverage and Benchmarks — pick an open file and get a fill-in-the-blanks fuzz test skeleton.
+* **MacroPAD-ready:** Assign Fuzz Testing to a pad key just like the other analysis tools — the key opens the panel; the run itself always starts manually, by design.
+
+#### 🐛 Fuzz Testing Overview
+
+| Feature | Description |
+| :--- | :--- |
+| **Manual, time-bounded runs** | You choose the duration; no fuzzing left running in the background |
+| **Crash reporting** | Failing input path, one-line repro command, extracted failure detail |
+| **Example Test Generator** | One-click `FuzzXxx` stub for your functions |
+| **MacroPAD integration** | Assignable to a pad key, alongside Coverage and Benchmarks |
 
 ---
 
@@ -878,6 +899,7 @@ Step-by-step, bilingual setup and usage guides for every SunGo tool — instrume
 **Analysis & Testing**
 * [Test Coverage Viewer](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_coverage.md) – running coverage, in-editor highlighting, reading the per-file summary
 * [Benchmark Runner](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_benchmark.md) – run history, comparing runs, performance trend chart
+* [Fuzz Testing](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_fuzz.md) – manual time-bounded runs, crash reporting, example test generation
 * [Profiler (pprof)](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_pprof.md) – CPU/Memory instrumentation, Graphviz setup, flame graph usage
 * [Binary Analyzer](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_analyzer.md) – symbol size breakdown, size history trend
 * [Build Diff & Timeline](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_builddiff.md) – comparing two builds, spotting size regressions
@@ -965,6 +987,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Instrukcje i szczegółowe użytkowanie](#-instrukcje-i-szczegółowe-użytkowanie)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguły-udev)
+* [PL: Co nowego (v2.12.0) – Testowanie Fuzz](#-co-nowego-v2120--testowanie-fuzz)
 * [PL: Co nowego (v2.11.0) – Pokrycie Testami, Benchmarki i Graf Zależności](#-co-nowego-v2110--pokrycie-testami-benchmarki-i-graf-zależności)
 * [PL: Co nowego (v2.10.0) – Unikalne przypisania klawiszy i adaptacyjny styl etykiet](#-co-nowego-v2100--unikalne-przypisania-klawiszy-i-adaptacyjny-styl-etykiet)
 * [PL: Co nowego (v2.9.0) – Wbudowany Generator Dokumentacji](#-co-nowego-v290--wbudowany-generator-dokumentacji)
@@ -1103,6 +1126,26 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+### 🚀 Co nowego (v2.12.0) – Testowanie Fuzz
+
+Wersja `v2.12.0` domyka pakiet testowy SunGo o natywny fuzzer Go — naturalnego brata Coverage Viewera i Benchmark Runnera z poprzedniego wydania, dzielącego te same konwencje plików `_test.go`.
+
+* **Panel Fuzz Testing:** Wybierz dowolną znalezioną w projekcie funkcję `FuzzXxx`, ustaw czas trwania i uruchom jeden, ograniczony czasowo przebieg — żadnych procesów w tle po zakończeniu.
+* **Jasny wynik w obie strony:** Czysty przebieg pokazuje ile wykonań udało się zrobić; awaria daje dokładną ścieżkę do zapisanego wejścia, gotową do skopiowania komendę do odtworzenia tylko tego przypadku oraz wyciągnięty szczegół błędu.
+* **Przykładowe testy fuzz jednym kliknięciem:** Ta sama wygoda "Generate Example Test" co przy Coverage i Benchmarks — wybierz otwarty plik i dostań szkielet testu fuzz do uzupełnienia.
+* **Gotowe pod MacroPAD:** Przypisz Fuzz Testing do klawisza pada tak samo jak inne narzędzia analityczne — klawisz otwiera panel; sam przebieg zawsze startuje ręcznie, celowo.
+
+#### 🐛 Zestawienie Fuzz Testing
+
+| Funkcja | Opis |
+| :--- | :--- |
+| **Ręczne, ograniczone czasowo przebiegi** | Ty wybierasz czas trwania; żaden fuzzing nie zostaje w tle |
+| **Raportowanie awarii** | Ścieżka do wejścia, jednoliniowa komenda repro, wyciągnięty szczegół błędu |
+| **Generator przykładowych testów** | Szkielet `FuzzXxx` dla Twoich funkcji jednym kliknięciem |
+| **Integracja z MacroPAD** | Przypisywalne do klawisza pada, obok Coverage i Benchmarks |
 
 ---
 
@@ -1785,6 +1828,7 @@ Krok po kroku, dwujęzyczne instrukcje instalacji i użytkowania dla każdego na
 **Analiza i testowanie**
 * [Test Coverage Viewer](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_coverage.md) – uruchamianie pokrycia, podświetlenie w edytorze, odczytywanie podsumowania per plik
 * [Benchmark Runner](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_benchmark.md) – historia przebiegów, porównywanie, wykres trendu wydajności
+* [Fuzz Testing](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_fuzz.md) – ręczne przebiegi ograniczone czasowo, raportowanie awarii, generowanie przykładowych testów
 * [Profiler (pprof)](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_pprof.md) – instrumentacja CPU/Memory, instalacja Graphviz, obsługa flame graph
 * [Binary Analyzer](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_analyzer.md) – podział rozmiaru wg symboli, trend historii rozmiaru
 * [Build Diff & Timeline](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_builddiff.md) – porównywanie dwóch buildów, wychwytywanie regresji rozmiaru

@@ -4,6 +4,22 @@
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
 
+---
+
+## [2.12.0] - 2026-08-13
+
+### Added / Dodano -- Fuzz Testing / Testowanie Fuzz
+
+- **[EN]** Added a **Fuzz Testing** panel powered by Go's native fuzzer (`go test -fuzz`): pick any `FuzzXxx` function found in your project, choose how long to run it for, and start a single, time-bounded run — no background processes left running after you close the panel. On success you get an execution-count summary; if a crash is found, you get the path to the saved failing input, a ready-to-copy command to re-run just that case, and the extracted failure detail.
+- **[PL]** Dodano panel **Fuzz Testing** oparty na natywnym fuzzerze Go (`go test -fuzz`): wybierz dowolną znalezioną w projekcie funkcję `FuzzXxx`, ustaw czas trwania i uruchom jeden, ograniczony czasowo przebieg — żadnych procesów w tle po zamknięciu panelu. Przy sukcesie dostajesz podsumowanie liczby wykonań; jeśli fuzzer znajdzie awarię, dostajesz ścieżkę do zapisanego wejścia, gotową do skopiowania komendę do odtworzenia tylko tego przypadku oraz wyciągnięty szczegół błędu.
+- **[EN]** The Fuzz Testing panel can generate an example fuzz test for you, the same way Coverage and Benchmarks already do — pick an open `.go` file, click "Generate Example Fuzz Test", and get a ready-to-fill skeleton with seed values and assertions marked as TODO.
+- **[PL]** Panel Fuzz Testing potrafi wygenerować przykładowy test fuzz, tak samo jak już robią to Coverage i Benchmarks — wybierz otwarty plik `.go`, kliknij "Generate Example Fuzz Test" i dostań gotowy do uzupełnienia szkielet z wartościami seed i asercjami oznaczonymi jako TODO.
+- **[EN]** Fuzz Testing can be assigned to a MacroPAD key, just like Coverage and Benchmarks — opening the panel with a key press works the same way; the fuzz run itself always starts manually from inside the panel.
+- **[PL]** Fuzz Testing można przypisać do klawisza MacroPAD, tak samo jak Coverage i Benchmarks — otwarcie panelu wciśnięciem klawisza działa tak samo; sam przebieg fuzzingu zawsze startuje ręcznie z poziomu panelu.
+
+---
+
+
 ## [2.11.0] - 2026-08-09
 
 ### Added / Dodano -- Test Coverage, Benchmarks & Dependency Graph / Pokrycie Testami, Benchmarki i Graf Zależności
@@ -30,14 +46,14 @@
 
 ---
 
-## [2.10.6] - [2.10.8] - 2026-08-08
+## [2.10.6] - [2.10.8] - 2026-07-
 
 ### ⚠️ Test Build (Pre-release)
 ### ⚠️ Wersje Testowe (Pre-release)
 
 ---
 
-## [2.10.5] - 2026-08-08
+[2.10.5] - 2026-08-08
 
 ### Changed / Zmieniono -- Bundled Build for Faster Startup / Zbundlowany build dla szybszego startu
 
