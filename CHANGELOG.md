@@ -6,6 +6,23 @@
 
 ---
 
+## [2.12.1] - 2026-08-20
+
+### Added / Dodano -- SunGO Tools Documentation / Dokumentacja SunGO Tools
+
+- **[EN]** Added comprehensive instructions and usage guides for the **SunGO Tools** suite directly within the documentation.
+- **[PL]** Dodano szczegółowe instrukcje oraz przewodniki użytkowania dla zestawu narzędzi **SunGO Tools** bezpośrednio w dokumentacji.
+
+### Changed / Zmieniono -- UI Refinements & Performance Improvements / Drobne poprawki interfejsu i optymalizacja wydajności
+
+- **[EN]** Applied cosmetic and visual refinements to the user interface to ensure a more consistent look and improved overall user experience.
+- **[PL]** Wprowadzono poprawki wizualne i kosmetyczne w interfejsie użytkownika, zapewniając większą spójność wyglądu oraz wyższy komfort użytkowania.
+- **[EN]** Implemented key performance optimizations and code enhancements, resulting in a faster, smoother, and more responsive extension interface.
+- **[PL]** Przeprowadzono optymalizacje wydajnościowe oraz usprawnienia kodu, co przekłada się na szybsze, płynniejsze i bardziej responsywne działanie interfejsu rozszerzenia.
+
+---
+
+
 ## [2.12.0] - 2026-08-13
 
 ### Added / Dodano -- Fuzz Testing / Testowanie Fuzz
