@@ -3,8 +3,34 @@
 [EN] All notable changes to the "SunGo Project Manager" extension are documented in this file.  
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
+---
+
+
+## [2.13.0] - 2026-08-21
+
+### Added / Dodano -- Splash Screen / Ekran Powitalny
+
+- **[EN]** Added a splash screen shown automatically after installing or updating the extension, displaying the SunGo Project Manager banner, the current version number, and a short tagline. A new setting, **SunGo – Splash Screen › Show On Every Startup**, lets you switch it to appear on every VS Code startup instead of only once per install/update.
+- **[PL]** Dodano ekran powitalny wyświetlany automatycznie po instalacji lub aktualizacji rozszerzenia, prezentujący baner SunGo Project Manager, aktualny numer wersji oraz krótkie hasło. Nowe ustawienie **SunGo – Splash Screen › Show On Every Startup** pozwala przełączyć go na wyświetlanie przy każdym uruchomieniu VS Code zamiast tylko raz po instalacji/aktualizacji.
+
+### Changed / Zmieniono -- Gopher Assistant Redesign / Przeprojektowanie Asystenta Gopher
+
+- **[EN]** Redesigned the Gopher Assistant character to match the official Go gopher mascot: a teal, capsule-shaped body, small side ears, and a cream snout with visible front teeth, replacing the previous mouse-like look.
+- **[PL]** Przeprojektowano postać Asystenta Gopher, dopasowując ją do oficjalnej maskotki Go: turkusowe, kapsułowe ciało, małe boczne uszy oraz kremowy pyszczek z widocznymi przednimi zębami, w miejsce poprzedniego, bardziej mysiego wyglądu.
+- **[EN]** The idle animation now blinks and rolls its eyes in a small circular motion instead of staying static.
+- **[PL]** Animacja stanu bezczynności teraz mruga i "przewraca" oczami po małym okręgu zamiast pozostawać statyczna.
+- **[EN]** The error state now shows the gopher's eyes turning red and pulsing, along with a small animated flame above its head, instead of just the previous static red tint.
+- **[PL]** Stan błędu pokazuje teraz pulsujące, czerwone oczy gophera oraz mały animowany płomień nad głową, zamiast samego wcześniejszego statycznego czerwonego poblasku.
+- **[EN]** The build/compile state now fills the gopher's body with a falling stream of binary digits (0s and 1s) in the extension's brand color, alongside the existing spinning gear.
+- **[PL]** Stan buildu/kompilacji wypełnia teraz ciało gophera opadającym strumieniem cyfr binarnych (0 i 1) w kolorze marki rozszerzenia, uzupełniając dotychczasowe obracające się koło zębate.
+
+### Removed / Usunięto -- Dead "Release Assistant" Entry / Martwy wpis "Release Assistant"
+
+- **[EN]** Removed an orphaned "Release Assistant" item from the SunGo Tools panel that pointed to a command which was never implemented.
+- **[PL]** Usunięto osierocony wpis "Release Assistant" z panelu SunGo Tools, wskazujący na nigdy niezaimplementowaną komendę.
 
 ---
+
 
 ## [2.12.1] - 2026-08-20
 

@@ -55,6 +55,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Guides & Detailed Usage](#-guides--detailed-usage)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v2.13.0) – Official Go Gopher & Splash Screen](#-whats-new-v2130--official-go-gopher--splash-screen)
 * [EN: What's New (v2.12.0) – Fuzz Testing](#-whats-new-v2120--fuzz-testing)
 * [EN: What's New (v2.11.0) – Test Coverage, Benchmarks & Dependency Graph](#-whats-new-v2110--test-coverage-benchmarks--dependency-graph)
 * [EN: What's New (v2.10.0) – Unique Key Assignments & Adaptive Label Styles](#-whats-new-v2100--unique-key-assignments--adaptive-label-styles)
@@ -203,6 +204,18 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ This is a one-time setup. The rule persists after system reboots.  
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
+
+---
+
+### 🚀 What's New (v2.13.0) – Official Go Gopher & Splash Screen
+
+The `v2.13.0` release is a visual one: the Gopher Assistant gets a full redesign to match the official Go mascot, and a new splash screen greets you after every install or update.
+
+* **Official gopher look:** The Gopher Assistant panel now shows a teal, capsule-shaped body with small side ears and a cream snout with visible front teeth — matching the real Go gopher instead of the previous, more mouse-like design.
+* **New idle animation:** In idle, the gopher blinks and rolls its eyes in a small circular motion instead of sitting statically.
+* **New error animation:** Compilation errors now turn the gopher's eyes red and make them pulse, with a small animated flame appearing above its head.
+* **New build animation:** While `go build` runs, a stream of falling `0`s and `1`s fills the gopher's body in the extension's brand color, alongside the existing spinning gear.
+* **Splash screen:** A banner splash screen now appears automatically after installing or updating the extension. A new setting, **SunGo – Splash Screen › Show On Every Startup**, lets you switch it to appear on every VS Code startup instead.
 
 ---
 
