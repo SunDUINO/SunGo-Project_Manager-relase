@@ -55,6 +55,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Guides & Detailed Usage](#-guides--detailed-usage)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v2.14.0) – Linux Packaging (.deb / .rpm / AppImage)](#-whats-new-v2140--linux-packaging-deb--rpm--appimage)
 * [EN: What's New (v2.13.0) – Official Go Gopher & Splash Screen](#-whats-new-v2130--official-go-gopher--splash-screen)
 * [EN: What's New (v2.12.0) – Fuzz Testing](#-whats-new-v2120--fuzz-testing)
 * [EN: What's New (v2.11.0) – Test Coverage, Benchmarks & Dependency Graph](#-whats-new-v2110--test-coverage-benchmarks--dependency-graph)
@@ -204,6 +205,19 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ This is a one-time setup. The rule persists after system reboots.  
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
+
+---
+
+### 🚀 What's New (v2.14.0) – Linux Packaging (.deb / .rpm / AppImage)
+
+The `v2.14.0` release rounds out cross-platform builds: Windows already produces a ready-to-run `.exe`, and now Linux gets the same treatment with real, installable package formats.
+
+* **Package for Linux:** A new tool in the SunGo Tools panel, available only when building natively on a Linux host (not when cross-compiling a Linux target from Windows). It opens a checkbox picker for `.deb`, `.rpm`, and AppImage — pick any combination and SunGo builds them all in one pass.
+* **Zero manual metadata:** Package name, version, maintainer, and description are pulled automatically from `go.mod` and `package.json`.
+* **Same output folder as always:** Built packages land in the same `bin/` folder as your regular binaries — no separate location to dig through.
+* **Default formats setting:** **SunGo – Linux Packaging › Default Formats** lets you pre-select which formats are checked by default when the picker opens.
+* **Required tools:** `.deb`/`.rpm` need `nfpm`; AppImage needs `appimagetool`. If either is missing, SunGo shows exactly what to run to install it (no silent downloads). See [Linux Packaging – Setup & Usage Guide](./README_linuxPackage.md) for the full walkthrough.
+* **Dashboard visibility:** The Installed Tools panel now shows a Linux Packaging section (`nfpm` / `appimagetool` detection), visible only on Linux.
 
 ---
 

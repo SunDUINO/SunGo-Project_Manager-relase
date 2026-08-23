@@ -5,6 +5,23 @@
 
 ---
 
+## [2.14.0] - 2026-08-23
+
+### Added / Dodano -- Linux Packaging: .deb / .rpm / AppImage / Pakowanie Linux: .deb / .rpm / AppImage
+
+- **[EN]** Added a new **Package for Linux** tool, available only when building natively on a Linux host (not when cross-compiling a Linux target from Windows). After a successful build, pick any combination of `.deb`, `.rpm`, and AppImage from a checkbox picker, and SunGo builds them all in one pass.
+- **[PL]** Dodano nowe narzędzie **Package for Linux**, dostępne tylko przy buildzie natywnym na hoście Linux (nie przy cross-compile targetu Linux z poziomu Windows). Po udanym buildzie wybierz dowolną kombinację `.deb`, `.rpm` i AppImage z listy checkboxów, a SunGo zbuduje wszystkie zaznaczone formaty za jednym razem.
+- **[EN]** `.deb` and `.rpm` packages are built via `nfpm`; AppImages via `appimagetool`. Package metadata (name, version, maintainer, description) is generated automatically from `go.mod` and `package.json` — nothing to configure by hand.
+- **[PL]** Paczki `.deb` i `.rpm` budowane są przez `nfpm`; AppImage przez `appimagetool`. Metadane paczki (nazwa, wersja, maintainer, opis) generowane są automatycznie z `go.mod` i `package.json` — nic nie trzeba konfigurować ręcznie.
+- **[EN]** A new setting, **SunGo – Linux Packaging › Default Formats**, lets you pre-select which formats are checked by default when the picker opens.
+- **[PL]** Nowe ustawienie **SunGo – Linux Packaging › Default Formats** pozwala ustawić, które formaty są domyślnie zaznaczone przy otwarciu listy wyboru.
+- **[EN]** All built packages land in the same `bin/` folder used by regular builds — no separate output location to hunt for.
+- **[PL]** Wszystkie zbudowane paczki lądują w tym samym folderze `bin/`, którego używają zwykłe buildy — bez osobnej lokalizacji do szukania.
+- **[EN]** The Dashboard's Installed Tools panel now shows a **Linux Packaging** section (`nfpm` / `appimagetool` detection status), visible only on Linux.
+- **[PL]** Panel Installed Tools w Dashboardzie pokazuje teraz sekcję **Linux Packaging** (status wykrycia `nfpm` / `appimagetool`), widoczną tylko na Linuksie.
+
+---
+
 
 ## [2.13.0] - 2026-08-21
 
