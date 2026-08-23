@@ -5,6 +5,15 @@
 
 ---
 
+## [2.14.2] - 2026-08-23
+
+### Fixed / Naprawiono -- AppImage Icon / Ikona AppImage
+
+- **[EN]** AppImage packages no longer default to SunGo's own icon. SunGo now looks for an icon inside the project first — `icon.png`, `media/icon.png`, `assets/icon.png`, or `.sungo/icon.png` — and uses the first one it finds. A new setting, **SunGo – Linux Packaging › Icon Path** (`sungo.package.iconPath`), lets you point to a custom icon location instead. SunGo's own icon is now used only as a last-resort fallback when no project icon is found.
+- **[PL]** Paczki AppImage nie używają już domyślnie ikony samego SunGo. SunGo szuka teraz ikony najpierw w projekcie — `icon.png`, `media/icon.png`, `assets/icon.png` lub `.sungo/icon.png` — i używa pierwszej znalezionej. Nowe ustawienie **SunGo – Linux Packaging › Icon Path** (`sungo.package.iconPath`) pozwala wskazać inną, własną lokalizację ikony. Ikona samego SunGo jest teraz używana wyłącznie jako ostateczność, gdy w projekcie nie znaleziono żadnej ikony.
+
+---
+
 ## [2.14.0] - 2026-08-23
 
 ### Added / Dodano -- Linux Packaging: .deb / .rpm / AppImage / Pakowanie Linux: .deb / .rpm / AppImage

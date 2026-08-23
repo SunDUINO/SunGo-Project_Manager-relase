@@ -41,7 +41,17 @@ Open **Package for Linux** and check any combination of `.deb`, `.rpm`, and AppI
   * **Name** — from the `module` line in `go.mod`.
   * **Version** — the same version SunGo already uses when naming your binary.
   * **Maintainer / Homepage / Description** — from your `package.json`'s `author`, `homepage`, and `description` fields, if present.
-* **AppImage** — built via `appimagetool`. SunGo assembles the `AppDir` structure for you (binary, `AppRun` launcher, `.desktop` entry, and your extension's icon).
+* **AppImage** — built via `appimagetool`. SunGo assembles the `AppDir` structure for you (binary, `AppRun` launcher, `.desktop` entry, and an icon).
+
+### 🖼️ AppImage icon
+
+SunGo picks the AppImage's icon automatically, checking these locations in order — no configuration needed for most projects:
+
+1. **`sungo.package.iconPath`** setting, if you've set one (path relative to the project root, or absolute).
+2. **A conventional file in your project** — the first one found wins: `icon.png`, `media/icon.png`, `assets/icon.png`, or `.sungo/icon.png`.
+3. **SunGo's own icon** — used only as a last-resort fallback, so packaging never fails over a missing icon.
+
+In practice, this means: if your project already has (or you add) a `media/icon.png`, your AppImage gets your own icon automatically, with nothing to set up. Only reach for `sungo.package.iconPath` if you want an icon that doesn't live in one of those conventional spots.
 
 ---
 
@@ -112,7 +122,17 @@ Otwórz **Package for Linux** i zaznacz dowolną kombinację `.deb`, `.rpm` i Ap
   * **Nazwa** — z linii `module` w `go.mod`.
   * **Wersja** — ta sama wersja, której SunGo już używa przy nazywaniu binarki.
   * **Maintainer / Homepage / Opis** — z pól `author`, `homepage` i `description` w Twoim `package.json`, jeśli są obecne.
-* **AppImage** — budowany przez `appimagetool`. SunGo samodzielnie składa strukturę `AppDir` (binarka, launcher `AppRun`, wpis `.desktop` oraz ikona Twojego rozszerzenia).
+* **AppImage** — budowany przez `appimagetool`. SunGo samodzielnie składa strukturę `AppDir` (binarka, launcher `AppRun`, wpis `.desktop` oraz ikona).
+
+### 🖼️ Ikona AppImage
+
+SunGo dobiera ikonę AppImage automatycznie, sprawdzając kolejno te lokalizacje — bez żadnej konfiguracji dla większości projektów:
+
+1. **Ustawienie `sungo.package.iconPath`**, jeśli je ustawiłeś (ścieżka względna do folderu projektu albo absolutna).
+2. **Konwencjonalny plik w Twoim projekcie** — wygrywa pierwszy znaleziony: `icon.png`, `media/icon.png`, `assets/icon.png` albo `.sungo/icon.png`.
+3. **Ikona samego SunGo** — używana tylko jako ostateczność, żeby pakowanie nigdy nie zawiodło z powodu brakującej ikony.
+
+W praktyce oznacza to: jeśli Twój projekt ma już (albo dodasz) `media/icon.png`, Twój AppImage automatycznie dostanie Twoją ikonę, bez żadnej konfiguracji. Po `sungo.package.iconPath` sięgaj tylko, gdy chcesz użyć ikony spoza tych konwencjonalnych lokalizacji.
 
 ---
 
