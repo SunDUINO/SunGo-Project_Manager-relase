@@ -5,6 +5,21 @@
 
 ---
 
+## [2.15.0] - 2026-08-23
+
+### Added / Dodano -- Windows .exe Icon & Custom Project Icon Picker / Ikona Windows .exe i Wybór Ikony Projektu
+
+- **[EN]** Compiled `.exe` files now embed a real Windows icon automatically — no manual steps required. SunGo converts your project's PNG icon to `.ico` and generates the necessary resource file (via `goversioninfo`) right before `go build` runs, so it's always in sync with your current icon.
+- **[PL]** Skompilowane pliki `.exe` osadzają teraz automatycznie prawdziwą ikonę Windows — bez żadnych ręcznych kroków. SunGo konwertuje PNG projektu na `.ico` i generuje potrzebny plik zasobów (przez `goversioninfo`) tuż przed uruchomieniem `go build`, więc zawsze jest zsynchronizowana z aktualną ikoną.
+- **[EN]** The generated resource file is cached and only rebuilt when the icon or project metadata (name, version, description) actually changes — everyday iterative builds pay no extra cost. The cache lives in `.vscode/`, out of the way of your project files.
+- **[PL]** Wygenerowany plik zasobów jest cache'owany i przebudowywany tylko wtedy, gdy ikona albo metadane projektu (nazwa, wersja, opis) faktycznie się zmienią — codzienne, iteracyjne buildy nie płacą żadnej dodatkowej ceny. Cache trzymany jest w `.vscode/`, z dala od plików projektu.
+- **[EN]** If `goversioninfo` isn't installed, SunGo shows a one-time dialog with the exact install command (using your existing Go toolchain) — the build still completes normally, just without an icon, until you install it.
+- **[PL]** Jeśli `goversioninfo` nie jest zainstalowany, SunGo pokazuje jednorazowy dialog z dokładną komendą instalacji (przy użyciu istniejącego toolchainu Go) — build i tak kończy się normalnie, tylko bez ikony, dopóki go nie zainstalujesz.
+- **[EN]** The **New Project Creator** now has a **Project Icon (PNG)** picker — choose your own icon file, or leave it empty to use SunGo's default. Either way, the icon is copied into `media/icon.png` and works automatically for both Linux Packaging (AppImage) and the new Windows `.exe` icon — one picture, both platforms.
+- **[PL]** **Kreator Nowego Projektu** ma teraz wybór **Ikony Projektu (PNG)** — wybierz własny plik ikony albo zostaw puste, żeby użyć domyślnej ikony SunGo. Tak czy inaczej, ikona kopiowana jest do `media/icon.png` i działa automatycznie zarówno dla Linux Packaging (AppImage), jak i nowej ikony `.exe` na Windows — jeden obrazek, obie platformy.
+
+---
+
 ## [2.14.2] - 2026-08-23
 
 ### Fixed / Naprawiono -- AppImage Icon / Ikona AppImage

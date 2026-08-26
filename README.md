@@ -55,6 +55,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Guides & Detailed Usage](#-guides--detailed-usage)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v2.15.0) – Windows .exe Icon & Custom Project Icon Picker](#-whats-new-v2150--windows-exe-icon--custom-project-icon-picker)
 * [EN: What's New (v2.14.0) – Linux Packaging (.deb / .rpm / AppImage)](#-whats-new-v2140--linux-packaging-deb--rpm--appimage)
 * [EN: What's New (v2.13.0) – Official Go Gopher & Splash Screen](#-whats-new-v2130--official-go-gopher--splash-screen)
 * [EN: What's New (v2.12.0) – Fuzz Testing](#-whats-new-v2120--fuzz-testing)
@@ -205,6 +206,17 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ This is a one-time setup. The rule persists after system reboots.  
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
+
+---
+
+### 🚀 What's New (v2.15.0) – Windows .exe Icon & Custom Project Icon Picker
+
+The `v2.15.0` release completes the icon story on both platforms: Linux packages already got their own icon in the previous release, and now Windows `.exe` files do too — plus a proper way to choose which icon to use in the first place.
+
+* **Real Windows .exe icons:** SunGo now embeds a genuine icon into your compiled `.exe`, generated automatically right before `go build` runs. Nothing to configure — it converts your project's PNG to `.ico` and links it in behind the scenes.
+* **Smart caching:** The generated resource file is only rebuilt when the icon or project metadata actually changes, so normal iterative builds aren't slowed down. The cache lives quietly in `.vscode/`.
+* **Never blocks your build:** If the required tool (`goversioninfo`) isn't installed, SunGo shows a one-time dialog with the exact install command — your build still completes normally without an icon until then.
+* **Icon picker in the Project Creator:** Choose a custom PNG icon when creating a new project, or leave it blank to use SunGo's default. Whichever you pick lands in `media/icon.png` and is automatically used by *both* Linux Packaging (AppImage) and the new Windows `.exe` icon — set it once, works everywhere.
 
 ---
 
@@ -1014,6 +1026,9 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Instrukcje i szczegółowe użytkowanie](#-instrukcje-i-szczegółowe-użytkowanie)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguły-udev)
+* [PL: Co nowego (v2.15.0) – Ikona .exe Windows i Wybór Ikony Projektu](#-co-nowego-v2150--ikona-exe-windows-i-wybór-ikony-projektu)
+* [PL: Co nowego (v2.14.0) – Pakowanie Linux (.deb / .rpm / AppImage)](#-co-nowego-v2140--pakowanie-linux-deb--rpm--appimage)
+* [PL: Co nowego (v2.13.0) – Oficjalny Gopher Go i Ekran Powitalny](#-co-nowego-v2130--oficjalny-gopher-go-i-ekran-powitalny)
 * [PL: Co nowego (v2.12.0) – Testowanie Fuzz](#-co-nowego-v2120--testowanie-fuzz)
 * [PL: Co nowego (v2.11.0) – Pokrycie Testami, Benchmarki i Graf Zależności](#-co-nowego-v2110--pokrycie-testami-benchmarki-i-graf-zależności)
 * [PL: Co nowego (v2.10.0) – Unikalne przypisania klawiszy i adaptacyjny styl etykiet](#-co-nowego-v2100--unikalne-przypisania-klawiszy-i-adaptacyjny-styl-etykiet)
@@ -1153,6 +1168,42 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+### 🚀 Co nowego (v2.15.0) – Ikona .exe Windows i Wybór Ikony Projektu
+
+Wydanie `v2.15.0` domyka temat ikon na obu platformach: pakiety Linux dostały własną ikonę w poprzednim wydaniu, a teraz to samo dotyczy plików `.exe` na Windows — plus w końcu porządny sposób na wybranie, jakiej ikony w ogóle użyć.
+
+* **Prawdziwe ikony .exe na Windows:** SunGo osadza teraz prawdziwą ikonę w skompilowanym `.exe`, generowaną automatycznie tuż przed uruchomieniem `go build`. Nic do konfigurowania — SunGo konwertuje PNG projektu na `.ico` i podlinkowuje go w tle.
+* **Sprytne cache'owanie:** Wygenerowany plik zasobów jest przebudowywany tylko wtedy, gdy ikona albo metadane projektu faktycznie się zmienią, więc zwykłe, iteracyjne buildy nie są spowalniane. Cache siedzi po cichu w `.vscode/`.
+* **Nigdy nie blokuje builda:** Jeśli wymagane narzędzie (`goversioninfo`) nie jest zainstalowane, SunGo pokazuje jednorazowy dialog z dokładną komendą instalacji — build i tak kończy się normalnie, tylko bez ikony, dopóki go nie zainstalujesz.
+* **Wybór ikony w Kreatorze Projektu:** Wybierz własną ikonę PNG przy tworzeniu nowego projektu, albo zostaw pole puste, żeby użyć domyślnej ikony SunGo. Cokolwiek wybierzesz, ląduje w `media/icon.png` i jest automatycznie używane zarówno przez Linux Packaging (AppImage), jak i nową ikonę `.exe` na Windows — ustawiasz raz, działa wszędzie.
+
+---
+
+### 🚀 Co nowego (v2.14.0) – Pakowanie Linux (.deb / .rpm / AppImage)
+
+Wydanie `v2.14.0` domyka buildy wieloplatformowe: Windows od dawna produkuje gotowy do uruchomienia `.exe`, a teraz Linux dostaje to samo traktowanie z prawdziwymi, instalowalnymi formatami paczek.
+
+* **Package for Linux:** Nowe narzędzie w panelu SunGo Tools, dostępne tylko przy buildzie natywnym na hoście Linux (nie przy cross-compile targetu Linux z poziomu Windows). Otwiera listę wyboru checkboxów dla `.deb`, `.rpm` i AppImage — wybierz dowolną kombinację, a SunGo zbuduje wszystkie za jednym razem.
+* **Zero ręcznych metadanych:** Nazwa paczki, wersja, maintainer i opis pobierane są automatycznie z `go.mod` i `package.json`.
+* **Ten sam folder wyjściowy co zawsze:** Zbudowane paczki lądują w tym samym folderze `bin/` co zwykłe binarki — bez osobnej lokalizacji do przekopywania.
+* **Ustawienie domyślnych formatów:** **SunGo – Linux Packaging › Default Formats** pozwala z góry zaznaczyć, które formaty są domyślnie odhaczone przy otwarciu listy wyboru.
+* **Wymagane narzędzia:** `.deb`/`.rpm` potrzebują `nfpm`; AppImage potrzebuje `appimagetool`. Jeśli któregoś brakuje, SunGo pokazuje dokładnie co uruchomić, żeby je zainstalować (bez cichych pobrań). Pełny opis w [Linux Packaging – Instrukcja instalacji i użytkowania](./README_linuxPackage.md).
+* **Widoczność w Dashboardzie:** Panel Installed Tools pokazuje teraz sekcję Linux Packaging (wykrywanie `nfpm` / `appimagetool`), widoczną tylko na Linuksie.
+
+---
+
+### 🚀 Co nowego (v2.13.0) – Oficjalny Gopher Go i Ekran Powitalny
+
+Wydanie `v2.13.0` jest czysto wizualne: Asystent Gopher przechodzi pełny redesign dopasowujący go do oficjalnej maskotki Go, a nowy ekran powitalny wita Cię po każdej instalacji lub aktualizacji.
+
+* **Oficjalny wygląd gophera:** Panel Asystenta Gopher pokazuje teraz turkusowe, kapsułowe ciało z małymi bocznymi uszami i kremowym pyszczkiem z widocznymi przednimi zębami — zgodnie z prawdziwym gopherem Go, zamiast poprzedniego, bardziej mysiego designu.
+* **Nowa animacja bezczynności:** W stanie idle gopher mruga i "przewraca" oczami po małym okręgu zamiast siedzieć statycznie.
+* **Nowa animacja błędu:** Błędy kompilacji sprawiają teraz, że oczy gophera robią się czerwone i pulsują, a nad jego głową pojawia się mały animowany płomień.
+* **Nowa animacja buildu:** Podczas działania `go build`, strumień opadających `0` i `1` wypełnia ciało gophera w kolorze marki rozszerzenia, uzupełniając dotychczasowe obracające się koło zębate.
+* **Ekran powitalny:** Baner powitalny pojawia się teraz automatycznie po instalacji lub aktualizacji rozszerzenia. Nowe ustawienie **SunGo – Splash Screen › Show On Every Startup** pozwala przełączyć go na wyświetlanie przy każdym uruchomieniu VS Code.
 
 ---
 
