@@ -5,6 +5,24 @@
 
 ---
 
+## [2.15.2] - 2026-08-29
+
+### Changed / Zmieniono -- New Extension Icon / Nowa Ikona Rozszerzenia
+
+- **[EN]** Updated the extension's icon to a refreshed design of the SunGo mascot, giving the Marketplace listing and VS Code Extensions panel a cleaner, more distinctive identity.
+- **[PL]** Zaktualizowano ikonę rozszerzenia, wprowadzając odświeżony wygląd maskotki SunGo, co nadaje wpisowi w Marketplace oraz panelowi rozszerzeń VS Code czystszą i bardziej rozpoznawalną tożsamość.
+
+### Performance / Wydajność -- Startup & Dashboard Optimizations / Optymalizacje Startu i Dashboardu
+
+- **[EN]** Reduced extension activation time by deferring initialization of non-critical panels until they're first opened, instead of loading everything eagerly at startup.
+- **[PL]** Skrócono czas aktywacji rozszerzenia dzięki opóźnionej inicjalizacji paneli niekrytycznych do momentu ich pierwszego otwarcia, zamiast ładowania wszystkiego z góry przy starcie.
+- **[EN]** Reworked internal caching for project metadata reads, cutting redundant filesystem lookups during repeated Dashboard refreshes.
+- **[PL]** Przebudowano wewnętrzne cache'owanie odczytów metadanych projektu, ograniczając zbędne odpytywanie systemu plików przy kolejnych odświeżeniach Dashboardu.
+- **[EN]** Trimmed the size of the bundled extension package by removing unused build assets, resulting in a faster install and update.
+- **[PL]** Zmniejszono rozmiar spakowanego rozszerzenia poprzez usunięcie nieużywanych zasobów build, co przekłada się na szybszą instalację i aktualizację.
+
+---
+
 ## [2.15.0] - 2026-08-23
 
 ### Added / Dodano -- Windows .exe Icon & Custom Project Icon Picker / Ikona Windows .exe i Wybór Ikony Projektu
