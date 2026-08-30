@@ -5,6 +5,16 @@
 
 ---
 
+## [2.15.4] - 2026-08-30
+
+### Added / Dodano -- Preset & Custom Project Icon Selection / Wybór Domyślnych i Własnych Ikon Projektu
+
+- **[EN]** Enhanced the **New Project Creator** panel with an interactive **Icon Selector**. You can now choose from 8 built-in default PNG presets or upload and manage up to 8 custom PNG icons.
+- **[PL]** Rozszerzono panel **Kreatora Nowego Projektu** o interaktywny **Wybór Ikon**. Użytkownik może teraz wybierać spośród 8 wbudowanych ikon domyślnych w formacie PNG lub przesłać i zapisać do 8 własnych ikon PNG.
+- **[EN]** Enforced strict image format validation — icons must be in PNG format with a maximum resolution of 512x512 pixels to guarantee seamless integration with Windows (`.ico` compilation) and Linux packaging (AppImage/desktop shortcuts).
+- **[PL]** Wprowadzono rygorystyczną walidację formatu obrazu — wymagane są pliki PNG o maksymalnym rozmiarze 512x512 pikseli, co zapewnia pełną kompatybilność przy automatycznej kompilacji ikon dla Windows (`.ico`) i pakietów Linux (AppImage / skróty `.desktop`).
+
+
 ## [2.15.2] - 2026-08-29
 
 ### Changed / Zmieniono -- New Extension Icon / Nowa Ikona Rozszerzenia
