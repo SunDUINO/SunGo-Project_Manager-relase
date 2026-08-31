@@ -3,6 +3,21 @@
 [EN] All notable changes to the "SunGo Project Manager" extension are documented in this file.  
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
+
+---
+
+## [2.16.0] - 2026-08-30
+
+### Added / Dodano -- Three New Go Code-Analysis Tools / Trzy Nowe Narzędzia Analizy Kodu Go
+
+- **[EN]** Added the **Struct Field Alignment Optimizer**, next to Code Metrics in the SunGo Tools panel. It scans every struct in your project, calculates real memory padding based on your target architecture (`sungo.build.targetArch`), and shows exactly how many bytes are wasted by field order — e.g. "24 → 16 bytes". A one-click **Fix** button reorders the fields automatically and reformats the file.
+- **[PL]** Dodano **Optymalizator Wyrównania Pól Struktur**, obok Code Metrics w panelu SunGo Tools. Skanuje każdy struct w projekcie, liczy realny padding pamięci na podstawie docelowej architektury (`sungo.build.targetArch`) i pokazuje dokładnie ile bajtów marnuje kolejność pól — np. "24 → 16 bajtów". Przycisk **Fix** jednym kliknięciem przestawia pola i formatuje plik.
+- **[EN]** Added the **Unchecked Error Scanner**. Detects `err` values that get silently overwritten or fall out of scope without ever being checked, as well as calls to locally-defined functions returning `error` whose result is completely discarded. Results list with one click jumping straight to the offending line.
+- **[PL]** Dodano **Skaner Niesprawdzonych Błędów**. Wykrywa wartości `err`, które zostają po cichu nadpisane albo nigdy nie są sprawdzone, a także wywołania lokalnie zdefiniowanych funkcji zwracających `error`, których wynik jest całkowicie odrzucany. Lista wyników z jednym kliknięciem przenoszącym do właściwej linii.
+- **[EN]** Added the **Interface Satisfaction Navigator** — inline CodeLens above every `interface` and named type declaration showing "N implementations" / "implements N interfaces". Click to jump straight to the matching type or interface. Runs automatically for all open Go files; use the new "Interface Navigator" entry in SunGo Tools to force a manual re-index after large refactors.
+- **[PL]** Dodano **Nawigator Zgodności Interfejsów** — CodeLens nad każdą deklaracją `interface` i nazwanego typu, pokazujący "N implementacji" / "implementuje N interfejsów". Kliknięcie przenosi bezpośrednio do pasującego typu lub interfejsu. Działa automatycznie dla wszystkich otwartych plików Go; nowy wpis "Interface Navigator" w SunGo Tools pozwala ręcznie wymusić ponowne zindeksowanie po większym refaktoringu.
+
+
 ---
 
 ## [2.15.4] - 2026-08-30

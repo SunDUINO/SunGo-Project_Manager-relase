@@ -209,6 +209,18 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ---
 
+### 🚀 What's New (v2.16.0) – Three New Go Code-Analysis Tools
+
+The `v2.16.0` release adds three self-contained static-analysis tools to SunGo Tools — no external linters or Go tool installs required, following the same zero-dependency philosophy as Code Metrics.
+
+* **📦 Struct Field Alignment Optimizer:** Scans every struct in your project and calculates real memory padding based on your target architecture (`sungo.build.targetArch` — 4-byte words on `arm`, 8-byte on `amd64`/`arm64`). Shows exactly how many bytes are wasted by field order (e.g. "24 → 16 bytes"), with a one-click **Fix** button that reorders fields and reformats the file automatically. Recursively resolves locally-defined nested struct types; external/generic types are clearly marked as estimated rather than silently guessed.
+* **🚨 Unchecked Error Scanner:** Tracks every assignment to `err` and follows it forward through the function — if it's overwritten by a new assignment or the function returns without ever checking it, it's flagged. Also flags bare statement calls to locally-defined functions/methods that return `error` as their last value, when the result is completely discarded. Only analyzes code defined in your own project — never guesses about stdlib or third-party calls.
+* **🧩 Interface Satisfaction Navigator:** Inline CodeLens above every `interface` and named type declaration — "N implementations" above interfaces, "implements N interfaces" above concrete types. Click either to jump straight to the matching declaration (via a quick-pick when there's more than one match). Runs automatically on open Go files and re-indexes on save; a manual "Interface Navigator" entry in SunGo Tools forces a full re-index after large refactors.
+
+> 📖 **[Struct Field Alignment – Setup & Usage Guide](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_structAlign.md)** · **[Unchecked Error Scanner – Setup & Usage Guide](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_errCheck.md)** · **[Interface Satisfaction Navigator – Setup & Usage Guide](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_interfaceNav.md)**
+
+---
+
 ### 🚀 What's New (v2.15.0) – Windows .exe Icon & Custom Project Icon Picker
 
 The `v2.15.0` release completes the icon story on both platforms: Linux packages already got their own icon in the previous release, and now Windows `.exe` files do too — plus a proper way to choose which icon to use in the first place.
@@ -944,6 +956,9 @@ Step-by-step, bilingual setup and usage guides for every SunGo tool — instrume
 * [Build Diff & Timeline](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_builddiff.md) – comparing two builds, spotting size regressions
 * [Code Review](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_codereview.md) – go vet / staticcheck / golangci-lint setup and usage
 * [Code Metrics](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_metrics.md) – refactoring hints, adjustable thresholds
+* [Struct Field Alignment](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_structAlign.md) – memory padding analysis, one-click field reordering
+* [Unchecked Error Scanner](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_errCheck.md) – dropped `err` detection, discarded local-call detection
+* [Interface Satisfaction Navigator](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_interfaceNav.md) – CodeLens implementations lookup
 
 **Dependencies**
 * [Dependency Graph](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_dependencygraph.md) – interactive external/internal graphs, file-level fallback
@@ -1168,6 +1183,18 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+### 🚀 Co nowego (v2.16.0) – Trzy Nowe Narzędzia Analizy Kodu Go
+
+Wydanie `v2.16.0` dodaje trzy samodzielne narzędzia statycznej analizy do SunGo Tools — bez konieczności instalowania zewnętrznych linterów czy narzędzi Go, zgodnie z tą samą filozofią zero-zależności co Code Metrics.
+
+* **📦 Optymalizator Wyrównania Pól Struktur:** Skanuje każdy struct w projekcie i liczy realny padding pamięci na podstawie docelowej architektury (`sungo.build.targetArch` — 4-bajtowe słowo na `arm`, 8-bajtowe na `amd64`/`arm64`). Pokazuje dokładnie ile bajtów marnuje kolejność pól (np. "24 → 16 bajtów"), z przyciskiem **Fix** przestawiającym pola i formatującym plik jednym kliknięciem. Rekurencyjnie rozwiązuje lokalnie zdefiniowane zagnieżdżone structy; typy zewnętrzne/generyczne są jasno oznaczone jako szacunkowe zamiast być cicho zgadywane.
+* **🚨 Skaner Niesprawdzonych Błędów:** Śledzi każde przypisanie do `err` i podąża za nim w przód przez funkcję — jeśli zostanie nadpisane nowym przypisaniem albo funkcja zakończy się bez jego sprawdzenia, zostaje to zgłoszone. Wykrywa też samodzielne wywołania-instrukcje lokalnie zdefiniowanych funkcji/metod zwracających `error` jako ostatnią wartość, których wynik jest całkowicie odrzucany. Analizuje wyłącznie kod zdefiniowany w Twoim projekcie — nigdy nie zgaduje w przypadku stdlib czy bibliotek zewnętrznych.
+* **🧩 Nawigator Zgodności Interfejsów:** CodeLens nad każdą deklaracją `interface` i nazwanego typu — "N implementacji" nad interfejsami, "implementuje N interfejsów" nad konkretnymi typami. Kliknięcie przenosi bezpośrednio do pasującej deklaracji (przez szybki wybór, gdy dopasowań jest więcej niż jedno). Działa automatycznie na otwartych plikach Go i reindeksuje się przy zapisie; ręczny wpis "Interface Navigator" w SunGo Tools wymusza pełne przeindeksowanie po większym refaktoringu.
+
+> 📖 **[Wyrównanie Pól Struktur – Instrukcja instalacji i użytkowania](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_structAlign.md)** · **[Skaner Niesprawdzonych Błędów – Instrukcja instalacji i użytkowania](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_errCheck.md)** · **[Nawigator Zgodności Interfejsów – Instrukcja instalacji i użytkowania](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_interfaceNav.md)**
 
 ---
 
@@ -1912,6 +1939,9 @@ Krok po kroku, dwujęzyczne instrukcje instalacji i użytkowania dla każdego na
 * [Build Diff & Timeline](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_builddiff.md) – porównywanie dwóch buildów, wychwytywanie regresji rozmiaru
 * [Code Review](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_codereview.md) – konfiguracja i użycie go vet / staticcheck / golangci-lint
 * [Code Metrics](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_metrics.md) – sugestie refaktoryzacji, dostosowywalne progi
+* [Wyrównanie Pól Struktur](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_structAlign.md) – analiza paddingu pamięci, przestawianie pól jednym kliknięciem
+* [Skaner Niesprawdzonych Błędów](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_errCheck.md) – wykrywanie porzuconych `err`, wykrywanie odrzuconych lokalnych wywołań
+* [Nawigator Zgodności Interfejsów](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_interfaceNav.md) – wyszukiwanie implementacji przez CodeLens
 
 **Zależności**
 * [Dependency Graph](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_dependencygraph.md) – interaktywne grafy zewnętrzny/wewnętrzny, fallback na poziom plików
