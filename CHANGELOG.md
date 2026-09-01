@@ -3,6 +3,22 @@
 [EN] All notable changes to the "SunGo Project Manager" extension are documented in this file.  
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
+---
+
+## [2.16.3] - 2026-09-01
+
+### Fixed / Poprawiono -- What's New Panel & Version Tracking / Panel WhatsNew i Śledzenie Wersji
+
+- **[EN]** Fixed an issue on Linux systems where the `What's New` panel failed to open or incorrectly evaluated the last launch version due to OS-specific path normalization issues in the global state store.
+- **[PL]** Naprawiono błąd w systemach Linux, gdzie panel `What's New` nie otwierał się lub błędnie interpretował numer ostatnio uruchomionej wersji z powodu problemów z normalizacją ścieżek w pamięci stanu globalnego (global state store).
+
+- **[EN]** Improved version persistence logic: the release notes panel now accurately displays **only once per version update** upon the first launch after an upgrade, preventing duplicate popups across multiple workspace sessions.
+- **[PL]** Udoskonalono logikę retencji wersji: panel ze zmianami wyświetla się teraz precyzyjnie **tylko raz dla danej wersji** przy pierwszym uruchomieniu po aktualizacji, zapobiegając powtarzającym się powiadomieniom w kolejnych sesjach roboczych.
+
+- **[EN]** Added seamless fallback to semver parsing, ensuring smooth handling of development and pre-release version tags on Linux environments.
+- **[PL]** Dodano bezpieczne przewidywanie (fallback) dla parsera semver, co zapewnia poprawne przetwarzanie tagów wersji deweloperskich i pre-release w środowiskach Linux.
+
+
 
 ---
 
