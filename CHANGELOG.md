@@ -33,6 +33,18 @@
 - **[EN]** Added the **Interface Satisfaction Navigator** — inline CodeLens above every `interface` and named type declaration showing "N implementations" / "implements N interfaces". Click to jump straight to the matching type or interface. Runs automatically for all open Go files; use the new "Interface Navigator" entry in SunGo Tools to force a manual re-index after large refactors.
 - **[PL]** Dodano **Nawigator Zgodności Interfejsów** — CodeLens nad każdą deklaracją `interface` i nazwanego typu, pokazujący "N implementacji" / "implementuje N interfejsów". Kliknięcie przenosi bezpośrednio do pasującego typu lub interfejsu. Działa automatycznie dla wszystkich otwartych plików Go; nowy wpis "Interface Navigator" w SunGo Tools pozwala ręcznie wymusić ponowne zindeksowanie po większym refaktoringu.
 
+---
+
+## [2.16.4] - 2026-09-01
+
+### Fixed & Refactored / Poprawiono i Zrefaktoryzowano -- Linux Path Sensitivity & State Cleanups / Wielkość Liter w Ścieżkach Linux i Refaktoring Stanu
+
+- **[EN]** Fixed case-sensitivity handling in file system path resolution on Linux systems, preventing state tracking mismatches caused by case mismatches in directory paths.
+- **[PL]** Naprawiono obsługę wielkości liter (case-sensitivity) przy rozwiązywaniu ścieżek w systemie plików Linux, co eliminuje rozbieżności w śledzeniu stanu aplikacji wynikające z różnic w zapisie małych i wielkich liter.
+
+- **[EN]** Refactored the core configuration reader and version comparison modules to isolate OS-dependent path normalization, resulting in cleaner code separation and faster startup verification.
+- **[PL]** Zrefaktoryzowano moduły odczytu konfiguracji oraz porównywania wersji, izolując logikę normalizacji ścieżek zależną od systemu operacyjnego, co zapewnia lepszą separację kodu i szybszą weryfikację przy uruchomieniu.
+
 
 ---
 
