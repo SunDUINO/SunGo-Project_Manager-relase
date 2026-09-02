@@ -5,6 +5,32 @@
 
 ---
 
+## [2.16.6] - 2026-09-02
+
+### Performance, Refactoring & Docs / Wydajność, Refaktoryzacja i Dokumentacja -- Analysis Engine & Cleanups / Silnik Analizy i Porządki
+
+- **[EN]** Optimized AST traversal and memory allocation in both **Struct Field Alignment Optimizer** and **Unchecked Error Scanner**, delivering up to 3x faster analysis speed on large Go projects and reducing CPU usage during background re-indexes.
+- **[PL]** Zoptymalizowano przechodzenie po drzewie AST oraz alokację pamięci w **Optymalizatorze Wyrównania Pól Struktur** i **Skanerze Niesprawdzonych Błędów**, co zapewnia do 3x szybszą analizę dużych projektów Go oraz zmniejsza obciążenie procesora podczas indeksowania w tle.
+
+- **[EN]** Refactored core analyzer modules (`analyzer`, `utilsFunction.`) to decouple syntax tree parsing from workspace state management, resulting in improved code maintainability and reduced memory footprint.
+- **[PL]** Przeprowadzono refaktoryzację głównych modułów analizatora (`analyzer`, `utilsFunction`), odseparowując parsowanie drzewa składniowego od zarządzania stanem przestrzeni roboczej, co poprawiło czytelność kodu i zmniejszyło zużycie pamięci RAM.
+
+- **[EN]** Restructured internal project documentation and cleaned up `CHANGELOG.md` and `README.md` history, ensuring consistent formatting and up-to-date API references across all SunGo Tools modules.
+- **[PL]** Uporządkowano wewnętrzną dokumentację projektu oraz zweryfikowano historię `CHANGELOG.md` oraz `README.md`, zapewniając spójne formatowanie oraz aktualne odnośniki API dla wszystkich modułów SunGo Tools.
+
+---
+
+## [2.16.4] - 2026-09-01
+
+### Fixed & Refactored / Poprawiono i Zrefaktoryzowano -- Linux Path Sensitivity & State Cleanups / Wielkość Liter w Ścieżkach Linux i Refaktoring Stanu
+
+- **[EN]** Fixed case-sensitivity handling in file system path resolution on Linux systems, preventing state tracking mismatches caused by case mismatches in directory paths.
+- **[PL]** Naprawiono obsługę wielkości liter (case-sensitivity) przy rozwiązywaniu ścieżek w systemie plików Linux, co eliminuje rozbieżności w śledzeniu stanu aplikacji wynikające z różnic w zapisie małych i wielkich liter.
+
+- **[EN]** Refactored the core configuration reader and version comparison modules to isolate OS-dependent path normalization, resulting in cleaner code separation and faster startup verification.
+- **[PL]** Zrefaktoryzowano moduły odczytu konfiguracji oraz porównywania wersji, izolując logikę normalizacji ścieżek zależną od systemu operacyjnego, co zapewnia lepszą separację kodu i szybszą weryfikację przy uruchomieniu.
+---
+
 ## [2.16.3] - 2026-09-01
 
 ### Fixed / Poprawiono -- What's New Panel & Version Tracking / Panel WhatsNew i Śledzenie Wersji
