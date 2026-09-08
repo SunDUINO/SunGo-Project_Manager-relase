@@ -5,6 +5,28 @@
 
 ---
 
+
+## [2.16.8] - 2026-09-08
+
+### UI, Hardware Integration & Architecture / Interfejs, Integracja Sprzętowa i Architektura -- Interface Tuning, HID Protocol & Agent Readiness / Optymalizacja UI, Protokół HID i Przygotowanie Agenta
+
+- **[EN]** Optimized Web UI rendering and DOM update logic, resulting in smoother animations, lower input latency, and significantly improved interface responsiveness during heavy data processing.
+- **[PL]** Zoptymalizowano renderowanie interfejsu Web UI oraz logikę aktualizacji DOM, co zapewniło płynniejsze animacje, niższe opóźnienia reakcji i znaczną poprawę wydajności interfejsu podczas przetwarzania dużych zbiorów danych.
+
+- **[EN]** Enhanced raw HID communication protocols with **Macropad II**, fixing packet dropping issues, improving USB buffer handling, and ensuring ultra-reliable low-latency bidirectional data sync.
+- **[PL]** Udoskonalono protokół komunikacji HID raw z urządzeniem **Macropad II**, eliminując gubienie pakietów, usprawniając obsługę bufora USB oraz zapewniając niezawodną dwukierunkową synchronizację danych o niskich opóźnieniach.
+
+- **[EN]** Added dedicated extension slots and dynamic event hooks for upcoming **Macropad II** hardware modules, enabling flexible keybinding remapping and custom macro action triggers.
+- **[PL]** Wprowadzono dedykowane sloty rozszerzeń i dynamiczne uchwyty zdarzeń (hooks) dla nowych funkcji **Macropad II**, umożliwiając elastyczne mapowanie klawiszy oraz wyzwalanie własnych akcji makro.
+
+- **[EN]** Prepared core integration architecture and telemetry channels for the upcoming **Gophersun** AI agent engine, establishing secure IPC bridges and context-sharing protocols.
+- **[PL]** Przygotowano architekturę integracyjną oraz kanały telemetrii pod nadchodzące podłączenie agenta AI **Gophersun**, ustanawiając bezpieczne mostki IPC i protokoły wymiany kontekstu.
+
+- **[EN]** Updated internal device state manager to gracefully handle hot-plug events and automatic recovery upon hardware disconnection.
+- **[PL]** Zaktualizowano wewnętrzny menedżer stanu urządzeń pod kątem bezpiecznej obsługi zdarzeń hot-plug oraz automatycznego przywracania połączenia po odłączeniu sprzętu.
+
+---
+
 ## [2.16.6] - 2026-09-02
 
 ### Performance, Refactoring & Docs / Wydajność, Refaktoryzacja i Dokumentacja -- Analysis Engine & Cleanups / Silnik Analizy i Porządki
