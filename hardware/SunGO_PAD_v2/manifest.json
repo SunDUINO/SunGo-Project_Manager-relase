@@ -1,8 +1,8 @@
 {
   "SunGo_Macro_Pad_II": {
-    "version": "5.9.8",
-    "url": "https://raw.githubusercontent.com/SunDUINO/SunGo-Project_Manager-relase/main/hardware/SunGO_PAD_v2/SunGO_MacroPAD_II_v5.9.8.uf2",
-    "changelog": "Raw HID communication speed updated; new features added (will activate after being introduced to SunGO Project Manager).",
+    "version": "6.0.0",
+    "url": "https://raw.githubusercontent.com/SunDUINO/SunGo-Project_Manager-relase/main/hardware/SunGO_PAD_v2/SunGO_MacroPAD_II_v6.0.0.uf2",
+    "changelog": "Raw HID communication speed updated; new features screen added .",
     "min_plugin_version": "2.16.2"
   }
 }
