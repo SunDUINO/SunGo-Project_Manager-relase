@@ -5,6 +5,21 @@
 
 ---
 
+## [2.16.9] - 2026-09-11
+
+### Hardware Integration / Integracja Sprzętowa -- Firmware Update Visibility / Widoczność Aktualizacji Firmware
+
+- **[EN]** Firmware update availability for **Macropad II** is no longer buried in the settings panel — a dedicated status bar icon now appears automatically as soon as a newer firmware version is detected, letting users jump straight into the update flow with a single click.
+- **[PL]** Informacja o dostępnej aktualizacji firmware dla **Macropad II** nie jest już ukryta wyłącznie w panelu ustawień — na pasku statusu automatycznie pojawia się teraz dedykowana ikonka, gdy tylko wykryta zostanie nowsza wersja firmware, co pozwala jednym kliknięciem przejść do procesu aktualizacji.
+
+- **[EN]** Added a one-time system notification triggered right after the pad is detected, informing the user about the available firmware version and offering a direct shortcut to open the update settings.
+- **[PL]** Dodano jednorazowe powiadomienie systemowe wyświetlane zaraz po wykryciu pada, informujące o dostępnej wersji firmware wraz z bezpośrednim skrótem do otwarcia ustawień aktualizacji.
+
+- **[EN]** The update check now runs automatically on each fresh pad connection (previously required manually opening settings and clicking "Check"), while still avoiding redundant network calls or repeated notifications for the same firmware version.
+- **[PL]** Sprawdzanie dostępności aktualizacji uruchamia się teraz automatycznie przy każdym nowym podłączeniu pada (wcześniej wymagało ręcznego otwarcia ustawień i kliknięcia "Sprawdź"), jednocześnie unikając zbędnych zapytań sieciowych i powtarzających się powiadomień dla tej samej wersji firmware.
+
+---
+
 
 ## [2.16.8] - 2026-09-08
 
