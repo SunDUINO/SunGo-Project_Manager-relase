@@ -5,6 +5,15 @@
 
 ---
 
+## [2.16.10] - 2026-09-13
+
+### Fixed / Poprawiono -- Snippet Manager: Custom Snippets Not Persisted / Menedżer Snippetów: Własne Snippety Nie Zapisywały Się
+
+- **[EN]** Fixed a bug where custom snippets created in the Snippet Manager appeared to save successfully but silently vanished after restarting VS Code. The root cause was a missing `SnippetManager.init(context)` call during extension activation — without it, the manager never linked to the extension context, so every save to disk was silently skipped even though the "snippet saved!" confirmation was shown.
+- **[PL]** Naprawiono błąd, przez który własne snippety utworzone w Menedżerze Snippetów wyglądały na poprawnie zapisane, ale po restarcie VS Code znikały bez śladu. Przyczyną było brakujące wywołanie `SnippetManager.init(context)` podczas aktywacji rozszerzenia — bez niego menedżer nigdy nie łączył się z kontekstem rozszerzenia, więc każdy zapis na dysk był po cichu pomijany, mimo że pojawiał się komunikat "snippet saved!".
+
+---
+
 ## [2.16.9] - 2026-09-11
 
 ### Hardware Integration / Integracja Sprzętowa -- Firmware Update Visibility / Widoczność Aktualizacji Firmware
