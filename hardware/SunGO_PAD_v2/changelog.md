@@ -3,7 +3,39 @@
 [EN] All notable changes to the SunGO PAD firmware are documented in this file.  
 [PL] Wszystkie istotne zmiany w oprogramowaniu układowym SunGO PAD są dokumentowane w tym pliku.
 
+## [6.6.0] - 2026-09-18
+
+### Added / Dodano
+
+* [EN] Added a dedicated VS Code activation screen to key 1 — pressing it now shows the VS Code logo icon on the LCD, in the same style and with the same auto-timeout/progress bar as the other tool key screens (2–7).
+* [PL] Dodano dedykowany ekran aktywacji VS Code pod klawisz 1 — jego naciśnięcie wyświetla teraz na LCD ikonę logo VS Code, w tym samym stylu i z tym samym paskiem czasu/auto-powrotem do IDLE co pozostałe ekrany klawiszy narzędziowych (2–7).
+
+### Changed / Zmieniono
+
+* [EN] General performance improvements across the firmware's main loop and display handling, reducing overhead during LED and LCD updates.
+* [PL] Ogólne poprawki wydajności w głównej pętli firmware'u i obsłudze wyświetlacza, zmniejszające narzut przy aktualizacji LED i LCD.
+* [EN] Improved decoding of incoming HID RAW commands from the VS Code extension, making command parsing more robust and reliable.
+* [PL] Usprawniono dekodowanie przychodzących komend HID RAW od wtyczki VS Code, dzięki czemu parsowanie komend jest bardziej niezawodne.
+
 ---
+
+## [6.5.0] - 2026-09-01
+
+### Added / Dodano
+
+* [EN] Added dedicated tool screens for keys 2–7 (New Project, Home, Go Fmt, Import All, Go Run, Go Build) — each key now shows its own icon and label on the LCD when pressed, with an auto-timeout progress bar and automatic return to IDLE, matching the behavior already used for keys A/B/C.
+* [PL] Dodano dedykowane ekrany narzędziowe dla klawiszy 2–7 (New Project, Home, Go Fmt, Import All, Go Run, Go Build) — każdy klawisz wyświetla teraz po naciśnięciu własną ikonę i etykietę na LCD, wraz z paskiem czasu i automatycznym powrotem do IDLE, analogicznie do zachowania już stosowanego dla klawiszy A/B/C.
+
+---
+
+---
+
+## [5.9.8] - [6.0.1] - 2026-09-04/10 
+
+###  - Test new function -  
+
+---
+
 ## [5.9.7] - 2026-08-04
 
 ### Changed / Zmieniono
