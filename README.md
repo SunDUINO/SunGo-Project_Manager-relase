@@ -55,6 +55,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Guides & Detailed Usage](#-guides--detailed-usage)
 * [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: What's New (v2.17.0) – MacroPAD II Status Icons & Communication Reliability](#-whats-new-v2170--macropad-ii-status-icons--communication-reliability)
 * [EN: What's New (v2.15.0) – Windows .exe Icon & Custom Project Icon Picker](#-whats-new-v2150--windows-exe-icon--custom-project-icon-picker)
 * [EN: What's New (v2.14.0) – Linux Packaging (.deb / .rpm / AppImage)](#-whats-new-v2140--linux-packaging-deb--rpm--appimage)
 * [EN: What's New (v2.13.0) – Official Go Gopher & Splash Screen](#-whats-new-v2130--official-go-gopher--splash-screen)
@@ -206,6 +207,16 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ This is a one-time setup. The rule persists after system reboots.  
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
+
+---
+
+### 🚀 What's New (v2.17.0) – MacroPAD II Status Icons & Communication Reliability
+
+The `v2.17.0` release closes a gap on **MacroPAD II**: actions triggered from VS Code's status bar now show the same LCD icon as pressing the physical key, plus reliability fixes around duplicate key events and a translation fix.
+
+* **📟 Status bar actions now show LCD icons:** New Project, Home, Go Fmt, Import All, Go RUN, Go Build, Sign, and Test all show their matching icon on the MacroPAD II screen when triggered from VS Code — not just from the physical key.
+* **🔁 More reliable key handling:** Added protection against duplicate/overlapping events from a single physical key press, and fixed a case where the Go RUN / Test status bar item could get stuck on its "in progress" text instead of returning to normal.
+* **🌐 Translation fix:** Corrected a missing localization key that caused the Sign status label to always display in Polish regardless of the active editor language.
 
 ---
 
@@ -1041,6 +1052,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Instrukcje i szczegółowe użytkowanie](#-instrukcje-i-szczegółowe-użytkowanie)
 * [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
 * [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguły-udev)
+* [PL: Co nowego (v2.17.0) – Ikony Statusu na MacroPAD II i Niezawodność Komunikacji](#-co-nowego-v2170--ikony-statusu-na-macropad-ii-i-niezawodność-komunikacji)
 * [PL: Co nowego (v2.15.0) – Ikona .exe Windows i Wybór Ikony Projektu](#-co-nowego-v2150--ikona-exe-windows-i-wybór-ikony-projektu)
 * [PL: Co nowego (v2.14.0) – Pakowanie Linux (.deb / .rpm / AppImage)](#-co-nowego-v2140--pakowanie-linux-deb--rpm--appimage)
 * [PL: Co nowego (v2.13.0) – Oficjalny Gopher Go i Ekran Powitalny](#-co-nowego-v2130--oficjalny-gopher-go-i-ekran-powitalny)
@@ -1183,6 +1195,16 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+### 🚀 Co nowego (v2.17.0) – Ikony Statusu na MacroPAD II i Niezawodność Komunikacji
+
+Wydanie `v2.17.0` domyka temat ikon na **MacroPAD II**: akcje wywoływane z belki statusu VS Code pokazują teraz tę samą ikonę na LCD, co naciśnięcie fizycznego klawisza, wraz z poprawkami niezawodności obsługi klawiszy i błędem tłumaczenia.
+
+* **📟 Akcje z belki statusu pokazują teraz ikony na LCD:** New Project, Home, Go Fmt, Import All, Go RUN, Go Build, Sign oraz Test pokazują swoją ikonę na ekranie MacroPAD II po wywołaniu z VS Code — nie tylko po naciśnięciu fizycznego klawisza.
+* **🔁 Bardziej niezawodna obsługa klawiszy:** Dodano zabezpieczenie przed zdublowanymi/nakładającymi się zdarzeniami z jednego fizycznego naciśnięcia klawisza oraz naprawiono przypadek, w którym ikona Go RUN / Test na pasku statusu mogła zablokować się na napisie "w trakcie" zamiast wrócić do normalnego stanu.
+* **🌐 Poprawka tłumaczenia:** Naprawiono brakujący klucz lokalizacji, przez który etykieta Sign zawsze wyświetlała się po polsku, niezależnie od aktywnego języka edytora.
 
 ---
 

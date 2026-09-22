@@ -5,6 +5,21 @@
 
 ---
 
+## [2.17.0] - 2026-09-22
+
+### Added, Improved & Fixed / Dodano, Usprawniono i Poprawiono -- MacroPAD II Status Icons & Communication Reliability / Ikony Statusu na MacroPAD II i Niezawodność Komunikacji
+
+- **[EN]** Added LCD icon display on **MacroPAD II** for status bar actions (New Project, Home, Go Fmt, Import All, Go RUN, Go Build, Sign, Test) triggered from VS Code — the pad's screen now shows the matching icon regardless of whether the action was started from the physical key or from the editor, just like a physical key press already did.
+- **[PL]** Dodano wyświetlanie ikony na LCD **MacroPAD II** dla akcji z belki statusu (New Project, Home, Go Fmt, Import All, Go RUN, Go Build, Sign, Test) wywołanych z poziomu VS Code — ekran pada pokazuje teraz właściwą ikonę niezależnie od tego, czy akcja została uruchomiona fizycznym klawiszem, czy z edytora, dokładnie tak jak dotąd robił to sam klawisz.
+
+- **[EN]** Improved communication reliability between MacroPAD II and the extension: added protection against duplicate/overlapping trigger events from a single physical key press, and fixed a related issue where the Go RUN / Test status bar item could get stuck showing "in progress" text after such an overlap instead of returning to normal.
+- **[PL]** Usprawniono niezawodność komunikacji między MacroPAD II a wtyczką: dodano zabezpieczenie przed zdublowanymi/nakładającymi się zdarzeniami wywołanymi jednym fizycznym naciśnięciem klawisza oraz naprawiono powiązany błąd, przez który ikona Go RUN / Test na pasku statusu mogła zostać zablokowana na napisie "w trakcie" zamiast wrócić do normalnego stanu.
+
+- **[EN]** Fixed a missing translation key that caused the Sign status bar label to always display in Polish ("PODPISYWANIE...") regardless of the active editor language.
+- **[PL]** Naprawiono brakujący klucz tłumaczenia, przez który etykieta Sign na pasku statusu zawsze wyświetlała się po polsku ("PODPISYWANIE...") niezależnie od aktywnego języka edytora.
+
+---
+
 ## [2.16.10] - 2026-09-13
 
 ### Fixed / Poprawiono -- Snippet Manager: Custom Snippets Not Persisted / Menedżer Snippetów: Własne Snippety Nie Zapisywały Się
