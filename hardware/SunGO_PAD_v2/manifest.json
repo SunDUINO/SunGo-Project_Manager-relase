@@ -1,9 +1,9 @@
 {
   "SunGo_Macro_Pad_II": {
-    "version": "6.7.0",
-    "url": "https://raw.githubusercontent.com/SunDUINO/SunGo-Project_Manager-relase/main/hardware/SunGO_PAD_v2/SunGO_MacroPAD_II_v6.7.0.uf2",
-    "changelog": "ADDED: new function display added for 2.17.0 SunGO PM.",
-    "min_plugin_version": "2.17.0"
+    "version": "6.8.0",
+    "url": "https://raw.githubusercontent.com/SunDUINO/SunGo-Project_Manager-relase/main/hardware/SunGO_PAD_v2/SunGO_MacroPAD_II_v6.8.0.uf2",
+    "changelog": "New enc0 function - mouse scroll/assign",
+    "min_plugin_version": "2.18.0"
   }
 }
  
