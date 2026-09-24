@@ -31,8 +31,8 @@
 
 ### Firmware 6.8.0 (MacroPAD II)
 
-- **[EN]** New RAW HID command `M` (`0` = mouse scroll, `1` = assign) switching ENC0 between the mouse wheel (Report ID 3) and encoder events on Report ID 4 (`source = 4`). The mode is kept in RAM only and reset to mouse scroll on every USB mount.
-- **[PL]** Nowa komenda RAW HID `M` (`0` = rolka myszy, `1` = przypisz) przełączająca ENC0 między rolką myszy (Report ID 3) a zdarzeniami enkodera na Report ID 4 (`source = 4`). Tryb jest trzymany wyłącznie w RAM i resetowany do rolki przy każdym podłączeniu USB.
+- **[EN]** New RAW HID command `Mode` (`0` = mouse scroll, `1` = assign) switching ENC0 between the mouse wheel (Report ID 3) and encoder events on Report ID 4 (`source = 4`). The mode is kept in RAM only and reset to mouse scroll on every USB mount.
+- **[PL]** Nowa komenda RAW HID `Mode` (`0` = rolka myszy, `1` = przypisz) przełączająca ENC0 między rolką myszy (Report ID 3) a zdarzeniami enkodera na Report ID 4 (`source = 4`). Tryb jest trzymany wyłącznie w RAM i resetowany do rolki przy każdym podłączeniu USB.
 
 ---
 
