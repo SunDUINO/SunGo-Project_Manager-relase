@@ -51,11 +51,13 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 ![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/SunRiver-LotharTeaM.sungo-project-manager?label=version&color=orange)
 
 ## 📖 Table of Contents
-* [EN: Requirements & Installation](#requirements-installation)
+* [EN: Requirements & Installation](#-requirements--installation)
 * [EN: Guides & Detailed Usage](#-guides--detailed-usage)
-* [EN: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
-* [EN: Linux Setup – udev rules](#linux-setup-sungo-pad-udev-rules)
+* [EN: SunGO PAD – Visual Status Feedback](#-sungo-pad--visual-status-feedback-optional-hardware)
+* [EN: Linux Setup – udev rules](#-linux-setup--sungo-pad-udev-rules)
+* [EN: What's New (v2.18.0) – Assignable ENC0 & Encoder Function Pairs](#-whats-new-v2180--assignable-enc0--encoder-function-pairs)
 * [EN: What's New (v2.17.0) – MacroPAD II Status Icons & Communication Reliability](#-whats-new-v2170--macropad-ii-status-icons--communication-reliability)
+* [EN: What's New (v2.16.0) – Three New Go Code-Analysis Tools](#-whats-new-v2160--three-new-go-code-analysis-tools)
 * [EN: What's New (v2.15.0) – Windows .exe Icon & Custom Project Icon Picker](#-whats-new-v2150--windows-exe-icon--custom-project-icon-picker)
 * [EN: What's New (v2.14.0) – Linux Packaging (.deb / .rpm / AppImage)](#-whats-new-v2140--linux-packaging-deb--rpm--appimage)
 * [EN: What's New (v2.13.0) – Official Go Gopher & Splash Screen](#-whats-new-v2130--official-go-gopher--splash-screen)
@@ -68,18 +70,18 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: What's New (v2.7.1) – Queue Processing & Performance Optimization](#-whats-new-v271--queue-processing--performance-optimization)
 * [EN: What's New (v2.7.0) - Git Template Browser Optimization](#-whats-new-v270--git-template-browser-optimization)
 * [EN: What's New (v2.6.2) – Smart Device Detection & No-Device Panel](#whats-new-v262--smart-device-detection--no-device-panel)
-* [EN: What's New (v2.6.0) – Peripheral Customization & Core Persistence](#whats-new-v260-–-peripheral-customization--core-persistence)
-* [EN: What's New (v2.5.0) – Advanced Hardware Control & Localization Engine](#whats-new-v250-–-advanced-hardware-control--localization-engine)
-* [EN: What's New (v2.4.5) – Rotary Encoders Configuration](#whats-new-v245-–-rotary-encoders-configuration)
+* [EN: What's New (v2.6.0) – Peripheral Customization & Core Persistence](#whats-new-v260--peripheral-customization--core-persistence)
+* [EN: What's New (v2.5.0) – Advanced Hardware Control & Localization Engine](#whats-new-v250--advanced-hardware-control--localization-engine)
+* [EN: What's New (v2.4.5) – Rotary Encoders Configuration](#whats-new-v245--rotary-encoders-configuration)
 * [EN: What's New (v2.4.3) – Automated Firmware Updates & OTA](#whats-new-v243--automated-firmware-updates--ota)
-* [EN: What's New (v2.4.0) – SunGO PAD II Customization](#-whats-new-v240--sungo-pad-ii-customization--key-mapping)
+* [EN: What's New (v2.4.0) – SunGO PAD II Customization](#-whats-new-v240--sungo-pad-ii-customization)
 * [EN: What's New (v2.3.8) – SunGO PAD v2 & Adaptive UI](#-whats-new-v238--sungo-pad-v2--adaptive-ui)
-* [EN: What's New (v2.3.0) – Enhanced Code Insights](#whats-new-v230--enhanced-code-insights)
-* [EN: What's New (v2.1.0) – Code Review Panel](#whats-new-v210-–-code-review-panel)
-* [EN: What's New (v2.0.0) – Github Templates](#whats-new-v200-–-github-templates)
-* [EN: What's New (v1.9.1) – Favorites & Go Doc Viewer](#whats-new-v191--favorite-projects--go-doc-viewer)
-* [EN: What's New (v1.8.3) – Gopher Assistant](#whats-new-v183--gopher-assistant)
-* [EN: Key Features](#key-features)
+* [EN: What's New (v2.3.0) – Enhanced Code Insights](#-whats-new-v230--enhanced-code-insights)
+* [EN: What's New (v2.1.0) – Code Review Panel](#-whats-new-v210--code-review-panel)
+* [EN: What's New (v2.0.0) – Github Templates](#-whats-new-v200--github-templates)
+* [EN: What's New (v1.9.1) – Favorites & Go Doc Viewer](#-whats-new-v191--favorite-projects--go-doc-viewer)
+* [EN: What's New (v1.8.3) – Gopher Assistant](#-whats-new-v183--gopher-assistant)
+* [EN: Key Features](#-key-features)
 * [EN: SunGo Project Manager](#en-sungo-project-manager)
 
 
@@ -207,6 +209,20 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ This is a one-time setup. The rule persists after system reboots.  
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
+
+---
+
+### 🚀 What's New (v2.18.0) – Assignable ENC0 & Encoder Function Pairs
+
+The `v2.18.0` release, together with **MacroPAD II firmware `6.8.0`**, makes the encoder (ENC0) configurable and simplifies encoder setup to choosing a single function pair per knob.
+
+* **🎛️ ENC0 – Mouse scroll or Assign:** A new switch in the encoder panel. **Mouse scroll** (default) keeps the hardware scroll wheel, which works in every application, even without VS Code. **Assign** lets you give ENC0 its own function, just like ENC1. Requires firmware `6.8.0` or newer — on older firmware the switch is disabled and ENC0 stays a scroll wheel.
+* **🔗 Function pairs instead of separate CW / CCW lists:** Each encoder now has one list of pairs — Zoom in/out, Scroll view, Cursor up/down, Page up/down, Next/previous function, Indent/unindent, Redo/undo and Next/previous error. A hint below the list shows what each direction does, and **⇄ Reverse direction** swaps CW and CCW.
+* **🚫 No duplicate assignments:** A pair used by one encoder is hidden from the other encoder's list — the same rule that already applies to keys A / B / C. ENC0 only reserves its pair while in Assign mode.
+* **🖱️ New action – Scroll view:** Scrolls the editor like a mouse wheel (3 lines per click) without moving the cursor. It is the default for ENC0 in Assign mode, so switching modes feels familiar.
+* **🛡️ Safe fallback:** ENC0 returns to scroll-wheel mode whenever the pad is reconnected or VS Code is closed; the extension restores Assign mode automatically on the next connection. Existing ENC1 settings are preserved.
+
+> 🔧 Update the pad to firmware **6.8.0** via the built-in OTA in the MacroPAD II settings panel.
 
 ---
 
@@ -1048,11 +1064,13 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 ![Wersja Marketplace](https://img.shields.io/visual-studio-marketplace/v/SunRiver-LotharTeaM.sungo-project-manager?label=wersja&color=orange)
 
 ## 📖 Spis treści
-* [PL: Wymagania i Instalacja](#wymagania-i-instalacja)
+* [PL: Wymagania i Instalacja](#-wymagania-i-instalacja)
 * [PL: Instrukcje i szczegółowe użytkowanie](#-instrukcje-i-szczegółowe-użytkowanie)
-* [PL: SunGO PAD – Visual Status Feedback](#sungo-pad-visual-status-feedback-optional-hardware)
-* [PL: Linux – Konfiguracja udev](#linux-konfiguracja-sungo-pad-reguły-udev)
+* [PL: SunGO PAD – Visual Status Feedback](#-sungo-pad--visual-status-feedback)
+* [PL: Linux – Konfiguracja udev](#-linux--konfiguracja-sungo-pad-reguły-udev)
+* [PL: Co nowego (v2.18.0) – Przypisywalny ENC0 i Pary Funkcji Enkoderów](#-co-nowego-v2180--przypisywalny-enc0-i-pary-funkcji-enkoderów)
 * [PL: Co nowego (v2.17.0) – Ikony Statusu na MacroPAD II i Niezawodność Komunikacji](#-co-nowego-v2170--ikony-statusu-na-macropad-ii-i-niezawodność-komunikacji)
+* [PL: Co nowego (v2.16.0) – Trzy Nowe Narzędzia Analizy Kodu Go](#-co-nowego-v2160--trzy-nowe-narzędzia-analizy-kodu-go)
 * [PL: Co nowego (v2.15.0) – Ikona .exe Windows i Wybór Ikony Projektu](#-co-nowego-v2150--ikona-exe-windows-i-wybór-ikony-projektu)
 * [PL: Co nowego (v2.14.0) – Pakowanie Linux (.deb / .rpm / AppImage)](#-co-nowego-v2140--pakowanie-linux-deb--rpm--appimage)
 * [PL: Co nowego (v2.13.0) – Oficjalny Gopher Go i Ekran Powitalny](#-co-nowego-v2130--oficjalny-gopher-go-i-ekran-powitalny)
@@ -1065,17 +1083,18 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Co nowego (v2.7.1) – Optymalizacja obsługi kolejek i wydajności](#-co-nowego-v271--optymalizacja-obsługi-kolejek-i-wydajności)
 * [PL: Co nowego (v2.7.0) - Optymalizacja kreatora szablonów Git](#-co-nowego-v270--optymalizacja-kreatora-szablonów-git)
 * [PL: Co nowego (v2.6.2) – Inteligentne wykrywanie i panel braku urządzenia](#co-nowego-v262--inteligentne-wykrywanie-i-panel-braku-urządzenia)
-* [PL: Co nowego (v2.6.0) – Personalizacja peryferiów i trwałość konfiguracji](#co-nowego-v260-–-personalizacja-peryferiów-i-trwałość-konfiguracji)
-* [PL: Co nowego (v2.5.0) – Zaawansowane sterowanie sprzętem i silnik lokalizacji](#co-nowego-v250-–-zaawansowane-sterowanie-sprzętem-i-silnik-lokalizacji)
+* [PL: Co nowego (v2.6.0) – Personalizacja peryferiów i trwałość konfiguracji](#co-nowego-v260--personalizacja-peryferiów-i-trwałość-konfiguracji)
+* [PL: Co nowego (v2.5.0) – Zaawansowane sterowanie sprzętem i silnik lokalizacji](#co-nowego-v250--zaawansowane-sterowanie-sprzętem-i-silnik-lokalizacji)
+* [PL: Co nowego (v2.4.5) – Konfiguracja enkoderów obrotowych](#co-nowego-v245--konfiguracja-enkoderów-obrotowych)
 * [PL: Co nowego (v2.4.3) – Automatyczne aktualizacje firmware i OTA](#co-nowego-v243--automatyczne-aktualizacje-firmware-i-ota)
-* [PL: Co nowego (v2.4.0) – Personalizacja SunGO PAD II](#-co-nowego-v240--personalizacja-sungo-pad-ii-i-mapowanie-klawiszy)
+* [PL: Co nowego (v2.4.0) – Personalizacja SunGO PAD II](#-co-nowego-v240--personalizacja-sungo-pad-ii)
 * [PL: Co nowego (v2.3.8) – SunGO PAD v2 i Adaptacyjne UI](#-co-nowego-v238--sungo-pad-v2-i-adaptacyjne-ui)
-* [PL: Co nowego (v2.3.0) – Udoskonalone analizy kodu](#co-nowego-v230--udoskonalone-analizy-kodu)
-* [PL: Co nowego (v2.1.0) – Panel Code Review](#co-nowego-v210-–-panel-code-review)
-* [PL: Co nowego (v2.0.0) – Github Templates](#co-nowego-v200-–-github-templates)
-* [PL: Co nowego (v1.9.1) – Ulubione projekty i Go Doc Viewer](#co-nowego-v191--ulubione-projekty-i-przeglądarka-go-doc)
-* [PL: Co nowego (v1.8.3) – Asystent Gopher](#co-nowego-v183--asystent-gopher)
-* [PL: Kluczowe Funkcje](#kluczowe-funkcje)
+* [PL: Co nowego (v2.3.0) – Udoskonalone analizy kodu](#-co-nowego-v230--udoskonalone-analizy-kodu)
+* [PL: Co nowego (v2.1.0) – Panel Code Review](#-co-nowego-v210--panel-code-review)
+* [PL: Co nowego (v2.0.0) – Github Templates](#-co-nowego-v200--github-templates)
+* [PL: Co nowego (v1.9.1) – Ulubione projekty i Go Doc Viewer](#-co-nowego-v191--ulubione-projekty-i-przeglądarka-go-doc)
+* [PL: Co nowego (v1.8.3) – Asystent Gopher](#-co-nowego-v183--asystent-gopher)
+* [PL: Kluczowe Funkcje](#-kluczowe-funkcje)
 
 ---
 
@@ -1195,6 +1214,20 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+### 🚀 Co nowego (v2.18.0) – Przypisywalny ENC0 i Pary Funkcji Enkoderów
+
+Wydanie `v2.18.0` razem z **firmware MacroPAD II `6.8.0`** pozwala skonfigurować enkoder (ENC0) i upraszcza ustawianie enkoderów do wyboru jednej pary funkcji na pokrętło.
+
+* **🎛️ ENC0 – Rolka myszy lub Przypisz:** Nowy przełącznik w panelu enkoderów. **Rolka myszy** (domyślnie) zachowuje sprzętowe przewijanie, które działa w każdej aplikacji, także bez VS Code. **Przypisz** pozwala nadać ENC0 własną funkcję, tak jak ENC1. Wymaga firmware `6.8.0` lub nowszego — na starszym firmware przełącznik jest nieaktywny, a ENC0 zostaje rolką.
+* **🔗 Pary funkcji zamiast osobnych list CW / CCW:** Każdy enkoder ma teraz jedną listę par — Powiększ/pomniejsz, Przewijanie widoku, Kursor góra/dół, Strona w górę/w dół, Następna/poprzednia funkcja, Wcięcie/cofnij wcięcie, Ponów/cofnij oraz Następny/poprzedni błąd. Podpowiedź pod listą pokazuje, co robi każdy kierunek, a **⇄ Odwróć kierunek** zamienia CW z CCW.
+* **🚫 Bez zdublowanych przypisań:** Para użyta na jednym enkoderze znika z listy drugiego — ta sama zasada, która obowiązuje już dla klawiszy A / B / C. ENC0 rezerwuje swoją parę tylko w trybie Przypisz.
+* **🖱️ Nowa akcja – Przewijanie widoku:** Przewija edytor jak rolka myszy (3 linie na klik) bez przesuwania kursora. To domyślna funkcja ENC0 w trybie Przypisz, więc zmiana trybu nie jest zaskoczeniem.
+* **🛡️ Bezpieczny powrót:** ENC0 wraca do trybu rolki przy każdym ponownym podłączeniu pada i po zamknięciu VS Code; wtyczka sama przywraca tryb Przypisz przy następnym połączeniu. Dotychczasowe ustawienia ENC1 zostają zachowane.
+
+> 🔧 Zaktualizuj pad do firmware **6.8.0** przez wbudowane OTA w panelu ustawień MacroPAD II.
 
 ---
 

@@ -5,6 +5,37 @@
 
 ---
 
+## [2.18.0] - 2026-09-24
+
+### Added & Improved / Dodano i Usprawniono -- Assignable ENC0 & Encoder Function Pairs / Przypisywalny ENC0 i Pary Funkcji Enkoderów
+
+- **[EN]** Added a **Mouse scroll / Assign** mode switch for the left encoder (ENC0) on **MacroPAD II**. Mouse scroll (default) keeps the hardware scroll wheel that works in every application; Assign lets ENC0 trigger a configurable function, just like ENC1. Requires firmware `6.8.0` or newer — on older firmware the switch is disabled and ENC0 remains a scroll wheel.
+- **[PL]** Dodano przełącznik trybu **Rolka myszy / Przypisz** dla lewego enkodera (ENC0) w **MacroPAD II**. Rolka myszy (domyślnie) zachowuje sprzętowe przewijanie działające w każdej aplikacji; Przypisz pozwala ENC0 wywoływać konfigurowalną funkcję, tak jak ENC1. Wymaga firmware `6.8.0` lub nowszego — na starszym firmware przełącznik jest nieaktywny, a ENC0 pozostaje rolką.
+
+- **[EN]** Replaced separate CW / CCW action lists with a single **function pair** per encoder (Zoom, Scroll view, Cursor, Page, Function, Indent, Redo/undo, Error), with a hint showing what each direction does and a **⇄ Reverse direction** option that swaps CW and CCW. Existing encoder settings are migrated automatically.
+- **[PL]** Zastąpiono osobne listy akcji CW / CCW jedną **parą funkcji** na enkoder (Powiększanie, Przewijanie widoku, Kursor, Strona, Funkcja, Wcięcie, Ponów/cofnij, Błąd), z podpowiedzią pokazującą działanie każdego kierunku i opcją **⇄ Odwróć kierunek**, która zamienia CW z CCW. Dotychczasowe ustawienia enkoderów są przenoszone automatycznie.
+
+- **[EN]** A function pair assigned to one encoder is now hidden from the other encoder's list, preventing duplicate assignments (the same rule already used for keys A / B / C). ENC0 only reserves its pair while in Assign mode; if ENC1 took that pair in the meantime, ENC0 is switched to the first free pair and the user is notified.
+- **[PL]** Para funkcji przypisana do jednego enkodera jest teraz ukryta na liście drugiego, co zapobiega zdublowanym przypisaniom (ta sama zasada, która obowiązuje już dla klawiszy A / B / C). ENC0 rezerwuje swoją parę tylko w trybie Przypisz; jeśli ENC1 zajął ją w międzyczasie, ENC0 dostaje pierwszą wolną parę, a użytkownik otrzymuje komunikat.
+
+- **[EN]** Added the **Scroll view** action — scrolls the editor like a mouse wheel (3 lines per click) without moving the cursor. It is the default for ENC0 in Assign mode.
+- **[PL]** Dodano akcję **Przewijanie widoku** — przewija edytor jak rolka myszy (3 linie na klik) bez przesuwania kursora. Jest domyślną funkcją ENC0 w trybie Przypisz.
+
+- **[EN]** ENC0 now falls back to scroll-wheel mode on every USB reconnection and when VS Code closes; the extension restores the saved mode automatically on the next connection.
+- **[PL]** ENC0 wraca teraz do trybu rolki przy każdym ponownym podłączeniu USB i po zamknięciu VS Code; wtyczka automatycznie przywraca zapisany tryb przy następnym połączeniu.
+
+### Changed / Zmieniono
+
+- **[EN]** Renamed the `Scroll Up / Down (line)` encoder actions to `Cursor Up / Down (line)` to reflect that they move the cursor, not the view.
+- **[PL]** Zmieniono nazwy akcji enkodera `Przewiń w górę / w dół` na `Kursor w górę / w dół (linia)`, zgodnie z tym, że przesuwają kursor, a nie widok.
+
+### Firmware 6.8.0 (MacroPAD II)
+
+- **[EN]** New RAW HID command `M` (`0` = mouse scroll, `1` = assign) switching ENC0 between the mouse wheel (Report ID 3) and encoder events on Report ID 4 (`source = 4`). The mode is kept in RAM only and reset to mouse scroll on every USB mount.
+- **[PL]** Nowa komenda RAW HID `M` (`0` = rolka myszy, `1` = przypisz) przełączająca ENC0 między rolką myszy (Report ID 3) a zdarzeniami enkodera na Report ID 4 (`source = 4`). Tryb jest trzymany wyłącznie w RAM i resetowany do rolki przy każdym podłączeniu USB.
+
+---
+
 ## [2.17.0] - 2026-09-22
 
 ### Added, Improved & Fixed / Dodano, Usprawniono i Poprawiono -- MacroPAD II Status Icons & Communication Reliability / Ikony Statusu na MacroPAD II i Niezawodność Komunikacji
