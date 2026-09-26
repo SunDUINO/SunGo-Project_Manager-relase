@@ -1,0 +1,43 @@
+name: Sync Changelog to Wiki
+
+on:
+  push:
+    branches:
+      - main # Wpisz 'master', jeśli używasz starej nazwy gałęzi
+    paths:
+      - 'CHANGELOG.md' # Aktywuje się tylko przy zmianie changeloga
+
+jobs:
+  sync-wiki:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repozytorium
+        uses: actions/checkout@v4
+
+      - name: Checkout repozytorium Wiki
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository }}.wiki
+          path: wiki
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Kopiowanie i push do Wiki
+        run: |
+          # Kopiuje CHANGELOG.md do folderu Wiki (jako Changelog.md lub dowolna inna nazwa strony)
+          cp CHANGELOG.md wiki/Changelog.md
+
+          cd wiki
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Sprawdzenie, czy są rzeczywiste zmiany
+          if git status --porcelain | grep -q .; then
+            git add Changelog.md
+            git commit -m "docs: auto-sync CHANGELOG.md from repository"
+            git push
+          else
+            echo "Brak zmian do wysłania do Wiki."
+          fi
