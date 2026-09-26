@@ -4,6 +4,8 @@
 [PL] Wszystkie istotne zmiany w rozszerzeniu "SunGo Project Manager" są dokumentowane w tym pliku.
 
 ---
+- TEST AGENTA
+---
 
 ## [2.18.0] - 2026-09-24
 
