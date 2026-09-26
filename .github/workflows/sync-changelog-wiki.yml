@@ -3,7 +3,7 @@ name: Sync Changelog to Wiki
 on:
   push:
     branches:
-      - main # Wpisz 'master', jeśli używasz starej nazwy gałęzi
+      - main 
     paths:
       - 'CHANGELOG.md' # Aktywuje się tylko przy zmianie changeloga
 
