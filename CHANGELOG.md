@@ -5,6 +5,21 @@
 
 ---
 
+## [2.18.1] - 2026-10-04
+
+### Improved / Usprawniono -- WebUI Performance, Refactoring & HIDRAW enhanced / Wydajność WebUI, Refaktoryzacja i Komunikacja HIDRAW
+
+- **[EN]** Optimized WebUI rendering and event handling, significantly improving UI responsiveness and reducing resource consumption during rapid state updates.
+- **[PL]** Zoptymalizowano renderowanie oraz obsługę zdarzeń w interfejsie WebUI, co znacząco poprawiło jego płynność i zmniejszyło zużycie zasobów przy szybkiej zmianie stanów.
+
+- **[EN]** Enhanced HIDRAW communication layer stability, delivering faster packet transmission, reduced latency, and reliable device reconnection.
+- **[PL]** Poprawiono stabilności w warstwie komunikacji HIDRAW, zapewniając szybsze przesyłanie pakietów danych, niższe opóźnienia oraz niezawodne ponowne łączenie z urządzeniem.
+
+- **[EN]** Refactored core extension modules to eliminate code duplication, enforce stricter type safety, and improve overall codebase maintainability.
+- **[PL]** Przeprowadzono refaktoryzację głównych modułów wtyczki, wyeliminowano powielanie kodu, wzmocniono typowanie i poprawiono architekturę pod kątem dalszego rozwoju.
+
+---
+
 ## [2.18.0] - 2026-09-24
 
 ### Added & Improved / Dodano i Usprawniono -- Assignable ENC0 & Encoder Function Pairs / Przypisywalny ENC0 i Pary Funkcji Enkoderów
