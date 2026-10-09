@@ -5,6 +5,21 @@
 
 ---
 
+## [2.18.2] - 2026-10-09
+
+### Improved / Usprawniono -- Build Error Details / Szczegóły Błędów Kompilacji
+
+- **[EN]** Build errors are no longer silent: the full `go build` output (command, project folder and compiler messages) is now written to a new **SunGo: Build** Output panel. Previously only a generic "Compilation error" notification was shown and the actual reason was lost.
+- **[PL]** Błędy kompilacji nie są już „nieme”: pełny wynik `go build` (komenda, folder projektu i komunikaty kompilatora) trafia teraz do nowego panelu Output **SunGo: Build**. Wcześniej pokazywało się tylko ogólne powiadomienie „Błąd kompilacji”, a faktyczna przyczyna przepadała.
+
+- **[EN]** The error notification now shows the first compiler error line (e.g. file, line and message) and a **Show details** button that opens the **SunGo: Build** panel. The "file is in use" notification also got this button.
+- **[PL]** Powiadomienie o błędzie pokazuje teraz pierwszą linię błędu kompilatora (np. plik, linię i komunikat) oraz przycisk **Pokaż szczegóły**, który otwiera panel **SunGo: Build**. Powiadomienie „plik jest używany” również dostało ten przycisk.
+
+- **[EN]** Added detection of the Git *dubious ownership* error (`error obtaining VCS status`), common after reinstalling Windows when project folders belong to the previous user account. SunGo explains the cause and offers an **Add folder to Git trusted list** button that runs `git config --global --add safe.directory <folder>` — only after the user clicks it.
+- **[PL]** Dodano rozpoznawanie błędu Gita *dubious ownership* (`error obtaining VCS status`), częstego po reinstalacji Windows, gdy foldery projektów należą do poprzedniego konta użytkownika. SunGo wyjaśnia przyczynę i proponuje przycisk **Dodaj folder do zaufanych w Git**, który wykonuje `git config --global --add safe.directory <folder>` — dopiero po kliknięciu przez użytkownika.
+
+---
+
 ## [2.18.1] - 2026-10-04
 
 ### Improved / Usprawniono -- WebUI Performance, Refactoring & HIDRAW enhanced / Wydajność WebUI, Refaktoryzacja i Komunikacja HIDRAW
