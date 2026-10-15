@@ -5,6 +5,36 @@
 
 ---
 
+## [2.19.0] - 2026-10-15
+
+### Fixed / Naprawiono -- Import All
+
+- **[EN]** **IMPORT ALL** no longer downloads libraries twice at the same time. Previously `go get` was sent to the terminal and simultaneously started again in the background (only to stop the status bar spinner), so two processes were writing `go.mod` / `go.sum` at once. Now a single `go get -u -v ./...` followed by `go mod tidy` runs, and its live output is shown in the new **SunGo: Import** Output panel.
+- **[PL]** **IMPORT ALL** nie pobiera już bibliotek dwa razy jednocześnie. Wcześniej `go get` trafiało do terminala i równocześnie uruchamiało się ponownie w tle (tylko po to, by zatrzymać spinner na pasku stanu), przez co dwa procesy naraz zapisywały `go.mod` / `go.sum`. Teraz wykonywane jest jedno `go get -u -v ./...`, a po nim `go mod tidy`, z wynikiem na żywo w nowym panelu Output **SunGo: Import**.
+
+### Improved / Usprawniono -- Responsiveness / Płynność działania
+
+- **[EN]** Long-running Go commands no longer freeze VS Code. **Go Vet**, **Sync Imports** (`go mod tidy`), the **Dependencies** view (`go list -u`, `go get -u`, `go mod tidy`), **DocGen** (`go list -json`) and **Git Templates** (`go mod init`, `go get`, `go mod tidy`) now run in the background instead of blocking the editor and all other extensions. The Dependencies view now shows its loading screen while the module list is being fetched.
+- **[PL]** Długotrwałe polecenia Go nie zamrażają już VS Code. **Go Vet**, **Synchronizacja importów** (`go mod tidy`), widok **Dependencies** (`go list -u`, `go get -u`, `go mod tidy`), **DocGen** (`go list -json`) oraz **Szablony Git** (`go mod init`, `go get`, `go mod tidy`) działają teraz w tle, zamiast blokować edytor i wszystkie inne rozszerzenia. Widok Dependencies pokazuje teraz ekran ładowania podczas pobierania listy modułów.
+
+### Fixed / Naprawiono -- Code Signing & Defender / Podpisywanie kodu i Defender
+
+- **[EN]** **Generate Certificate**, **Unlock Folder** (Defender exclusion) and **Sign Code** now work with paths and names containing an apostrophe, quotation mark or `$` (e.g. `C:\Users\O'Neil`). Values are passed to PowerShell as safe literals and scripts are sent via `-EncodedCommand`, so nothing is altered on the way.
+- **[PL]** **Generowanie certyfikatu**, **Odblokowanie folderu** (wykluczenie w Defenderze) i **Podpisywanie kodu** działają teraz ze ścieżkami i nazwami zawierającymi apostrof, cudzysłów lub `$` (np. `C:\Users\O'Neil`). Wartości trafiają do PowerShell jako bezpieczne literały, a skrypty są przekazywane przez `-EncodedCommand`, więc nic nie zostaje zniekształcone po drodze.
+
+- **[EN]** All security operations now consistently use PowerShell Core (`pwsh`), with an automatic fallback to Windows PowerShell when `pwsh` is not installed. The elevated (UAC) window uses the same shell.
+- **[PL]** Wszystkie operacje bezpieczeństwa używają teraz konsekwentnie PowerShell Core (`pwsh`), z automatycznym przejściem na Windows PowerShell, gdy `pwsh` nie jest zainstalowany. Okno z uprawnieniami administratora (UAC) korzysta z tego samego shella.
+
+### Fixed / Naprawiono -- Pub Any Repo
+
+- **[EN]** The temporary repository clone is now reliably removed after publishing. Git background maintenance (`gc --auto`), which could lock files in `.git` and silently prevent deletion, is disabled for these operations, and removal is retried when Windows briefly locks files. The log now confirms the cleanup (🧹) or shows a warning with the folder path.
+- **[PL]** Tymczasowy klon repozytorium jest teraz niezawodnie usuwany po publikacji. Wyłączono dla tych operacji automatyczne porządki Gita w tle (`gc --auto`), które mogły blokować pliki w `.git` i po cichu uniemożliwiać usunięcie, a przy chwilowej blokadzie plików przez Windows usuwanie jest ponawiane. Log potwierdza teraz sprzątanie (🧹) albo pokazuje ostrzeżenie ze ścieżką folderu.
+
+- **[EN]** Leftover clones from earlier sessions are cleaned up automatically on startup and before each publish (only folders older than 10 minutes, so a publish running in another VS Code window is never affected). A second click on **Push** while publishing is now ignored.
+- **[PL]** Pozostałości klonów z wcześniejszych sesji są automatycznie sprzątane przy starcie i przed każdą publikacją (tylko foldery starsze niż 10 minut, więc publikacja trwająca w innym oknie VS Code nie jest naruszana). Ponowne kliknięcie **Push** w trakcie publikacji jest teraz ignorowane.
+
+---
+
 ## [2.18.2] - 2026-10-09
 
 ### Improved / Usprawniono -- Build Error Details / Szczegóły Błędów Kompilacji
