@@ -55,6 +55,9 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Guides & Detailed Usage](#-guides--detailed-usage)
 * [EN: SunGO PAD – Visual Status Feedback](#-sungo-pad--visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#-linux-setup--sungo-pad-udev-rules)
+* [EN: What's New (v2.23.1) – Linux App with Icon](#-whats-new-v2231--linux-app-with-icon)
+* [EN: What's New (v2.23.0) – Separate Android Button](#-whats-new-v2230--separate-android-button)
+* [EN: What's New (v2.22.0) – Remote Android APK Build](#-whats-new-v2220--remote-android-apk-build)
 * [EN: What's New (v2.21.0) – Remote Build over SSH (Linux ⇄ Windows)](#-whats-new-v2210--remote-build-over-ssh-linux--windows)
 * [EN: What's New (v2.18.0) – Assignable ENC0 & Encoder Function Pairs](#-whats-new-v2180--assignable-enc0--encoder-function-pairs)
 * [EN: What's New (v2.17.0) – MacroPAD II Status Icons & Communication Reliability](#-whats-new-v2170--macropad-ii-status-icons--communication-reliability)
@@ -213,14 +216,38 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ---
 
+### 🚀 What's New (v2.23.1) – Linux App with Icon
+
+* **🖼️ Remote Build › Linux Output:** besides the bare binary, the Linux remote build can now produce an **AppImage** or a **tar.gz with `install.sh`** — both with the project icon (`media/icon.png`) and a `.desktop` file, so the program shows up in the menu with its own icon instead of the default one.
+
+---
+
+### 🚀 What's New (v2.23.0) – Separate Android Button
+
+* **📱 Remote Build (SSH → Android):** the Android APK build now has its own button in SunGo Tools, next to **Remote Build (SSH → Linux)** — one click builds the APK and copies it to `bin/android/`. It appears when Remote Build is enabled, the host is Linux and the project has an `android/` folder.
+
+---
+
+### 🚀 What's New (v2.22.0) – Remote Android APK Build
+
+The `v2.22.0` release extends the Remote Build: Android APKs are built on the Linux host and land in your project, binaries carry the version in their name, and `webview_go` projects build on new Linux distros.
+
+* **📱 Android APK on the Linux host:** for projects with an `android/` Gradle project, **Build Android APK** runs your `build_android.sh` on the host and copies the new APK to `bin/android/`; **Install (adb)** puts it on the connected phone. The Gradle cache stays on the host, so repeated builds are fast.
+* **🏷️ Version in the name:** downloaded binaries are named like in the regular build, e.g. `bin/linux/SunVT220_v01.10.00`.
+* **🐧 webview_go on new Linux distros:** the normal **Go Build / Go RUN / Go Vet** on Linux (and the remote build on a Linux host) automatically map `webkit2gtk-4.0` to `4.1` when the system has only `4.1` (Debian 13, Ubuntu 24.04+) — no more `Package webkit2gtk-4.0 was not found`.
+
+> 📖 **[Remote Build over SSH – Setup & Usage Guide](./README_remoteBuild.md)**
+
+---
+
 ### 🚀 What's New (v2.21.0) – Remote Build over SSH (Linux ⇄ Windows)
 
-The `v2.20.0` release lets you build your project on another computer over SSH without leaving VS Code — on Windows you get the Linux build, on Linux you get the Windows `.exe`. Useful for CGO / GUI projects (Ebitengine, Fyne, raylib, webview…) that cannot be cross-compiled.
+The `v2.21.0` release lets you build your project on another computer over SSH without leaving VS Code — on Windows you get the Linux build, on Linux you get the Windows `.exe`. Useful for CGO / GUI projects (Ebitengine, Fyne, raylib, webview…) that cannot be cross-compiled.
 
 * **☑️ Off until you need it:** turn it on with the **Remote Build › Enabled** checkbox in the settings (Ctrl+,). The tool then appears in SunGo Tools as **Remote Build (SSH → Linux)** (VS Code on Windows) or **Remote Build (SSH → Windows)** (VS Code on Linux); **Target OS** can force the direction.
 * **🔁 How it works:** SunGo streams the sources (`go.mod`, `go.sum` and source folders — without `bin/`, `media/`, `*.md` etc.) with the system `tar` over `ssh` to the host, runs `go vet` and `go build -v` there and copies the binary back to **`bin/linux/<project>`** or **`bin/windows/<project>.exe`**. Windows hosts need the built-in **OpenSSH Server**.
 * **📋 Clickable errors & live progress:** live output in the **SunGo: Remote Build** Output panel, remote paths rewritten to your local files (clickable, also in **Problems**), the current step in the notification (with **Cancel**) and as a spinner in the status bar.
-* **⚙️ Settings in Ctrl+,:** section **SunGo – Remote Build (SSH)** — Host, User, Port, remote folder (default `~/build/${project}`), Go path (empty = `/usr/local/go/bin` on Linux, `C:\Program Files\Go\bin` on Windows), `GOTOOLCHAIN`, `go vet`, plus Linux-only options (webkit2gtk-4.0 → 4.1 shim for `webview_go`, `.tar.gz` that keeps the executable bit). When no host is set yet, the first run opens these settings for you.
+* **⚙️ Settings in Ctrl+,:** section **SunGo – Remote Build (SSH)** — Host, User, Port, remote folder (default `~/build/${project}`), Go path (empty = `/usr/local/go/bin` on Linux, `C:\Program Files\Go\bin` on Windows), `GOTOOLCHAIN`, `go vet`, plus Linux-only options (automatic webkit2gtk-4.0 → 4.1 shim for `webview_go`, on by default, `.tar.gz` that keeps the executable bit). When no host is set yet, the first run opens these settings for you.
 * **🔒 Your connection stays yours:** the settings have scope `machine` — saved only in your VS Code user settings on this machine, not in the project's `.vscode/` and not in the extension package. Key-based SSH only (`BatchMode`) — no passwords.
 
 > 📖 **[Remote Build over SSH – Setup & Usage Guide](./README_remoteBuild.md)**
@@ -1083,7 +1110,10 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Instrukcje i szczegółowe użytkowanie](#-instrukcje-i-szczegółowe-użytkowanie)
 * [PL: SunGO PAD – Visual Status Feedback](#-sungo-pad--visual-status-feedback)
 * [PL: Linux – Konfiguracja udev](#-linux--konfiguracja-sungo-pad-reguły-udev)
-* [PL: Co nowego (v2.20.0) – Zdalny build przez SSH (Linux ⇄ Windows)](#-co-nowego-v2200--zdalny-build-przez-ssh-linux--windows)
+* [PL: Co nowego (v2.23.1) – Aplikacja linuksowa z ikoną](#-co-nowego-v2231--aplikacja-linuksowa-z-ikoną)
+* [PL: Co nowego (v2.23.0) – Osobny przycisk Androida](#-co-nowego-v2230--osobny-przycisk-androida)
+* [PL: Co nowego (v2.22.0) – Zdalny build APK Androida](#-co-nowego-v2220--zdalny-build-apk-androida)
+* [PL: Co nowego (v2.21.0) – Zdalny build przez SSH (Linux ⇄ Windows)](#-co-nowego-v2210--zdalny-build-przez-ssh-linux--windows)
 * [PL: Co nowego (v2.18.0) – Przypisywalny ENC0 i Pary Funkcji Enkoderów](#-co-nowego-v2180--przypisywalny-enc0-i-pary-funkcji-enkoderów)
 * [PL: Co nowego (v2.17.0) – Ikony Statusu na MacroPAD II i Niezawodność Komunikacji](#-co-nowego-v2170--ikony-statusu-na-macropad-ii-i-niezawodność-komunikacji)
 * [PL: Co nowego (v2.16.0) – Trzy Nowe Narzędzia Analizy Kodu Go](#-co-nowego-v2160--trzy-nowe-narzędzia-analizy-kodu-go)
@@ -1233,14 +1263,38 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ---
 
+### 🚀 Co nowego (v2.23.1) – Aplikacja linuksowa z ikoną
+
+* **🖼️ Remote Build › Linux Output:** oprócz samej binarki zdalny build linuksowy może teraz zrobić **AppImage** albo **tar.gz z `install.sh`** — oba z ikoną projektu (`media/icon.png`) i plikiem `.desktop`, więc program pojawia się w menu z własną ikoną zamiast domyślnej.
+
+---
+
+### 🚀 Co nowego (v2.23.0) – Osobny przycisk Androida
+
+* **📱 Zdalny build (SSH → Android):** build APK Androida ma teraz własny przycisk w SunGo Tools, obok **Zdalny build (SSH → Linux)** — jedno kliknięcie buduje APK i kopiuje go do `bin/android/`. Pojawia się, gdy Zdalny build jest włączony, host to Linux, a projekt ma folder `android/`.
+
+---
+
+### 🚀 Co nowego (v2.22.0) – Zdalny build APK Androida
+
+Wydanie `v2.22.0` rozszerza Zdalny build: APK Androida jest budowany na hoście Linux i trafia do projektu, binarki mają wersję w nazwie, a projekty z `webview_go` budują się na nowych dystrybucjach Linuksa.
+
+* **📱 APK Androida na hoście Linux:** dla projektów z projektem Gradle w `android/` pozycja **Zbuduj APK Androida** uruchamia na hoście Twój `build_android.sh` i kopiuje nowy APK do `bin/android/`; **Zainstaluj (adb)** wgrywa go na podłączony telefon. Cache Gradle zostaje na hoście, więc kolejne buildy są szybkie.
+* **🏷️ Wersja w nazwie:** pobierane binarki mają nazwy jak przy zwykłym buildzie, np. `bin/linux/SunVT220_v01.10.00`.
+* **🐧 webview_go na nowych dystrybucjach Linuksa:** zwykłe **Go Build / Go RUN / Go Vet** na Linuksie (i zdalny build na hoście Linux) same kierują `webkit2gtk-4.0` na `4.1`, gdy system ma tylko `4.1` (Debian 13, Ubuntu 24.04+) — koniec z `Package webkit2gtk-4.0 was not found`.
+
+> 📖 **[Zdalny build przez SSH – Instrukcja konfiguracji i użytkowania](./README_remoteBuild.md)**
+
+---
+
 ### 🚀 Co nowego (v2.21.0) – Zdalny build przez SSH (Linux ⇄ Windows)
 
-Wydanie `v2.20.0` pozwala zbudować projekt na innym komputerze przez SSH bez wychodzenia z VS Code — na Windows dostajesz build linuksowy, na Linuksie windowsowy `.exe`. Przydatne dla projektów z CGO / GUI (Ebitengine, Fyne, raylib, webview…), których nie da się skompilować skrośnie.
+Wydanie `v2.21.0` pozwala zbudować projekt na innym komputerze przez SSH bez wychodzenia z VS Code — na Windows dostajesz build linuksowy, na Linuksie windowsowy `.exe`. Przydatne dla projektów z CGO / GUI (Ebitengine, Fyne, raylib, webview…), których nie da się skompilować skrośnie.
 
 * **☑️ Wyłączone, dopóki nie potrzebujesz:** włączasz checkboxem **Remote Build › Enabled** w ustawieniach (Ctrl+,). Narzędzie pojawia się wtedy w SunGo Tools jako **Zdalny build (SSH → Linux)** (VS Code na Windows) albo **Zdalny build (SSH → Windows)** (VS Code na Linuksie); **Target OS** pozwala wymusić kierunek.
 * **🔁 Jak to działa:** SunGo przesyła strumieniem źródła (`go.mod`, `go.sum` i foldery ze źródłami — bez `bin/`, `media/`, `*.md` itd.) systemowym `tar` przez `ssh` na host, uruchamia tam `go vet` i `go build -v`, a binarkę kopiuje z powrotem do **`bin/linux/<projekt>`** albo **`bin/windows/<projekt>.exe`**. Host Windows potrzebuje wbudowanego **serwera OpenSSH**.
 * **📋 Klikalne błędy i postęp na żywo:** wynik na żywo w panelu Output **SunGo: Remote Build**, zdalne ścieżki zamieniane na lokalne pliki (klikalne, także w **Problems**), bieżący etap w powiadomieniu (z **Anuluj**) i jako spinner na pasku stanu.
-* **⚙️ Ustawienia w Ctrl+,:** sekcja **SunGo – Remote Build (SSH)** — Host, User, Port, zdalny folder (domyślnie `~/build/${project}`), ścieżka Go (puste = `/usr/local/go/bin` na Linuksie, `C:\Program Files\Go\bin` na Windows), `GOTOOLCHAIN`, `go vet` oraz opcje tylko dla Linuksa (shim webkit2gtk-4.0 → 4.1 dla `webview_go`, `.tar.gz` zachowujący bit wykonywalności). Gdy host nie jest jeszcze ustawiony, pierwsze uruchomienie samo otwiera te ustawienia.
+* **⚙️ Ustawienia w Ctrl+,:** sekcja **SunGo – Remote Build (SSH)** — Host, User, Port, zdalny folder (domyślnie `~/build/${project}`), ścieżka Go (puste = `/usr/local/go/bin` na Linuksie, `C:\Program Files\Go\bin` na Windows), `GOTOOLCHAIN`, `go vet` oraz opcje tylko dla Linuksa (automatyczny shim webkit2gtk-4.0 → 4.1 dla `webview_go`, domyślnie włączony, `.tar.gz` zachowujący bit wykonywalności). Gdy host nie jest jeszcze ustawiony, pierwsze uruchomienie samo otwiera te ustawienia.
 * **🔒 Twoje połączenie zostaje u Ciebie:** ustawienia mają scope `machine` — zapisywane tylko w ustawieniach użytkownika VS Code na tym komputerze, nie w `.vscode/` projektu i nie w paczce rozszerzenia. Wyłącznie SSH z kluczem (`BatchMode`) — bez haseł.
 
 > 📖 **[Zdalny build przez SSH – Instrukcja konfiguracji i użytkowania](./README_remoteBuild.md)**
