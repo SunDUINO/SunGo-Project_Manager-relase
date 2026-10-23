@@ -5,6 +5,46 @@
 
 ---
 
+## [2.23.2] - 2026-10-23
+
+### Fixed / Naprawiono -- Code Review, Go Generate, Add Library / Dodaj bibliotekę
+
+- **[EN]** **Code Review** no longer requires PowerShell 7 (`pwsh`). Without it (e.g. on Linux) every tool (go vet, staticcheck, golangci-lint) was silently marked as skipped and the report looked clean. The tools now run directly. The Go tools folder (`GOPATH/bin`, usually `~/go/bin`) is added to the search path, so tools installed with `go install` are still found, and the three availability checks run in parallel.
+- **[PL]** **Code Review** nie wymaga już PowerShella 7 (`pwsh`). Bez niego (np. na Linuksie) każde narzędzie (go vet, staticcheck, golangci-lint) było po cichu oznaczane jako pominięte, a raport wyglądał na czysty. Narzędzia są teraz uruchamiane bezpośrednio. Folder narzędzi Go (`GOPATH/bin`, zwykle `~/go/bin`) jest dodawany do ścieżki wyszukiwania, więc narzędzia zainstalowane przez `go install` nadal się znajdują, a trzy sprawdzenia dostępności idą równolegle.
+
+- **[EN]** **Go Generate** works in folders with spaces in the path (e.g. `My Projects\…`). Before, the path of a single directive was split into several arguments. A missing `go` is now reported in the panel.
+- **[PL]** **Go Generate** działa w folderach ze spacjami w ścieżce (np. `Moje Projekty\…`). Wcześniej ścieżka pojedynczej dyrektywy rozpadała się na kilka argumentów. Brak `go` jest teraz zgłaszany w panelu.
+
+- **[EN]** **Add Library** (`go get`) and **New Project** (`go mod init`) run in the background and no longer freeze VS Code while modules download. The entered text is passed as one argument, so quotes or spaces no longer break the command. The `go get` error message shows Go's own error text.
+- **[PL]** **Dodaj bibliotekę** (`go get`) i **Nowy projekt** (`go mod init`) działają w tle i nie zamrażają już VS Code podczas pobierania modułów. Wpisany tekst idzie jako jeden argument, więc cudzysłowy ani spacje nie psują polecenia. Komunikat błędu `go get` pokazuje treść błędu z Go.
+
+- **[EN]** **Remote Build**: Polish characters and emoji in the output panel are no longer garbled when they fall on the boundary between two chunks of the stream.
+- **[PL]** **Zdalny build**: polskie znaki i emoji w panelu Output nie są już zniekształcane, gdy trafią na granicę dwóch kawałków strumienia.
+
+- **[EN]** **SunGo Pad**: when the pad is unplugged, the encoder channel is now closed as well, and both HID handles are closed when VS Code shuts down or reloads the window.
+- **[PL]** **SunGo Pad**: po odłączeniu pada zamykany jest też kanał enkoderów, a oba uchwyty HID są zamykane przy zamykaniu VS Code lub przeładowaniu okna.
+
+### Fixed / Naprawiono -- Pad plug & unplug / Podłączanie i odłączanie pada
+
+- **[EN]** Unplugging the **SunGO MacroPAD** now shows a *pad disconnected* message, and open windows update right away. Before, SunGo still treated the pad as connected: the pad settings could be opened and the Dashboard showed the old state until it was reopened. An open pad settings window now switches at once to the *no device* page, and back to the settings when the pad is plugged in again (in the same editor column). The **MacroPAD** entry on an open Dashboard changes immediately in both directions. Startup is unchanged: without a pad nothing is shown, and with a pad the *connected* message appears as before.
+- **[PL]** Odłączenie **SunGO MacroPAD** pokazuje teraz komunikat *pad odłączony*, a otwarte okna odświeżają się od razu. Wcześniej SunGo dalej traktował pada jak podłączonego: można było wejść w ustawienia pada, a Dashboard pokazywał stary stan aż do ponownego otwarcia. Otwarte okno ustawień pada przełącza się teraz od razu na stronę *brak urządzenia*, a po ponownym podłączeniu z powrotem na ustawienia (w tej samej kolumnie edytora). Wpis **MacroPAD** w otwartym Dashboardzie zmienia się natychmiast w obie strony. Start bez zmian: bez pada nic się nie pokazuje, a z padem — jak dotąd komunikat *podłączony*.
+
+- **[EN]** Pad settings open in one window — running the command again brings the existing window to the front instead of opening another copy.
+- **[PL]** Ustawienia pada otwierają się w jednym oknie — ponowne wywołanie komendy pokazuje istniejące okno zamiast otwierać kolejną kopię.
+
+### Changed / Zmieniono -- Faster and smoother / Szybciej i płynniej
+
+- **[EN]** Binary Analyzer reads the symbol table of a binary (`go tool nm`) once instead of three times after each build.
+- **[PL]** Binary Analyzer czyta tablicę symboli binarki (`go tool nm`) raz zamiast trzech razy po każdym buildzie.
+
+- **[EN]** The system check in the SunGo Home panel (go, gcc, git, shell…) runs in the background and in parallel instead of blocking VS Code one tool at a time.
+- **[PL]** Sprawdzanie systemu w panelu SunGo Home (go, gcc, git, powłoka…) działa w tle i równolegle, zamiast blokować VS Code narzędzie po narzędziu.
+
+- **[EN]** **Open bin folder** uses the system file manager through VS Code (also works on macOS); internal clean-up of duplicate code.
+- **[PL]** **Otwórz folder bin** używa systemowego menedżera plików przez VS Code (działa też na macOS); wewnętrzne porządki w zduplikowanym kodzie.
+
+---
+
 ## [2.23.1] - 2026-10-18
 
 ### Added / Dodano -- Linux app with icon / Aplikacja linuksowa z ikoną
