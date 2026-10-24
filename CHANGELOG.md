@@ -5,6 +5,37 @@
 
 ---
 
+## [2.24.0] - 2026-10-24
+
+### Added / Dodano -- Vulnerability check / Sprawdzanie podatności
+
+- **[EN]** **Dependencies** panel: new **🛡 Check vulnerabilities (govulncheck)** button. It lists known vulnerabilities that your code actually calls (OSV ID linked to pkg.go.dev, found → fixed version, call path), separately from those that are only in dependencies. If govulncheck is missing, it can be installed with one click (`go install golang.org/x/vuln/cmd/govulncheck@latest`).
+- **[PL]** Panel **Zależności**: nowy przycisk **🛡 Sprawdź podatności (govulncheck)**. Pokazuje znane podatności faktycznie wywoływane z Twojego kodu (ID z linkiem do pkg.go.dev, wersja znaleziona → poprawiona, ścieżka wywołań), osobno od tych, które są tylko w zależnościach. Brakujący govulncheck można zainstalować jednym kliknięciem (`go install golang.org/x/vuln/cmd/govulncheck@latest`).
+
+### Changed / Zmieniono -- Security / Bezpieczeństwo
+
+- **[EN]** Every webview panel now has a Content-Security-Policy with a script nonce generated on each render, so a panel can only run its own scripts. Inline event handlers (`onclick="…"` etc.) were replaced with `addEventListener`, and HTML escaping on the extension side uses one shared helper. File paths containing `'` or `"` no longer break the buttons in the Coverage, ErrCheck, Metrics and Struct Align panels.
+- **[PL]** Każdy panel webview ma teraz Content-Security-Policy z nonce dla skryptów, generowanym przy każdym renderze, więc panel może uruchamiać tylko własne skrypty. Inline handlery zdarzeń (`onclick="…"` itp.) zastąpiono `addEventListener`, a escapowanie HTML po stronie rozszerzenia korzysta z jednego wspólnego helpera. Ścieżki plików z `'` lub `"` nie psują już przycisków w panelach Coverage, ErrCheck, Metrics i Struct Align.
+
+### Fixed / Naprawiono -- Gopher Wisdom, Git Templates
+
+- **[EN]** The **Gopher Wisdom** command now works from the Command Palette (before, it gave "command not found"). It shows a random tip in the "SunGo Gopher" output channel, the same as the 🐹 button on the dashboard, also when the Home panel is closed.
+- **[PL]** Polecenie **Mądrość Gophera** działa teraz z palety poleceń (wcześniej dawało „command not found”). Pokazuje losową mądrość w kanale Output „SunGo Gopher”, tak samo jak przycisk 🐹 w dashboardzie, także przy zamkniętym panelu Home.
+
+- **[EN]** The **Clear** button in the Git Templates panel now clears the log (it called a function that did not exist).
+- **[PL]** Przycisk **Clear** w panelu Git Templates czyści teraz log (wywoływał nieistniejącą funkcję).
+
+---
+
+## [2.23.3] - 2026-10-24
+
+### Fixed / Naprawiono -- Remote Build / Zdalny build
+
+- **[EN]** **Remote Build**: cancelling a build (✕ in the progress notification) now also stops the work on the host. Before, only the local `ssh` was closed, while `go build`, Gradle (Android) or the AppImage/bundle packaging kept running on the host. SunGo now stops the remote process with its child processes (Linux host: SIGTERM to the process group, SIGKILL after 5 s if needed; Windows host: the process tree) and writes in the output panel what was stopped. A new build starts only after the previous one has been stopped. Builds that are not cancelled work exactly as before.
+- **[PL]** **Zdalny build**: anulowanie buildu (✕ w powiadomieniu z postępem) zatrzymuje teraz także pracę na hoście. Wcześniej zamykany był tylko lokalny `ssh`, a `go build`, Gradle (Android) czy pakowanie AppImage/paczki działały na hoście dalej. SunGo zatrzymuje teraz zdalny proces razem z procesami potomnymi (host Linux: SIGTERM do grupy procesów, w razie potrzeby SIGKILL po 5 s; host Windows: drzewo procesów) i pisze w panelu Output, co zatrzymał. Nowy build rusza dopiero, gdy poprzedni jest już zatrzymany. Buildy, których nie anulujesz, działają dokładnie tak jak dotąd.
+
+---
+
 ## [2.23.2] - 2026-10-23
 
 ### Fixed / Naprawiono -- Code Review, Go Generate, Add Library / Dodaj bibliotekę
