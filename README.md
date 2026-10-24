@@ -229,6 +229,8 @@ The `v2.25.0` release adds a new tool for translating your apps, PL ⇄ EN and m
 * **🚀 Project Creator:** new option **Create translation files** – a new project starts with translations ready (PL and EN; more languages can be added in the settings).
 * **🎛️ SunGO PAD and a second VS Code window (F5):** when F5 opens a second VS Code window (e.g. while developing a VS Code extension), the pad is handed over to that window and comes back to the main window when it is closed. Before, both windows reached for the pad at the same time and the second window often closed by itself right after start.
 
+> 📖 **[Translations (i18n) – User Guide](./README_translations.md)**
+
 ---
 
 ### 🚀 What's New (v2.24.0) – Vulnerability Check & Safer Panels
@@ -1068,6 +1070,7 @@ Step-by-step, bilingual setup and usage guides for every SunGo tool — instrume
 * [Publish Any File to Any Repo](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_pubrepo.md) – saved repositories, publishing files to any Git remote
 * [Snippet Manager](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_snippets.md) – finding, inserting, and adding your own snippets
 * [Project Notes](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_notes.md) – the per-project Markdown scratchpad
+* [Translations (i18n)](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_translations.md) – translation files, hardcoded strings, AI translation, switching the language in Go and webview apps
 
 ## 🛠 Key Features
 - **Automated Project Structure** – Create `src/` folder and `main.go` with a single click.
@@ -1298,6 +1301,8 @@ Wersja `v2.25.0` dodaje nowe narzędzie do tłumaczenia Twoich aplikacji – PL 
 * **🤖 Tłumaczenie brakujących tekstów:** najpierw z tekstów przetłumaczonych już w innych Twoich projektach i z własnego słownika, potem przez AI (Gemini, OpenAI albo lokalna Ollama). Wyniki AI są oznaczone *do sprawdzenia*, dopóki ich nie zaakceptujesz. Po wpisaniu klucza API wybierasz model z krótkiej listy najnowszych.
 * **🚀 Kreator projektu:** nowa opcja **Utwórz pliki tłumaczeń** – nowy projekt startuje z gotowymi tłumaczeniami (PL i EN; kolejne języki można dołączyć w ustawieniach).
 * **🎛️ SunGO PAD i drugie okno VS Code (F5):** gdy F5 otwiera drugie okno VS Code (np. przy pisaniu rozszerzenia do VS Code), pad jest przekazywany temu oknu i wraca do głównego po jego zamknięciu. Wcześniej oba okna sięgały po pad naraz i drugie okno często samo się zamykało zaraz po starcie.
+
+> 📖 **[Tłumaczenia (i18n) – Instrukcja](./README_translations.md)**
 
 ---
 
@@ -2144,6 +2149,7 @@ Krok po kroku, dwujęzyczne instrukcje instalacji i użytkowania dla każdego na
 * [Publish Any File to Any Repo](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_pubrepo.md) – zapisane repozytoria, publikowanie plików do dowolnego zdalnego repo
 * [Snippet Manager](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_snippets.md) – szukanie, wstawianie i dodawanie własnych snippetów
 * [Project Notes](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_notes.md) – notatnik Markdown per projekt
+* [Tłumaczenia (i18n)](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_translations.md) – pliki tłumaczeń, teksty na sztywno, tłumaczenie przez AI, przełączanie języka w aplikacjach Go i webview
 
 ## 🛠 Kluczowe Funkcje
 - **Struktura na start** – Automatyczne tworzenie folderu `src/` i pliku `main.go`.
