@@ -55,6 +55,8 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Guides & Detailed Usage](#-guides--detailed-usage)
 * [EN: SunGO PAD – Visual Status Feedback](#-sungo-pad--visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#-linux-setup--sungo-pad-udev-rules)
+* [EN: What's New (v2.25.0) – Translations (i18n)](#-whats-new-v2250--translations-i18n)
+* [EN: What's New (v2.24.0) – Vulnerability Check & Safer Panels](#-whats-new-v2240--vulnerability-check--safer-panels)
 * [EN: What's New (v2.23.1) – Linux App with Icon](#-whats-new-v2231--linux-app-with-icon)
 * [EN: What's New (v2.23.0) – Separate Android Button](#-whats-new-v2230--separate-android-button)
 * [EN: What's New (v2.22.0) – Remote Android APK Build](#-whats-new-v2220--remote-android-apk-build)
@@ -213,6 +215,27 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ This is a one-time setup. The rule persists after system reboots.  
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
+
+---
+
+### 🚀 What's New (v2.25.0) – Translations (i18n)
+
+The `v2.25.0` release adds a new tool for translating your apps, PL ⇄ EN and more languages.
+
+* **🌐 Translations (SunGo Tools):** one panel for everything about app texts. It shows missing and unused translations, texts that were never translated and texts typed straight into the code. Clicking an item opens the file at the right line.
+* **✨ Generate translations:** a project without translation files gets them in one click – with ready basic texts (buttons, questions, messages, menu) and everything needed to switch the language. A preview shows every change before anything is saved.
+* **✂️ Extract a text:** a text typed straight into the code can be moved to the translation files one by one, always with a preview.
+* **🤖 Translating missing texts:** first from texts already translated in your other projects and from your own glossary, then by AI (Gemini, OpenAI or a local Ollama). AI results are marked *to review* until you accept them. After entering the API key you pick the model from a short list of the newest ones.
+* **🚀 Project Creator:** new option **Create translation files** – a new project starts with translations ready (PL and EN; more languages can be added in the settings).
+* **🎛️ SunGO PAD and a second VS Code window (F5):** when F5 opens a second VS Code window (e.g. while developing a VS Code extension), the pad is handed over to that window and comes back to the main window when it is closed. Before, both windows reached for the pad at the same time and the second window often closed by itself right after start.
+
+---
+
+### 🚀 What's New (v2.24.0) – Vulnerability Check & Safer Panels
+
+* **🛡️ Dependencies › Check vulnerabilities:** one click lists known vulnerabilities that your code really uses, with the fixed version to upgrade to. The checking tool can be installed with one click if it is missing.
+* **🔒 Safer panels:** all SunGo panels now run only their own scripts, and file paths with unusual characters no longer break their buttons.
+* **🐹 Fixes:** **Gopher Wisdom** works from the Command Palette, and the **Clear** button in Git Templates clears the log again.
 
 ---
 
@@ -1110,6 +1133,8 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Instrukcje i szczegółowe użytkowanie](#-instrukcje-i-szczegółowe-użytkowanie)
 * [PL: SunGO PAD – Visual Status Feedback](#-sungo-pad--visual-status-feedback)
 * [PL: Linux – Konfiguracja udev](#-linux--konfiguracja-sungo-pad-reguły-udev)
+* [PL: Co nowego (v2.25.0) – Tłumaczenia (i18n)](#-co-nowego-v2250--tłumaczenia-i18n)
+* [PL: Co nowego (v2.24.0) – Sprawdzanie podatności i bezpieczniejsze panele](#-co-nowego-v2240--sprawdzanie-podatności-i-bezpieczniejsze-panele)
 * [PL: Co nowego (v2.23.1) – Aplikacja linuksowa z ikoną](#-co-nowego-v2231--aplikacja-linuksowa-z-ikoną)
 * [PL: Co nowego (v2.23.0) – Osobny przycisk Androida](#-co-nowego-v2230--osobny-przycisk-androida)
 * [PL: Co nowego (v2.22.0) – Zdalny build APK Androida](#-co-nowego-v2220--zdalny-build-apk-androida)
@@ -1260,6 +1285,27 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+### 🚀 Co nowego (v2.25.0) – Tłumaczenia (i18n)
+
+Wersja `v2.25.0` dodaje nowe narzędzie do tłumaczenia Twoich aplikacji – PL ⇄ EN i kolejne języki.
+
+* **🌐 Tłumaczenia (SunGo Tools):** jeden panel do wszystkiego, co dotyczy tekstów aplikacji. Pokazuje brakujące i nieużywane tłumaczenia, teksty, których nikt nie przetłumaczył, oraz teksty wpisane wprost w kod. Kliknięcie pozycji otwiera plik na właściwej linii.
+* **✨ Wygeneruj tłumaczenia:** projekt bez plików tłumaczeń dostaje je jednym kliknięciem – z gotowymi podstawowymi tekstami (przyciski, pytania, komunikaty, menu) i wszystkim, co potrzebne do przełączania języka. Podgląd pokazuje każdą zmianę, zanim cokolwiek zostanie zapisane.
+* **✂️ Wyciąganie tekstów:** tekst wpisany wprost w kod można przenieść do plików tłumaczeń pojedynczo, zawsze z podglądem.
+* **🤖 Tłumaczenie brakujących tekstów:** najpierw z tekstów przetłumaczonych już w innych Twoich projektach i z własnego słownika, potem przez AI (Gemini, OpenAI albo lokalna Ollama). Wyniki AI są oznaczone *do sprawdzenia*, dopóki ich nie zaakceptujesz. Po wpisaniu klucza API wybierasz model z krótkiej listy najnowszych.
+* **🚀 Kreator projektu:** nowa opcja **Utwórz pliki tłumaczeń** – nowy projekt startuje z gotowymi tłumaczeniami (PL i EN; kolejne języki można dołączyć w ustawieniach).
+* **🎛️ SunGO PAD i drugie okno VS Code (F5):** gdy F5 otwiera drugie okno VS Code (np. przy pisaniu rozszerzenia do VS Code), pad jest przekazywany temu oknu i wraca do głównego po jego zamknięciu. Wcześniej oba okna sięgały po pad naraz i drugie okno często samo się zamykało zaraz po starcie.
+
+---
+
+### 🚀 Co nowego (v2.24.0) – Sprawdzanie podatności i bezpieczniejsze panele
+
+* **🛡️ Zależności › Sprawdź podatności:** jednym kliknięciem pokazuje znane podatności, z których Twój kod faktycznie korzysta, razem z wersją, do której warto zaktualizować. Brakujące narzędzie do sprawdzania instaluje się jednym kliknięciem.
+* **🔒 Bezpieczniejsze panele:** wszystkie panele SunGo uruchamiają teraz tylko własne skrypty, a ścieżki plików z nietypowymi znakami nie psują już ich przycisków.
+* **🐹 Poprawki:** **Mądrość Gophera** działa z palety poleceń, a przycisk **Clear** w Git Templates znowu czyści log.
 
 ---
 
