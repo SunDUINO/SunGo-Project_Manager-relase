@@ -5,6 +5,90 @@
 
 ---
 
+## [2.26.1] - 2026-11-01
+
+### Changed / Zmieniono -- New Gopher animations / Nowe animacje Gophera
+
+- **[EN]** **Idle:** Gopher keeps reading his book, but every 20–40 s he does something small: yawns, stretches or sips coffee from a mug. After 5 minutes without any activity he dozes off (eyes closed, nodding, floating "Zzz"); a click or any new state wakes him up.
+- **[PL]** **Bezczynność:** Gopher dalej czyta książkę, ale co 20–40 s robi coś drobnego: ziewa, przeciąga się albo pije łyk kawy z kubka. Po 5 minutach bez żadnej aktywności przysypia (zamknięte oczy, kiwanie głową, unoszące się „Zzz”); budzi go kliknięcie albo każdy nowy stan.
+
+- **[EN]** **Build:** Gopher rhythmically strikes the gear with a wrench – sparks fly at every hit – and a second, small gear turns the other way. The matrix rain stays, but lighter.
+- **[PL]** **Build:** Gopher rytmicznie uderza kluczem w trybik – przy każdym uderzeniu lecą iskry – a drugi, mały trybik kręci się w przeciwną stronę. Matrix rain zostaje, ale jest lżejszy.
+
+- **[EN]** **Code signing (new state):** during **Sign** Gopher signs a sheet of paper with a pen and stamps it **OK**, then shows the result (✓ OK or error). Signing does not count towards the day stats.
+- **[PL]** **Podpisywanie kodu (nowy stan):** podczas **Sign** Gopher podpisuje kartkę piórem i przybija pieczątkę **OK**, potem pokazuje wynik (✓ OK albo błąd). Podpisywanie nie liczy się do statystyk dnia.
+
+- **[EN]** **Run** and **Test** no longer look the same. Run: a bigger laptop on Gopher's lap with scrolling log lines and a blinking `▶_` cursor, Gopher taps his foot. Test: a clipboard with a checklist – ✓ marks appear one by one while a magnifier moves over the rows; when tests fail a red ✗ appears first, then Gopher cries.
+- **[PL]** **Run** i **Test** nie wyglądają już tak samo. Run: większy laptop na kolanach Gophera z przewijanymi linijkami logów i mrugającym kursorem `▶_`, Gopher buja stopą. Test: schowek z checklistą – kolejne ✓ pojawiają się po kolei, a lupa przesuwa się po wierszach; gdy testy nie przejdą, najpierw pojawia się czerwony ✗, potem Gopher płacze.
+
+- **[EN]** **GitHub reactions:** together with the bubble, Gopher briefly (about 3 s, in any state) reacts to events: an envelope with a red **!** for new issues and review requests, a 📥 parcel for a new commit on GitHub, a thumbs-up for green CI and a facepalm with ✗ for failed CI. Reactions do not change his state.
+- **[PL]** **Reakcje na GitHuba:** razem z dymkiem Gopher na chwilę (ok. 3 s, w każdym stanie) reaguje na zdarzenia: koperta z czerwonym **!** przy nowych issues i prośbach o review, paczka 📥 przy nowym commicie na GitHubie, kciuk w górę przy zielonym CI i facepalm z ✗ przy nieudanym CI. Reakcje nie zmieniają jego stanu.
+
+- **[EN]** Switching between states is smooth (props, eyes and mouth cross-fade instead of jumping). With the system **reduce motion** setting Gopher shows static poses – no matrix rain, confetti, interludes or reactions.
+- **[PL]** Przejścia między stanami są płynne (rekwizyty, oczy i usta przenikają się zamiast przeskakiwać). Przy systemowym ustawieniu **ograniczania ruchu** Gopher pokazuje statyczne pozy – bez matrix rain, konfetti, przerywników i reakcji.
+
+### Fixed / Naprawiono -- Gopher
+
+- **[EN]** Gopher's arms never moved during **build** and **go vet** / **Code Review** – the animation was set in a way SVG elements ignore. They move now.
+- **[PL]** Łapki Gophera nigdy się nie ruszały podczas **build** i **go vet** / **Code Review** – animacja była ustawiana w sposób, który elementy SVG ignorują. Teraz się ruszają.
+
+- **[EN]** The gear on Gopher's belly wobbled because it rotated around the wrong point; it now turns around its own centre.
+- **[PL]** Trybik na brzuchu Gophera chybotał się, bo obracał się wokół złego punktu; teraz kręci się wokół własnego środka.
+
+---
+
+## [2.26.0] - 2026-10-29
+
+### Added / Dodano -- GitHub Issues, repository state and last builds in the Gopher Assistant / GitHub Issues, stan repozytorium i ostatnie buildy w panelu Gopher Assistant
+
+- **[EN]** Under Gopher, a **📦 Last builds** box shows the newest file for each system found in `bin/`: **Windows** (`bin/*.exe`, `bin/windows/`), **Linux** (`bin/linux/`, binary or AppImage) and **Android** (`bin/android/*.apk`) – name, version from the file name, how long ago. A version different from `src/main.go` is shown in orange (rebuild). Clicking a row shows the file in its folder, the title opens `bin/`. Updates by itself after each build; hidden when `bin/` has no builds.
+- **[PL]** Pod Gopherem ramka **📦 Ostatnie buildy** pokazuje najnowszy plik dla każdego systemu znalezionego w `bin/`: **Windows** (`bin/*.exe`, `bin/windows/`), **Linux** (`bin/linux/`, binarka albo AppImage) i **Android** (`bin/android/*.apk`) – nazwa, wersja z nazwy pliku, jak dawno. Wersja inna niż w `src/main.go` jest na pomarańczowo (do przebudowania). Kliknięcie wiersza pokazuje plik w folderze, tytuł otwiera `bin/`. Odświeża się sama po każdym buildzie; ukryta, gdy w `bin/` nie ma buildów.
+
+- **[EN]** When the open project has a GitHub repository (remote `origin` on github.com, read from VS Code's built-in Git), the Gopher Assistant panel gets an **🐞 Issues** section: number, title, labels and comment count; click opens the issue on GitHub. Buttons: **open / closed** filter, **⟳ Refresh**, **＋ New issue** (opens GitHub), the repository name opens the issue list. The section can be collapsed and is hidden for projects without a GitHub repo. The list refreshes itself every 5 minutes.
+- **[PL]** Gdy otwarty projekt ma repozytorium na GitHubie (remote `origin` na github.com, odczytywany z wbudowanego Gita w VS Code), panel Gopher Assistant dostaje sekcję **🐞 Issues**: numer, tytuł, etykiety i liczba komentarzy; kliknięcie otwiera issue na GitHubie. Przyciski: filtr **otwarte / zamknięte**, **⟳ Odśwież**, **＋ Nowe issue** (otwiera GitHuba), nazwa repozytorium otwiera listę issues. Sekcję można zwinąć, a dla projektów bez repo na GitHubie jest ukryta. Lista odświeża się sama co 5 minut.
+
+- **[EN]** A **GitHub icon** next to the Gopher status badge shows the number of open issues and **blinks** while there are any; clicking it expands the list. Gopher also says it in his bubble: how many issues are open when the project is opened, and which issues are **new** since last time (new ones are marked in the list until opened). During a build or a compilation error the message waits until Gopher is idle again.
+- **[PL]** **Ikonka GitHuba** obok znacznika stanu Gophera pokazuje liczbę otwartych issues i **miga**, dopóki jakieś są; kliknięcie rozwija listę. Gopher mówi o tym też w dymku: ile issues jest otwartych po otwarciu projektu i które są **nowe** od ostatniego razu (nowe są wyróżnione na liście, dopóki ich nie otworzysz). Podczas builda albo przy błędzie kompilacji komunikat czeka, aż Gopher wróci do spokoju.
+
+- **[EN]** Above the list, a **repository strip** shows the branch, the **last commit on GitHub** (short hash, message, author, how long ago – click opens it) and the sync state: **✓ Everything up to date**, or what is waiting – **📥 new commits on GitHub** (someone else pushed; detected straight from GitHub, even without a fetch), **⬇ to pull**, **⬆ to push**, **✎ changed files**. The **⇅** button runs VS Code's Git sync (pull + push); clicking the state opens Source Control. When a teammate pushes, Gopher says it in his bubble (branch, hash, message, author) and the GitHub icon blinks with ⬇.
+- **[PL]** Nad listą **pasek repozytorium** pokazuje gałąź, **ostatni commit na GitHubie** (krótki hash, opis, autor, jak dawno – kliknięcie go otwiera) i stan synchronizacji: **✓ Wszystko aktualne** albo co czeka – **📥 nowe commity na GitHubie** (ktoś inny wypchnął; wykrywane bezpośrednio z GitHuba, nawet bez fetch), **⬇ do pobrania**, **⬆ do wypchnięcia**, **✎ zmienione pliki**. Przycisk **⇅** uruchamia synchronizację Gita w VS Code (pull + push); kliknięcie stanu otwiera Source Control. Gdy ktoś z zespołu wypchnie zmiany, Gopher mówi o tym w dymku (gałąź, hash, opis, autor), a ikonka GitHuba miga z ⬇.
+
+- **[EN]** Public repositories work without signing in. For private ones SunGo uses the GitHub account built into VS Code (the same as Source Control / Settings Sync) – the section shows a **Sign in to GitHub** button; SunGo stores no tokens. The GitHub Pull Requests and Issues extension is not needed.
+- **[PL]** Publiczne repozytoria działają bez logowania. Dla prywatnych SunGo korzysta z konta GitHub wbudowanego w VS Code (tego samego co Source Control / Settings Sync) – sekcja pokazuje przycisk **Zaloguj do GitHuba**; SunGo nie przechowuje żadnych tokenów. Wtyczka GitHub Pull Requests and Issues nie jest potrzebna.
+
+### Added / Dodano -- Gopher: CI, pull requests, dependencies, CHANGELOG check and day stats / Gopher: CI, pull requesty, zależności, kontrola CHANGELOG i statystyki dnia
+
+- **[EN]** **GitHub Actions status** next to the branch: **✅ CI**, **❌ CI** (blinking) or **⏳ CI** for the last commit on GitHub (the latest run of every workflow); click opens the run. While a workflow is running it is checked every minute. Gopher says in his bubble when CI fails (once per commit) and when it passes after waiting.
+- **[PL]** **Status GitHub Actions** obok gałęzi: **✅ CI**, **❌ CI** (miga) albo **⏳ CI** dla ostatniego commita na GitHubie (ostatni przebieg każdego workflow); kliknięcie otwiera przebieg. Dopóki workflow trwa, stan jest sprawdzany co minutę. Gopher mówi w dymku, gdy CI padnie (raz na commit) i gdy przejdzie po oczekiwaniu.
+
+- **[EN]** **🔀 Pull Requests** above the issues: open PRs with number and title, drafts dimmed; **review requests for you** are on top with 👀 and an orange bar, and Gopher announces each new one in his bubble. Click opens the PR, the title opens the list on GitHub. Hidden when there are no open PRs. The GitHub icon also blinks for a failed CI (✗) and for review requests (👀).
+- **[PL]** **🔀 Pull Requesty** nad issues: otwarte PR z numerem i tytułem, szkice wyszarzone; **prośby o Twoje review** są na górze z 👀 i pomarańczowym paskiem, a Gopher zgłasza każdą nową w dymku. Kliknięcie otwiera PR, tytuł otwiera listę na GitHubie. Ukryte, gdy nie ma otwartych PR. Ikonka GitHuba miga też przy nieudanym CI (✗) i prośbach o review (👀).
+
+- **[EN]** **Last builds:** a build older than the last change of the Go code (`.go`, `go.mod`, `go.sum`) gets an orange **⚠** next to its age – rebuild. The **size change** against the previous build of the same kind is shown as `+30%` (orange) / `-2%` (green), with the previous size in the tooltip. The header shows whether the version from `src/main.go` already has an entry in **CHANGELOG.md** (**✓ CHANGELOG.md** or **⚠ not in CHANGELOG.md** – handy before a release); click opens the file. The box is shown also without builds when the code has a version.
+- **[PL]** **Ostatnie buildy:** build starszy niż ostatnia zmiana kodu Go (`.go`, `go.mod`, `go.sum`) dostaje pomarańczowe **⚠** przy czasie – do przebudowania. **Zmiana rozmiaru** względem poprzedniego builda tego samego rodzaju jest pokazana jako `+30%` (pomarańczowo) / `-2%` (zielono), poprzedni rozmiar w podpowiedzi. Nagłówek pokazuje, czy wersja z `src/main.go` ma już wpis w **CHANGELOG.md** (**✓ CHANGELOG.md** albo **⚠ brak w CHANGELOG.md** – przydatne przed wydaniem); kliknięcie otwiera plik. Ramka jest widoczna także bez buildów, gdy kod ma wersję.
+
+- **[EN]** **🧩 Dependencies** box: `go list -u -m all` runs in the background (20 s after start, after a `go.mod` change and every 6 hours; it changes neither `go.mod` nor `go.sum`) and shows how many **direct** dependencies have newer versions (plus the number of indirect ones), up to 5 of them as `old → new`. Click opens the Dependencies window, **⟳** checks again. Gopher announces each new version once.
+- **[PL]** Ramka **🧩 Zależności**: w tle uruchamia się `go list -u -m all` (20 s po starcie, po zmianie `go.mod` i co 6 godzin; nie zmienia `go.mod` ani `go.sum`) i pokazuje, ile **bezpośrednich** zależności ma nowsze wersje (plus liczbę pośrednich), do 5 z nich jako `stara → nowa`. Kliknięcie otwiera okno Zależności, **⟳** sprawdza ponownie. Gopher zgłasza każdą nową wersję raz.
+
+- **[EN]** **Gopher's day stats** in the status bar: 🔨 builds (✓ ok, ✗ compile errors), 🧪 tests (✗ failed) and ▶ runs today, reset at midnight. Gopher comments on the day in his bubble: the first green build of the day, 10 / 25 / 50 / 100 builds, a third and fifth compile error in a row, and a passing build after a series of errors.
+- **[PL]** **Statystyki dnia Gophera** w pasku stanu: 🔨 buildy (✓ udane, ✗ błędy kompilacji), 🧪 testy (✗ nieudane) i ▶ uruchomienia z dzisiaj, zerowane o północy. Gopher komentuje dzień w dymku: pierwszy zielony build dnia, 10 / 25 / 50 / 100 buildów, trzeci i piąty błąd kompilacji z rzędu oraz udany build po serii błędów.
+
+### Added / Dodano -- Special projects / Projekty specjalne
+
+- **[EN]** The projects view gets a second group next to **★ Favorites**: **⚠ Special Projects** with a purple warning-triangle icon. A project is marked with the **⚠** button next to the star (or from the right-click menu) and unmarked with the **⊘** button. A project can be in both groups at once; in **Your Projects** it no longer appears once pinned. The group is hidden while empty.
+- **[PL]** Widok projektów dostaje drugą grupę obok **★ Ulubione**: **⚠ Projekty specjalne** z fioletową ikoną trójkąta z wykrzyknikiem. Projekt oznacza się przyciskiem **⚠** obok gwiazdki (albo z menu pod prawym przyciskiem), a odznacza przyciskiem **⊘**. Projekt może być w obu grupach naraz; w **Twoich projektach** po przypięciu już się nie powtarza. Pusta grupa jest ukryta.
+
+### Fixed / Naprawiono
+
+- **[EN]** Pin / unpin commands run from the Command Palette (without a project selected) no longer throw an error.
+- **[PL]** Polecenia przypinania / odpinania wywołane z palety poleceń (bez wybranego projektu) nie wyrzucają już błędu.
+- **[EN]** The **Dependencies** window now shows available updates: modules with a newer version were read wrongly (the nested `Update` block was taken as the module), so they appeared already at the new version and without the update mark.
+- **[PL]** Okno **Zależności** pokazuje teraz dostępne aktualizacje: moduły z nowszą wersją były odczytywane błędnie (zagnieżdżony blok `Update` brany był za moduł), więc wyglądały na zaktualizowane i nie miały znacznika aktualizacji.
+- **[EN]** **Dependencies:** a module that your code does not use (it is only in the dependency graph of other modules, e.g. for their tests) is now marked **⚪ unused** instead of offering an update – `go get -u` changed `go.mod` / `go.sum`, but `go mod tidy` removed the update right away, so the version never changed while the window said "updated". Detected with `go mod why -m` (all build tags, like `go mod tidy`); if a forced update does not change the version, a warning explains why. The Gopher 🧩 Dependencies count skips such modules too.
+- **[PL]** **Zależności:** moduł, którego Twój kod nie używa (jest tylko w grafie zależności innych modułów, np. do ich testów), jest teraz oznaczony **⚪ nieużywany** zamiast przycisku aktualizacji – `go get -u` zmieniał `go.mod` / `go.sum`, ale `go mod tidy` od razu cofał aktualizację, więc wersja się nie zmieniała, a okno pisało „updated”. Wykrywane przez `go mod why -m` (wszystkie tagi buildu, jak `go mod tidy`); jeśli wymuszona aktualizacja nie zmieni wersji, ostrzeżenie wyjaśnia dlaczego. Licznik 🧩 Zależności pod Gopherem też je pomija.
+
+---
+
 ## [2.25.0] - 2026-10-24
 
 ### Added / Dodano -- Translations (i18n) / Tłumaczenia (i18n)

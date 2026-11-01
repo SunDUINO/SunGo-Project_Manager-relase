@@ -55,6 +55,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Guides & Detailed Usage](#-guides--detailed-usage)
 * [EN: SunGO PAD – Visual Status Feedback](#-sungo-pad--visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#-linux-setup--sungo-pad-udev-rules)
+* [EN: What's New (v2.26.0) – Gopher: Issues, Repo State & Last Builds](#-whats-new-v2260--gopher-issues-repo-state--last-builds)
 * [EN: What's New (v2.25.0) – Translations (i18n)](#-whats-new-v2250--translations-i18n)
 * [EN: What's New (v2.24.0) – Vulnerability Check & Safer Panels](#-whats-new-v2240--vulnerability-check--safer-panels)
 * [EN: What's New (v2.23.1) – Linux App with Icon](#-whats-new-v2231--linux-app-with-icon)
@@ -215,6 +216,26 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ This is a one-time setup. The rule persists after system reboots.  
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
+
+---
+
+### 🚀 What's New (v2.26.0) – Gopher: Issues, Repo State & Last Builds
+
+The `v2.26.0` release turns the **Gopher Assistant** panel into a small project dashboard. Everything you used to check in the `bin` folder, in Source Control or on GitHub is now right under Gopher.
+
+* **📦 Last builds:** the newest build for each system found in `bin/` – 🪟 Windows, 🐧 Linux (binary or AppImage) and 🤖 Android (APK) – with its version and how long ago it was built. A build whose version differs from the one in `main.go` is shown in **orange**, so you can see at a glance what still needs rebuilding. A build older than your latest Go code change gets an orange **⚠**, and the **size change** against the previous build is shown as `+30%` / `-2%`. The header tells you whether the version from `main.go` already has an entry in **CHANGELOG.md** – a handy check before a release. Click a row to show the file in its folder; click the title to open `bin/`. The list updates by itself after every build.
+* **🧩 Dependencies:** `go list -u` runs quietly in the background and shows how many direct dependencies in `go.mod` have newer versions, with `old → new` for each. Click to open the Dependencies window.
+* **🌿 Repository state:** the branch and the **last commit on GitHub** (short number, message, author, when). Below it either **✓ Everything up to date** or what is waiting: 📥 new commits on GitHub, ⬇ to pull, ⬆ to push, ✎ changed files. The **⇅** button synchronizes (pull + push). Handy when several people work on one repository – SunGo sees a teammate's push straight on GitHub, even before you fetch.
+* **🐞 Issues:** the open issues of the project's GitHub repository with labels and comment counts, an open / closed filter, refresh and a **＋ New issue** button. Click an issue to open it on GitHub. The **GitHub Pull Requests and Issues** extension is not needed.
+* **🐹 Gopher keeps you posted:** a **GitHub icon** next to the status badge shows the number of open issues and **blinks** when there are issues or new commits to pull. Gopher also says it in his bubble – how many issues are open, which ones are new, and who pushed what – but never in the middle of a build or a compilation error.
+* **🔐 Sign-in:** public repositories work without signing in. For a private one click the 🔒 icon once – SunGo uses the GitHub account already signed in to VS Code (the same as Source Control) and stores no tokens.
+* **✅ CI status:** next to the branch – ✅ / ❌ / ⏳ for the GitHub Actions of the last commit. Click opens the run; Gopher tells you when CI fails or passes.
+* **🔀 Pull Requests:** open PRs above the issues, with **review requests for you** on top (👀) – and a bubble from Gopher for each new one.
+* **📊 Gopher's day:** today's builds, compile errors, tests and runs in the status bar – and a word from Gopher about the first green build, a long streak of errors or a build count milestone.
+
+* **⚠ Special Projects:** a second group in the projects view, next to **★ Favorites**, marked with a **purple warning triangle** – for projects that need extra attention. Add a project with the **⚠** button next to the star (or from the right-click menu), remove it with **⊘**. A project can be both a favorite and a special one.
+
+> 💡 The repository and Issues parts appear only for projects with a GitHub repository; the build list appears whenever `bin/` has builds.
 
 ---
 
@@ -1136,6 +1157,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Instrukcje i szczegółowe użytkowanie](#-instrukcje-i-szczegółowe-użytkowanie)
 * [PL: SunGO PAD – Visual Status Feedback](#-sungo-pad--visual-status-feedback)
 * [PL: Linux – Konfiguracja udev](#-linux--konfiguracja-sungo-pad-reguły-udev)
+* [PL: Co nowego (v2.26.0) – Gopher: Issues, stan repo i ostatnie buildy](#-co-nowego-v2260--gopher-issues-stan-repo-i-ostatnie-buildy)
 * [PL: Co nowego (v2.25.0) – Tłumaczenia (i18n)](#-co-nowego-v2250--tłumaczenia-i18n)
 * [PL: Co nowego (v2.24.0) – Sprawdzanie podatności i bezpieczniejsze panele](#-co-nowego-v2240--sprawdzanie-podatności-i-bezpieczniejsze-panele)
 * [PL: Co nowego (v2.23.1) – Aplikacja linuksowa z ikoną](#-co-nowego-v2231--aplikacja-linuksowa-z-ikoną)
@@ -1288,6 +1310,26 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+### 🚀 Co nowego (v2.26.0) – Gopher: Issues, stan repo i ostatnie buildy
+
+Wersja `v2.26.0` zmienia panel **Gopher Assistant** w mały pulpit projektu. Wszystko, po co dotąd trzeba było zaglądać do folderu `bin`, do Source Control albo na GitHuba, jest teraz pod Gopherem.
+
+* **📦 Ostatnie buildy:** najnowszy build dla każdego systemu znalezionego w `bin/` – 🪟 Windows, 🐧 Linux (binarka albo AppImage) i 🤖 Android (APK) – z wersją i informacją, jak dawno powstał. Build w innej wersji niż ta w `main.go` jest na **pomarańczowo**, więc od razu widać, co trzeba przebudować. Build starszy niż ostatnia zmiana kodu Go dostaje pomarańczowe **⚠**, a **zmiana rozmiaru** względem poprzedniego builda jest pokazana jako `+30%` / `-2%`. Nagłówek mówi, czy wersja z `main.go` ma już wpis w **CHANGELOG.md** – przydatne przed wydaniem. Kliknięcie wiersza pokazuje plik w folderze, kliknięcie tytułu otwiera `bin/`. Lista odświeża się sama po każdym buildzie.
+* **🧩 Zależności:** w tle po cichu działa `go list -u` i pokazuje, ile bezpośrednich zależności z `go.mod` ma nowsze wersje, z `stara → nowa` dla każdej. Kliknięcie otwiera okno Zależności.
+* **🌿 Stan repozytorium:** gałąź i **ostatni commit na GitHubie** (krótki numer, opis, autor, kiedy). Pod spodem albo **✓ Wszystko aktualne**, albo co czeka: 📥 nowe commity na GitHubie, ⬇ do pobrania, ⬆ do wypchnięcia, ✎ zmienione pliki. Przycisk **⇅** synchronizuje (pull + push). Przydatne, gdy nad jednym repo pracuje kilka osób – SunGo widzi push kolegi bezpośrednio na GitHubie, jeszcze zanim zrobisz fetch.
+* **🐞 Issues:** otwarte issues repozytorium projektu z etykietami i liczbą komentarzy, filtr otwarte / zamknięte, odświeżanie i przycisk **＋ Nowe issue**. Kliknięcie otwiera issue na GitHubie. Wtyczka **GitHub Pull Requests and Issues** nie jest potrzebna.
+* **🐹 Gopher daje znać:** **ikonka GitHuba** obok znacznika stanu pokazuje liczbę otwartych issues i **miga**, gdy są issues albo nowe commity do pobrania. Gopher mówi o tym też w dymku – ile issues jest otwartych, które są nowe i kto co wypchnął – ale nigdy w trakcie builda ani przy błędzie kompilacji.
+* **🔐 Logowanie:** publiczne repozytoria działają bez logowania. Przy prywatnym wystarczy raz kliknąć ikonkę 🔒 – SunGo korzysta z konta GitHub zalogowanego już w VS Code (tego samego co Source Control) i nie przechowuje żadnych tokenów.
+* **✅ Status CI:** obok gałęzi – ✅ / ❌ / ⏳ dla GitHub Actions ostatniego commita. Kliknięcie otwiera przebieg; Gopher daje znać, gdy CI padnie albo przejdzie.
+* **🔀 Pull Requesty:** otwarte PR nad issues, a **prośby o Twoje review** na górze (👀) – i dymek od Gophera przy każdej nowej.
+* **📊 Dzień Gophera:** dzisiejsze buildy, błędy kompilacji, testy i uruchomienia w pasku stanu – i słowo od Gophera o pierwszym zielonym buildzie, długiej serii błędów albo okrągłej liczbie buildów.
+
+* **⚠ Projekty specjalne:** druga grupa w widoku projektów, obok **★ Ulubionych**, oznaczona **fioletowym trójkątem z wykrzyknikiem** – na projekty, które wymagają szczególnej uwagi. Projekt dodajesz przyciskiem **⚠** obok gwiazdki (albo z menu pod prawym przyciskiem), usuwasz przyciskiem **⊘**. Projekt może być jednocześnie ulubionym i specjalnym.
+
+> 💡 Stan repo i Issues pojawiają się tylko w projektach z repozytorium na GitHubie; lista buildów – zawsze, gdy w `bin/` są buildy.
 
 ---
 
