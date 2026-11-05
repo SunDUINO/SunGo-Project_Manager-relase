@@ -5,8 +5,105 @@
 
 ---
 
+## [2.26.6] - 2026-11-05
 
-## [2.26.2] - 2026-11-04
+### Changed / Zmieniono -- Gopher Assistant
+
+- **[EN]** Test version: a new **Gophersun** replaces the old Gopher in the panel. It is a furry character made of 32 image layers (WebP, 92 KB) animated with CSS, with its own animation for each of the 10 states, idle moments (yawn, stretch, coffee, sleep), GitHub reactions and clicks. Three quick clicks still give a surprise.
+- **[PL]** Wersja testowa: w panelu zamiast starego Gophera jest nowy **Gophersun**. To futrzasta postać z 32 warstw obrazu (WebP, 92 KB) animowanych w CSS, z własną animacją każdego z 10 stanów, przerywnikami w bezczynności (ziewanie, przeciąganie, kawa, sen), reakcjami na GitHuba i kliknięcia. Trzy szybkie kliknięcia nadal dają niespodziankę.
+
+- **[EN]** The animation runs at 24 frames per second and stops while the panel is hidden, which saves CPU. With reduced motion turned on in the system, Gopher stands still.
+- **[PL]** Animacja ma 24 klatki na sekundę i zatrzymuje się, gdy panel jest ukryty, co oszczędza procesor. Przy włączonym w systemie ograniczeniu ruchu Gopher stoi nieruchomo.
+
+- **[EN]** The speech bubble now grows upward from a fixed bottom edge, so Gopher no longer moves when the text changes. Space is reserved for 4 lines and the hint. Longer text ends with "…", and the full text is in the tooltip.
+- **[PL]** Dymek rośnie teraz do góry od stałej dolnej krawędzi, więc Gopher nie przesuwa się przy zmianie tekstu. Miejsce jest zarezerwowane na 4 wiersze i podpowiedź. Dłuższy tekst kończy się „…”, a pełna treść jest w podpowiedzi po najechaniu.
+
+- **[EN]** New animation for **go mod tidy** and **Import All**: in the hologram, module packages slide onto shelves, unneeded ones fly out, then a ✓ appears. It has its own pink color, and the status bar and badge show it as work in progress.
+- **[PL]** Nowa animacja dla **go mod tidy** i **Import All**: w hologramie paczki modułów wjeżdżają na regały, niepotrzebne wylatują, a na końcu pojawia się ✓. Ma własny różowy kolor, a pasek stanu i plakietka pokazują ją jako pracę w toku.
+
+- **[EN]** The go fmt and go mod tidy scenes always play to the end, even if the command finishes at once. The result and its message appear right after the scene.
+- **[PL]** Sceny go fmt i go mod tidy zawsze grają do końca, nawet gdy komenda kończy się od razu. Wynik i jego dymek pojawiają się zaraz po scenie.
+
+- **[EN]** Everything wakes a sleeping Gopher: a state change, a GitHub reaction, a click and a new message.
+- **[PL]** Śpiącego Gophera budzi wszystko: zmiana stanu, reakcja na GitHuba, kliknięcie i nowy dymek.
+
+- **[EN]** Three quick clicks no longer spin Gopher around. He hops with happy eyes under falling confetti.
+- **[PL]** Trzy szybkie kliknięcia nie obracają już Gophera. Podskakuje z wesołymi oczami, a z góry leci konfetti.
+
+## [2.26.5] - 2026-11-03
+
+### Changed / Zmieniono -- Home
+
+- **[EN]** The **Active projects** card on Home now spans the full width and shows three terminal-style panels side by side: **⚠ special**, **★ favorites** and **🕘 recent**. Each panel shows 6 rows and scrolls the rest. A row opens the project on click (or Enter), shows when it was last opened and has a ☆/★ to pin or unpin it right from Home. The active project is green with a ● dot, and the tooltip shows the full path. Under the card, Installed Tools is on the left and Security & System with Support below it on the right, both columns ending at the same height. The **+ New Go Project** button was removed from the card – it is still in the title bar and on the pad.
+- **[PL]** Karta **Masz aktywne projekty** na Home zajmuje teraz całą szerokość i pokazuje trzy panele w stylu terminala obok siebie: **⚠ special**, **★ ulubione** i **🕘 ostatnie**. Każdy panel pokazuje 6 wierszy, resztę się przewija. Kliknięcie wiersza (albo Enter) otwiera projekt, wiersz pokazuje, kiedy projekt był ostatnio otwarty, i ma ☆/★ do przypinania lub odpinania prosto z Home. Aktywny projekt jest zielony z kropką ●, a podpowiedź pokazuje pełną ścieżkę. Pod kartą po lewej są Zainstalowane narzędzia, a po prawej Bezpieczeństwo i system, pod nim Wsparcie – obie kolumny kończą się na tej samej wysokości. Przycisk **+ Nowy projekt Go** zniknął z karty – nadal jest w belce i na padzie.
+
+### Fixed / Naprawiono -- Home
+
+- **[EN]** "Recent" projects are really the recently opened ones now (up to 15, no duplicates). Before, Home showed the last 5 folders in alphabetical order, and after removing favorites from them there were sometimes only 1–2 left.
+- **[PL]** „Ostatnie” projekty to teraz naprawdę ostatnio otwierane (do 15, bez duplikatów). Wcześniej Home pokazywał 5 ostatnich folderów alfabetycznie, a po odjęciu ulubionych zostawało czasem 1–2.
+
+- **[EN]** The project panels appear right after opening Home and refresh on their own after pinning or unpinning in the sidebar – they no longer wait for the tool check (go, gcc, git) or the Refresh Status button.
+- **[PL]** Panele projektów pojawiają się od razu po otwarciu Home i same się odświeżają po przypięciu lub odpięciu w panelu bocznym – nie czekają już na sprawdzanie narzędzi (go, gcc, git) ani na przycisk Odśwież status.
+
+- **[EN]** Deleting a project from disk also removes it from favorites, special projects and recent ones. Before, a new folder with the same name came back as a favorite.
+- **[PL]** Usunięcie projektu z dysku usuwa go też z ulubionych, specjalnych i ostatnich. Wcześniej nowy folder o tej samej nazwie wracał jako ulubiony.
+
+## [2.26.4] - 2026-11-03
+
+### Fixed / Naprawiono -- Translations / Tłumaczenia
+
+- **[EN]** The English translation file now has all 58 texts of **Remote Build** (`remote.*`) – until now they were only in the Polish file and English came from fallbacks in the code. Both translation files have the same keys again.
+- **[PL]** Angielski plik tłumaczeń ma teraz wszystkie 58 tekstów **Zdalnego buildu** (`remote.*`) – do tej pory były tylko w pliku polskim, a angielski brał się z tekstów zapasowych w kodzie. Oba pliki tłumaczeń mają znowu te same klucze.
+
+### Changed / Zmieniono -- Cleanup / Porządki
+
+- **[EN]** Fewer debug messages in the developer console: Code Review no longer prints every tool command and its full output, and the pad no longer logs every queued command, key color and ignored duplicate. Pad connection events and errors are still logged.
+- **[PL]** Mniej komunikatów debugowania w konsoli deweloperskiej: Code Review nie wypisuje już każdej komendy narzędzia i jej pełnego wyniku, a pad nie loguje każdej komendy w kolejce, koloru klawisza i pominiętego duplikatu. Zdarzenia połączenia pada i błędy są nadal logowane.
+
+- **[EN]** The extension starts only after VS Code has finished starting (the extra activation on opening a Go file was redundant), and the unused `@types/node-hid` package was removed – `node-hid` 3.x has its own types.
+- **[PL]** Wtyczka startuje dopiero po zakończeniu startu VS Code (dodatkowa aktywacja przy otwarciu pliku Go była zbędna), a nieużywany pakiet `@types/node-hid` został usunięty – `node-hid` 3.x ma własne typy.
+
+## [2.26.3] - 2026-11-01
+
+### Changed / Zmieniono -- Gopher
+
+- **[EN]** Removed the old "running..." progress bar from the Gopher panel code – since 2.26.1 no state showed it (run and test have their own props). No visible change.
+- **[PL]** Usunięto z kodu panelu Gophera stary pasek postępu „running...” – od 2.26.1 nie pokazywał go żaden stan (run i test mają własne rekwizyty). Bez widocznych zmian.
+
+- **[EN]** After a failed code signing Gopher goes back to rest after 5 s instead of staying in the error pose until the next action. If something else changes his state in the meantime (e.g. a build starts), he is left alone.
+- **[PL]** Po nieudanym podpisaniu kodu Gopher po 5 s wraca do spoczynku zamiast tkwić w pozie błędu aż do następnej akcji. Jeśli w międzyczasie coś innego zmieni jego stan (np. ruszy build), zostaje nietknięty.
+
+### Performance / Wydajność -- Dependencies / Zależności
+
+- **[EN]** Opening a VS Code window no longer runs `go list -u -m -json all` (a network query to the module proxy) every time. The result of the last check is remembered per project together with a fingerprint of `go.mod` and `go.sum`; if they have not changed and the last check is less than 6 h old, Gopher 🧩 shows the remembered result right away. A change to `go.mod` and the ⟳ button still check immediately, and each new version is still announced only once.
+- **[PL]** Otwarcie okna VS Code nie uruchamia już za każdym razem `go list -u -m -json all` (zapytanie sieciowe do proxy modułów). Wynik ostatniego sprawdzenia jest zapamiętywany per projekt razem z odciskiem `go.mod` i `go.sum`; jeśli się nie zmieniły, a od sprawdzenia minęło mniej niż 6 h, Gopher 🧩 od razu pokazuje zapamiętany wynik. Zmiana `go.mod` i przycisk ⟳ nadal sprawdzają od razu, a każda nowa wersja jest nadal ogłaszana tylko raz.
+
+### Performance / Wydajność -- SunGO MacroPAD
+
+- **[EN]** Connecting the pad no longer freezes VS Code for about a second on Windows – checking (and, if needed, extending) the user PATH for the `sungo` launcher now runs in the background instead of two blocking PowerShell calls.
+- **[PL]** Podłączenie pada nie zamraża już VS Code na około sekundę w Windows – sprawdzanie (i w razie potrzeby uzupełnianie) PATH użytkownika dla skrótu `sungo` działa teraz w tle zamiast dwóch blokujących wywołań PowerShella.
+
+### Performance / Wydajność -- Tools / Narzędzia
+
+- **[EN]** More external programs run in the background instead of blocking the editor: `git status` / `git rev-parse` when publishing to a repository, the Graphviz check (`dot -V`) in pprof, and `go tool nm` for the binary size analysis (Bin Watcher and the symbol snapshot for Build Diff after a build). The `nm` result is still cached per binary.
+- **[PL]** Kolejne zewnętrzne programy działają w tle zamiast blokować edytor: `git status` / `git rev-parse` przy publikacji do repozytorium, sprawdzanie Graphviza (`dot -V`) w pprof oraz `go tool nm` przy analizie rozmiaru binarki (Bin Watcher i snapshot symboli dla Build Diff po buildzie). Wynik `nm` jest nadal cache'owany per binarka.
+
+### Fixed / Naprawiono -- SunGO MacroPAD
+
+- **[EN]** The **User 5** and **User 6** buttons in the MacroPAD II settings did nothing (a script error) when no scheme had been saved in that slot yet. They now fall back to the default colors.
+- **[PL]** Przyciski **User 5** i **User 6** w ustawieniach MacroPAD II nic nie robiły (błąd skryptu), gdy w danym slocie nie zapisano jeszcze schematu. Teraz używają domyślnych kolorów.
+
+### Fixed / Naprawiono -- Code Review
+
+- **[EN]** After opening the Code Review window the pad stayed yellow and Gopher stayed in "analysing" mode even after the window was closed, until another action. Closing the window (X) now brings the pad and Gopher back to normal if the analysis was still running or ended with issues (unless something else has changed Gopher's state in the meantime). A failed analysis also turns the pad off instead of leaving it yellow, and a result that arrives after the window was closed no longer changes Gopher or the pad.
+- **[PL]** Po otwarciu okna Code Review pad zostawał żółty, a Gopher w trybie „analizuję” nawet po zamknięciu okna – aż do innej akcji. Zamknięcie okna (X) przywraca teraz normalny stan pada i Gophera, jeśli analiza jeszcze trwała albo skończyła się znalezionymi problemami (chyba że w międzyczasie coś innego zmieniło stan Gophera). Nieudana analiza też gasi pad zamiast zostawiać go żółtym, a wynik, który przyjdzie po zamknięciu okna, nie zmienia już Gophera ani pada.
+
+### Fixed / Naprawiono -- pprof
+
+- **[EN]** The **Copy** buttons for the profiling snippets copied the code but never showed "✅ Copied!". The confirmation now appears and the button returns to its original (translated) label after 2 s.
+- **[PL]** Przyciski **Copy** przy fragmentach kodu do profilowania kopiowały kod, ale nigdy nie pokazywały „✅ Copied!”. Potwierdzenie teraz się pojawia, a przycisk po 2 s wraca do swojej pierwotnej (przetłumaczonej) etykiety.
+
+## [2.26.2] - 2026-11-01
 
 ### Changed / Zmieniono -- Gopher
 
