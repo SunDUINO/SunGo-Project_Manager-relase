@@ -3,10 +3,72 @@
 [EN] All notable changes to the SunGO PAD firmware are documented in this file.  
 [PL] Wszystkie istotne zmiany w oprogramowaniu układowym SunGO PAD są dokumentowane w tym pliku.
 
+## [7.0.2] - 2026-11-08
+
+### Changed / Zmieniono
+
+* [EN] The firmware update screen (command `U` from the extension) has a new look: the start image with a **FW UPDATE / bootloader mode** band. It appears before the pad switches to bootloader mode.
+* [PL] Ekran aktualizacji firmware (komenda `U` z wtyczki) ma nowy wygląd: obraz startowy z pasem **FW UPDATE / bootloader mode**. Pokazuje się, zanim pad przejdzie w tryb bootloadera.
+* [EN] The tool result hologram now stays on screen for the full 5 s. Keys 1–9 and A–C, the 1+7+9 combo, encoder rotation and push, icons from the VS Code status bar (`I`) and brightness changes (`L`) work normally meanwhile, but do not change the screen. After the hologram folds, the last of these screens is shown for the rest of its time, or skipped if its time has already passed. The "CHECK VS CODE" warning has priority. The hologram ends only after 5 s, on command `D` or on a firmware update (`U`), and a new `T`/`Q`/`F` result only replaces its text.
+* [PL] Hologram z wynikiem narzędzia zostaje na ekranie przez pełne 5 s. Klawisze 1–9 i A–C, kombinacja 1+7+9, obrót i wciśnięcie enkoderów, ikony z belki VS Code (`I`) i zmiana jasności (`L`) działają w tym czasie normalnie, ale nie zmieniają ekranu. Po zwinięciu hologramu ostatni z tych ekranów pokazuje się przez resztę swojego czasu, a jeśli ten czas już minął, jest pomijany. Ostrzeżenie „CHECK VS CODE” ma pierwszeństwo. Hologram kończą tylko upływ 5 s, komenda `D` i aktualizacja (`U`), a nowy wynik `T`/`Q`/`F` podmienia tylko jego tekst.
+
+---
+
+## [7.0.1] - 2026-11-06
+
+### Changed / Zmieniono
+
+* [EN] New start screen and new Windows/Linux banners as full images. The version number on the start screen is drawn with a smooth font.
+* [PL] Nowy ekran startowy i nowe banery Windows/Linux jako pełne obrazy. Numer wersji na ekranie startowym jest rysowany wygładzoną czcionką.
+* [EN] The system setting (Windows/Linux) is saved in a new place in flash memory (2 MB − 4 KB), so the same `.uf2` file works on pads with 2 MB and 8 MB flash. A check during the build makes sure the program never overwrites this place.
+* [PL] Ustawienie systemu (Windows/Linux) jest zapisywane w nowym miejscu pamięci flash (2 MB − 4 KB), więc ten sam plik `.uf2` działa na padach z 2 MB i z 8 MB flash. Kontrola przy budowaniu pilnuje, żeby program nigdy nie nadpisał tego miejsca.
+
+### Note / Uwaga
+
+* [EN] After updating to 7.0.1 or newer, the system setting goes back to the default (Windows) once. On Linux, press **1+7+9** once.
+* [PL] Po aktualizacji do 7.0.1 lub nowszej wersji ustawienie systemu jednorazowo wraca do domyślnego (Windows). Na Linuksie wystarczy raz nacisnąć **1+7+9**.
+
+---
+
+## [7.0.0] - 2026-11-06
+
+### Added / Dodano
+
+* [EN] **Tool result hologram:** new RAW HID commands `T` (success, green title), `Q` (remarks, yellow) and `F` (error, red). Gophersun's robot hand shows a panel with a title of up to 8 characters and up to three lines of 17 characters (e.g. `14/14 passed`, binary size, `main.go:42`), with a 5 s progress bar. A new result during the hologram replaces the text and restarts the 5 s. SunGo extension 2.27.0 sends the results of Go Build, Go Fmt, Import All, Test, go vet, Code Review and Sign.
+* [PL] **Hologram z wynikiem narzędzia:** nowe komendy RAW HID `T` (sukces, zielony tytuł), `Q` (uwagi, żółty) i `F` (błąd, czerwony). Robo-ręka Gophersuna wyświetla panel z tytułem do 8 znaków i maksymalnie trzema wierszami po 17 znaków (np. `14/14 passed`, rozmiar binarki, `main.go:42`), z paskiem czasu 5 s. Nowy wynik w trakcie podmienia tekst i liczy 5 s od nowa. Wtyczka SunGo 2.27.0 wysyła wyniki Go Build, Go Fmt, Import All, Test, go vet, Code Review i Sign.
+* [EN] If command `E` (error) has not yet been followed by `O`, a **CHECK VS CODE** warning triangle appears after the hologram folds.
+* [PL] Gdy po komendzie `E` (błąd) nie przyszło jeszcze `O`, po zwinięciu hologramu pokazuje się trójkąt ostrzegawczy **CHECK VS CODE**.
+
+### Changed / Zmieniono
+
+* [EN] Gophersun now fills the whole idle screen. The "SunGo ready" text, the blue line and `lothar-team.pl` are gone from the idle screen (the start screen still shows `lothar-team.pl`).
+* [PL] Gophersun zajmuje teraz cały ekran w spoczynku. Napis „SunGo ready”, niebieska linia i `lothar-team.pl` zniknęły z ekranu spoczynku (ekran startowy nadal pokazuje `lothar-team.pl`).
+* [EN] New idle animations: a head sway (about every 20 s) and a hologram from the robot hand with green-blue-purple rays that Gophersun glances at (about every 40 s). Blinking stays, and yawning is now less frequent (about every 150 s).
+* [PL] Nowe animacje w spoczynku: ruch głowy (co około 20 s) i hologram z robo-ręki z zielono-niebiesko-fioletowymi promieniami, na który Gophersun zerka (co około 40 s). Mruganie zostało, a ziewanie pojawia się teraz rzadziej (co około 150 s).
+* [EN] Faster switch to the idle screen (less data sent to the LCD).
+* [PL] Szybsze wejście w ekran spoczynku (mniej danych wysyłanych na LCD).
+
+---
+
+## [6.9.0] - 2026-11-05
+
+### Changed / Zmieniono
+
+* [EN] The idle screen shows **Gophersun** – the full figure on a podium – instead of the drawn Gopher.
+* [PL] Na ekranie spoczynku zamiast rysowanego Gophera jest **Gophersun** – pełna postać na podium.
+* [EN] A real, smooth blink every 2.5–6 s instead of switching between open and closed eyes every 2.5 s.
+* [PL] Prawdziwe, płynne mrugnięcie co 2,5–6 s zamiast przełączania otwartych i zamkniętych oczu co 2,5 s.
+* [EN] New yawning animation (about 2.3 s).
+* [PL] Nowa animacja ziewania (około 2,3 s).
+* [EN] The other screens (start logo, system banner, tool and encoder screens), keys, encoders and HID commands work as before.
+* [PL] Pozostałe ekrany (logo startowe, baner systemu, ekrany narzędzi i enkoderów), klawisze, enkodery i komendy HID działają bez zmian.
+
+---
+
 ## [6.8.0] - 2026-09-24
 
 * [EN] New RAW HID command `Mode` (`0` = mouse scroll, `1` = assign) switching ENC0 between the mouse wheel (Report ID 3) and encoder events on Report ID 4 (`source = 4`). The mode is kept in RAM only and reset to mouse scroll on every USB mount.
-* [PL]** Nowa komenda RAW HID `Mode` (`0` = rolka myszy, `1` = przypisz) przełączająca ENC0 między rolką myszy (Report ID 3) a zdarzeniami enkodera na Report ID 4 (`source = 4`). Tryb jest trzymany wyłącznie w RAM i resetowany do rolki przy każdym podłączeniu USB.
+* [PL] Nowa komenda RAW HID `Mode` (`0` = rolka myszy, `1` = przypisz) przełączająca ENC0 między rolką myszy (Report ID 3) a zdarzeniami enkodera na Report ID 4 (`source = 4`). Tryb jest trzymany wyłącznie w RAM i resetowany do rolki przy każdym podłączeniu USB.
 
 ## [6.6.0] - 2026-09-18
 
