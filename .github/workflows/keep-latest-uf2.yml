@@ -1,0 +1,97 @@
+name: Keep latest 4 MacroPAD II firmware builds
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "hardware/SunGO_PAD_v2/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: keep-latest-uf2
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Move old UF2 files to archive
+        shell: pwsh
+        run: |
+          $keep = 4
+          $padDir = "hardware/SunGO_PAD_v2"
+          $archiveDir = Join-Path $padDir "archive"
+
+          # Nazwy typu SunGO_MacroPAD_II_v5.4.uf2, _v6.9.0.uf2, _v.7.0.2.uf2
+          function Get-VersionFromName([string]$name) {
+            $m = [regex]::Match($name, '_v\.?(\d+)\.(\d+)(?:\.(\d+))?\.uf2$')
+            if (-not $m.Success) { return $null }
+            $patch = if ($m.Groups[3].Success) { [int]$m.Groups[3].Value } else { 0 }
+            return [version]::new([int]$m.Groups[1].Value, [int]$m.Groups[2].Value, $patch)
+          }
+
+          # Plik wskazany w manifest.json (aktualizacja z wtyczki) nigdy nie idzie do archiwum
+          $protected = $null
+          $manifestPath = Join-Path $padDir "manifest.json"
+          if (Test-Path $manifestPath) {
+            try {
+              $manifest = Get-Content $manifestPath -Raw | ConvertFrom-Json
+              foreach ($p in $manifest.PSObject.Properties) {
+                if ($p.Value.url) { $protected = [System.IO.Path]::GetFileName([string]$p.Value.url) }
+              }
+            } catch {
+              Write-Warning "manifest.json: $($_.Exception.Message)"
+            }
+          }
+          Write-Host "Chroniony plik z manifestu: $protected"
+
+          # Pliki bez rozpoznanej wersji zostają na miejscu
+          $files = Get-ChildItem $padDir -File -Filter "*.uf2" |
+            Where-Object { $null -ne (Get-VersionFromName $_.Name) } |
+            Sort-Object { Get-VersionFromName $_.Name } -Descending
+
+          $toArchive = $files |
+            Select-Object -Skip $keep |
+            Where-Object { $_.Name -ne $protected }
+
+          if (-not $toArchive) {
+            Write-Host "Nic do przeniesienia."
+            exit 0
+          }
+
+          New-Item -ItemType Directory -Force -Path $archiveDir | Out-Null
+
+          foreach ($file in $toArchive) {
+            $dest = Join-Path $archiveDir $file.Name
+            if (Test-Path $dest) {
+              Write-Host "Już w archiwum, usuwam kopię: $($file.Name)"
+              git rm -q -- $file.FullName
+            } else {
+              Write-Host "Do archiwum: $($file.Name)"
+              git mv -- $file.FullName $dest
+            }
+          }
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "lothar-team[bot]"
+          git config user.email "41898282+lothar-team@users.noreply.github.com"
+          git add -A hardware/SunGO_PAD_v2
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Archive old MacroPAD II firmware builds"
+          # Workflow VSIX może pushować w tym samym czasie
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            sleep 5
+          done
+          exit 1
