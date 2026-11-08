@@ -1,8 +1,8 @@
 {
   "SunGo_Macro_Pad_II": {
-    "version": "7.0.1",
-    "url": "https://raw.githubusercontent.com/SunDUINO/SunGo-Project_Manager-relase/main/hardware/SunGO_PAD_v2/SunGO_MacroPAD_II_v7.0.1.uf2",
-    "changelog": "New - Start screen , logo Windows and Linux.",
+    "version": "7.0.2",
+    "url": "https://raw.githubusercontent.com/SunDUINO/SunGo-Project_Manager-relase/main/hardware/SunGO_PAD_v2/SunGO_MacroPAD_II_v7.0.2.uf2",
+    "changelog": "New - Update screen 2.27.0 - Hoolo info - 2.27.2 activated",
     "min_plugin_version": "2.27.0"
   }
 }
