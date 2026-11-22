@@ -8,8 +8,8 @@
 
 ### 📝 Release Notes & Documentation
 
-> 💡 **[EN]** Minor updates, hotfixes, and comprehensive technical adjustments are documented exclusively in the `changelog.md` file.
-> 💡 **[PL]** Drobne zmiany, poprawki (hotfixy) oraz szczegółowe modyfikacje techniczne są rejestrowane wyłącznie w pliku `changelog.md`.
+> 💡 **[EN]** Minor updates, hotfixes, and comprehensive technical adjustments are documented exclusively in the `CHANGELOG.md` file.
+> 💡 **[PL]** Drobne zmiany, poprawki (hotfixy) oraz szczegółowe modyfikacje techniczne są rejestrowane wyłącznie w pliku `CHANGELOG.md`.
 
 ---
 
@@ -44,7 +44,6 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 ### 🌟 Why SunGo? (Gopher Rules)
 * **Binary Identity:** Every `main.go` gets a unique project header encoded in binary format. Your code, your signature.
 * **Performance First:** Automatically applies `-s -w` linker flags to strip debug data—making your binaries up to 40% smaller.
-* **Zero-Config Debugging:** Automatically generates `launch.json`. No more manual path editing to start debugging.
 * **TDD Ready:** Every project starts with a generated `main_test.go`. Don't just code—verify.
 
 
@@ -55,6 +54,8 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Guides & Detailed Usage](#-guides--detailed-usage)
 * [EN: SunGO PAD – Visual Status Feedback](#-sungo-pad--visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#-linux-setup--sungo-pad-udev-rules)
+* [EN: What's New (v2.28.0) – Pad Holograms for More Tools, Go RUN & -race](#-whats-new-v2280--pad-holograms-for-more-tools-go-run---race)
+* [EN: What's New (v2.27.0) – Pad Hologram & New Gophersun](#-whats-new-v2270--pad-hologram--new-gophersun)
 * [EN: What's New (v2.26.0) – Gopher: Issues, Repo State & Last Builds](#-whats-new-v2260--gopher-issues-repo-state--last-builds)
 * [EN: What's New (v2.25.0) – Translations (i18n)](#-whats-new-v2250--translations-i18n)
 * [EN: What's New (v2.24.0) – Vulnerability Check & Safer Panels](#-whats-new-v2240--vulnerability-check--safer-panels)
@@ -145,7 +146,7 @@ If your project uses graphical interfaces, install the relevant library:
 [ ] VS Code installed
 [ ] Go official extension (gopls) installed
 [ ] Go compiler installed and in PATH
-[ ] TDM-GCC 64-bit 10.3.0 installed and in PATH
+[ ] GCC for CGO: MSYS2 on Windows (Install GCC button on Home) / native gcc on Linux
 [ ] PowerShell 7 (Core) installed
 [ ] Git installed
 [ ] (Optional) Fyne / Raylib-go for GUI projects
@@ -171,6 +172,8 @@ The physical **SunGO PAD** provides real-time visual feedback via native HID RAW
 - 🟢 **Green** – RUN / Build completed successfully
 - 🔴 **Red** – linter or compilation error detected
 
+With MacroPAD II and firmware 7.0.0 or newer, the LCD also shows each tool's result as a hologram for 5 seconds: 🟢 success, 🟡 remarks or 🔴 error, with up to three lines of details.
+
 ### 🔀 OS Toggle (Windows / Linux)
 Press **keys 1+7+9 simultaneously** (VS Code + Build + Test) to switch the PAD between Windows and Linux mode:
 
@@ -181,11 +184,16 @@ Press **keys 1+7+9 simultaneously** (VS Code + Build + Test) to switch the PAD b
 
 > The selected mode is saved permanently in the PAD flash memory and survives power cycles. Default mode is Windows.
 
+> ⚠️ After updating to firmware 7.0.1 or newer, the mode goes back to Windows once. On Linux, press **1+7+9** once after the update.
+
 > **Note:** The SunGo extension is fully functional **without** the physical hardware. The PAD is an optional companion device that replaces status bar controls with tactile buttons and vivid LED feedback for a more immersive development experience.
 
 ### 🔧 Firmware & Build
 Detailed firmware releases, flashing instructions, and build information for the SunGO PAD are documented on the official forum:  
 🔗 [SunGO PAD – Official Thread](https://forum.lothar-team.pl/viewtopic.php?t=1092)
+
+MacroPAD II firmware is updated straight from the extension: open the pad settings and use **Firmware Update**. Firmware files and the firmware changelog are on GitHub:  
+🔗 [SunGO PAD v2 – firmware & changelog](https://github.com/SunDUINO/SunGo-Project_Manager-relase/tree/main/hardware/SunGO_PAD_v2)
 
 ---
 
@@ -198,11 +206,11 @@ On Linux, access to HID RAW devices requires a one-time permission configuration
 sudo nano /etc/udev/rules.d/99-sungo-pad.rules
 ```
 
-**2. Paste the following line:**
+**2. Paste the following lines:**
 ```
-// SunGO MacroPAD v1
+# SunGO MacroPAD I
 SUBSYSTEM=="hidraw", ATTRS{idVendor}=="cafe", ATTRS{idProduct}=="4050", MODE="0666"
-// SunGO MacroPAD v2 
+# SunGO MacroPAD II
 SUBSYSTEM=="hidraw", ATTRS{idVendor}=="cafe", ATTRS{idProduct}=="5050", MODE="0666"
 ```
 
@@ -216,6 +224,40 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ This is a one-time setup. The rule persists after system reboots.  
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
+
+---
+
+### 🚀 What's New (v2.28.0) – Pad Holograms for More Tools, Go RUN & -race
+
+The `v2.28.0` release makes the pad more reliable and shows more results on it. It works with the current **firmware 7.0.2** – no firmware update is needed.
+
+* **🛸 More holograms on the pad:** Test Coverage (percentage, yellow below the new `sungo.coverage.minPercent` setting), Vulnerabilities (govulncheck: `0 vulns` or the number found), Benchmarks (count, time and the biggest change) and Fuzz Testing (runs, or the test that crashed) now show their result on the pad, just like Build and Test.
+* **▶️ Go RUN knows when your program ends:** SunGo Terminal uses VS Code shell integration, so the status bar stays on **Go RUNNING...** until the program really ends – servers and GUI apps too. The pad shows **RUN OK** with the run time, *stopped (Ctrl+C)*, or the real exit code, panic or `file:line` of a build error. Pressing Go RUN again restarts the program. Without shell integration Go RUN works as before.
+* **🏁 -race for tests:** a **-race** box in the Test Center (or a Command Palette command) runs `go test -race`. A data race shows a red **DATA RACE** bar with file and line, and a **RACE** hologram on the pad. Without gcc SunGo offers the MSYS2 installer from Home.
+* **✅ SunGO: ✓ OK on the status bar:** right after **ABC**, a green item says all tools are in place. When Go, gcc or PowerShell 7 is missing, it turns red (**⚠ 2 missing**), blinks for a moment, lists what is missing on hover with **Install** links, and opens Home on click.
+* **🔒 Safer firmware update:** the downloaded `.uf2` is checked against the SHA-256 checksum from the manifest before the pad enters bootloader mode. A damaged file never reaches the pad.
+* **🪟 One window, one pad:** with several VS Code windows open, only the window you used last drives the pad. No more double encoder actions or the pad jumping between windows.
+* **🧹 Under the hood:** what the pad can do is now decided in one place (model + firmware version), and many more automated tests guard the logic.
+
+> 💡 All details are in `CHANGELOG.md`.
+
+---
+
+### 🚀 What's New (v2.27.0) – Pad Hologram & New Gophersun
+
+The `v2.27.0` release, together with **firmware 7.0.0**, puts tool results on the pad's LCD and brings a completely new Gopher to the panel.
+
+* **🛸 Results on the pad:** when a tool finishes, MacroPAD II shows a hologram for 5 seconds with a colored title (🟢 success, 🟡 remarks, 🔴 error) and up to three lines, for example the binary size, `14/14 passed` or `main.go:42`. It works for Go Build, Go Fmt, Import All, Test, go vet, Code Review and Sign, as well as Remote Build for Linux, Windows and Android and the adb install. MacroPAD I and older firmware show only the tool icon, as before.
+* **🐞 Issues on the pad:** new GitHub issues appear as a short hologram with the number and title. It waits until a tool result has been on screen for its full 5 seconds.
+* **🐹 New Gophersun:** a furry character made of image layers, with its own animation for every state, idle moments (yawn, stretch, coffee, sleep) and reactions to GitHub and clicks. The animation stops when the panel is hidden, which saves CPU.
+* **🎬 More scenes and jokes:** go mod tidy, Import All and Code Review have their own scenes, and while working Gopher tells jokes about the current job. The speech bubble no longer moves Gopher when the text changes.
+* **🧪 Honest test results:** Gopher now reacts to the test result, names the first failed test and waits until the tests really finish. The Test Center counts every test, also in large runs.
+* **🎨 Go Fmt:** it now runs without the terminal, so it knows its result. The list of formatted files goes to the **SunGo: Build** output panel.
+* **📊 Binary Analyzer:** the report shows estimated sizes, chart labels show and hide slices, Go Runtime is hidden by default, and percentages come from the bytes in the file. `External C / Libs` is now **Other (unclassified)**, or **C/C++ (cgo)** when the binary uses cgo.
+* **🧭 Interface Navigator:** Refresh says what was found and shows a frame under Gopher. Embedded structs and interfaces are counted, and false "No implementations found" messages are gone.
+* **🧹 Cleanup:** the 🐹 icon on Home and the **Gopher Wisdom** command are gone. For Go tips, use the speech bubble or the button in the Gopher panel.
+
+> 💡 All details are in `CHANGELOG.md`.
 
 ---
 
@@ -250,7 +292,7 @@ The `v2.25.0` release adds a new tool for translating your apps, PL ⇄ EN and m
 * **🚀 Project Creator:** new option **Create translation files** – a new project starts with translations ready (PL and EN; more languages can be added in the settings).
 * **🎛️ SunGO PAD and a second VS Code window (F5):** when F5 opens a second VS Code window (e.g. while developing a VS Code extension), the pad is handed over to that window and comes back to the main window when it is closed. Before, both windows reached for the pad at the same time and the second window often closed by itself right after start.
 
-> 📖 **[Translations (i18n) – User Guide](./README_translations.md)**
+> 📖 **[Translations (i18n) – User Guide](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_translations.md)**
 
 ---
 
@@ -282,7 +324,7 @@ The `v2.22.0` release extends the Remote Build: Android APKs are built on the Li
 * **🏷️ Version in the name:** downloaded binaries are named like in the regular build, e.g. `bin/linux/SunVT220_v01.10.00`.
 * **🐧 webview_go on new Linux distros:** the normal **Go Build / Go RUN / Go Vet** on Linux (and the remote build on a Linux host) automatically map `webkit2gtk-4.0` to `4.1` when the system has only `4.1` (Debian 13, Ubuntu 24.04+) — no more `Package webkit2gtk-4.0 was not found`.
 
-> 📖 **[Remote Build over SSH – Setup & Usage Guide](./README_remoteBuild.md)**
+> 📖 **[Remote Build over SSH – Setup & Usage Guide](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_remoteBuild.md)**
 
 ---
 
@@ -296,7 +338,7 @@ The `v2.21.0` release lets you build your project on another computer over SSH w
 * **⚙️ Settings in Ctrl+,:** section **SunGo – Remote Build (SSH)** — Host, User, Port, remote folder (default `~/build/${project}`), Go path (empty = `/usr/local/go/bin` on Linux, `C:\Program Files\Go\bin` on Windows), `GOTOOLCHAIN`, `go vet`, plus Linux-only options (automatic webkit2gtk-4.0 → 4.1 shim for `webview_go`, on by default, `.tar.gz` that keeps the executable bit). When no host is set yet, the first run opens these settings for you.
 * **🔒 Your connection stays yours:** the settings have scope `machine` — saved only in your VS Code user settings on this machine, not in the project's `.vscode/` and not in the extension package. Key-based SSH only (`BatchMode`) — no passwords.
 
-> 📖 **[Remote Build over SSH – Setup & Usage Guide](./README_remoteBuild.md)**
+> 📖 **[Remote Build over SSH – Setup & Usage Guide](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_remoteBuild.md)**
 
 ---
 
@@ -330,7 +372,7 @@ The `v2.16.0` release adds three self-contained static-analysis tools to SunGo T
 
 * **📦 Struct Field Alignment Optimizer:** Scans every struct in your project and calculates real memory padding based on your target architecture (`sungo.build.targetArch` — 4-byte words on `arm`, 8-byte on `amd64`/`arm64`). Shows exactly how many bytes are wasted by field order (e.g. "24 → 16 bytes"), with a one-click **Fix** button that reorders fields and reformats the file automatically. Recursively resolves locally-defined nested struct types; external/generic types are clearly marked as estimated rather than silently guessed.
 * **🚨 Unchecked Error Scanner:** Tracks every assignment to `err` and follows it forward through the function — if it's overwritten by a new assignment or the function returns without ever checking it, it's flagged. Also flags bare statement calls to locally-defined functions/methods that return `error` as their last value, when the result is completely discarded. Only analyzes code defined in your own project — never guesses about stdlib or third-party calls.
-* **🧩 Interface Satisfaction Navigator:** Inline CodeLens above every `interface` and named type declaration — "N implementations" above interfaces, "implements N interfaces" above concrete types. Click either to jump straight to the matching declaration (via a quick-pick when there's more than one match). Runs automatically on open Go files and re-indexes on save; a manual "Interface Navigator" entry in SunGo Tools forces a full re-index after large refactors.
+* **🧩 Interface Satisfaction Navigator:** Inline CodeLens above interfaces declared in the project and the types that implement them — "N implementations" above interfaces, "implements N interfaces" above concrete types. Click either to jump straight to the matching declaration (via a quick-pick when there's more than one match). Runs automatically on open Go files and re-indexes on save; a manual "Interface Navigator" entry in SunGo Tools forces a full re-index after large refactors.
 
 > 📖 **[Struct Field Alignment – Setup & Usage Guide](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_structAlign.md)** · **[Unchecked Error Scanner – Setup & Usage Guide](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_errCheck.md)** · **[Interface Satisfaction Navigator – Setup & Usage Guide](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_interfaceNav.md)**
 
@@ -355,7 +397,7 @@ The `v2.14.0` release rounds out cross-platform builds: Windows already produces
 * **Zero manual metadata:** Package name, version, maintainer, and description are pulled automatically from `go.mod` and `package.json`.
 * **Same output folder as always:** Built packages land in the same `bin/` folder as your regular binaries — no separate location to dig through.
 * **Default formats setting:** **SunGo – Linux Packaging › Default Formats** lets you pre-select which formats are checked by default when the picker opens.
-* **Required tools:** `.deb`/`.rpm` need `nfpm`; AppImage needs `appimagetool`. If either is missing, SunGo shows exactly what to run to install it (no silent downloads). See [Linux Packaging – Setup & Usage Guide](./README_linuxPackage.md) for the full walkthrough.
+* **Required tools:** `.deb`/`.rpm` need `nfpm`; AppImage needs `appimagetool`. If either is missing, SunGo shows exactly what to run to install it (no silent downloads). See [Linux Packaging – Setup & Usage Guide](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_linuxPackage.md) for the full walkthrough.
 * **Dashboard visibility:** The Installed Tools panel now shows a Linux Packaging section (`nfpm` / `appimagetool` detection), visible only on Linux.
 
 ---
@@ -828,7 +870,7 @@ The Gopher reacts automatically — no setup needed. It watches your Go diagnost
 ### Moving the Gopher to the right side
 
 1. Open the SunGo panel (`☀️` icon in the Activity Bar)
-2. Right-click the **Gopher Assistant** section header
+2. Right-click the **Agent Gophersun** section header
 3. Select **Move View** → **Secondary Side Bar**
 
 The Gopher will sit on the right permanently from that point on.
@@ -1047,7 +1089,7 @@ The latest version of SunGo introduces advanced diagnostic tools for executable 
 You not only see the file size, but also what it consists of. The analyzer panel provides:
 * **Component Analysis:** Check the percentage share of Go Runtime, standard libraries, and external C dependencies.
 * **Your Code Breakdown:** A detailed view of every function and variable in your `main` package, sorted by size with byte-accurate measurements and visual bars.
-* **Inverted Parser Engine:** The symbol engine recognizes Go code explicitly — any unknown symbol is automatically classified as `External C / Libs`, making it compatible with any library out of the box (Raylib, Fyne, Ebitengine, SDL…).
+* **Inverted Parser Engine:** The symbol engine recognizes Go code explicitly — any unknown symbol is automatically classified as **Other (unclassified)**, making it compatible with any library out of the box (Raylib, Fyne, Ebitengine, SDL…).
 * **Trend History:** Visualization of size changes on line charts after each build.
 * **One-Click Access:** Click the size indicator on the Status Bar to open both the `/bin` folder and the Analyzer panel simultaneously.
 
@@ -1079,6 +1121,8 @@ Step-by-step, bilingual setup and usage guides for every SunGo tool — instrume
 * [Dependency Graph](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_dependencygraph.md) – interactive external/internal graphs, file-level fallback
 * [Dependencies](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_dependencies.md) – flat module list, direct vs indirect
 * [CGO Cross-Compilation](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_crosscompile.md) – toolchains for every platform combination
+* [Remote Build over SSH](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_remoteBuild.md) – building on another computer (Linux ⇄ Windows, Android APK) and copying the result back
+* [Linux Packaging](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_linuxPackage.md) – `.deb`, `.rpm` and AppImage from your binary
 
 **Code Generation & Docs**
 * [Header Generator](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_headergen.md) – styles, custom templates, auto-insert on new file
@@ -1147,7 +1191,6 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 ### 🌟 Dlaczego SunGo? (Gopher Rules)
 * **Binarna Tożsamość:** Każdy plik `main.go` otrzymuje unikalny nagłówek projektu zakodowany binarnie. Twój kod, Twój cyfrowy podpis.
 * **Wydajność Przede Wszystkim:** Automatycznie stosuje flagi linkera `-s -w`, usuwając zbędne dane debugowania – Twoje binarki są do 40% mniejsze.
-* **Debugowanie bez Konfiguracji:** Automatycznie generuje `launch.json`. Zapomnij o ręcznym ustawianiu ścieżek, by zacząć debugować.
 * **Gotowość do Testów (TDD):** Każdy projekt startuje z wygenerowanym plikiem `main_test.go`. Nie tylko pisz kod – od razu go sprawdzaj.
 
 ![Wersja Marketplace](https://img.shields.io/visual-studio-marketplace/v/SunRiver-LotharTeaM.sungo-project-manager?label=wersja&color=orange)
@@ -1157,6 +1200,8 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Instrukcje i szczegółowe użytkowanie](#-instrukcje-i-szczegółowe-użytkowanie)
 * [PL: SunGO PAD – Visual Status Feedback](#-sungo-pad--visual-status-feedback)
 * [PL: Linux – Konfiguracja udev](#-linux--konfiguracja-sungo-pad-reguły-udev)
+* [PL: Co nowego (v2.28.0) – Hologramy dla kolejnych narzędzi, Go RUN i -race](#-co-nowego-v2280--hologramy-dla-kolejnych-narzędzi-go-run-i--race)
+* [PL: Co nowego (v2.27.0) – Hologram na padzie i nowy Gophersun](#-co-nowego-v2270--hologram-na-padzie-i-nowy-gophersun)
 * [PL: Co nowego (v2.26.0) – Gopher: Issues, stan repo i ostatnie buildy](#-co-nowego-v2260--gopher-issues-stan-repo-i-ostatnie-buildy)
 * [PL: Co nowego (v2.25.0) – Tłumaczenia (i18n)](#-co-nowego-v2250--tłumaczenia-i18n)
 * [PL: Co nowego (v2.24.0) – Sprawdzanie podatności i bezpieczniejsze panele](#-co-nowego-v2240--sprawdzanie-podatności-i-bezpieczniejsze-panele)
@@ -1242,7 +1287,7 @@ Jeśli Twój projekt korzysta z interfejsów graficznych, zainstaluj odpowiedni�
 [ ] VS Code zainstalowany
 [ ] Oficjalna wtyczka Go (gopls) zainstalowana
 [ ] Kompilator Go zainstalowany i dostępny w PATH
-[ ] TDM-GCC 64-bit 10.3.0 zainstalowany i dostępny w PATH
+[ ] GCC dla CGO: MSYS2 na Windows (przycisk Install GCC na Home) / natywny gcc na Linuksie
 [ ] PowerShell 7 (Core) zainstalowany
 [ ] Git zainstalowany
 [ ] (Opcjonalnie) Fyne / Raylib-go dla projektów GUI
@@ -1268,6 +1313,8 @@ Fizyczny **SunGO PAD** zapewnia natychmiastowy feedback wizualny w czasie rzeczy
 - 🟢 **Green** – RUN / Build zakończony sukcesem
 - 🔴 **Red** – błąd lintera lub kompilacji
 
+Na MacroPAD II z firmware 7.0.0 lub nowszym LCD pokazuje też wynik każdego narzędzia jako hologram przez 5 sekund: 🟢 sukces, 🟡 uwagi albo 🔴 błąd, z maksymalnie trzema wierszami szczegółów.
+
 ### 🔀 Przełączanie systemu (Windows / Linux)
 Naciśnij jednocześnie **klawisze 1+7+9** (VS Code + Build + Test) aby przełączyć PAD między trybem Windows a Linux:
 
@@ -1278,11 +1325,16 @@ Naciśnij jednocześnie **klawisze 1+7+9** (VS Code + Build + Test) aby przełą
 
 > Wybrany tryb jest zapisywany trwale w pamięci flash PAD-a i pozostaje po odłączeniu zasilania. Domyślny tryb to Windows.
 
+> ⚠️ Po aktualizacji do firmware 7.0.1 lub nowszego tryb jednorazowo wraca do Windows. Na Linuksie naciśnij raz **1+7+9** po aktualizacji.
+
 > **Ważne:** Wtyczka SunGo działa w pełni autonomicznie. Posiadanie fizycznego PAD-a nie jest wymagane, ale znacząco podnosi komfort pracy poprzez fizyczne przyciski sterujące i sygnalizację LED.
 
 ### 🔧 Firmware & Build
 Szczegółowe instrukcje flashowania oraz informacje o budowie SunGO PAD znajdują się na oficjalnym forum:  
 🔗 [https://forum.lothar-team.pl/viewtopic.php?t=1092](https://forum.lothar-team.pl/viewtopic.php?t=1092)
+
+Firmware MacroPAD II aktualizujesz prosto z wtyczki: otwórz ustawienia pada i użyj **Firmware Update**. Pliki firmware i changelog firmware są na GitHubie:  
+🔗 [SunGO PAD v2 – firmware i changelog](https://github.com/SunDUINO/SunGo-Project_Manager-relase/tree/main/hardware/SunGO_PAD_v2)
 
 ---
 
@@ -1295,9 +1347,12 @@ Na Linuxie dostęp do urządzeń HID RAW wymaga jednorazowej konfiguracji uprawn
 sudo nano /etc/udev/rules.d/99-sungo-pad.rules
 ```
 
-**2. Wpisz następującą linię:**
+**2. Wpisz następujące linie:**
 ```
+# SunGO MacroPAD I
 SUBSYSTEM=="hidraw", ATTRS{idVendor}=="cafe", ATTRS{idProduct}=="4050", MODE="0666"
+# SunGO MacroPAD II
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="cafe", ATTRS{idProduct}=="5050", MODE="0666"
 ```
 
 **3. Zapisz (`Ctrl+O`, `Enter`) i wyjdź (`Ctrl+X`)**
@@ -1310,6 +1365,40 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+### 🚀 Co nowego (v2.28.0) – Hologramy dla kolejnych narzędzi, Go RUN i -race
+
+Wersja `v2.28.0` sprawia, że pad działa pewniej i pokazuje więcej wyników. Działa z obecnym **firmware 7.0.2** – aktualizacja firmware nie jest potrzebna.
+
+* **🛸 Więcej hologramów na padzie:** Test Coverage (procent, na żółto poniżej nowego ustawienia `sungo.coverage.minPercent`), Podatności (govulncheck: `0 vulns` albo liczba znalezionych), Benchmarki (liczba, czas i największa zmiana) i Fuzz Testing (liczba wykonań albo test, który się wysypał) pokazują teraz wynik na padzie, tak jak Build i Test.
+* **▶️ Go RUN wie, kiedy program się kończy:** SunGo Terminal korzysta z shell integration VS Code, więc belka pokazuje **Go RUNNING...** aż do prawdziwego końca programu – także serwerów i programów z GUI. Pad pokazuje **RUN OK** z czasem działania, *stopped (Ctrl+C)* albo prawdziwy kod wyjścia, panic lub `plik:linia` błędu kompilacji. Ponowne Go RUN uruchamia program od nowa. Bez shell integration Go RUN działa jak dotąd.
+* **🏁 -race w testach:** pole **-race** w Centrum Testów (albo komenda w palecie) uruchamia `go test -race`. Wykryty wyścig to czerwony pasek **DATA RACE** z plikiem i linią oraz hologram **RACE** na padzie. Bez gcc SunGo proponuje instalację MSYS2 z Home.
+* **✅ SunGO: ✓ OK na belce statusu:** zaraz za **ABC** zielona pozycja mówi, że wszystkie narzędzia są na miejscu. Gdy brakuje Go, gcc albo PowerShell 7, robi się czerwona (**⚠ 2 braki**), chwilę miga, po najechaniu pokazuje braki z linkami **Instaluj**, a kliknięcie otwiera Home.
+* **🔒 Bezpieczniejsza aktualizacja firmware:** pobrany `.uf2` jest sprawdzany sumą SHA-256 z manifestu, zanim pad przejdzie w tryb bootloadera. Uszkodzony plik nie trafi na pad.
+* **🪟 Jedno okno, jeden pad:** przy kilku oknach VS Code pad obsługuje tylko okno używane ostatnio. Koniec z podwójnymi akcjami enkoderów i przeskakiwaniem pada między oknami.
+* **🧹 Pod maską:** to, co potrafi pad, jest ustalane w jednym miejscu (model + wersja firmware), a logikę pilnuje dużo więcej testów automatycznych.
+
+> 💡 Wszystkie szczegóły są w `CHANGELOG.md`.
+
+---
+
+### 🚀 Co nowego (v2.27.0) – Hologram na padzie i nowy Gophersun
+
+Wersja `v2.27.0`, razem z **firmware 7.0.0**, wyświetla wyniki narzędzi na LCD pada i wprowadza do panelu zupełnie nowego Gophera.
+
+* **🛸 Wyniki na padzie:** gdy narzędzie kończy pracę, MacroPAD II pokazuje przez 5 sekund hologram z kolorowym tytułem (🟢 sukces, 🟡 uwagi, 🔴 błąd) i do trzech wierszy, np. rozmiar binarki, `14/14 passed` albo `main.go:42`. Działa to dla Go Build, Go Fmt, Import All, Test, go vet, Code Review i Sign, a także dla Remote Build na Linuksa, Windows i Androida oraz instalacji przez adb. MacroPAD I i starszy firmware pokazują tylko ikonę narzędzia, jak dotąd.
+* **🐞 Issues na padzie:** nowe issues z GitHuba pojawiają się jako krótki hologram z numerem i tytułem. Czeka on, aż wynik narzędzia będzie na ekranie pełne 5 sekund.
+* **🐹 Nowy Gophersun:** futrzasta postać z warstw obrazu, z własną animacją każdego stanu, przerywnikami w bezczynności (ziewanie, przeciąganie, kawa, sen) i reakcjami na GitHuba i kliknięcia. Animacja zatrzymuje się, gdy panel jest ukryty, co oszczędza procesor.
+* **🎬 Więcej scen i żartów:** go mod tidy, Import All i Code Review mają własne sceny, a podczas pracy Gopher opowiada żarty o tym, co właśnie robi. Dymek nie przesuwa już Gophera przy zmianie tekstu.
+* **🧪 Uczciwe wyniki testów:** Gopher reaguje teraz na wynik testów, podaje pierwszy nieudany test i czeka na ich faktyczny koniec. Centrum Testów liczy każdy test, także przy dużych przebiegach.
+* **🎨 Go Fmt:** działa teraz bez terminala, dzięki czemu zna swój wynik. Lista sformatowanych plików trafia do panelu wyjścia **SunGo: Build**.
+* **📊 Binary Analyzer:** raport pokazuje szacunkowe rozmiary, opisy pod wykresem pokazują i ukrywają wycinki, Go Runtime jest domyślnie ukryty, a procenty liczone są z bajtów w pliku. `External C / Libs` to teraz **Inne (nierozpoznane)** albo **C/C++ (cgo)**, gdy binarka używa cgo.
+* **🧭 Interface Navigator:** Refresh mówi, co znaleziono, i pokazuje ramkę pod Gopherem. Liczone są osadzone structy i interfejsy, a fałszywe „No implementations found” zniknęły.
+* **🧹 Porządki:** z Home zniknęła ikona 🐹, a z palety komenda **Gopher Wisdom**. Porady o Go daje dymek albo przycisk w panelu Gophera.
+
+> 💡 Wszystkie szczegóły są w `CHANGELOG.md`.
 
 ---
 
@@ -1344,7 +1433,7 @@ Wersja `v2.25.0` dodaje nowe narzędzie do tłumaczenia Twoich aplikacji – PL 
 * **🚀 Kreator projektu:** nowa opcja **Utwórz pliki tłumaczeń** – nowy projekt startuje z gotowymi tłumaczeniami (PL i EN; kolejne języki można dołączyć w ustawieniach).
 * **🎛️ SunGO PAD i drugie okno VS Code (F5):** gdy F5 otwiera drugie okno VS Code (np. przy pisaniu rozszerzenia do VS Code), pad jest przekazywany temu oknu i wraca do głównego po jego zamknięciu. Wcześniej oba okna sięgały po pad naraz i drugie okno często samo się zamykało zaraz po starcie.
 
-> 📖 **[Tłumaczenia (i18n) – Instrukcja](./README_translations.md)**
+> 📖 **[Tłumaczenia (i18n) – Instrukcja](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_translations.md)**
 
 ---
 
@@ -1376,7 +1465,7 @@ Wydanie `v2.22.0` rozszerza Zdalny build: APK Androida jest budowany na hoście 
 * **🏷️ Wersja w nazwie:** pobierane binarki mają nazwy jak przy zwykłym buildzie, np. `bin/linux/SunVT220_v01.10.00`.
 * **🐧 webview_go na nowych dystrybucjach Linuksa:** zwykłe **Go Build / Go RUN / Go Vet** na Linuksie (i zdalny build na hoście Linux) same kierują `webkit2gtk-4.0` na `4.1`, gdy system ma tylko `4.1` (Debian 13, Ubuntu 24.04+) — koniec z `Package webkit2gtk-4.0 was not found`.
 
-> 📖 **[Zdalny build przez SSH – Instrukcja konfiguracji i użytkowania](./README_remoteBuild.md)**
+> 📖 **[Zdalny build przez SSH – Instrukcja konfiguracji i użytkowania](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_remoteBuild.md)**
 
 ---
 
@@ -1390,7 +1479,7 @@ Wydanie `v2.21.0` pozwala zbudować projekt na innym komputerze przez SSH bez wy
 * **⚙️ Ustawienia w Ctrl+,:** sekcja **SunGo – Remote Build (SSH)** — Host, User, Port, zdalny folder (domyślnie `~/build/${project}`), ścieżka Go (puste = `/usr/local/go/bin` na Linuksie, `C:\Program Files\Go\bin` na Windows), `GOTOOLCHAIN`, `go vet` oraz opcje tylko dla Linuksa (automatyczny shim webkit2gtk-4.0 → 4.1 dla `webview_go`, domyślnie włączony, `.tar.gz` zachowujący bit wykonywalności). Gdy host nie jest jeszcze ustawiony, pierwsze uruchomienie samo otwiera te ustawienia.
 * **🔒 Twoje połączenie zostaje u Ciebie:** ustawienia mają scope `machine` — zapisywane tylko w ustawieniach użytkownika VS Code na tym komputerze, nie w `.vscode/` projektu i nie w paczce rozszerzenia. Wyłącznie SSH z kluczem (`BatchMode`) — bez haseł.
 
-> 📖 **[Zdalny build przez SSH – Instrukcja konfiguracji i użytkowania](./README_remoteBuild.md)**
+> 📖 **[Zdalny build przez SSH – Instrukcja konfiguracji i użytkowania](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_remoteBuild.md)**
 
 ---
 
@@ -1424,7 +1513,7 @@ Wydanie `v2.16.0` dodaje trzy samodzielne narzędzia statycznej analizy do SunGo
 
 * **📦 Optymalizator Wyrównania Pól Struktur:** Skanuje każdy struct w projekcie i liczy realny padding pamięci na podstawie docelowej architektury (`sungo.build.targetArch` — 4-bajtowe słowo na `arm`, 8-bajtowe na `amd64`/`arm64`). Pokazuje dokładnie ile bajtów marnuje kolejność pól (np. "24 → 16 bajtów"), z przyciskiem **Fix** przestawiającym pola i formatującym plik jednym kliknięciem. Rekurencyjnie rozwiązuje lokalnie zdefiniowane zagnieżdżone structy; typy zewnętrzne/generyczne są jasno oznaczone jako szacunkowe zamiast być cicho zgadywane.
 * **🚨 Skaner Niesprawdzonych Błędów:** Śledzi każde przypisanie do `err` i podąża za nim w przód przez funkcję — jeśli zostanie nadpisane nowym przypisaniem albo funkcja zakończy się bez jego sprawdzenia, zostaje to zgłoszone. Wykrywa też samodzielne wywołania-instrukcje lokalnie zdefiniowanych funkcji/metod zwracających `error` jako ostatnią wartość, których wynik jest całkowicie odrzucany. Analizuje wyłącznie kod zdefiniowany w Twoim projekcie — nigdy nie zgaduje w przypadku stdlib czy bibliotek zewnętrznych.
-* **🧩 Nawigator Zgodności Interfejsów:** CodeLens nad każdą deklaracją `interface` i nazwanego typu — "N implementacji" nad interfejsami, "implementuje N interfejsów" nad konkretnymi typami. Kliknięcie przenosi bezpośrednio do pasującej deklaracji (przez szybki wybór, gdy dopasowań jest więcej niż jedno). Działa automatycznie na otwartych plikach Go i reindeksuje się przy zapisie; ręczny wpis "Interface Navigator" w SunGo Tools wymusza pełne przeindeksowanie po większym refaktoringu.
+* **🧩 Nawigator Zgodności Interfejsów:** CodeLens nad interfejsami zadeklarowanymi w projekcie i typami, które je implementują — "N implementacji" nad interfejsami, "implementuje N interfejsów" nad konkretnymi typami. Kliknięcie przenosi bezpośrednio do pasującej deklaracji (przez szybki wybór, gdy dopasowań jest więcej niż jedno). Działa automatycznie na otwartych plikach Go i reindeksuje się przy zapisie; ręczny wpis "Interface Navigator" w SunGo Tools wymusza pełne przeindeksowanie po większym refaktoringu.
 
 > 📖 **[Wyrównanie Pól Struktur – Instrukcja instalacji i użytkowania](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_structAlign.md)** · **[Skaner Niesprawdzonych Błędów – Instrukcja instalacji i użytkowania](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_errCheck.md)** · **[Nawigator Zgodności Interfejsów – Instrukcja instalacji i użytkowania](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_interfaceNav.md)**
 
@@ -1449,7 +1538,7 @@ Wydanie `v2.14.0` domyka buildy wieloplatformowe: Windows od dawna produkuje got
 * **Zero ręcznych metadanych:** Nazwa paczki, wersja, maintainer i opis pobierane są automatycznie z `go.mod` i `package.json`.
 * **Ten sam folder wyjściowy co zawsze:** Zbudowane paczki lądują w tym samym folderze `bin/` co zwykłe binarki — bez osobnej lokalizacji do przekopywania.
 * **Ustawienie domyślnych formatów:** **SunGo – Linux Packaging › Default Formats** pozwala z góry zaznaczyć, które formaty są domyślnie odhaczone przy otwarciu listy wyboru.
-* **Wymagane narzędzia:** `.deb`/`.rpm` potrzebują `nfpm`; AppImage potrzebuje `appimagetool`. Jeśli któregoś brakuje, SunGo pokazuje dokładnie co uruchomić, żeby je zainstalować (bez cichych pobrań). Pełny opis w [Linux Packaging – Instrukcja instalacji i użytkowania](./README_linuxPackage.md).
+* **Wymagane narzędzia:** `.deb`/`.rpm` potrzebują `nfpm`; AppImage potrzebuje `appimagetool`. Jeśli któregoś brakuje, SunGo pokazuje dokładnie co uruchomić, żeby je zainstalować (bez cichych pobrań). Pełny opis w [Linux Packaging – Instrukcja instalacji i użytkowania](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_linuxPackage.md).
 * **Widoczność w Dashboardzie:** Panel Installed Tools pokazuje teraz sekcję Linux Packaging (wykrywanie `nfpm` / `appimagetool`), widoczną tylko na Linuksie.
 
 ---
@@ -1924,7 +2013,7 @@ Gopher reaguje automatycznie — bez żadnej konfiguracji. Obserwuje diagnostyk�
 ### Przeniesienie Gophera na prawą stronę
 
 1. Otwórz panel SunGo (ikona `☀️` na pasku aktywności)
-2. Kliknij prawym przyciskiem nagłówek sekcji **Gopher Assistant**
+2. Kliknij prawym przyciskiem nagłówek sekcji **Agent Gophersun**
 3. Wybierz **Move View** → **Secondary Side Bar**
 
 Od tego momentu Gopher siedzi po prawej stronie na stałe.
@@ -2147,7 +2236,7 @@ Najnowsza wersja SunGo wprowadza zaawansowane narzędzia do diagnostyki plików 
 Widzisz nie tylko rozmiar pliku, ale też z czego się składa. Panel analizatora oferuje:
 * **Analiza składu:** Sprawdź procentowy udział Go Runtime, bibliotek standardowych i zewnętrznych zależności C.
 * **Rozkład Twojego Kodu:** Szczegółowy widok każdej funkcji i zmiennej w pakiecie `main`, posortowanych według rozmiaru z dokładnymi wartościami w bajtach i wizualnymi paskami.
-* **Odwrócony silnik parsera:** Silnik symboli rozpoznaje kod Go wprost — każdy nieznany symbol jest automatycznie klasyfikowany jako `External C / Libs`, co zapewnia kompatybilność z każdą biblioteką bez ręcznych aktualizacji (Raylib, Fyne, Ebitengine, SDL…).
+* **Odwrócony silnik parsera:** Silnik symboli rozpoznaje kod Go wprost — każdy nieznany symbol jest automatycznie klasyfikowany jako **Inne (nierozpoznane)**, co zapewnia kompatybilność z każdą biblioteką bez ręcznych aktualizacji (Raylib, Fyne, Ebitengine, SDL…).
 * **Historia trendów:** Wizualizacja zmian rozmiaru na wykresach liniowych po każdym buildzie.
 * **Dostęp jednym kliknięciem:** Kliknij wskaźnik rozmiaru na pasku stanu, aby jednocześnie otworzyć folder `/bin` i panel Analyzera.
 
@@ -2179,6 +2268,8 @@ Krok po kroku, dwujęzyczne instrukcje instalacji i użytkowania dla każdego na
 * [Dependency Graph](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_dependencygraph.md) – interaktywne grafy zewnętrzny/wewnętrzny, fallback na poziom plików
 * [Dependencies](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_dependencies.md) – płaska lista modułów, bezpośrednie i pośrednie
 * [CGO Cross-Compilation](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_crosscompile.md) – toolchainy dla każdej kombinacji platform
+* [Remote Build przez SSH](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_remoteBuild.md) – budowanie na innym komputerze (Linux ⇄ Windows, APK Androida) i kopiowanie wyniku z powrotem
+* [Pakiety dla Linuksa](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_linuxPackage.md) – `.deb`, `.rpm` i AppImage z Twojej binarki
 
 **Generowanie kodu i dokumentacji**
 * [Header Generator](https://github.com/SunDUINO/SunGo-Project_Manager-relase/blob/main/README_headergen.md) – style, własne szablony, auto-insert na nowym pliku

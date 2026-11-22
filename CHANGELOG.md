@@ -5,6 +5,257 @@
 
 ---
 
+## [2.28.0] - 21.11.2026
+
+### Added / Dodano -- Status Bar and Tests / Belka statusu i testy
+
+- **[EN]** New **SunGO** item on the status bar, right after **ABC**, shows whether the tools SunGo needs are installed: Go, gcc and, on Windows, PowerShell 7 (pwsh). When all are found it shows a green **SunGO: ✓ OK**. When something is missing it shows, for example, **SunGO: ⚠ 2 missing** on a red background, which blinks for about 10 seconds and then stays red. Hover shows each tool with its version. Missing gcc and pwsh have an **Install** link, and **Check again** is at the bottom. Click the item to open SunGo Home. The check runs in the background a few seconds after VS Code starts, so it does not slow down startup. The status bar and the Home page show the same result, and both update after a check from either place or after installing gcc. Git, the pad and the Linux packaging tools do not affect the item.
+- **[PL]** Nowa pozycja **SunGO** na belce statusu, zaraz za **ABC**, pokazuje, czy są zainstalowane narzędzia potrzebne SunGo: Go, gcc i na Windows PowerShell 7 (pwsh). Gdy wszystko jest, widać zielone **SunGO: ✓ OK**. Gdy czegoś brakuje, widać np. **SunGO: ⚠ 2 braki** na czerwonym tle, które przez ok. 10 sekund miga, a potem zostaje czerwone. Po najechaniu widać każde narzędzie z wersją. Przy brakującym gcc i pwsh jest link **Instaluj**, a na dole **Sprawdź ponownie**. Kliknięcie pozycji otwiera SunGo Home. Sprawdzenie działa w tle kilka sekund po uruchomieniu VS Code, więc nie spowalnia startu. Belka i strona Home pokazują ten sam wynik i oba odświeżają się po sprawdzeniu z dowolnego miejsca albo po instalacji gcc. Git, pad i narzędzia do paczek linuxowych nie wpływają na tę pozycję.
+
+- **[EN]** New **-race** switch for tests. Turn it on with the **-race** box at the top of the **SunGo: Test Center** panel or with **SunGo: Toggle -race for tests** in the Command Palette; the choice is kept in the new **sungo.test.race** setting. When it is on, the status bar button shows **TEST -race** and tests run as `go test -race` with `CGO_ENABLED=1`. The race detector needs cgo, so gcc must be installed. gcc is checked the same way as on SunGo Home and the **SunGO** status bar item. Without gcc the tests do not start: a message offers **Install gcc (MSYS2)** (Windows, the same installer as on Home), **Open SunGo Home** or **Run without -race** (once, the setting stays on). A found race shows a red **DATA RACE** bar in the panel with the file, line and test. On the pad screen it shows a red **RACE** hologram with *DATA RACE* (or *DATA RACE x3*), `file:line` of the first race and the test name; without gcc the pad shows a yellow *-race: no gcc* hologram. Without races the pad shows the test result as before. No firmware update is needed; the hologram needs firmware 6.9.2 or newer.
+- **[PL]** Nowy przełącznik **-race** dla testów. Włączasz go polem **-race** u góry panelu **SunGo: Centrum Testów** albo komendą **SunGo: Przełącz -race w testach** w palecie komend; wybór zapisuje nowe ustawienie **sungo.test.race**. Gdy jest włączony, przycisk na belce pokazuje **TEST -race**, a testy idą jako `go test -race` z `CGO_ENABLED=1`. Wykrywanie wyścigów wymaga cgo, więc gcc musi być zainstalowane. gcc jest sprawdzane tak samo jak na SunGo Home i w pozycji **SunGO** na belce. Bez gcc testy nie ruszają: komunikat proponuje **Zainstaluj gcc (MSYS2)** (Windows, ta sama instalacja co na Home), **Otwórz SunGo Home** albo **Uruchom bez -race** (jednorazowo, ustawienie zostaje włączone). Wykryty wyścig pokazuje w panelu czerwony pasek **DATA RACE** z plikiem, linią i testem. Na ekranie pada pojawia się czerwony hologram **RACE** z *DATA RACE* (albo *DATA RACE x3*), `plik:linia` pierwszego wyścigu i nazwą testu; bez gcc pad pokazuje żółty hologram *-race: no gcc*. Bez wyścigów pad pokazuje wynik testów tak jak dotąd. Aktualizacja firmware nie jest potrzebna; hologram wymaga firmware 6.9.2 lub nowszego.
+
+### Added / Dodano -- SunGO MacroPAD II
+
+- **[EN]** The pad firmware update now checks the SHA-256 checksum of the downloaded `.uf2` file before the pad is switched to bootloader mode. The expected checksum comes from the new `sha256` field in the firmware manifest. If the checksum does not match, the file is downloaded once more; if it still does not match, the update stops with a message, the pad is not switched to bootloader mode and keeps its current firmware. The same checked data is written to the RPI-RP2 disk, so the file cannot change between the check and the copy. An incomplete download is also reported. If the manifest has no checksum yet, you are asked whether to continue without the check. The result stays on the left above the progress bar, for example *✅ Checksum OK: 36ca6119…a7b2d194* (or a yellow *⚠️ no SHA-256 check*), while the steps, percentages and *Updated to v7.0.2 successfully!* show on the right. No firmware update is needed.
+- **[PL]** Aktualizacja firmware pada sprawdza teraz sumę SHA-256 pobranego pliku `.uf2`, zanim pad zostanie przełączony w tryb bootloadera. Oczekiwana suma pochodzi z nowego pola `sha256` w manifeście firmware. Jeśli suma się nie zgadza, plik jest pobierany jeszcze raz; jeśli nadal się nie zgadza, aktualizacja zatrzymuje się z komunikatem, pad nie przechodzi w tryb bootloadera i zostaje przy obecnym firmware. Na dysk RPI-RP2 trafiają te same, sprawdzone dane, więc plik nie może się zmienić między sprawdzeniem a kopiowaniem. Niepełne pobranie też jest zgłaszane. Jeśli manifest nie ma jeszcze sumy, pojawia się pytanie, czy kontynuować bez sprawdzenia. Wynik zostaje po lewej nad paskiem postępu, np. *✅ Suma kontrolna zgodna: 36ca6119…a7b2d194* (albo żółte *⚠️ bez sprawdzenia SHA-256*), a kroki, procenty i *Zaktualizowano do v7.0.2 pomyślnie!* są po prawej. Aktualizacja firmware nie jest potrzebna.
+
+- **[EN]** The pad screen now shows a result hologram for four more tools, as it already does after a build or tests: green for success, yellow for a warning, red for an error. **Test Coverage** shows the percentage, for example *78.4%*. It is yellow below the new **sungo.coverage.minPercent** setting (default 80, 0 turns the warning off) and red when tests fail. **Vulnerabilities (govulncheck)** shows *0 vulns* in green. It is red with the number of vulnerabilities when your code calls them, and yellow when they are only in dependencies your code does not call. It is also red when govulncheck fails or is not installed. **Benchmarks** show the number of benchmarks, the time and the biggest change since the previous run, or the slowest benchmark on the first run. **Fuzz Testing** is green with the number of runs when nothing was found in the set time, and red with the test name when fuzzing found a crash. No firmware update is needed; the hologram needs firmware 6.9.2 or newer.
+- **[PL]** Ekran pada pokazuje teraz hologram z wynikiem dla czterech kolejnych narzędzi, tak jak już po buildzie i testach: zielony przy sukcesie, żółty przy ostrzeżeniu, czerwony przy błędzie. **Test Coverage** pokazuje procent, np. *78.4%*. Jest żółty poniżej nowego ustawienia **sungo.coverage.minPercent** (domyślnie 80, 0 wyłącza ostrzeżenie) i czerwony, gdy testy padną. **Podatności (govulncheck)** pokazują na zielono *0 vulns*. Na czerwono z liczbą podatności, gdy Twój kod je wywołuje, a na żółto, gdy są tylko w zależnościach, których kod nie wywołuje. Czerwony jest też, gdy govulncheck się nie uruchomi albo nie jest zainstalowany. **Benchmarki** pokazują liczbę benchmarków, czas i największą zmianę względem poprzedniego biegu, a przy pierwszym biegu najwolniejszy benchmark. **Fuzz Testing** jest zielony z liczbą wykonań, gdy w zadanym czasie nic nie znalazł, a czerwony z nazwą testu, gdy fuzzing znalazł crash. Aktualizacja firmware nie jest potrzebna; hologram wymaga firmware 6.9.2 lub nowszego.
+
+### Fixed / Naprawiono -- SunGO MacroPAD II
+
+- **[EN]** With several VS Code windows open, every window ran the encoder actions and sent its own colors, icons and holograms to the pad, so one turn could run twice and the pad switched between the windows' states. Now only the VS Code window you used last handles the pad. Results from windows in the background, such as a finished build, do not reach the pad. When you switch to another VS Code window, the pad shows that window's colors, Go errors and encoder settings within about half a second. While you work in another app, the pad stays with the last VS Code window. If that window closes, another window takes the pad within 3 seconds. Other windows still see the pad on the Dashboard, the status bar and in the pad settings. No firmware update is needed.
+- **[PL]** Przy kilku otwartych oknach VS Code każde okno wykonywało akcje enkoderów i wysyłało do pada własne kolory, ikony i hologramy, więc jeden obrót mógł zadziałać dwa razy, a pad przeskakiwał między stanami okien. Teraz pad obsługuje tylko okno VS Code, które ostatnio było aktywne. Wyniki z okien w tle, np. koniec builda, nie trafiają na pad. Po przejściu do innego okna VS Code pad w ciągu mniej więcej pół sekundy pokazuje jego kolory, błędy Go i ustawienia enkoderów. Gdy pracujesz w innym programie, pad zostaje przy ostatnim oknie VS Code. Jeśli to okno się zamknie, pad przejmie inne okno w ciągu 3 sekund. Pozostałe okna nadal widzą pad na Dashboardzie, belce statusu i w ustawieniach pada. Aktualizacja firmware nie jest potrzebna.
+
+### Changed / Zmieniono -- Go RUN
+
+- **[EN]** **Go RUN** now knows when your program really ends. The command runs through VS Code terminal shell integration in **SunGo Terminal** (PowerShell 7 on Windows, your `$SHELL` on Linux), which also gives the exit code. The status bar button stays yellow with **Go RUNNING...** until the program ends, with no time limit, so servers and GUI apps show as running. Pressing **Go RUN** on the status bar or the pad while the previous program is still running stops it with Ctrl+C, waits up to 3 seconds and starts it again. When the program ends, the pad screen shows a hologram: green **RUN OK** with *exit 0* and the run time, yellow *stopped (Ctrl+C)*, or red with the program's real exit code (for example *exit status 3* from `os.Exit(3)`; `go run` itself always returns 1), the panic message or `file:line` of a build error. Gopher shows the error too. If shell integration does not start in the terminal within a few seconds, Go RUN works as before: the command is typed into the terminal, everything returns to normal after 3 seconds and the pad shows no result. No firmware update is needed; the hologram needs firmware 6.9.2 or newer.
+- **[PL]** **Go RUN** wie teraz, kiedy program naprawdę się kończy. Polecenie idzie przez shell integration terminala VS Code w **SunGo Terminal** (PowerShell 7 na Windows, Twój `$SHELL` na Linuksie), które podaje też kod wyjścia. Przycisk na belce zostaje żółty z **Go RUNNING...** aż do końca programu, bez limitu czasu, więc serwery i programy z GUI widać jako działające. Naciśnięcie **Go RUN** na belce albo na padzie, gdy poprzedni program jeszcze działa, przerywa go przez Ctrl+C, czeka do 3 sekund i uruchamia od nowa. Po końcu programu ekran pada pokazuje hologram: zielony **RUN OK** z *exit 0* i czasem działania, żółty *stopped (Ctrl+C)* albo czerwony z prawdziwym kodem wyjścia programu (np. *exit status 3* z `os.Exit(3)`; samo `go run` zawsze zwraca 1), komunikatem panic albo `plik:linia` błędu kompilacji. Gopher też pokazuje błąd. Jeśli shell integration nie ruszy w terminalu w ciągu kilku sekund, Go RUN działa jak dotąd: polecenie trafia do terminala, po 3 sekundach wszystko wraca do normy, a pad nie pokazuje wyniku. Aktualizacja firmware nie jest potrzebna; hologram wymaga firmware 6.9.2 lub nowszego.
+
+### Changed / Zmieniono -- SunGO MacroPAD II
+
+- **[EN]** Internal cleanup: what the connected pad can do (LCD icon, firmware update, A/B/C keys and their names, ENC0 mode, hologram) is now decided in one place, from the pad model and its firmware version. The pad works exactly as before. No firmware update is needed.
+- **[PL]** Porządek wewnętrzny: to, co potrafi podłączony pad (ikona na LCD, aktualizacja firmware, klawisze A/B/C i ich nazwy, tryb ENC0, hologram), jest teraz ustalane w jednym miejscu, na podstawie modelu pada i wersji firmware. Pad działa dokładnie tak jak dotąd. Aktualizacja firmware nie jest potrzebna.
+
+## [2.27.2] - 2026-11-15
+
+### Added / Dodano -- SunGO MacroPAD II
+
+- **[EN]** Key sets for keys **A**, **B** and **C** (up to 8). Each set has its own commands, LED colors and short names for the pad screen. Sets are edited in the pad settings, where each key has its own color field. Your current A/B/C setup becomes the first set. Keys 1–9 and their colors do not change.
+- **[PL]** Sety dla klawiszy **A**, **B** i **C** (do 8). Każdy set ma własne komendy, kolory diod i krótkie nazwy na ekran pada. Sety edytujesz w ustawieniach pada, gdzie każdy klawisz ma własne pole koloru. Obecne ustawienie A/B/C staje się pierwszym setem. Klawisze 1–9 i ich kolory się nie zmieniają.
+
+- **[EN]** Switch sets with the new **ABC** item on the status bar. Hover shows all sets with links, and the active set is green. Click a set name or the mark in front of it to switch; clicking the active set shows its hologram again. A click on the item opens a list you can use from the keyboard, also available as **SunGo: Select A/B/C key set** in the Command Palette.
+- **[PL]** Sety przełączasz nową pozycją **ABC** na belce statusu. Po najechaniu widać wszystkie sety z linkami, a aktywny set jest zielony. Set włączasz kliknięciem nazwy albo znacznika przed nią; kliknięcie aktywnego setu pokazuje jego hologram jeszcze raz. Kliknięcie pozycji otwiera listę, którą obsłużysz z klawiatury, dostępną też jako **SunGo: Wybierz set klawiszy A/B/C** w palecie komend.
+
+- **[EN]** After switching, the pad screen shows a hologram with the set name and the keys, for example *A = BUILD*. If the project has Go errors, the keys turn red again after the switch. No firmware update is needed; the hologram needs firmware 6.9.2 or newer.
+- **[PL]** Po przełączeniu ekran pada pokazuje hologram z nazwą setu i klawiszami, np. *A = BUILD*. Jeśli w projekcie są błędy Go, klawisze po przełączeniu znów świecą na czerwono. Aktualizacja firmware nie jest potrzebna; hologram wymaga firmware 6.9.2 lub nowszego.
+
+- **[EN]** After pressing A, B or C, the pad screen shows the name of the assigned tool instead of *TOOL A*.
+- **[PL]** Po naciśnięciu A, B lub C ekran pada pokazuje nazwę przypisanego narzędzia zamiast *TOOL A*.
+
+### Changed / Zmieniono -- SunGO MacroPAD II
+
+- **[EN]** In the pad settings, **Encoder Configuration** takes only the space it needs, and **Firmware Update** is now below it, next to **Key Actions**.
+- **[PL]** W ustawieniach pada **Encoder Configuration** zajmuje tylko tyle miejsca, ile potrzebuje, a **Firmware Update** jest teraz pod nim, obok **Key Actions**.
+
+### Fixed / Naprawiono -- SunGO MacroPAD II
+
+- **[EN]** In the pad settings, keys 10–12 without a saved color showed different colors than the pad. They now show the colors the pad actually uses.
+- **[PL]** W ustawieniach pada klawisze 10–12 bez zapisanego koloru miały inne kolory niż na padzie. Teraz pokazują kolory, którymi pad naprawdę świeci.
+- **[EN]** After closing VS Code, ENC0 stayed in **Assign** mode and did nothing in other apps until the pad was reconnected, although 2.18.0 promised the scroll wheel back. ENC0 now returns to scroll-wheel mode when VS Code closes. With several windows open, only the last window holding the pad does this, so closing one window does not take ENC0 from the others.
+- **[PL]** Po zamknięciu VS Code ENC0 zostawał w trybie **Assign** i nie działał w innych programach aż do ponownego podłączenia pada, choć 2.18.0 obiecywało powrót rolki. Teraz ENC0 wraca do trybu rolki myszy po zamknięciu VS Code. Przy kilku otwartych oknach robi to tylko ostatnie okno, które trzyma pad, więc zamknięcie jednego okna nie zabiera ENC0 pozostałym.
+
+### Changed / Zmieniono -- Agent Gophersun
+
+- **[EN]** **Last builds** fits a narrow panel: each row shows the system, the version and a short age such as *8s*, *5m*, *8h* or *3d*. In a very narrow panel the system name is shortened. The file name is shown only when it has no version; the file name, size and full date are in the tooltip.
+- **[PL]** **Last builds** mieści się w wąskim panelu: wiersz pokazuje system, wersję i krótki wiek, np. *8s*, *5m*, *8h* albo *3d*. W bardzo wąskim panelu nazwa systemu się skraca. Nazwa pliku pojawia się tylko wtedy, gdy nie ma w niej wersji; nazwa pliku, rozmiar i pełna data są w podpowiedzi.
+
+---
+
+## [2.27.1] - 2026-11-07
+
+### Fixed / Naprawiono -- SunGO MacroPAD II
+
+- **[EN]** Firmware update progress and error messages were always in Polish, also in the English version. They now follow the language of the extension.
+- **[PL]** Komunikaty postępu i błędów aktualizacji firmware były zawsze po polsku, także w wersji angielskiej. Teraz są w języku wtyczki.
+
+### Changed / Zmieniono -- Agent Gophersun
+
+- **[EN]** The **Gopher Assistant** panel is now called **Agent Gophersun**, both in the section header in the sidebar and in the panel itself, and the 🐹 icon next to the name is gone. The panel stays where you put it.
+- **[PL]** Panel **Gopher Assistant** nazywa się teraz **Agent Gophersun**, zarówno w nagłówku sekcji w panelu bocznym, jak i w samym panelu, a ikona 🐹 przy nazwie zniknęła. Panel zostaje tam, gdzie go ustawiłeś.
+
+### Fixed / Naprawiono -- Gopher Assistant
+
+- **[EN]** At VS Code startup, artifacts sometimes appeared at the bottom of the Gopher panel until Gopher loaded. Gopher now appears only when its graphics are ready.
+- **[PL]** Przy starcie VS Code na dole panelu Gophera pojawiały się czasem artefakty, aż Gopher się wczytał. Teraz Gopher pokazuje się dopiero z gotową grafiką.
+
+### Changed / Zmieniono -- Splash Screen
+
+- **[EN]** New animated splash screen with Gophersun and the SunGO MacroPAD II. In 3 seconds the pad screen shows the new start screen, a firmware update and a test result hologram. In the background there is a galaxy like in the Dependency Graph, plus the binary composition donut and the build size bars. Agent Gophersun reminds you that it gives tips without AI and without the cloud. Texts follow the language of VS Code. The 3 seconds now count from the moment the screen has loaded, so it is no longer closed before it appears, and **What's New** opens only after it closes.
+- **[PL]** Nowy, animowany ekran powitalny z Gophersunem i padem SunGO MacroPAD II. W 3 sekundy ekran pada pokazuje nowy ekran startowy, aktualizację firmware i hologram wyniku testów. W tle jest galaktyka jak w grafie zależności oraz donut składu binarki i słupki rozmiaru buildów. Agent Gophersun przypomina, że podpowiada bez AI i bez chmury. Napisy są w języku VS Code. 3 sekundy liczą się teraz od chwili, gdy ekran się wczyta, więc nie znika, zanim się pokaże, a **What's New** otwiera się dopiero po jego zamknięciu.
+
+---
+
+### Changed / Zmieniono -- Binary Analyzer
+
+- **[EN]** The Binary Composition chart is now a thicker, tilted pseudo-3D donut with side walls and shading. Slices sit at different levels, which is only decoration and does not show size. The slice under the cursor rises one step. Exact values are in the report and the tooltip.
+- **[PL]** Wykres składu binarki to teraz grubszy, pochylony donut pseudo-3D z bocznymi ściankami i cieniowaniem. Wycinki leżą na różnych poziomach, co jest tylko ozdobą i nie oznacza rozmiaru. Wycinek pod kursorem unosi się o jeden stopień. Dokładne wartości są w raporcie i w dymku.
+
+- **[EN]** The Size History Trend is now a glowing 3D ribbon on a floor with a depth grid, and it draws itself from left to right. A section is orange when the binary grew and green when it shrank. The latest size is shown next to the last build, and the tooltip shows the size and the change. The empty legend is gone.
+- **[PL]** Trend zmiany rozmiaru to teraz świecąca wstęga 3D na podłodze z siatką w głąb, która rysuje się od lewej do prawej. Fragment wstęgi jest pomarańczowy, gdy binarka urosła, a zielony, gdy zmalała. Aktualny rozmiar widać przy ostatnim buildzie, a dymek pokazuje rozmiar i zmianę. Pustej legendy już nie ma.
+
+### Changed / Zmieniono -- Dependency Graph
+
+- **[EN]** The Dependency Graph is now a galaxy: your project is the sun and dependencies sit on orbits by distance from it. Hover a node to see its path to the project with light moving along it. New nodes grow out of the one you click. A dragged node pulls its neighbors, and they spring back to their orbits when you let go. External and internal graphs are now in tabs and use the whole window, with search (press `/`).
+- **[PL]** Graf zależności to teraz galaktyka: projekt jest słońcem, a zależności leżą na orbitach według odległości od niego. Po najechaniu na węzeł świeci jego droga do projektu i biegnie po niej światło. Nowe węzły wyrastają z klikniętego. Przeciągnięty węzeł ciągnie sąsiadów, a po puszczeniu wracają na orbity jak na sprężynie. Graf zewnętrzny i wewnętrzny są teraz w zakładkach i zajmują całe okno, a do tego jest wyszukiwarka (klawisz `/`).
+
+### Fixed / Naprawiono -- Dependency Graph
+
+- **[EN]** Modules marked `// indirect` in `go.mod` are no longer shown as direct dependencies, and `go` and `toolchain` are no longer shown as modules.
+- **[PL]** Moduły oznaczone w `go.mod` jako `// indirect` nie są już pokazywane jako zależności bezpośrednie, a `go` i `toolchain` nie są już pokazywane jako moduły.
+
+- **[EN]** Expanding a node no longer rearranges the graph or resets the zoom, and double-click always opens pkg.go.dev.
+- **[PL]** Rozwijanie węzła nie przestawia już grafu i nie resetuje zoomu, a podwójne kliknięcie zawsze otwiera pkg.go.dev.
+
+- **[EN]** Opening the graph for another project while the panel is open now loads that project.
+- **[PL]** Otwarcie grafu dla innego projektu przy otwartym panelu wczytuje teraz ten projekt.
+
+## [2.27.0] - 2026-11-06
+
+### Added / Dodano -- SunGO MacroPAD II
+
+- **[EN]** When a tool finishes, the pad LCD shows its result as a hologram for 5 seconds: a title in green (success), yellow (remarks) or red (error) and up to three lines of details, such as the binary size, `14/14 passed` or `main.go:42`. This works for Go Build, Go Fmt, Import All, Test, go vet, Code Review and Sign. It requires MacroPAD II with firmware 7.0.0. MacroPAD I and older firmware show only the tool icon, as before.
+- **[PL]** Po zakończeniu pracy narzędzia LCD pada pokazuje wynik jako hologram przez 5 sekund: tytuł na zielono (sukces), żółto (uwagi) lub czerwono (błąd) i do trzech wierszy szczegółów, np. rozmiar binarki, `14/14 passed` albo `main.go:42`. Dotyczy to Go Build, Go Fmt, Import All, Test, go vet, Code Review i Sign. Wymaga MacroPAD II z firmware 7.0.0. MacroPAD I i starszy firmware pokazują tylko ikonę narzędzia, jak dotąd.
+
+- **[EN]** The hologram also shows the result of Remote Build (SSH) for Linux and Windows, of the Android build and of the adb install: size, time and host, or what failed. A Linux build whose app package failed is shown in yellow.
+- **[PL]** Hologram pokazuje też wynik Remote Build (SSH) dla Linuksa i Windows, buildu Androida i instalacji przez adb: rozmiar, czas i host albo to, co się nie udało. Build linuksowy, którego paczka aplikacji się nie udała, jest pokazywany na żółto.
+
+- **[EN]** New GitHub issues appear on the pad as a short hologram: the issue number and title, or how many are new or open. It waits until a tool result has been on screen for its full 5 seconds.
+- **[PL]** Nowe issues z GitHuba pojawiają się na padzie jako krótki hologram: numer i tytuł issue albo liczba nowych lub otwartych. Czeka, aż wynik narzędzia będzie na ekranie pełne 5 sekund.
+
+### Changed / Zmieniono -- Gopher Assistant
+
+- **[EN]** A new **Gophersun** replaces the old Gopher in the panel. It is a furry character made of 32 image layers (WebP, 92 KB) animated with CSS, with its own animation for each of the 10 states, idle moments (yawn, stretch, coffee, sleep), and reactions to GitHub and clicks. Three quick clicks make Gopher hop with happy eyes under falling confetti.
+- **[PL]** W panelu zamiast starego Gophera jest nowy **Gophersun**. To futrzasta postać z 32 warstw obrazu (WebP, 92 KB) animowanych w CSS, z własną animacją każdego z 10 stanów, przerywnikami w bezczynności (ziewanie, przeciąganie, kawa, sen) i reakcjami na GitHuba i kliknięcia. Po trzech szybkich kliknięciach Gopher podskakuje z wesołymi oczami, a z góry leci konfetti.
+
+- **[EN]** The animation runs at 24 frames per second and stops while the panel is hidden, which saves CPU. With reduced motion turned on in the system, Gopher stands still. Any new event wakes a sleeping Gopher: a state change, a GitHub reaction, a click or a new message.
+- **[PL]** Animacja ma 24 klatki na sekundę i zatrzymuje się, gdy panel jest ukryty, co oszczędza procesor. Przy włączonym w systemie ograniczeniu ruchu Gopher stoi nieruchomo. Śpiącego Gophera budzi każde nowe zdarzenie: zmiana stanu, reakcja na GitHuba, kliknięcie i nowy dymek.
+
+- **[EN]** **go mod tidy** and **Import All** have a new animation: in the hologram, module packages slide onto shelves, unneeded ones fly out, then a ✓ appears. It has its own pink color, and the status bar and badge show it as work in progress. Code Review also has its own scene (a diff in the hologram) and its own name in the badge and status bar. Before, it looked the same as go vet.
+- **[PL]** **go mod tidy** i **Import All** mają nową animację: w hologramie paczki modułów wjeżdżają na regały, niepotrzebne wylatują, a na końcu pojawia się ✓. Ma własny różowy kolor, a pasek stanu i plakietka pokazują ją jako pracę w toku. Code Review też ma własną scenę (diff w hologramie) i własną nazwę na plakietce i pasku stanu. Wcześniej wyglądał tak samo jak go vet.
+
+- **[EN]** The go fmt and go mod tidy scenes always play to the end, even if the command finishes at once. The result and its message appear right after the scene.
+- **[PL]** Sceny go fmt i go mod tidy zawsze grają do końca, nawet gdy komenda kończy się od razu. Wynik i jego dymek pojawiają się zaraz po scenie.
+
+- **[EN]** While Gopher works, the bubble shows jokes about the current job: go fmt, Import All and go mod tidy, build, run, test, signing, go vet and Code Review. They change every 8 seconds until the job ends. A click reaction or a hint stays on screen for the full 8 seconds.
+- **[PL]** Podczas pracy Gopher pokazuje w dymku żarty o tym, co właśnie robi: go fmt, Import All i go mod tidy, build, run, test, podpisywanie, go vet i Code Review. Zmieniają się co 8 sekund, aż zadanie się skończy. Reakcja na kliknięcie albo wskazówka zostaje na ekranie pełne 8 sekund.
+
+- **[EN]** The speech bubble now grows upward from a fixed bottom edge, so Gopher no longer moves when the text changes. Space is reserved for 4 lines and the hint. Longer text ends with "…", and the full text is in the tooltip.
+- **[PL]** Dymek rośnie teraz do góry od stałej dolnej krawędzi, więc Gopher nie przesuwa się przy zmianie tekstu. Miejsce jest zarezerwowane na 4 wiersze i podpowiedź. Dłuższy tekst kończy się „…”, a pełna treść jest w podpowiedzi po najechaniu.
+
+- **[EN]** The status line under Gopher now says "error!" or "done – no errors". It used to say "compilation error!" or "build succeeded" after every tool, including tests.
+- **[PL]** Linia stanu pod Gopherem mówi teraz „błąd!” albo „gotowe – bez błędów”. Wcześniej po każdym narzędziu, także po testach, było tam „błąd kompilacji!” albo „build zakończony”.
+
+### Changed / Zmieniono -- Go Fmt
+
+- **[EN]** Go Fmt no longer runs in the terminal, so it knows its result. The list of formatted files goes to the **SunGo: Build** output panel, which opens by itself only when formatting fails.
+- **[PL]** Go Fmt nie działa już w terminalu, dzięki czemu zna swój wynik. Lista sformatowanych plików trafia do panelu wyjścia **SunGo: Build**, który otwiera się sam tylko wtedy, gdy formatowanie się nie uda.
+
+### Changed / Zmieniono -- Binary Analyzer
+
+- **[EN]** Each row of the Byte-Watch Report now also shows an estimated size in KB or MB (marked with `~`). It counts the bytes in the file and leaves out memory reserved at startup (BSS).
+- **[PL]** Każdy wiersz raportu Byte-Watch pokazuje też szacunkowy rozmiar w KB lub MB (oznaczony `~`). Liczone są bajty w pliku, bez pamięci rezerwowanej przy starcie (BSS).
+
+- **[EN]** The labels under the Binary Composition chart now use the color of their slice and replace the legend. Click a label to show or hide a slice. A hidden slice has a gray, crossed-out label. Go Runtime is hidden by default, so smaller items are easier to see. You can turn it back on, and it stays in the report.
+- **[PL]** Opisy pod wykresem składu binarki mają kolor swojego wycinka i zastępują legendę. Kliknięcie opisu pokazuje albo ukrywa wycinek. Ukryty wycinek ma szary, przekreślony opis. Go Runtime jest domyślnie ukryty, dzięki czemu lepiej widać mniejsze pozycje. Można go włączyć, a w raporcie zostaje.
+
+- **[EN]** `External C / Libs` is now called **Other (unclassified)** and appears only in the report, with a description. This item holds every symbol the analyzer does not recognize, not only C code, so it can appear in projects with no C of your own. If the binary uses cgo, the item is called **C/C++ (cgo)** and also appears on the chart.
+- **[PL]** `External C / Libs` nazywa się teraz **Inne (nierozpoznane)** i jest tylko w raporcie, z opisem. Ta pozycja obejmuje wszystkie symbole, których analizator nie rozpoznaje, nie tylko kod C, więc może się pojawić w projektach bez własnego C. Gdy binarka używa cgo, pozycja nazywa się **C/C++ (cgo)** i jest też na wykresie.
+
+- **[EN]** Report percentages and chart slices now use the bytes in the file. Before, memory reserved at startup (BSS) made Go Runtime look much larger, and the last row was rounded up to reach 100%. Items under 1% now show `<1%`.
+- **[PL]** Procenty w raporcie i wycinki wykresu liczone są teraz z bajtów w pliku. Wcześniej pamięć rezerwowana przy starcie (BSS) mocno zawyżała Go Runtime, a ostatni wiersz był dopełniany do 100%. Pozycje poniżej 1% pokazują `<1%`.
+
+- **[EN]** The 0-1.0 axis and the grid behind the Binary Composition chart are gone. They were left over from the history chart.
+- **[PL]** Za wykresem składu binarki nie ma już osi 0-1.0 ani siatki. Zostały one po wykresie historii.
+
+### Improved / Usprawniono -- Interface Navigator
+
+- **[EN]** The **Interface Navigator (Refresh)** message now says what was found: the number of interfaces, implementing types and scanned `.go` files. If the project has no interfaces with methods, you get a warning instead of "refreshed". It also warns when `editor.codeLens` is off.
+- **[PL]** Dymek **Interface Navigator (Refresh)** mówi teraz, co znaleziono: liczbę interfejsów, typów implementujących i sprawdzonych plików `.go`. Gdy w projekcie nie ma interfejsów z metodami, zamiast „odświeżono” pojawia się ostrzeżenie. Ostrzega też, gdy `editor.codeLens` jest wyłączone.
+
+- **[EN]** After a refresh, a frame under Gopher shows what was found. It updates when you save a `.go` file and stays until you close it with ✕.
+- **[PL]** Po odświeżeniu pod Gopherem pojawia się ramka z tym, co znaleziono. Aktualizuje się przy zapisie pliku `.go` i zostaje, aż zamkniesz ją przyciskiem ✕.
+
+- **[EN]** Interface Navigator now counts methods a struct gets by embedding another struct or interface from the project, also through several levels and across packages.
+- **[PL]** Interface Navigator liczy teraz metody, które struct dostaje przez osadzenie innego structa lub interfejsu z projektu, także przez kilka poziomów i między pakietami.
+
+### Fixed / Naprawiono -- Test
+
+- **[EN]** Gopher now reacts to the test result. Before, it checked only for errors in the editor, so it celebrated even when tests failed. It now says how many tests failed and names the first one, or shows why the tests did not finish. If there are no tests, it says so instead of celebrating.
+- **[PL]** Gopher reaguje teraz na wynik testów. Wcześniej sprawdzał tylko błędy w edytorze, więc cieszył się także po nieudanych testach. Teraz podaje, ile testów się nie udało i który był pierwszy, albo pokazuje, dlaczego testy nie doszły do końca. Gdy testów nie ma, mówi o tym zamiast się cieszyć.
+
+- **[EN]** The pad color and Gopher now wait until the tests really finish. Before, they ended after about a second, even when tests were still running, and a second run could start on top of the first one.
+- **[PL]** Kolor pada i Gopher czekają teraz na faktyczny koniec testów. Wcześniej kończyły po około sekundzie, nawet gdy testy jeszcze trwały, a drugi przebieg mógł wystartować na pierwszym.
+
+- **[EN]** Large test runs could lose some tests from the Test Center counts, because a result line split across two data chunks was dropped. All results are now counted.
+- **[PL]** Przy dużych przebiegach testów Centrum Testów mogło nie policzyć części testów, bo linia wyniku rozcięta między dwa kawałki danych przepadała. Teraz liczone są wszystkie wyniki.
+
+- **[EN]** A missing Go installation no longer causes an unhandled error when running tests.
+- **[PL]** Brak zainstalowanego Go nie powoduje już nieobsłużonego błędu przy uruchamianiu testów.
+
+### Fixed / Naprawiono -- Interface Navigator
+
+- **[EN]** Interface Navigator no longer shows a false "No implementations found" for methods with an unnamed receiver (`func (T) Name()`), for types from another package (`skills.Result`) or for results using `interface{}`.
+- **[PL]** Interface Navigator nie pokazuje już fałszywego „No implementations found” przy metodach z odbiornikiem bez nazwy (`func (T) Name()`), przy typach z innego pakietu (`skills.Result`) ani przy wynikach z `interface{}`.
+
+- **[EN]** A struct that shares its name with an interface from another package no longer gets that interface's label.
+- **[PL]** Struct o tej samej nazwie co interfejs z innego pakietu nie dostaje już etykiety tego interfejsu.
+
+### Fixed / Naprawiono -- SunGO MacroPAD II
+
+- **[EN]** Firmware update from the pad settings could stop without any message once the pad entered the bootloader, leaving only the `RPI-RP2` drive window open. This happened mainly on Linux, where the drive takes longer to appear. The settings window now stays open during the update and the file is copied to the drive.
+- **[PL]** Aktualizacja firmware z ustawień pada potrafiła zatrzymać się bez komunikatu, gdy pad wszedł w bootloader, i zostawało tylko okno dysku `RPI-RP2`. Dotyczyło to głównie Linuksa, gdzie dysk pojawia się wolniej. Okno ustawień zostaje teraz otwarte w trakcie aktualizacji, a plik jest kopiowany na dysk.
+- **[EN]** On Linux and macOS the firmware file is now forced out to the drive, and on Linux the drive is also found when mounted as `RPI-RP21`. An empty folder left by an earlier mount no longer counts as the drive.
+- **[PL]** Na Linuksie i macOS plik firmware jest teraz wymuszony na dysk, a na Linuksie dysk jest znajdowany także jako `RPI-RP21`. Pusty katalog po wcześniejszym montowaniu nie jest już brany za dysk.
+
+### Removed / Usunięto -- Home
+
+- **[EN]** The 🐹 icon on the Home dashboard and the **Gopher Wisdom** command are gone, along with the ASCII Gopher they printed in the "SunGo Gopher" output channel. They were older than the animated Gopher. For Go tips, click the speech bubble or the **🐹 Gopher Wisdom** button in the Gopher panel.
+- **[PL]** Z dashboardu Home zniknęła ikona 🐹, a z palety poleceń komenda **Gopher Wisdom**. Razem z nimi zniknął Gopher ASCII, którego wypisywały w kanale wyjścia "SunGo Gopher". Powstały one przed animowanym Gopherem. Porady o Go nadal daje kliknięcie dymka albo przycisku **🐹 Gopher Wisdom** w panelu Gophera.
+
+## [2.26.5] - 2026-11-03
+
+### Changed / Zmieniono -- Home
+
+- **[EN]** The **Active projects** card on Home now spans the full width and shows three terminal-style panels side by side: **⚠ special**, **★ favorites** and **🕘 recent**. Each panel shows 6 rows and scrolls the rest. A row opens the project on click (or Enter), shows when it was last opened and has a ☆/★ to pin or unpin it right from Home. The active project is green with a ● dot, and the tooltip shows the full path. Under the card, Installed Tools is on the left and Security & System with Support below it on the right, both columns ending at the same height. The **+ New Go Project** button was removed from the card – it is still in the title bar and on the pad.
+- **[PL]** Karta **Masz aktywne projekty** na Home zajmuje teraz całą szerokość i pokazuje trzy panele w stylu terminala obok siebie: **⚠ special**, **★ ulubione** i **🕘 ostatnie**. Każdy panel pokazuje 6 wierszy, resztę się przewija. Kliknięcie wiersza (albo Enter) otwiera projekt, wiersz pokazuje, kiedy projekt był ostatnio otwarty, i ma ☆/★ do przypinania lub odpinania prosto z Home. Aktywny projekt jest zielony z kropką ●, a podpowiedź pokazuje pełną ścieżkę. Pod kartą po lewej są Zainstalowane narzędzia, a po prawej Bezpieczeństwo i system, pod nim Wsparcie – obie kolumny kończą się na tej samej wysokości. Przycisk **+ Nowy projekt Go** zniknął z karty – nadal jest w belce i na padzie.
+
+### Fixed / Naprawiono -- Home
+
+- **[EN]** "Recent" projects are really the recently opened ones now (up to 15, no duplicates). Before, Home showed the last 5 folders in alphabetical order, and after removing favorites from them there were sometimes only 1–2 left.
+- **[PL]** „Ostatnie” projekty to teraz naprawdę ostatnio otwierane (do 15, bez duplikatów). Wcześniej Home pokazywał 5 ostatnich folderów alfabetycznie, a po odjęciu ulubionych zostawało czasem 1–2.
+
+- **[EN]** The project panels appear right after opening Home and refresh on their own after pinning or unpinning in the sidebar – they no longer wait for the tool check (go, gcc, git) or the Refresh Status button.
+- **[PL]** Panele projektów pojawiają się od razu po otwarciu Home i same się odświeżają po przypięciu lub odpięciu w panelu bocznym – nie czekają już na sprawdzanie narzędzi (go, gcc, git) ani na przycisk Odśwież status.
+
+- **[EN]** Deleting a project from disk also removes it from favorites, special projects and recent ones. Before, a new folder with the same name came back as a favorite.
+- **[PL]** Usunięcie projektu z dysku usuwa go też z ulubionych, specjalnych i ostatnich. Wcześniej nowy folder o tej samej nazwie wracał jako ulubiony.
+
+## [2.26.4] - 2026-11-03
+
+### Fixed / Naprawiono -- Translations / Tłumaczenia
+
+- **[EN]** The English translation file now has all 58 texts of **Remote Build** (`remote.*`) – until now they were only in the Polish file and English came from fallbacks in the code. Both translation files have the same keys again.
+- **[PL]** Angielski plik tłumaczeń ma teraz wszystkie 58 tekstów **Zdalnego buildu** (`remote.*`) – do tej pory były tylko w pliku polskim, a angielski brał się z tekstów zapasowych w kodzie. Oba pliki tłumaczeń mają znowu te same klucze.
+
+### Changed / Zmieniono -- Cleanup / Porządki
+
+- **[EN]** Fewer debug messages in the developer console: Code Review no longer prints every tool command and its full output, and the pad no longer logs every queued command, key color and ignored duplicate. Pad connection events and errors are still logged.
+- **[PL]** Mniej komunikatów debugowania w konsoli deweloperskiej: Code Review nie wypisuje już każdej komendy narzędzia i jej pełnego wyniku, a pad nie loguje każdej komendy w kolejce, koloru klawisza i pominiętego duplikatu. Zdarzenia połączenia pada i błędy są nadal logowane.
+
+- **[EN]** The extension starts only after VS Code has finished starting (the extra activation on opening a Go file was redundant), and the unused `@types/node-hid` package was removed – `node-hid` 3.x has its own types.
+- **[PL]** Wtyczka startuje dopiero po zakończeniu startu VS Code (dodatkowa aktywacja przy otwarciu pliku Go była zbędna), a nieużywany pakiet `@types/node-hid` został usunięty – `node-hid` 3.x ma własne typy.
 
 ## [2.26.3] - 2026-11-01
 
@@ -179,8 +430,8 @@
 
 ### Changed / Zmieniono -- SunGO MacroPAD and a second window (F5) / SunGO MacroPAD i drugie okno (F5)
 
-- **[EN]** The pad is now handed over between VS Code windows: when F5 opens a second VS Code window (Extension Development Host – while developing SunGo or any other VS Code extension), the SunGo in the main window releases the pad and shows **Pad → F5** in the status bar; SunGo in the second window connects only after that, and the pad returns to the main window as soon as the second window is closed (also after its crash). Before, both windows opened the same HID device at once and the second window often closed within a second (extension host crash, code 134). The pad is also no longer opened when the module is loaded, only on the first pad check in `activate()`. Works once the installed SunGo is a version with this change.
-- **[PL]** Pad jest teraz przekazywany między oknami VS Code: gdy F5 otwiera drugie okno VS Code (Extension Development Host – przy pracy nad SunGo albo dowolnym innym rozszerzeniem VS Code), SunGo w głównym oknie oddaje pad i pokazuje na pasku stanu **Pad → F5**; SunGo w drugim oknie łączy się dopiero potem, a pad wraca do głównego okna zaraz po zamknięciu drugiego (także po jego awarii). Wcześniej oba okna otwierały naraz to samo urządzenie HID i drugie okno często zamykało się po sekundzie (awaria hosta rozszerzeń, kod 134). Pad nie jest już też otwierany przy wczytaniu modułu, dopiero przy pierwszym sprawdzeniu pada w `activate()`. Działa, gdy zainstalowany SunGo jest już w wersji z tą zmianą.
+- **[EN]** The pad is now handed over between VS Code windows: when F5 opens a second VS Code window (Extension Development Host – while developing SunGo or any other VS Code extension), the SunGo in the main window releases the pad and shows **Pad → F5** in the status bar; SunGo in the second window connects only after that, and the pad returns to the main window as soon as the second window is closed (also after its crash). Before, both windows opened the same HID device at once. The pad is also no longer opened when the module is loaded, only on the first pad check in `activate()`. Works once the installed SunGo is a version with this change.
+- **[PL]** Pad jest teraz przekazywany między oknami VS Code: gdy F5 otwiera drugie okno VS Code (Extension Development Host – przy pracy nad SunGo albo dowolnym innym rozszerzeniem VS Code), SunGo w głównym oknie oddaje pad i pokazuje na pasku stanu **Pad → F5**; SunGo w drugim oknie łączy się dopiero potem, a pad wraca do głównego okna zaraz po zamknięciu drugiego (także po jego awarii). Wcześniej oba okna otwierały naraz to samo urządzenie HID. Pad nie jest już też otwierany przy wczytaniu modułu, dopiero przy pierwszym sprawdzeniu pada w `activate()`. Działa, gdy zainstalowany SunGo jest już w wersji z tą zmianą.
 
 ---
 
