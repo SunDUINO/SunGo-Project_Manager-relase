@@ -54,6 +54,7 @@ SunGo aims to bring the "it just works" comfort known from premium IDEs to the l
 * [EN: Guides & Detailed Usage](#-guides--detailed-usage)
 * [EN: SunGO PAD – Visual Status Feedback](#-sungo-pad--visual-status-feedback-optional-hardware)
 * [EN: Linux Setup – udev rules](#-linux-setup--sungo-pad-udev-rules)
+* [EN: What's New (v2.29.0) – Work State on Pad LEDs & Tool Updates](#-whats-new-v2290--work-state-on-pad-leds--tool-updates)
 * [EN: What's New (v2.28.0) – Pad Holograms for More Tools, Go RUN & -race](#-whats-new-v2280--pad-holograms-for-more-tools-go-run---race)
 * [EN: What's New (v2.27.0) – Pad Hologram & New Gophersun](#-whats-new-v2270--pad-hologram--new-gophersun)
 * [EN: What's New (v2.26.0) – Gopher: Issues, Repo State & Last Builds](#-whats-new-v2260--gopher-issues-repo-state--last-builds)
@@ -224,6 +225,21 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ This is a one-time setup. The rule persists after system reboots.  
 > 💡 After saving the rules, disconnect and reconnect the PAD.  
 > 🔁 Remember to press **1+7+9** on the PAD to switch to Linux mode (🔴 3 red flashes = Linux active).
+
+---
+
+### 🚀 What's New (v2.29.0) – Work State on Pad LEDs & Tool Updates
+
+The `v2.29.0` release lets the pad show which tool is working and tells you when your tools have updates. The LED work state needs the new **firmware 7.1.0** (offered in the pad settings under **Firmware Update**); everything else works with firmware 7.0.2.
+
+* **💡 Work state on the pad LEDs:** while a tool runs, only its key stays lit and gently breathes in the work color, and all other keys go dark – so you see both *that* something is running and *which* tool it is: **Go BUILD** (key 7), **IMPORT ALL** (5), **Go FMT** (4), **Go RUN** (6), **TEST** (9) and **Sign** (8). With shell integration **Go RUN** keeps breathing until your program really ends. **Code Review** has no key, so keys 1–9 breathe slowly together. When the tool ends, the keys return to their colors; an error still turns the pad solid red. It is gentle breathing, not blinking, and it is on by default – switch it off in the pad settings (**Work state on LEDs**) to get the one-color pad as before. Requires firmware 7.1.0; with older firmware the option is greyed out and the pad works as before.
+* **🌐 Remote Build on the pad:** a remote build (Linux, Android and Windows targets) now lights the pad blue like a local build and shows the BUILD icon. With firmware 7.1.0 only keys **7 (BUILD)** and **1 (VS Code)** breathe together – a build on another computer.
+* **🧪 More tools on the LEDs:** **Test Coverage**, **Benchmarks**, **Fuzz Testing** (white) and **Vulnerabilities – govulncheck** (yellow) now light the pad while they run, not only with the hologram at the end. They have no key of their own, so with firmware 7.1.0 keys 1–9 breathe together.
+* **📦 Package for Linux on the pad:** blue while the packages are built, then a hologram with the result – green **PKG OK** with the formats and file name, yellow when only some formats were built, red with the first error.
+* **⬆️ Tool updates on the status bar:** the **SunGO** item now turns yellow – **SunGO: ✓ OK ⬆N** – when updates are available for Go (fixes in your release line; a new line is shown only as information), PowerShell 7, gcc from MSYS2, govulncheck, goversioninfo and nfpm. Hover to see current → new version with an **Update** link. Nothing updates by itself; the check runs at most once a day, stays silent offline and can be turned off with `sungo.tools.checkUpdates`.
+* **🧹 Fixed:** the pad could stay in the work color for good (e.g. after a cross-compile blocked by CGO or an unexpected error inside a tool). It now always returns to its colors when the tool ends.
+
+> 💡 All details are in `CHANGELOG.md`.
 
 ---
 
@@ -1200,6 +1216,7 @@ SunGo dąży do przeniesienia komfortu znanego z płatnych środowisk (IDE) do l
 * [PL: Instrukcje i szczegółowe użytkowanie](#-instrukcje-i-szczegółowe-użytkowanie)
 * [PL: SunGO PAD – Visual Status Feedback](#-sungo-pad--visual-status-feedback)
 * [PL: Linux – Konfiguracja udev](#-linux--konfiguracja-sungo-pad-reguły-udev)
+* [PL: Co nowego (v2.29.0) – Stan pracy na LED pada i aktualizacje narzędzi](#-co-nowego-v2290--stan-pracy-na-led-pada-i-aktualizacje-narzędzi)
 * [PL: Co nowego (v2.28.0) – Hologramy dla kolejnych narzędzi, Go RUN i -race](#-co-nowego-v2280--hologramy-dla-kolejnych-narzędzi-go-run-i--race)
 * [PL: Co nowego (v2.27.0) – Hologram na padzie i nowy Gophersun](#-co-nowego-v2270--hologram-na-padzie-i-nowy-gophersun)
 * [PL: Co nowego (v2.26.0) – Gopher: Issues, stan repo i ostatnie buildy](#-co-nowego-v2260--gopher-issues-stan-repo-i-ostatnie-buildy)
@@ -1365,6 +1382,21 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ✅ To jednorazowa konfiguracja. Reguła pozostaje aktywna po restarcie systemu.  
 > 💡 Po zapisaniu reguł odłącz i podłącz pad ponownie.  
 > 🔁 Pamiętaj nacisnąć **1+7+9** na padzie aby przełączyć w tryb Linux (🔴 3 czerwone mignięcia = tryb Linux aktywny).
+
+---
+
+### 🚀 Co nowego (v2.29.0) – Stan pracy na LED pada i aktualizacje narzędzi
+
+Wersja `v2.29.0` sprawia, że pad pokazuje, które narzędzie pracuje, a SunGo podpowiada aktualizacje narzędzi. Stan pracy na LED wymaga nowego **firmware 7.1.0** (aktualizacja w ustawieniach pada, **Firmware Update**); reszta działa z firmware 7.0.2.
+
+* **💡 Stan pracy na LED pada:** gdy narzędzie pracuje, świeci tylko jego klawisz i łagodnie oddycha w kolorze pracy, a pozostałe klawisze gasną – widać więc, *że* coś pracuje i *które* to narzędzie: **Go BUILD** (klawisz 7), **IMPORT ALL** (5), **Go FMT** (4), **Go RUN** (6), **TEST** (9) i **Sign** (8). Przy shell integration **Go RUN** oddycha aż do prawdziwego końca programu. **Code Review** nie ma klawisza, więc powoli oddychają razem klawisze 1–9. Po końcu narzędzia klawisze wracają do swoich kolorów; błąd dalej zmienia pad na jednolity czerwony. To łagodne oddychanie, nie miganie, i jest domyślnie włączone – wyłączysz je w ustawieniach pada (**Stan pracy na LED**), wtedy pad świeci jednym kolorem jak dotąd. Wymaga firmware 7.1.0; przy starszym opcja jest wyszarzona, a pad działa jak dotąd.
+* **🌐 Zdalny build na padzie:** zdalny build (cel Linux, Android i Windows) zapala teraz pad na niebiesko jak lokalny build i pokazuje ikonę BUILD. Z firmware 7.1.0 świecą i oddychają razem tylko klawisze **7 (BUILD)** i **1 (VS Code)** – build na innym komputerze.
+* **🧪 Więcej narzędzi na diodach:** **Test Coverage**, **Benchmarki**, **Fuzz Testing** (na biało) i **Podatności – govulncheck** (na żółto) zapalają teraz pad w trakcie pracy, nie tylko hologramem na końcu. Nie mają własnego klawisza, więc z firmware 7.1.0 oddychają razem klawisze 1–9.
+* **📦 Package for Linux na padzie:** niebieski w trakcie budowania paczek, potem hologram z wynikiem – zielone **PKG OK** z formatami i nazwą pliku, żółty, gdy zbudowała się tylko część formatów, czerwony z pierwszym błędem.
+* **⬆️ Aktualizacje narzędzi na belce:** pozycja **SunGO** robi się żółta – **SunGO: ✓ OK ⬆N** – gdy są aktualizacje Go (poprawki w Twojej linii; nowa linia jest tylko informacją), PowerShell 7, gcc z MSYS2, govulncheck, goversioninfo i nfpm. Po najechaniu widać obecną → nową wersję z linkiem **Aktualizuj**. Nic nie aktualizuje się samo; sprawdzanie najwyżej raz dziennie, bez sieci nic się nie pokazuje, a wyłączysz je ustawieniem `sungo.tools.checkUpdates`.
+* **🧹 Naprawione:** pad mógł zostać na stałe w kolorze pracy (np. po cross-compile zablokowanym przez CGO albo po nieoczekiwanym błędzie narzędzia). Teraz zawsze wraca do swoich kolorów po końcu narzędzia.
+
+> 💡 Wszystkie szczegóły są w `CHANGELOG.md`.
 
 ---
 
